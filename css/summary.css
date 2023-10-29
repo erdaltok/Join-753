@@ -1,0 +1,111 @@
+.summary-main {
+    margin-left: 328px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.summary-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    top: 206px;
+}
+
+.summary-headline {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.summary-headline h1 {
+    font-size: 61px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+}
+
+.summary-headline span {
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+
+.summary-card-container {
+    display: flex;
+}
+
+.summary-card-container a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+    border: none;
+    border-radius: 20px;
+    background-color: white;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+    transition: transform 0.15s linear;
+}
+
+.summary-card-container a:hover {
+    transform: scale(1.1);
+    background-color: rgba(42, 54, 71, 1);
+}
+
+.summary-card-container span {
+    color: #2A3647;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%
+}
+
+.summary-card-container:hover{
+    color: #FFF !important;
+}
+
+.d-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.first-row {
+    display: flex;
+    width: 560px;
+    height: 168px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 32px;
+}
+
+.first-row-box {
+    display: flex;
+    width: 264px;
+    height: 168px;
+    padding: 38px 19px;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    background: #FFF;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+}
+
+.summary-count {
+    color: #000;
+    text-align: center;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+}
+
+.summary-count span:hover{
+    color: #FFF !important;
+}
