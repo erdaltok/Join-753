@@ -1,7 +1,10 @@
-body {
+header {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    padding: 124px;
+}
+
+body {
     height: 100vh;
     margin: 0;
     overflow: hidden;
@@ -26,4 +29,27 @@ body.animate .logo {
     top: 80px;
     left: 77px;
     transform: scale(0.36);
+}
+
+.notUser {
+    font-size: 20px;
+    font-family: inter;
+    font-weight: 400;
+    margin: 24px;
+}
+
+.signInBtn {
+    width: 91px;
+    height: 49px;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 8px;
+    background-color: #2A3647;
+    color: white;
+    font-family: inter;
+    cursor: pointer;
+}
+
+.signInBtn:hover {
+    background-color: rgb(41, 171, 226);
 }
