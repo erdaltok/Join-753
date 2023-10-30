@@ -2,20 +2,15 @@
     margin-left: 328px;
     display: flex;
     justify-content: flex-start;
-}
-
-.summary-container {
-    display: flex;
-    justify-content: center;
     flex-direction: column;
-    position: relative;
-    top: 206px;
+    position: absolute;
 }
 
 .summary-headline {
     display: flex;
     align-items: center;
     gap: 30px;
+    margin-top: 206px;
 }
 
 .summary-headline h1 {
@@ -32,9 +27,22 @@
     line-height: 120%;
 }
 
+.summary-container {
+    display: flex;
+    width: 560px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 28px;
+}
 
 .summary-card-container {
     display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 28px;
 }
 
 .summary-card-container a {
@@ -54,6 +62,7 @@
 .summary-card-container a:hover {
     transform: scale(1.1);
     background-color: rgba(42, 54, 71, 1);
+    color: #FFF !important;
 }
 
 .summary-card-container span {
@@ -64,7 +73,7 @@
     line-height: 120%
 }
 
-.summary-card-container:hover{
+.summary-card-container span:hover {
     color: #FFF !important;
 }
 
@@ -76,7 +85,7 @@
 
 .first-row {
     display: flex;
-    width: 560px;
+    width: 100%;
     height: 168px;
     justify-content: center;
     align-items: flex-start;
@@ -106,6 +115,40 @@
     line-height: 120%;
 }
 
-.summary-count span:hover{
+.summary-count:hover {
     color: #FFF !important;
+}
+
+.second-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.second-row-box {
+    display: flex;
+    width: 560px;
+    height: 168px;
+    padding: 28px 31px;
+    justify-content: center;
+    align-items: center;
+    gap: 61px;
+}
+
+.second-row-box img{
+    background-color: none;
+}
+
+
+.date-deadline {
+    text-align: left;
+
+}
+
+.deadline {
+    color: #2A3647;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
 }
