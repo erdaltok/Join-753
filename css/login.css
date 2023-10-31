@@ -5,6 +5,7 @@ header {
 }
 
 body {
+    background-color: #f6f7f8;
     height: 100vh;
     margin: 0;
     overflow: hidden;
@@ -20,8 +21,9 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transition: all 2s ease-in-out;
+    transition: all 1s ease-in-out;
     transform-origin: top left;
+    z-index: 2;
 }
 
 body.animate .logo {
@@ -52,4 +54,85 @@ body.animate .logo {
 
 .signInBtn:hover {
     background-color: rgb(41, 171, 226);
+}
+
+.loginDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logInWindow {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04) !important;
+    border-radius: 30px !important;
+    width: auto;
+    padding: 48px 115px;
+    position: relative;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginHeadline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 61px;
+    font-family: inter;
+    font-weight: 700;
+}
+
+.underscore {
+    height: 3px;
+    width: 150px;
+    background-color: #29abe2;
+    border-radius: 5px;
+    margin: 16px 0 32px;
+}
+
+.inputs {
+    margin: 35px;
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 20px;
+}
+
+.inputFields {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 36px;
+    background-color: white;
+    border: 1px solid #d1d1d1;
+    width: 422px;
+    height: auto;
+    border-radius: 10px;
+    padding: 12px 21px;
+   
+}
+
+.icon1 {
+    color: #a8a8a8;
+    width: 20px;
+    height: 16px;
+}
+
+.icon2 {
+    color: #a8a8a8;
+    width: 16px;
+    height: 21px;
 }
