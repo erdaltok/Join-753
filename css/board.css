@@ -5,10 +5,78 @@
     flex-direction: column;
     position: absolute;
     margin-top: 192px;
+    width: 72%;
 }
-  
-  h1 {
-    color: blue;
-    position: relative;
-    
-  }
+
+h1 {
+    color: #000;
+    font-size: 61px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+}
+
+.board-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 88px 0px 0px;
+    width: 100%;
+}
+
+.search-box {
+    display: flex;
+    justify-content: space-between;
+    width: 312px;
+    padding: 8px 16px;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    border: 1px solid #A8A8A8;
+    background: #FFF;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    font-size: 20px;
+}
+
+.addTask-btn {
+    display: flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 10px;
+    border: 1px solid #2A3647;
+    background: #2A3647;
+}
+
+.addTask-btn span {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+}
+
+.board-heading-right {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 24px;
+    grid-row-gap: 0px;
+    background: green;
+}
+
+.board-flex {
+    display: flex;
+}

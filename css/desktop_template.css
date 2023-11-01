@@ -1,3 +1,4 @@
+
 .desktop-header {
     height: 10vh;
     gap: 34px;
@@ -57,7 +58,7 @@
     top: 0px;
     left: 0px;
     width: 232px;
-    height: 88vh;
+    height: 100vh;
     display: flex;
     padding: 64px 0;
     position: fixed;
