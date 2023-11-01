@@ -20,4 +20,140 @@
      height: 416px;
      
   }
+
+  /* Header and NavBar CSS */
+  .desktop-header {
+    height: 10vh;
+    gap: 34px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    display: flex;
+    padding-left: 348px;
+    position: fixed;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10000000149011612);
+    align-items: center;
+    z-index: 10;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.logo {
+    position: relative;
+    top: 9px;
+}
+
+.header-text {
+    color: rgba(0, 0, 0, 1);
+    height: auto;
+    align-self: center;
+    text-align: left;
+    line-height: 120.00000476837158%;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400px;
+    font-stretch: normal;
+}
+
+.header-user-help {
+    gap: 16px;
+    display: flex;
+    align-items: center;
+    padding-right: 40px;
+}
+
+.user-profil-box {
+    display: flex;
+    position: relative;
+}
+
+.user-initials {
+    position: absolute;
+    top: 16px;
+    left: 12px;
+    color: #29ABE2;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.desktop-navbar {
+    top: 0px;
+    left: 0px;
+    width: 232px;
+    height: 88vh;
+    display: flex;
+    padding: 64px 0;
+    position: fixed;
+    z-index: 20;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10000000149011612);
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgba(42, 54, 71, 1);
+}
+
+.desktop-navbar-menu {
+    gap: 15px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    top: -117px;
+}
+
+.menu-links {
+    gap: 8px;
+    width: 232px;
+    height: 46px;
+    display: flex;
+    padding: 8px 56px;
+    overflow: hidden;
+    align-items: center;
+    opacity: 0.7;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.desktop-navbar-menu a {
+    text-decoration: none;
+    list-style: none;
+}
+
+.menu-links:hover {
+
+    opacity: 1 !important;
+    cursor: pointer;
+    background-color: rgba(9, 25, 49, 1);
+}
+
+.navbar-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important;
+    padding: 8px;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+}
+
+.navbar-footer a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.navbar-footer-links {
+    opacity: 0.7;
+}
+
+.navbar-footer-links:hover {
+    cursor: pointer;
+    color: #29ABE2;
+    opacity: 1;
+    font-weight: bold;
+}
   
