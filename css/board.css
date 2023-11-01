@@ -1,3 +1,14 @@
-
+.board-main {
+    margin-left: 328px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    position: absolute;
+    margin-top: 192px;
+}
   
-  
+  h1 {
+    color: blue;
+    position: relative;
+    
+  }

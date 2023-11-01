@@ -6,22 +6,90 @@
     <title>Join-753</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fonts.css">
-    <link rel="stylesheet" href="./css/desktop_template.css">
-    <link rel="stylesheet" href="./css/summary.css">
+    <link rel="stylesheet" href="css/desktop_template.css">
+    <link rel="stylesheet" href="css/summary.css">
+   
 
-    <script src="./js/w3IncludeHtml.js"></script>
+    <script src="/js/main.js"></script>
 </head>
-<body onload="init()">
+<body onload="initPage()">
     
 
    <div class="main-container">
 
-    <div w3-include-html="./template/desktop_template.html"></div>
-    <div w3-include-html="./template/summary_template.html"></div>
 
-
-
+    <div id="desktopTemplate">
+        
+        <!-- Header -->
+        <div class="desktop-header">
+            <span class="header-text">
+                <span>Kanban Project Management Tool</span>
+            </span>
+            <div class="header-user-help">
+                <div class="user-help">
+                    <img src="/img/help.svg" />
+                </div>
+                <div class="header-userprofil">
+                    <div class="user-profil-box">
+                        <img src="./img/user-ellipse.svg" />
+                        <span id="user-initials" class="user-initials">SM</span>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    
+        <!-- Navbar on left Side -->
+    
+        <div class="desktop-navbar">
+    
+            <div class="logo">
+                <img src="./img/Join-icon-desktop.svg" />
+            </div>
+    
+    
+            <div class="desktop-navbar-menu">
+    
+                <a href="#" onclick="showSummary()" class="menu-links">
+                    <img src="./img/summary-icon.svg" />
+                    <span>Summary</span>
+                </a>    
+                <a href="#" onclick="showAddTasks()" class="menu-links">
+                    <img src="./img/addTask-icon.svg" />
+                    <span>Add Task</span>
+                </a>    
+                <a href="#"  onclick="showBoard()" class="menu-links">
+                    <img src="./img/board-icon.svg" />
+                    <span>Board</span>
+                </a>    
+                <a href="#" onclick="showContacts()" class="menu-links">
+                    <img src="./img/contacts-icon.svg" />
+                    <span>Contacts</span>
+                </a>    
+            </div>
+    
+            <div class="navbar-footer">    
+                <a href="#" class="navbar-footer-links">
+                    <span>Privacy Policy</span>
+                </a>    
+                <a href="#" class="navbar-footer-links">
+                    <span>Legal notice</span>
+                </a>    
+            </div>
+    
+    
+        </div>
+    
+    
+    
     </div>
+
+    <!-- The contents of the various templates are displayed here via js -->
+    <div id="mainContent" class="main-content"></div>
+
+
+</div>
+
+    
 
 </body>
 </html>
