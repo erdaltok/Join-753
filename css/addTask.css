@@ -1,16 +1,23 @@
-.Main {
+.addTask {
+    margin-top: 40px;
+    margin-left: 100px;
+    width: 1700px;
+    height: 870px;
     display: flex;
     justify-content: space-between; 
     align-items: center; 
+    background-color: aquamarine;
   }
 
-    .AddTaskLeft {
-    
-    
+    .addTaskLeft {
+     width: 440px;
+     height: 376px;
+        
   }
 
   .addTaskRight {
-    
+    width: 440px;
+     height: 416px;
      
   }
   
