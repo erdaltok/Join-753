@@ -1,13 +1,13 @@
 .addTask {
-    margin-top: px;
+    
     margin-left: 224px;
-    width: 1000px;
+    width:calc(100vw - 237px);
     height: 870px;
     display: flex;
     justify-content: space-between; 
     align-items: center; 
-    background-color: aquamarine;
-    max-width: calc(100vw - 302px);
+    background-color: #f6f7f8;
+    
 
   }
 
@@ -23,7 +23,7 @@
     border-radius: 10px;
     border: 1px solid #D1D1D1;
     background: #FFF !important;
-    width: 300px;
+    width: 400px;
     padding: 12px 21px;
     margin-top: 8px !important;
     outline: none;
@@ -44,5 +44,6 @@
   .addTaskRight {
     width: 440px;
      height: 416px;
+     margin-right: 500px;
      
   }
