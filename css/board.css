@@ -107,7 +107,7 @@ h1 {
     grid-template-rows: 1fr;
     grid-column-gap: 24px;
     grid-row-gap: 0px;
-    background: ;
+    /* background: ;    <------ Warrum war dieses feld leer, soll etwas hier geschrieben sein         */
 }
 
 .column-title {
@@ -167,6 +167,7 @@ h1 {
     line-height: 120%;
 
 }
+<<<<<<< HEAD
 
 
 .task-small-box {
@@ -261,3 +262,5 @@ h1 {
     border: 2px dashed #666;
     /* Oder ein anderer Stil, den Sie bevorzugen */
 }
+=======
+>>>>>>> 5130566705eafad8611f16e47d5f1d42cdd2ae2a
