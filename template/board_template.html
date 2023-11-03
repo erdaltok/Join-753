@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Board</title>
     <link rel="stylesheet" href="/css/board.css">
+    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
 
-
+    <script src="/js/main.js"></script>
 
 </head>
 
@@ -21,9 +22,7 @@
         <div class="board-heading">
 
             <div class="board-heading-left">
-
                 <h1>Board</h1>
-
             </div>
 
             <div class="board-heading-right">
@@ -53,12 +52,32 @@
                     <img src="/img/plus-icon-board-column.svg" alt="">
                 </div>
 
-                <div class="todo-column-content">
+                <div class="column-content drag-area" id="todo" ondrop="moveTo('todo', event)" ondragover="allowDrop(event)" ondragenter="highlight('todo')"
+                    ondragleave="removeHighlight('todo')">
+
 
                     <div class="placeholder-tasks">
                         <span>No tasks To do</span>
                     </div>
 
+                    <div class="task-small-box" draggable="true" id="task-small-box-content" >
+                        <div class="task-small-box-content">
+                            <div class="category">
+                                <div class="label-small-box">
+                                    <span>Technical Taks</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h1>Contacts Form & Imprint</h1>
+                                <p>Create a contact form and imprint page</p>
+                            </div>
+
+                            <div class="w3-light-grey w3-round-xlarge">
+                                <div class="w3-container w3-blue w3-round-xlarge" style="width:25%"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -68,12 +87,18 @@
                     <img src="/img/plus-icon-board-column.svg" alt="">
                 </div>
 
-                <div class="todo-column-content">
+                <div class="column-content drag-area" id="inProgress" ondrop="moveTo('inProgress', event)" ondragover="allowDrop(event)"
+                    ondragenter="highlight('inProgress')" ondragleave="removeHighlight('inProgress')">
+
+
                     <div class="placeholder-tasks">
                         <span>No tasks To do</span>
                     </div>
                 </div>
             </div>
+
+
+
 
             <div class="feedback-column">
                 <div class="column-title">
@@ -81,7 +106,7 @@
                     <img src="/img/plus-icon-board-column.svg" alt="">
                 </div>
 
-                <div class="column-content">
+                <div class="column-content drag-area" id="awaitFeedback" ondrop="moveTo('awaitFeedback', event)" ondragover="allowDrop(event)" ondragenter="highlight('awaitFeedback')" ondragleave="removeHighlight('awaitFeedback')">
                     <div class="placeholder-tasks">
                         <span>No tasks To do</span>
                     </div>
@@ -91,10 +116,11 @@
             <div class="done-column">
                 <div class="column-title">
                     <span>Done</span>
-                    
+
                 </div>
 
-                <div class="todo-column-content">
+                <div class="todo-column-content drag-area" id="done" ondrop="moveTo('done', event)" ondragover="allowDrop(event)" ondragenter="highlight('done')" ondragleave="removeHighlight('done')">
+
                     <div class="placeholder-tasks">
                         <span>No tasks To do</span>
                     </div>
@@ -109,6 +135,8 @@
 
     </div>
 
+
+    
 
 </body>
 

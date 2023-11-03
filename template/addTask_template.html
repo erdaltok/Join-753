@@ -6,16 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/css/addTask.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/fonts.css">
     <link rel="stylesheet" href="/css/desktop_template.css">
+
+    <script src="/js/main.js"></script>
+    
     <title>Add Task</title>
     
 </head>
 
 <body>
+    
     <div id="desktopTemplate">
-        
+    
         <!-- Header -->
         <div class="desktop-header">
             <span class="header-text">
@@ -32,7 +36,7 @@
                     </div>
                 </div>
             </div>
-        </div>    
+        </div>
     
         <!-- Navbar on left Side -->
     
@@ -48,28 +52,28 @@
                 <a href="#" onclick="showSummary()" class="menu-links">
                     <img src="/img/summary-icon.svg" />
                     <span>Summary</span>
-                </a>    
+                </a>
                 <a href="/template/addTask_template.html" onclick="showAddTasks()" class="menu-links">
                     <img src="/img/addTask-icon.svg" />
                     <span>Add Task</span>
-                </a>    
-                <a href="#"  onclick="showBoard()" class="menu-links">
+                </a>
+                <a href="#" onclick="showBoard()" class="menu-links">
                     <img src="/img/board-icon.svg" />
                     <span>Board</span>
-                </a>    
+                </a>
                 <a href="#" onclick="showContacts()" class="menu-links">
                     <img src="/img/contacts-icon.svg" />
                     <span>Contacts</span>
-                </a>    
+                </a>
             </div>
     
-            <div class="navbar-footer">    
+            <div class="navbar-footer">
                 <a href="#" class="navbar-footer-links">
                     <span>Privacy Policy</span>
-                </a>    
+                </a>
                 <a href="#" class="navbar-footer-links">
                     <span>Legal notice</span>
-                </a>    
+                </a>
             </div>
     
     
@@ -78,7 +82,6 @@
     
     
     </div>
-    
 
     <form id="addTaskFrom" onsubmit="false">
     <div class="addTask">
