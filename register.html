@@ -10,7 +10,10 @@
     <script src="js/register.js"></script>
 </head>
 
-<body>
+<body onload="init()">
+    <div class="logoContainer">
+        <img src="img/logo1.png" alt="Logo" class="logo" id="logo">
+    </div>
     <header>
         <div class="logoContainer">
             <img src="img/logo1.png" alt="Logo" class="logo" id="logo">
@@ -20,7 +23,7 @@
             <button type="button" class="signInBtn"><b>Sign up</b></button>
         </div>
     </header>
-    <div class="loginDiv">
+    <div id="animation" style="display: none;" class="loginDiv">
         <div class="logInWindow">
             <form>
                 <div class="loginHeadline">
@@ -49,14 +52,10 @@
                 </div>
             </form>
         </div>
-    </div>
-    <div class="policy">
-        <div class="link">
-            <a href="####">Privacy Policy</a>
-        </div>
-        <div class="link">
-            <a href="####">Legal Notice</a>
-        </div>
+        <footer>
+            <a class="link" href="####">Privacy Policy</a>
+            <a class="link" href="####">Legal Notice</a>
+        </footer>
     </div>
 </body>
 

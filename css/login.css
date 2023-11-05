@@ -141,10 +141,10 @@ input {
 }
 
 .remember {
-    display: flex !important;
+    display: flex;
     justify-content: space-between;
-    align-content: center !important;
-    align-items: center !important;
+    align-content: center;
+    align-items: center;
     height: auto;
     width: 100%;
     margin: -16px 40px;
@@ -213,13 +213,13 @@ input {
     color: rgb(41, 171, 226);
 }
 
-.policy {
-    /*flex-grow: 1;*/
+footer {
+    position: absolute;
+    bottom: 56px;
     display: flex;
-    align-items: flex-end;
+    width: 100%;
     justify-content: center;
-    padding: 17px;
-    gap: 16px;
+    gap: 56px;
 }
 
 .link {
