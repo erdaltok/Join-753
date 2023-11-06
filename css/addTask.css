@@ -1,51 +1,64 @@
-
-
 .addTask {
-    
-    margin-left: 224px;
-    width:calc(100vw - 237px);
-    height: 870px;
-    display: flex;
-    justify-content: space-between; 
-    align-items: center; 
-    background-color: #f6f7f8;
-    
 
-  }
+  margin-left: 224px;
+  width: calc(100vw - 237px);
+  height: 870px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f6f7f8;
 
-    .addTaskLeft {
-     width: 440px;
-     height: 376px;
-     margin-left: 137px;
-     margin-bottom: 225px;
-        
-  }
 
-  .addTaskLeft input{
-    border-radius: 10px;
-    border: 1px solid #D1D1D1;
-    background: #FFF !important;
-    width: 400px;
-    padding: 12px 21px;
-    margin-top: 8px !important;
-    outline: none;
-  }
+}
 
-  .addTaskLeft textarea{
-    border-radius: 10px;
-    border: 1px solid #D1D1D1;
-    background: #FFF !important;
-    width: 300px;
-    padding: 12px 21px;
-    margin-top: 8px !important;
-    outline: none;
-  }
+.addTaskLeft {
+  width: 440px;
+  height: 376px;
+  margin-left: 137px;
+  margin-bottom: 225px;
 
-   
+}
 
-  .addTaskRight {
-    width: 440px;
-     height: 416px;
-     margin-right: 500px;
-     
-  }
+.addTaskLeft input {
+  border-radius: 10px;
+  border: 1px solid #D1D1D1;
+  background: #FFF !important;
+  width: 400px;
+  padding: 12px 21px;
+  margin-top: 8px !important;
+  outline: none;
+}
+
+.addTaskLeft textarea {
+  border-radius: 10px;
+  border: 1px solid #D1D1D1;
+  background: #FFF !important;
+  width: 300px;
+  padding: 12px 21px;
+  margin-top: 8px !important;
+  outline: none;
+}
+
+
+
+.addTaskRight {
+  width: 440px;
+  height: 416px;
+  margin-right: 500px;
+
+}
+
+.prioButtonsBox button {
+  background-color: white;
+  width:136px; 
+  height:56px; 
+  padding: 16px, 10px, 16px, 10px;
+  border-radius: 10px; 
+  gap: 8px;
+  cursor: pointer;
+}
+
+.prioButtonsBox button:hover {
+  background-color: rgb(166, 164, 164);
+  filter: drop-shadow(2px 2px);
+}
