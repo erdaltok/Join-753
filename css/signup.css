@@ -14,6 +14,14 @@ body {
     margin: 0;
 }
 
+.backArrow {
+    width: 21px;
+    height: 20px;
+    position: absolute;
+    left: 120px;
+    top: 77px;
+}
+
 .logo {
     width: 100px;
     height: 121px;

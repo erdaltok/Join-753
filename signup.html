@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join</title>
+    <link rel="icon" href="img/logo1.png">
     <link rel="stylesheet" href="css/signup.css">
     <link rel="stylesheet" href="fonts/">
 
 </head>
 
-<body onload="init()">
+<body>
     <header>
         <div>
             <img src="img/logo1.png" alt="Logo" class="logo" id="logo">
@@ -20,17 +21,28 @@
         <div class="signupDiv">
             <div class="signupWindow">
                 <form>
+                    <div class="backArrow">
+                        <a href="login.html"><img src="img/Vector.png" alt=""></a>
+                    </div>
                     <div class="signupHeadline">
                         <b>Sign up</b>
                     </div>
                     <div class="underscore"></div>
                     <div class="inputs">
                         <div class="inputFields">
+                            <input class="input" required id="#" type="text" placeholder="Name">
+                            <img src="img/person.png" alt="icon" style="width: 24; height: 24;">
+                        </div>
+                        <div class="inputFields">
                             <input class="input" required id="#" type="email" placeholder="Email">
                             <img src="img/mail.png" alt="icon" class="icon1">
                         </div>
                         <div class="inputFields">
                             <input class="input" required id="#" type="password" placeholder="Password">
+                            <img src="/img/lock.png" alt="icon" class="icon2">
+                        </div>
+                        <div class="inputFields">
+                            <input class="input" required id="#" type="password" placeholder="Confirm Password">
                             <img src="/img/lock.png" alt="icon" class="icon2">
                         </div>
                     </div>

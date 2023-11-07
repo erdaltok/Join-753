@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join</title>
+    <link rel="icon" href="img/logo1.png">
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="fonts/">
-    <script src="js/register.js"></script>
+    <script src="js/login.js"></script>
 </head>
 
 <body onload="init()">
@@ -18,7 +19,7 @@
         <header>
             <div id="sing-up">
                 <span class="notUser">Not a Join user?</span>
-                <button type="button" class="signInBtn"><b>Sign up</b></button>
+                <a href="signup.html"><button type="button" class="signInBtn"><b>Sign up</b></button></a>
             </div>
         </header>
         <div class="loginDiv">
@@ -30,11 +31,11 @@
                     <div class="underscore"></div>
                     <div class="inputs">
                         <div class="inputFields">
-                            <input class="input" required id="#" type="email" placeholder="Email">
+                            <input class="input" required id="email" type="email" placeholder="Email">
                             <img src="img/mail.png" alt="icon" class="icon1">
                         </div>
                         <div class="inputFields">
-                            <input class="input" required id="#" type="password" placeholder="Password">
+                            <input class="input" required id="####" type="password" placeholder="Password">
                             <img src="/img/lock.png" alt="icon" class="icon2">
                         </div>
                     </div>
@@ -46,7 +47,7 @@
                     </div>
                     <div class="logInButtons">
                         <button class="logInBtn">Log in</button>
-                        <button class="guestBtn">Guest Log in</button>
+                        <button onclick="guestLogin()" class="guestBtn">Guest Log in</button>
                     </div>
                 </form>
             </div>
