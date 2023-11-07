@@ -85,8 +85,11 @@
 
     <form id="addTaskFrom" onsubmit="false">
     <div class="addTask">
-        <div class="addTaskLeft">
+        <div class="titlePosition">
             <h1>Add Task</h1>
+            </div>
+        <div class="addTaskLeft">
+          
             <h2>Title</h2>
             <input type="text">
             <h2>Description</h2>
@@ -95,10 +98,18 @@
             <input type="text" id="contactsInput" placeholder="Click to show contacts">
 
         </div>
+
+        <div class="divider">
+
+        </div>
+
+
         <div class="addTaskRight">
-            <h2>Due Date</h2>
-            <input type="date">
             
+            <h2>Due Date</h2>
+            <div class="inputATR">
+            <input type="date">
+            </div>
             <div class="prioButtonsBox">
                 <h2>Prio</h2>
                 <button id="btn1">
@@ -113,6 +124,15 @@
                     Low
                     <img src="/img/Low.png" alt="Image not found">
                 </button>
+            </div>
+            <h2>Category</h2>
+            <input type="text" id="categoryInput" placeholder="Categories">
+            <h2>Subtasks</h2>
+            <div class="inputContainer">
+            
+                <input  type="text" placeholder="Add new subtask">
+                <img src="/img/subtasksIcon.png" alt="">
+
 
             </div>
 
