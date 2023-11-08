@@ -83,7 +83,7 @@
     
     </div>
 
-    <form id="addTaskFrom" onsubmit="false">
+    <form id="addTaskFrom">
     <div class="addTask">
         <div class="titlePosition">
             <h1>Add Task</h1>
@@ -110,20 +110,21 @@
             <div class="inputATR">
             <input type="date">
             </div>
+            <h2>Prio</h2>
             <div class="prioButtonsBox">
-                <h2>Prio</h2>
-                <button id="btn1">
+                
+                <div onclick="colorChange1()" id="btn1">
                     Urgent
                     <img src="/img/Urgent.png" alt="Image not found">
-                </button>
-                <button id="btn2">
+                </div>
+                <div onclick="colorChange2()"  id="btn2">
                     Medium
-                    <img src="/img/Medium.png"" alt="Image not found">
-                </button>
-                <button id="btn3">
+                    <img src="/img/Medium.png" alt="Image not found">
+                </div>
+                <div onclick="colorChange3()" id="btn3">
                     Low
                     <img src="/img/Low.png" alt="Image not found">
-                </button>
+                </div>
             </div>
             <h2>Category</h2>
             <input type="text" id="categoryInput" placeholder="Categories">
