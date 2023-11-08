@@ -5,10 +5,10 @@ function colorChange1() {
         const button = document.querySelector('#btn1');
         const currentColor = button.style.backgroundColor;
       
-        if (currentColor === 'rgb(51, 51, 51)' || currentColor === 'red') {
+        if (currentColor === 'rgb(51, 51, 51)' || currentColor === 'rgb(223, 103, 103)') {
           button.style.backgroundColor = 'white';
         } else {
-          button.style.backgroundColor = 'red';
+          button.style.backgroundColor = 'rgb(223, 103, 103)';
         }
       }
 
@@ -22,3 +22,16 @@ function colorChange1() {
           button.style.backgroundColor = 'yellow';
         }
       }
+
+      function colorChange3() {
+        const button = document.querySelector('#btn3');
+        const currentColor = button.style.backgroundColor;
+      
+        if (currentColor === 'rgb(51, 51, 51)' || currentColor === 'rgb(8, 134, 8)') {
+          button.style.backgroundColor = 'white';
+        } else {
+          button.style.backgroundColor = 'rgb(8, 134, 8)';
+        }
+      }
+
+      
