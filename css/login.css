@@ -4,7 +4,7 @@ header {
     padding: 78px;
 }
 
-.topContainer {
+.top-container {
     display: flex;
     flex-direction: column;
 }
@@ -16,7 +16,7 @@ body {
     overflow: hidden;
 }
 
-.logoContainer {
+.logo-container {
     text-align: center;
 }
 
@@ -38,7 +38,7 @@ body.animate .logo {
     transform: scale(0.36);
 }
 
-.notUser {
+.not-user {
     font-size: 20px;
     font-family: inter;
     font-weight: 400;
@@ -46,7 +46,7 @@ body.animate .logo {
     margin: 24px;
 }
 
-.signInBtn {
+.sign-in-btn {
     width: 91px;
     height: 49px;
     font-size: 16px;
@@ -59,17 +59,17 @@ body.animate .logo {
     border: none;
 }
 
-.signInBtn:hover {
+.sign-in-btn:hover {
     background-color: rgb(41, 171, 226);
 }
 
-.loginDiv {
+.login-div {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.logInWindow {
+.log-in-window {
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -89,7 +89,7 @@ form {
     align-items: center;
 }
 
-.loginHeadline {
+.login-headline {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -120,7 +120,7 @@ input {
     font-size: 20px;
 }
 
-.inputFields {
+.input-fields {
     display: flex;
     justify-content: space-between;
     margin-bottom: 36px;
@@ -133,13 +133,13 @@ input {
 
 }
 
-.icon1 {
+.icon-1 {
     color: #a8a8a8;
     width: 20px;
     height: 16px;
 }
 
-.icon2 {
+.icon-2 {
     color: #a8a8a8;
     width: 16px;
     height: 21px;
@@ -155,7 +155,7 @@ input {
     margin: -16px 40px;
 }
 
-.rememberMe {
+.remember-me {
     display: flex;
     align-items: center;
     padding: 0 64px;
@@ -169,20 +169,20 @@ input {
     color: #2A3647;
 }
 
-.rememberText {
+.remember-text {
     cursor: default;
     font-family: inter;
     font-size: 16px;
     font-weight: 400;
 }
 
-.logInButtons {
+.log-in-buttons {
     display: flex;
     justify-content: center;
     padding: 16px;
 }
 
-.logInBtn {
+.log-in-btn {
     width: 110px;
     height: 48px;
     font-size: 21px;
@@ -197,11 +197,11 @@ input {
     margin-right: 6px;
 }
 
-.logInBtn:hover {
+.log-in-btn:hover {
     background-color: rgb(41, 171, 226);
 }
 
-.guestBtn {
+.guest-btn {
     width: 177px;
     height: 48px;
     font-size: 21px;
@@ -214,8 +214,9 @@ input {
     margin: 45px;
 }
 
-.guestBtn:hover {
-    color: rgb(41, 171, 226);
+.guest-btn:hover {
+    color: #29abe2;
+    border-color: #29abe2;
 }
 
 footer {

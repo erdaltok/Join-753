@@ -2,7 +2,7 @@ header {
     padding: 78px;
 }
 
-.topContainer {
+.top-container {
     display: flex;
     flex-direction: column;
     margin: -68px;
@@ -14,7 +14,7 @@ body {
     margin: 0;
 }
 
-.backArrow {
+.back-arrow {
     width: 21px;
     height: 20px;
     position: absolute;
@@ -29,30 +29,13 @@ body {
     left: 77px; 
 }
 
-.signInBtn {
-    width: 91px;
-    height: 49px;
-    font-size: 16px;
-    font-weight: 400;
-    border-radius: 8px;
-    background-color: #2A3647;
-    color: white;
-    font-family: inter;
-    cursor: pointer;
-    border: none;
-}
-
-.signInBtn:hover {
-    background-color: rgb(41, 171, 226);
-}
-
-.signupDiv {
+.signup-div {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.signupWindow {
+.signup-window {
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -72,7 +55,7 @@ form {
     align-items: center;
 }
 
-.signupHeadline {
+.signup-headline {
     cursor: default;
     font-size: 61px;
     font-family: inter;
@@ -100,7 +83,7 @@ input {
     font-size: 20px;
 }
 
-.inputFields {
+.input-fields {
     display: flex;
     justify-content: space-between;
     margin-bottom: 36px;
@@ -113,19 +96,19 @@ input {
 
 }
 
-.icon1 {
+.icon-1 {
     color: #a8a8a8;
     width: 20px;
     height: 16px;
 }
 
-.icon2 {
+.icon-2 {
     color: #a8a8a8;
     width: 16px;
     height: 21px;
 }
 
-.iAccept {
+.i-accept {
     display: flex;
     align-items: center;
 }
@@ -145,7 +128,7 @@ input {
     font-weight: 400;
 }
 
-.signupButton {
+.signup-button {
     padding: 16px;
 }
 
@@ -162,7 +145,7 @@ input {
     text-decoration: underline;
 }
 
-.signupBtn {
+.signup-btn {
     width: 110px;
     height: 48px;
     font-size: 21px;
@@ -177,7 +160,7 @@ input {
     margin-right: 6px;
 }
 
-.signupBtn:hover {
+.signup-btn:hover {
     background-color: rgb(41, 171, 226);
 }
 
