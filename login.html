@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="fonts/">
     <script src="js/login.js"></script>
+    <script src="js/register.js"></script>
 </head>
 
 <body onload="init()">
@@ -17,14 +18,14 @@
     </div>
     <div id="animation" style="display: none;" class="top-container">
         <header>
-            <div id="singUp">
+            <div>
                 <span class="not-user">Not a Join user?</span>
                 <a href="signup.html"><button type="button" class="sign-in-btn"><b>Sign up</b></button></a>
             </div>
         </header>
         <div class="login-div">
             <div class="log-in-window">
-                <form>
+                <form onsubmit="login(); return false;">
                     <div class="login-headline">
                         <b>Log in</b>
                     </div>
@@ -35,7 +36,7 @@
                             <img src="img/mail.png" alt="icon" class="icon-1">
                         </div>
                         <div class="input-fields">
-                            <input class="input" required id="####" type="password" placeholder="Password">
+                            <input class="input" required id="password" type="password" placeholder="Password">
                             <img src="/img/lock.png" alt="icon" class="icon-2">
                         </div>
                     </div>
@@ -46,11 +47,12 @@
                         </div>
                     </div>
                     <div class="log-in-buttons">
-                        <button class="log-in-btn">Log in</button>
+                        <button onclick="login()" class="log-in-btn">Log in</button>
                         <button onclick="guestLogin()" class="guest-btn">Guest Log in</button>
                     </div>
                 </form>
             </div>
+            <div id="msg_box"></div>
             <footer>
                 <a class="link" href="####">Privacy Policy</a>
                 <a class="link" href="####">Legal Notice</a>

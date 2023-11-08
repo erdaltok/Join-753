@@ -8,6 +8,8 @@
     <link rel="icon" href="img/logo1.png">
     <link rel="stylesheet" href="css/signup.css">
     <link rel="stylesheet" href="fonts/">
+    <script src="js/register.js"></script>
+    <script src="js/login.js"></script>
 
 </head>
 
@@ -20,7 +22,7 @@
     <div class="top-container">
         <div class="signup-div">
             <div class="signup-window">
-                <form unsubmit = "addUser(); return false;">
+                <form onsubmit = "addUser(); return false;">
                     <div class="back-arrow">
                         <a href="login.html"><img src="img/Vector.png" alt=""></a>
                     </div>
@@ -30,19 +32,19 @@
                     <div class="underscore"></div>
                     <div class="inputs">
                         <div class="input-fields">
-                            <input class="input" required id="#" type="text" placeholder="Name">
+                            <input class="input" required id="name" type="text" placeholder="Name">
                             <img src="img/person.png" alt="icon" style="width: 24; height: 24;">
                         </div>
                         <div class="input-fields">
-                            <input class="input" required id="#" type="email" placeholder="Email">
+                            <input class="input" required id="email" type="email" placeholder="Email">
                             <img src="img/mail.png" alt="icon" class="icon-1">
                         </div>
                         <div class="input-fields">
-                            <input class="input" required id="#" type="password" placeholder="Password">
+                            <input class="input" required id="password" type="password" placeholder="Password">
                             <img src="/img/lock.png" alt="icon" class="icon-2">
                         </div>
                         <div class="input-fields">
-                            <input class="input" required id="#" type="password" placeholder="Confirm Password">
+                            <input class="input" required id="confirm_password" type="password" placeholder="Confirm Password">
                             <img src="/img/lock.png" alt="icon" class="icon-2">
                         </div>
                     </div>
@@ -53,7 +55,7 @@
                         </div>
                     </div>
                     <div class="signup-button">
-                        <button class="signup-btn">Sign up</button>
+                        <button onclick="addUser()" class="signup-btn">Sign up</button>
                     </div>
                 </form>
             </div>
