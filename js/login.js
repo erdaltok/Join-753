@@ -1,4 +1,4 @@
-function init() {
+function load() {
     let logo = document.getElementById('logo');
     document.body.classList.add('animate');
 
@@ -31,7 +31,7 @@ function login() {
 const urlParams = new URLSearchParams(window.location.search);
 const msg = urlParams.get('msg');
 if (msg) {
-    msg_box.innerHTML = msg;
+    document.getElementById('msg_box').innerHTML = msg;
 } else {
     //display:none;
 }
