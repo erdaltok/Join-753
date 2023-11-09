@@ -23,7 +23,7 @@
     <div class="top-container">
         <div class="signup-div">
             <div class="signup-window">
-                <form onsubmit = "register(); return false;">
+                <form onsubmit="register(); return false;">
                     <div class="back-arrow">
                         <a href="login.html"><img src="img/Vector.png" alt=""></a>
                     </div>
@@ -45,18 +45,19 @@
                             <img src="/img/lock.png" alt="icon" class="icon-2">
                         </div>
                         <div class="input-fields">
-                            <input class="input" required id="confirm_password" type="password" placeholder="Confirm Password">
+                            <input class="input" required id="confirm_password" type="password"
+                                placeholder="Confirm Password">
                             <img src="/img/lock.png" alt="icon" class="icon-2">
                         </div>
                     </div>
                     <div>
                         <div class="i-accept">
-                            <input class="checkbox" type="checkbox">
+                            <input required class="checkbox" type="checkbox">
                             <span class="accept">I accept the <a class="policy" href="####"> Privacy policy</a></span>
                         </div>
                     </div>
                     <div class="signup-button">
-                        <button onclick="registerBtn" class="signup-btn">Sign up</button>
+                        <button id="register_btn" class="signup-btn">Sign up</button>
                     </div>
                 </form>
             </div>
