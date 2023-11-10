@@ -108,7 +108,7 @@
             
             <h2>Due Date</h2>
             <div class="inputATR">
-            <input type="date">
+            <input type="date" value="tt.mm.jjjj">
             </div>
             <h2>Prio</h2>
             <div class="prioButtonsBox">
@@ -127,7 +127,15 @@
                 </div>
             </div>
             <h2>Category</h2>
-            <input type="text" id="categoryInput" placeholder="Categories">
+            <select id="categoryInput">
+            
+                <option disabled>Categories</option>
+                <option>Design</option>
+            <option >Team Work</option>
+            <option >Bussines</option>
+            
+            </select>
+                
             <h2>Subtasks</h2>
             <div class="inputContainer">
             
@@ -138,7 +146,11 @@
                 </div>
 
             </div>
-
+            <div class="addTaskButtonsRightSide">
+                <button>Clear</button>
+                <button>Create Task</button>
+                
+            </div>
         </div>
 
     </div>
