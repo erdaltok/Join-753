@@ -23,6 +23,9 @@ async function register() {
         return;
     }
 
+    document.getElementById('msg_box').innerHTML = 'You Signed Up successfully';
+    document.getElementById('msg_box').style.display = 'flex';
+
     document.getElementById('register_btn').disabled = true;
     users.push({
         name: name.value,
@@ -31,7 +34,10 @@ async function register() {
     });
     await setItem('users', JSON.stringify(users));
     resetForm();
-    window.location.href = 'login.html?msg=Registrierung ervolgreich';
+
+    setTimeout(function () {
+        window.location.href = 'login.html';
+    }, 3500);
 }
 
 function resetForm() {

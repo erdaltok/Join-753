@@ -15,11 +15,19 @@ body {
 }
 
 .back-arrow {
-    width: 21px;
-    height: 20px;
+    width: 36px;
+    height: 36px;
     position: absolute;
     left: 120px;
     top: 77px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back-arrow:hover {
+    border-radius: 50%;
+    background-color: #f2f2f2ec;
 }
 
 .logo {
@@ -184,4 +192,22 @@ footer {
 .link:hover {
     color: #29abe2;
     font-weight: bold;
+}
+
+.msg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    position: absolute;
+    bottom: 324px;
+    width: 312px;
+    height: 74px;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 16px;
+    background-color: #2A3647;
+    color: white;
+    font-family: inter;
+    border: none;
 }

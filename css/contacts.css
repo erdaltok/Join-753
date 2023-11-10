@@ -1,0 +1,28 @@
+.contacts-div {
+    display: flex;
+    flex-direction: column;
+    padding-left: 243px;
+    margin-top: 96px;
+    width: 100%;
+    height: auto;
+    overflow-y: auto;
+}
+
+.contacts-container {
+    width: 456px;
+    min-width: 456px;
+    height: 100vh;
+    margin-top: 72px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #FFF;
+    overflow-y: scroll;
+}
+
+.add-contacts-btn {
+    position: relative;
+    top: 48px;
+    width: 352px;
+    height: 56px;
+}
