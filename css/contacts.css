@@ -1,16 +1,15 @@
 .contacts-div {
     display: flex;
-    flex-direction: column;
+    align-items: flex-start;
     padding-left: 243px;
     margin-top: 96px;
     width: 100%;
     height: auto;
-    overflow-y: auto;
 }
 
 .contacts-container {
-    width: 456px;
-    min-width: 456px;
+    width: 400px;
+    min-width: 400px;
     height: 100vh;
     margin-top: 72px;
     display: flex;
@@ -18,6 +17,7 @@
     align-items: center;
     background: #FFF;
     overflow-y: scroll;
+    height: calc(100vh - 185px);
 }
 
 .add-contacts-btn {
@@ -25,4 +25,44 @@
     top: 48px;
     width: 352px;
     height: 56px;
+    border-radius: 10px;
+    background-color: #2a3647;
+    color: white;
+    font-family: inter;
+    font-size: 21px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+
+.add-contacts-btn:hover {
+    border: none;
+    background-color: #29abe2;
+}
+
+.contact-view {
+    position: relative;
+    top: 136px;
+    left: 80px;
+}
+
+.contact-header {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    cursor: default;
+}
+
+.text-1 {
+    font-family: inter;
+    font-size: 61px;
+    font-weight: 700;
+}
+
+.text-2 {
+    font-size: inter;
+    font-size: 27px;
+    font-weight: 400;
 }
