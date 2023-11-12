@@ -177,7 +177,7 @@ h1 {
 
 .task-small-box {
     display: flex;
-    width: 252px;
+    /* width: 252px; */
     padding: 16px;
     flex-direction: column;
     justify-content: center;
