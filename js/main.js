@@ -1,6 +1,81 @@
+// function initPage() {
+//   loadTemplate("summary", "mainContent");
+//   loadTasks();
+// }
+
+
+
+
+// async function loadTemplate(templateName, targetElementId) {
+//   let targetElement = document.getElementById(targetElementId);
+
+//   try {
+//     let response = await fetch(`/template/${templateName}_template.html`);
+//     if (!response.ok) {
+//       throw new Error(`HTTP error! Status: ${response.status}`);
+//     }
+//     let data = await response.text();
+//     targetElement.innerHTML = data;
+//     if (templateName === "board") {
+//       setTimeout(loadTasks, 500); // Laden der Tasks, wenn das Board-Template geladen wird
+//     }
+//   } catch (error) {
+//     console.error("Ein Fehler ist aufgetreten:", error);
+//   }
+// }
+
+// function initPage() {
+//   loadTemplate("summary", "mainContent");
+// }
+
+
+// async function initPage() {
+//   try {
+//     // Überprüfen, ob bereits Tasks gespeichert sind
+//     let tasksFromStorage = await getItem("tasks");
+//     if (tasksFromStorage && tasksFromStorage.length > 0) {
+//       // Wenn ja, prüfen Sie, ob sich der Benutzer bereits auf der Board-Seite befindet
+//       if (window.location.pathname.includes("board")) {
+//         // Wenn ja, laden Sie das Board-Template und dann die Tasks
+//         await loadTemplate("board", "mainContent");
+//         loadTasks();
+//       } else {
+//         // Andernfalls laden Sie das Summary-Template
+//         loadTemplate("summary", "mainContent");
+//       }
+//     } else {
+//       // Wenn keine Tasks vorhanden sind, laden Sie das Summary-Template
+//       loadTemplate("summary", "mainContent");
+//     }
+//   } catch (error) {
+//     console.error("Fehler beim Initialisieren der Seite:", error);
+//   }
+// }
+
+// async function initPage() {
+//   try {
+//     // Überprüfen, ob bereits Tasks gespeichert sind
+//     let tasksFromStorage = await getItem("tasks");
+//     if (tasksFromStorage && tasksFromStorage.length > 0) {
+//       // Wenn ja, laden Sie das Board-Template und dann die Tasks
+//       await loadTemplate("board", "mainContent");
+//       loadTasks(); // Jetzt, wo das Board-Template geladen ist, laden Sie die Tasks
+//     } else {
+//       // Wenn keine Tasks vorhanden sind, laden Sie das Summary-Template
+//       loadTemplate("summary", "mainContent");
+//     }
+//   } catch (error) {
+//     console.error("Fehler beim Initialisieren der Seite:", error);
+//   }
+// }
+
 function initPage() {
   loadTemplate("summary", "mainContent");
+  
 }
+
+
+
 
 async function loadTemplate(templateName, targetElementId) {
   let targetElement = document.getElementById(targetElementId);
@@ -12,23 +87,63 @@ async function loadTemplate(templateName, targetElementId) {
     }
     let data = await response.text();
     targetElement.innerHTML = data;
+
+    // Nur wenn das Board-Template geladen wird, laden Sie die Tasks
+    // if (templateName === "board") {
+    //   await loadTasks();
+    // }
   } catch (error) {
     console.error("Ein Fehler ist aufgetreten:", error);
   }
 }
+
+
+
+
+
 
 function displayContentTemplates(templateName) {
   document.getElementById("desktopTemplate").style.display = "block";
   loadTemplate(templateName, "mainContent");
 }
 
+// function showSummary() {
+//   displayContentTemplates("summary");
+// }
+
+// function showBoard() {
+//   displayContentTemplates("board");
+// }
+
 function showSummary() {
-  displayContentTemplates("summary");
+  loadTemplate("summary", "mainContent");
 }
 
+// function showBoard() {
+//   loadTemplate("board", "mainContent")
+//     .then(() => {
+//       loadTasks();
+//     })
+//     .catch((error) => {
+//       console.error("Fehler beim Laden des Board-Templates:", error);
+//     });
+// }
+
 function showBoard() {
-  displayContentTemplates("board");
+  loadTemplate("board", "mainContent")
+    .then(() => {
+      loadTasks();
+    })
+    .catch((error) => {
+      console.error("Fehler beim Laden des Board-Templates:", error);
+    });
 }
+
+
+
+
+
+
 
 function showAddTasks() {
   displayContentTemplates("addTask");
@@ -38,85 +153,165 @@ function showContacts() {
   displayContentTemplates("contacts");
 }
 
+let newTasksBoard = [];
+let taskIdCounter = 0;
+
+async function addNewTaskBoard() {
+  const taskId = "task" + taskIdCounter++;
+  const newTask = {
+    id: taskId,
+    title: "Contacts Form & Imprint",
+    description: "Create a contact form and imprint page",
+    status: "todo",
+  };
+
+  newTasksBoard.push(newTask);
+  await saveTask(newTask); // Speichern des neuen Tasks
+
+  // Anzeigen der neuen Aufgabe im entsprechenden Bereich
+  const columnElement = document.getElementById(newTask.status);
+  if (columnElement) {
+    displayTask(newTask, columnElement);
+  }
+}
 
 
-// let tasks = [
-//   {
-//     id: 0,
-//     title: "Task 1",
-//     category: "todo",
-//   },
-//   {
-//     id: 1,
-//     title: "Task 2",
-//     category: "inProgress",
-//   },
-//   {
-//     id: 2,
-//     title: "Task 3",
-//     category: "awaitFeedback",
-//   },
-//   {
-//     id: 3,
-//     title: "Task 4",
-//     category: "done",
-//   },
-// ];
+function displayTask(task, columnElement) {
+  const taskHtml = `
+    <div class="task-small-box" id="${task.id}" draggable="true" ondragstart="startDragging('${task.id}')">
+      <div class="task-small-box-content">
+        <div class="category">
+          <div class="label-small-box">
+            <span>Technical Task</span>
+          </div>
+        </div>
+        <div>
+          <h1>${task.title}</h1>
+          <p>${task.description}</p>
+        </div>
+        <div class="progress-subtasks">
+            <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0"
+                  aria-valuemax="100" style="height: 8px">
+              <div class="progress-bar" style="width: 50%"></div>                                    
+            </div>
+            <div class="counter-subtasks">1/2 Subtasks</div>
+        </div>
+        <div class="profilBadges-priority">
+              <div class="profil-Badges">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="16" cy="16" r="15.5" fill="#1FD7C1" stroke="white" stroke-width="2" />
+                          <text x="16" y="16" alignment-baseline="central" text-anchor="middle" fill="white">
+                              AM
+                          </text>
+                    </svg>
+              </div>
+              <div class="priority-icons">
+                  <img src="/img/prio-icon-small-task.svg" alt="">
+              </div>
+        </div>
 
-// let currentDraggedElement;
+      </div>
+    </div>`;
 
-// function updateHTML() {
-//   const categories = ["todo", "inProgress", "awaitFeedback", "done"];
-//   categories.forEach((category) => {
-//     let filteredTasks = tasks.filter((task) => task.category === category);
-//     document.getElementById(category).innerHTML = "";
-//     filteredTasks.forEach((task) => {
-//       document.getElementById(category).innerHTML += generateTaskHTML(task);
-//     });
-//   });
-// }
+  columnElement.innerHTML += taskHtml;
+  
+}
 
-// function startDragging(id) {
-//   // Finden Sie die Aufgabe, die verschoben wird, und setzen Sie currentDraggedElement auf das Task-Objekt
-//   currentDraggedElement = tasks.find((task) => task.id === id);
-// }
+async function saveTask(task) {
+  const index = newTasksBoard.findIndex((t) => t.id === task.id);
+  if (index > -1) {
+    newTasksBoard[index] = task;
+  } else {
+    newTasksBoard.push(task);
+  }
+  await setItem("tasks", newTasksBoard);
+}
 
-// function generateTaskHTML(task) {
-//   // Verwenden Sie die Aufgaben-ID, um die startDragging-Funktion aufzurufen
-//   return `<div draggable="true" ondragstart="startDragging(${task.id})" class="task">${task.title}</div>`;
-// }
+// async function loadTasks() {
+//   console.log("loadTasks() aufgerufen");
 
+//   try {
+//     let tasksFromStorage = await getItem("tasks");
+//     if (typeof tasksFromStorage === "string") {
+//       tasksFromStorage = JSON.parse(tasksFromStorage);
+//     }
 
-// function allowDrop(ev) {
-//   ev.preventDefault();
-// }
-
-// function moveTo(category, ev) {
-//   ev.preventDefault();
-//   if (currentDraggedElement) {
-//     // Setzen Sie die Kategorie der aktuellen gezogenen Aufgabe
-//     currentDraggedElement.category = category;
-//     updateHTML();
-//   } else {
-//     console.error("Kein gültiges gezogenes Element gefunden");
+//     if (Array.isArray(tasksFromStorage)) {
+//       newTasksBoard = tasksFromStorage;
+//       newTasksBoard.forEach((task) => {
+//         const columnElement = document.getElementById(task.status);
+//         if (columnElement) {
+//           displayTask(task, columnElement);
+//         }
+//       });
+//     }
+//   } catch (error) {
+//     console.error("Fehler beim Laden der Tasks:", error);
 //   }
 // }
 
-// function highlight(id) {
-//   document.getElementById(id).classList.add("highlight");
-// }
+async function loadTasks() {
+  console.log("loadTasks() aufgerufen");
 
-// function removeHighlight(id) {
-//   document.getElementById(id).classList.remove("highlight");
-// }
+  try {
+    let tasksFromStorage = await getItem("tasks");
+    console.log("Tasks aus Storage:", tasksFromStorage);
 
-// // Initial update on page load
-// document.addEventListener("DOMContentLoaded", updateHTML);
+    if (typeof tasksFromStorage === "string") {
+      tasksFromStorage = JSON.parse(tasksFromStorage);
+    }
+
+    console.log("Verarbeitete Tasks:", tasksFromStorage);
+
+    if (Array.isArray(tasksFromStorage)) {
+      newTasksBoard = tasksFromStorage;
+      newTasksBoard.forEach((task) => {
+        console.log("Lade Task:", task);
+        const columnElement = document.getElementById(task.status);
+        if (columnElement) {
+          displayTask(task, columnElement);
+        } else {
+          console.log("Kann Spalte für Task nicht finden:", task);
+        }
+      });
+    }
+  } catch (error) {
+    console.error("Fehler beim Laden der Tasks:", error);
+  }
+}
 
 
 
 
+let draggedItemId = null;
 
+function startDragging(id) {
+  draggedItemId = id;
+}
 
+function allowDrop(event) {
+  event.preventDefault();
+}
 
+function moveTo(columnId) {
+  if (draggedItemId) {
+    const item = document.getElementById(draggedItemId);
+    document.getElementById(columnId).appendChild(item);
 
+    const task = newTasksBoard.find((t) => t.id === draggedItemId);
+    if (task) {
+      task.status = columnId;
+      saveTask(task);
+    }
+
+    draggedItemId = null;
+  }
+}
+
+function highlight(columnId) {
+  document.getElementById(columnId).style.background = "#f0f0f0";
+}
+
+function removeHighlight(columnId) {
+  document.getElementById(columnId).style.background = "";
+}
