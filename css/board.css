@@ -256,16 +256,18 @@ h1 {
 
 .drag-area {
     min-height: 400px;
-    background-color: rgba(0, 0, 0, 0.1);
-    border: 1px dashed black;
+    
+    
     margin-bottom: 50px;
     display: flex;
     align-items: flex-start;
 }
 
 .highlight {
-    border: 2px dashed #666;
-    /* Oder ein anderer Stil, den Sie bevorzugen */
+    /* border: 2px dashed #666; */
+    border: 1px dashed black;
+    border-radius: 24px;
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 

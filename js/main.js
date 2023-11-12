@@ -1,74 +1,3 @@
-// function initPage() {
-//   loadTemplate("summary", "mainContent");
-//   loadTasks();
-// }
-
-
-
-
-// async function loadTemplate(templateName, targetElementId) {
-//   let targetElement = document.getElementById(targetElementId);
-
-//   try {
-//     let response = await fetch(`/template/${templateName}_template.html`);
-//     if (!response.ok) {
-//       throw new Error(`HTTP error! Status: ${response.status}`);
-//     }
-//     let data = await response.text();
-//     targetElement.innerHTML = data;
-//     if (templateName === "board") {
-//       setTimeout(loadTasks, 500); // Laden der Tasks, wenn das Board-Template geladen wird
-//     }
-//   } catch (error) {
-//     console.error("Ein Fehler ist aufgetreten:", error);
-//   }
-// }
-
-// function initPage() {
-//   loadTemplate("summary", "mainContent");
-// }
-
-
-// async function initPage() {
-//   try {
-//     // Überprüfen, ob bereits Tasks gespeichert sind
-//     let tasksFromStorage = await getItem("tasks");
-//     if (tasksFromStorage && tasksFromStorage.length > 0) {
-//       // Wenn ja, prüfen Sie, ob sich der Benutzer bereits auf der Board-Seite befindet
-//       if (window.location.pathname.includes("board")) {
-//         // Wenn ja, laden Sie das Board-Template und dann die Tasks
-//         await loadTemplate("board", "mainContent");
-//         loadTasks();
-//       } else {
-//         // Andernfalls laden Sie das Summary-Template
-//         loadTemplate("summary", "mainContent");
-//       }
-//     } else {
-//       // Wenn keine Tasks vorhanden sind, laden Sie das Summary-Template
-//       loadTemplate("summary", "mainContent");
-//     }
-//   } catch (error) {
-//     console.error("Fehler beim Initialisieren der Seite:", error);
-//   }
-// }
-
-// async function initPage() {
-//   try {
-//     // Überprüfen, ob bereits Tasks gespeichert sind
-//     let tasksFromStorage = await getItem("tasks");
-//     if (tasksFromStorage && tasksFromStorage.length > 0) {
-//       // Wenn ja, laden Sie das Board-Template und dann die Tasks
-//       await loadTemplate("board", "mainContent");
-//       loadTasks(); // Jetzt, wo das Board-Template geladen ist, laden Sie die Tasks
-//     } else {
-//       // Wenn keine Tasks vorhanden sind, laden Sie das Summary-Template
-//       loadTemplate("summary", "mainContent");
-//     }
-//   } catch (error) {
-//     console.error("Fehler beim Initialisieren der Seite:", error);
-//   }
-// }
-
 function initPage() {
   loadTemplate("summary", "mainContent");
   
@@ -107,27 +36,11 @@ function displayContentTemplates(templateName) {
   loadTemplate(templateName, "mainContent");
 }
 
-// function showSummary() {
-//   displayContentTemplates("summary");
-// }
-
-// function showBoard() {
-//   displayContentTemplates("board");
-// }
 
 function showSummary() {
   loadTemplate("summary", "mainContent");
 }
 
-// function showBoard() {
-//   loadTemplate("board", "mainContent")
-//     .then(() => {
-//       loadTasks();
-//     })
-//     .catch((error) => {
-//       console.error("Fehler beim Laden des Board-Templates:", error);
-//     });
-// }
 
 function showBoard() {
   loadTemplate("board", "mainContent")
@@ -138,11 +51,6 @@ function showBoard() {
       console.error("Fehler beim Laden des Board-Templates:", error);
     });
 }
-
-
-
-
-
 
 
 function showAddTasks() {
@@ -227,28 +135,6 @@ async function saveTask(task) {
   await setItem("tasks", newTasksBoard);
 }
 
-// async function loadTasks() {
-//   console.log("loadTasks() aufgerufen");
-
-//   try {
-//     let tasksFromStorage = await getItem("tasks");
-//     if (typeof tasksFromStorage === "string") {
-//       tasksFromStorage = JSON.parse(tasksFromStorage);
-//     }
-
-//     if (Array.isArray(tasksFromStorage)) {
-//       newTasksBoard = tasksFromStorage;
-//       newTasksBoard.forEach((task) => {
-//         const columnElement = document.getElementById(task.status);
-//         if (columnElement) {
-//           displayTask(task, columnElement);
-//         }
-//       });
-//     }
-//   } catch (error) {
-//     console.error("Fehler beim Laden der Tasks:", error);
-//   }
-// }
 
 async function loadTasks() {
   console.log("loadTasks() aufgerufen");
