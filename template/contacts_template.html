@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/fonts.css">
     <link rel="stylesheet" href="/css/desktop_template.css">
     <link rel="stylesheet" href="/css/contacts.css">
+    <script src="/js/contacts.js"></script>
 </head>
 
 <body>
@@ -79,17 +80,35 @@
     <div class="contacts-div">
         <div class="contacts-container">
             <button class="add-contacts-btn">Add new Contact <img src="/img/person_add.png"></button>
+
+            <div class="contacts"> <!--später in js übertragen-->
+                <div>
+                    <p class="initial-letter">A</p>
+                    <div class="line"></div>
+                </div>
+                <div id="contact" onclick="changeColor()" class="contact">
+                    <div>
+                        <p class="initial">AM</p>
+                    </div>
+                    <div class="initial-text">
+                        <p>Alex Mustermann</p>
+                        <p>alex@gmail.com</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="contact-view">
             <div class="contact-header">
-                <h2 class="text-1">Contacts</h2>
-                <svg xmlns="http://www.w3.org/2000/svg" width="3" height="59"
-                        viewBox="0 0 3 59" fill="none" style="min-width: 3px; min-height: 59px;">
+                <div class="contact-text">
+                    <h2 class="text-1">Contacts</h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="3" height="59" viewBox="0 0 3 59" fill="none"
+                        style="min-width: 3px; min-height: 59px;">
                         <path d="M2 2V61" stroke="#29ABE2" stroke-width="3" stroke-linecap="round" />
                     </svg>
                     <p class="text-2">Better with a team</p>
-                <div>
-                    
+                    <div>
+
+                    </div>
                 </div>
             </div>
         </div>
