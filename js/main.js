@@ -3,9 +3,6 @@ function initPage() {
   
 }
 
-
-
-
 async function loadTemplate(templateName, targetElementId) {
   let targetElement = document.getElementById(targetElementId);
 
@@ -17,25 +14,10 @@ async function loadTemplate(templateName, targetElementId) {
     let data = await response.text();
     targetElement.innerHTML = data;
 
-    // Nur wenn das Board-Template geladen wird, laden Sie die Tasks
-    // if (templateName === "board") {
-    //   await loadTasks();
-    // }
   } catch (error) {
     console.error("Ein Fehler ist aufgetreten:", error);
   }
 }
-
-
-
-
-
-
-function displayContentTemplates(templateName) {
-  document.getElementById("desktopTemplate").style.display = "block";
-  loadTemplate(templateName, "mainContent");
-}
-
 
 function showSummary() {
   loadTemplate("summary", "mainContent");
@@ -52,14 +34,14 @@ function showBoard() {
     });
 }
 
-
 function showAddTasks() {
-  displayContentTemplates("addTask");
+  loadTemplate("addTask", "mainContent");
 }
 
 function showContacts() {
-  displayContentTemplates("contacts");
+  loadTemplate("contacts", "mainContent");
 }
+
 
 let newTasksBoard = [];
 let taskIdCounter = 0;
@@ -99,7 +81,7 @@ function displayTask(task, columnElement) {
         </div>
         <div class="progress-subtasks">
             <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0"
-                  aria-valuemax="100" style="height: 8px">
+                  aria-valuemax="100" style="height: 8px; width: 59%;">
               <div class="progress-bar" style="width: 50%"></div>                                    
             </div>
             <div class="counter-subtasks">1/2 Subtasks</div>
@@ -165,8 +147,6 @@ async function loadTasks() {
     console.error("Fehler beim Laden der Tasks:", error);
   }
 }
-
-
 
 
 let draggedItemId = null;

@@ -201,6 +201,7 @@
     display: flex;
     align-items: center;
     gap: 80px;
+    margin-top: 56px;
 }
 
 .greeting-user {
