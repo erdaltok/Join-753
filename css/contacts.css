@@ -18,6 +18,7 @@
     background: #FFF;
     overflow-y: scroll;
     height: calc(100vh - 185px);
+    gap: 76px;
 }
 
 .add-contacts-btn {
@@ -42,13 +43,81 @@
     background-color: #29abe2;
 }
 
+.contacts {}
+
+.initial-letter {
+    font-family: inter;
+    font-size: 20px;
+    font-weight: 400;
+    cursor: default;
+    margin-left: 33px;
+}
+
+.initial {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ff7a00;
+    border: 2px solid white;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    font-family: inter;
+    font-size: 12px;
+    font-weight: 400;
+    color: white;
+}
+
+.initial-text {
+    line-height: 0.5;
+    margin: 22px 90px 21px -50px;
+}
+
+.line {
+    height: 1px;
+    background: #D1D1D1;
+    margin: 8px -30px 8px;
+    font-weight: 400;
+}
+.contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    gap: 96px;
+    border-radius: 10px;
+    width: 352px;
+    height: 78px;
+    cursor: pointer;
+}
+
+.contact.clicked {
+    background-color: #2a3647;
+    color: white;
+}
+
+.contact.clicked:hover {
+    background-color: #2a3647;
+    color: white;
+}
+
+.contact:hover {
+    background-color: #f6f7f8;
+}
+
 .contact-view {
+    width: -webkit-fill-available;
+    height: 100vh;
+    background-color: #f6f7f8;
+}
+
+.contact-header {
     position: relative;
     top: 136px;
     left: 80px;
 }
 
-.contact-header {
+.contact-text {
     display: flex;
     align-items: center;
     gap: 36px;
