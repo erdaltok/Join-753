@@ -8,16 +8,16 @@
     <link rel="icon" href="img/logo1.png">
     <link rel="stylesheet" href="css/signup.css">
     <link rel="stylesheet" href="fonts/">
-    <script src="js/storage.js"></script>
-    <script src="js/register.js"></script>
-    <script src="js/login.js"></script>
+    <script src="/js/storage.js"></script>
+    <script src="/js/register.js"></script>
+    <script src="/js/login.js"></script>
 
 </head>
 
 <body onload="init()">
     <header>
         <div>
-            <img src="img/logo1.png" alt="Logo" class="logo" id="logo">
+            <img src="/img/logo1.png" alt="Logo" class="logo" id="logo">
         </div>
     </header>
     <div class="top-container">
@@ -25,7 +25,7 @@
             <div class="signup-window">
                 <form onsubmit="register(); return false;">
                     <div class="back-arrow">
-                        <a href="login.html"><img src="img/Vector.png" alt=""></a>
+                        <a href="/login.html" style="display: flex;"><img src="/img/Vector.png" alt=""></a>
                     </div>
                     <div class="signup-headline">
                         <b>Sign up</b>
@@ -34,11 +34,11 @@
                     <div class="inputs">
                         <div class="input-fields">
                             <input class="input" required id="name" type="text" placeholder="Name">
-                            <img src="img/person.png" alt="icon" style="width: 24; height: 24;">
+                            <img src="/img/person.png" alt="icon" style="width: 24; height: 24;">
                         </div>
                         <div class="input-fields">
                             <input class="input" required id="email" type="email" placeholder="Email">
-                            <img src="img/mail.png" alt="icon" class="icon-1">
+                            <img src="/img/mail.png" alt="icon" class="icon-1">
                         </div>
                         <div class="input-fields">
                             <input class="input" required id="password" type="password" placeholder="Password">
