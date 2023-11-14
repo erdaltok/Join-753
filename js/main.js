@@ -1,6 +1,45 @@
+// async function initPage() {
+//   await loadTemplate("login", "mainContent");
+// }
+
+// async function loadTemplate(templatePath, targetElementId) {
+//   let targetElement = document.getElementById(targetElementId);
+
+//   try {
+//     let response = await fetch(templatePath);
+//     if (!response.ok) {
+//       throw new Error(`HTTP error! Status: ${response.status}`);
+//     }
+//     let data = await response.text();
+//     targetElement.innerHTML = data;
+//   } catch (error) {
+//     console.error("Ein Fehler ist aufgetreten:", error);
+//   }
+// }
+
+// async function guestLogin() {
+//   await showSummary(); // Lädt die Summary-Seite
+// }
+
+// function showSummary() {
+//   loadTemplate("summary", "mainContent");
+// }
+
+// function showBoard() {
+//   loadTemplate("board", "mainContent")
+//     .then(() => {
+//       loadTasks();
+//     })
+//     .catch((error) => {
+//       console.error("Fehler beim Laden des Board-Templates:", error);
+//     });
+// }
+
+
+
 function initPage() {
   loadTemplate("summary", "mainContent");
-  
+
 }
 
 async function loadTemplate(templateName, targetElementId) {
@@ -23,7 +62,6 @@ function showSummary() {
   loadTemplate("summary", "mainContent");
 }
 
-
 function showBoard() {
   loadTemplate("board", "mainContent")
     .then(() => {
@@ -41,7 +79,6 @@ function showAddTasks() {
 function showContacts() {
   loadTemplate("contacts", "mainContent");
 }
-
 
 let newTasksBoard = [];
 let taskIdCounter = 0;
@@ -64,7 +101,6 @@ async function addNewTaskBoard() {
     displayTask(newTask, columnElement);
   }
 }
-
 
 function displayTask(task, columnElement) {
   const taskHtml = `
@@ -104,7 +140,6 @@ function displayTask(task, columnElement) {
     </div>`;
 
   columnElement.innerHTML += taskHtml;
-  
 }
 
 async function saveTask(task) {
@@ -116,7 +151,6 @@ async function saveTask(task) {
   }
   await setItem("tasks", newTasksBoard);
 }
-
 
 async function loadTasks() {
   console.log("loadTasks() aufgerufen");
@@ -147,7 +181,6 @@ async function loadTasks() {
     console.error("Fehler beim Laden der Tasks:", error);
   }
 }
-
 
 let draggedItemId = null;
 
