@@ -137,8 +137,8 @@
   cursor: pointer;
   color: black;
   filter: drop-shadow(2px 2px);
-  padding-left: 30px;
-  padding-top: 20px;
+  padding-left: 20px;
+  padding-top: 9px;
 }
 
 #btn1 img {
@@ -158,8 +158,8 @@
   cursor: pointer;
   color: black;
   filter: drop-shadow(2px 2px);
-  padding-left: 30px;
-  padding-top: 20px;
+  padding-left: 12px;
+  padding-top: 9px;
 }
 
 #btn2 img {
@@ -179,8 +179,8 @@
   cursor: pointer;
   color: black;
   filter: drop-shadow(2px 2px);
-  padding-left: 50px;
-  padding-top: 20px;
+  padding-left: 29px;
+  padding-top: 17px;
 }
 
 #btn3 img {
