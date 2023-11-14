@@ -38,9 +38,10 @@
 
 
 function initPage() {
-  loadTemplate("summary", "mainContent");
-
+  // Bestimmen Sie, was angezeigt werden soll, wenn die Seite geladen wird
+  showSummary(); // Standardansicht, kann basierend auf Benutzereinstellungen angepasst werden
 }
+
 
 async function loadTemplate(templateName, targetElementId) {
   let targetElement = document.getElementById(targetElementId);
@@ -56,6 +57,10 @@ async function loadTemplate(templateName, targetElementId) {
   } catch (error) {
     console.error("Ein Fehler ist aufgetreten:", error);
   }
+}
+
+function guestLogin() {
+  showSummary(); // Lädt die Summary-Seite, wenn Guest Log in geklickt wird
 }
 
 function showSummary() {
