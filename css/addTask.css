@@ -103,10 +103,13 @@
   padding: 12px 21px;
   margin-top: 8px !important;
   outline: none;
+  margin-bottom: 60px;
  
   
  
 }
+
+
 
 .inputContainer img {
  width: 20px;
@@ -180,7 +183,7 @@
   color: black;
   filter: drop-shadow(2px 2px);
   padding-left: 29px;
-  padding-top: 17px;
+  padding-top: 9px;
 }
 
 #btn3 img {
@@ -190,6 +193,8 @@
 
 .prioButtonsBox {
    display: flex;
+   padding-top: 10px;
+   margin-bottom: 40px;
 }
 .addTaskRight select {
   font-size: 1.10rem;
@@ -200,6 +205,7 @@
   padding: 12px 21px;
   margin-top: 8px !important;
   outline: none;
+  margin-bottom: 30px;
 }
 
 .addTaskButtonsRightSide {
