@@ -20,7 +20,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0px 88px 40px 0px;
+    margin: -44px 88px 40px 0px;
     width: 100%;
 }
 
@@ -255,12 +255,12 @@
 
 
 .drag-area {
-    min-height: 400px;
-    
-    
+    min-height: 400px; 
     margin-bottom: 50px;
     display: flex;
     align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .highlight {
@@ -270,6 +270,31 @@
     background-color: rgba(0, 0, 0, 0.1);
 }
 
+.progress-bar {
+    position: relative;
+    border-radius: 5px;
+    max-width: 60%;
+    background-color: rgba(0, 0, 0, 0.1);
+    height: 8px;
+    width: 60%;
+}
+
+.progress-bar::before {
+    content: '';
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    /* width: 50%; */
+    width: calc(var(--width, 50) * 1%);
+    max-width: 100%;
+    background-color: #4589FF;
+    border-radius: 5px;
+
+
+}
 
 .progress-subtasks {
     display: flex !important;

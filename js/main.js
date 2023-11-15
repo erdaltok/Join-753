@@ -1,45 +1,5 @@
-// async function initPage() {
-//   await loadTemplate("login", "mainContent");
-// }
-
-// async function loadTemplate(templatePath, targetElementId) {
-//   let targetElement = document.getElementById(targetElementId);
-
-//   try {
-//     let response = await fetch(templatePath);
-//     if (!response.ok) {
-//       throw new Error(`HTTP error! Status: ${response.status}`);
-//     }
-//     let data = await response.text();
-//     targetElement.innerHTML = data;
-//   } catch (error) {
-//     console.error("Ein Fehler ist aufgetreten:", error);
-//   }
-// }
-
-// async function guestLogin() {
-//   await showSummary(); // Lädt die Summary-Seite
-// }
-
-// function showSummary() {
-//   loadTemplate("summary", "mainContent");
-// }
-
-// function showBoard() {
-//   loadTemplate("board", "mainContent")
-//     .then(() => {
-//       loadTasks();
-//     })
-//     .catch((error) => {
-//       console.error("Fehler beim Laden des Board-Templates:", error);
-//     });
-// }
-
-
-
 function initPage() {
-  // Bestimmen Sie, was angezeigt werden soll, wenn die Seite geladen wird
-  showSummary(); // Standardansicht, kann basierend auf Benutzereinstellungen angepasst werden
+  showSummary(); 
 }
 
 
@@ -121,10 +81,7 @@ function displayTask(task, columnElement) {
           <p>${task.description}</p>
         </div>
         <div class="progress-subtasks">
-            <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0"
-                  aria-valuemax="100" style="height: 8px; width: 59%;">
-              <div class="progress-bar" style="width: 50%"></div>                                    
-            </div>
+            <div class="progress-bar" style="--width: 50"></div>
             <div class="counter-subtasks">1/2 Subtasks</div>
         </div>
         <div class="profilBadges-priority">
