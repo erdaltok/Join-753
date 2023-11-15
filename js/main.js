@@ -121,10 +121,7 @@ function displayTask(task, columnElement) {
           <p>${task.description}</p>
         </div>
         <div class="progress-subtasks">
-            <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0"
-                  aria-valuemax="100" style="height: 8px; width: 59%;">
-              <div class="progress-bar" style="width: 50%"></div>                                    
-            </div>
+            <div class="progress-bar" style="--width: 50"></div>
             <div class="counter-subtasks">1/2 Subtasks</div>
         </div>
         <div class="profilBadges-priority">
