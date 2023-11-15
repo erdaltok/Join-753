@@ -108,7 +108,7 @@
             
             <h2>Due Date</h2>
             <div class="inputATR">
-                <input type="text" pattern="\d{2}\.\d{2}\.\d{4}" placeholder="DD - MM - YYYY">
+                <input class="click" required="" placeholder="dd/mm/yyyy" type="text" id="calendar" aria-label="Use the arrow keys to pick a date">
             </div>
             <h2>Prio</h2>
             <div class="prioButtonsBox">
@@ -139,11 +139,9 @@
             <h2>Subtasks</h2>
             <div class="inputContainer">
             
-                <input  type="text" placeholder="Add new subtask">
-                <div class="subtaskImage">
-                    
-                <img  src="/img/subtasksIcon.png" alt="">
-                </div>
+                <input class="subtaskInput" type="text" placeholder="Add new subtask">
+                <img class="subtaskImage" src="/img/subtasksIcon.png" alt="">
+                
 
             </div>
             <div class="addTaskButtonsRightSide">
