@@ -3,13 +3,11 @@
     align-items: flex-start;
     padding-left: 243px;
     margin-top: 96px;
-    width: 100%;
-    height: auto;
 }
 
 .contacts-container {
     width: 400px;
-    min-width: 400px;
+    min-width: 430px;
     height: 100vh;
     margin-top: 72px;
     display: flex;
@@ -107,8 +105,10 @@
 }
 
 .contact-view {
-    width: -webkit-fill-available;
-    height: 100vh;
+    position: absolute;
+    right: 0px;
+    left: 672px;
+    height: -webkit-fill-available;
     background-color: #f6f7f8;
 }
 
@@ -151,12 +151,14 @@
     font-weight: 500;
     color: white;
     box-shadow: 0 0 6px 0 rgb(0, 0, 0, 0.2);
+    cursor: default;
 }
 
 .name {
     font-family: inter;
     font-size: 47px;
     font-weight: 500;
+    cursor: default;
 }
 
 .edit-del {
@@ -178,4 +180,17 @@
     align-items: center;
     gap: 51px;
     margin-left: 76px;
+}
+
+.edit-delete {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 13px;
+}
+
+.del {
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
 }
