@@ -18,6 +18,8 @@ function guestLogin() {
     window.location.href = "index.html";
 }
 
+
+
 function login() {
     let email = document.getElementById('email');
     let password = document.getElementById('password');
