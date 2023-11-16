@@ -1,3 +1,7 @@
+body {
+    display: block;
+}
+
 .contacts-div {
     display: flex;
     align-items: flex-start;

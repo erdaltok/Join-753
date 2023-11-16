@@ -35,3 +35,8 @@ function showCard() {
     </div>
     `;
 }
+
+function newContact() {
+    const openDiv = document.getElementById('newContact');
+    openDiv.style.display = 'flex';
+}

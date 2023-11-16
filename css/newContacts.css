@@ -1,0 +1,44 @@
+.new-contact {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    display: none;
+}
+
+.div-container {
+    width: 1212px;
+    height: 592px;
+    top: -2901px;
+    left: 42px;
+    border-radius: 30px;
+    background-color: #2a3647;
+}
+
+.new-text {
+    color: white;
+    font-family: inter;
+    font-weight: 700;
+    font-size: 61px;
+}
+
+.new-text-2 {
+    color: white;
+    font-family: inter;
+    font-weight: 400;
+    font-size: 27px;
+}
+
+.new-card {
+    position: relative;
+    left: 68px;
+    top: 148px;
+    line-height: 0.5;
+}
