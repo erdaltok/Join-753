@@ -86,7 +86,7 @@
                     <p class="initial-letter">A</p>
                     <div class="line"></div>
                 </div>
-                <div id="contact" onclick="changeColor()" class="contact">
+                <div id="contact" onclick="changeColor(); showCard();" class="contact">
                     <div>
                         <p class="initial">AM</p>
                     </div>
@@ -108,24 +108,7 @@
                     <p class="text-2">Better with a team</p>
                 </div>
             </div>
-            <div class="card">
-                <div>
-                    <p class="initial-2">BS</p>
-                </div>
-                <div>
-                    <h3 class="name">Alex Mustermann</h3>
-                    <div class="del">
-                        <div class="edit-delete">
-                            <img class="edit-del" src="/img/edit.png">
-                            <p class="edit-del">Edit</p>
-                        </div>
-                        <div class="edit-delete">
-                            <img class="edit-del" src="/img/delete.png">
-                            <p class="edit-del">Delete</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div id="card"></div>
         </div>
     </div>
 

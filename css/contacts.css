@@ -41,8 +41,6 @@
     background-color: #29abe2;
 }
 
-.contacts {}
-
 .initial-letter {
     font-family: inter;
     font-size: 20px;
@@ -78,6 +76,7 @@
     margin: 8px -30px 8px;
     font-weight: 400;
 }
+
 .contact {
     display: flex;
     justify-content: center;
@@ -193,4 +192,34 @@
     display: flex;
     justify-content: flex-start;
     gap: 30px;
+}
+
+.information {
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    position: absolute;
+    left: 86px;
+    cursor: default;
+}
+
+.info {
+    position: relative;
+    left: 86px;
+    top: 68px;
+}
+
+.info-1 {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: default;
+}
+
+.info-2 {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
 }
