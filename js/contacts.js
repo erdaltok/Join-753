@@ -41,7 +41,7 @@ function newContact() {
   openDiv.style.display = 'flex';
 }
 
-function close() {
+function closeNewContact() {
   let openDiv = document.getElementById('newContact');
   openDiv.style.display = 'none';
 }
