@@ -1,11 +1,11 @@
 function changeColor() {
-    let contactDiv = document.getElementById("contact");
-    contactDiv.classList.add("clicked");
+  let contactDiv = document.getElementById("contact");
+  contactDiv.classList.add("clicked");
 }
 
 function showCard() {
-    document.getElementById('card').innerHTML = ``;
-    document.getElementById('card').innerHTML = `
+  document.getElementById('card').innerHTML = ``;
+  document.getElementById('card').innerHTML = `
     <div class="card">
       <div>
         <p class="initial-2">BS</p>
@@ -37,6 +37,11 @@ function showCard() {
 }
 
 function newContact() {
-    const openDiv = document.getElementById('newContact');
-    openDiv.style.display = 'flex';
+  let openDiv = document.getElementById('newContact');
+  openDiv.style.display = 'flex';
+}
+
+function close() {
+  let openDiv = document.getElementById('newContact');
+  openDiv.style.display = 'none';
 }
