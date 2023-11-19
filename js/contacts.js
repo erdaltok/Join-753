@@ -15,7 +15,7 @@ function showCard() {
           <div class="del">
             <div class="edit-delete">
                 <img class="edit-del" src="/img/edit.png">
-                <p class="edit-del">Edit</p>
+                <p onclick="editContact()" class="edit-del">Edit</p>
             </div>
             <div class="edit-delete">
                 <img class="edit-del" src="/img/delete.png">
@@ -43,5 +43,15 @@ function newContact() {
 
 function closeNewContact() {
   let openDiv = document.getElementById('newContact');
+  openDiv.style.display = 'none';
+}
+
+function editContact() {
+  let openDiv = document.getElementById('editContact');
+  openDiv.style.display = 'flex';
+}
+
+function closeEditContact() {
+  let openDiv = document.getElementById('editContact');
   openDiv.style.display = 'none';
 }
