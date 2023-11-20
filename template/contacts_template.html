@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/css/desktop_template.css">
     <link rel="stylesheet" href="/css/contacts.css">
     <link rel="stylesheet" href="/css/newContacts.css">
-    
+
     <script src="/js/contacts.js"></script>
 </head>
 
@@ -81,23 +81,11 @@
     <!--ab hier contacts-->
     <div class="contacts-div">
         <div class="contacts-container">
-            <button onclick="newContact()" class="add-contacts-btn">Add new Contact<img
-                    src="/img/person_add.png"></button>
-            <div class="contacts"> <!--später in js übertragen-->
-                <div>
-                    <p class="initial-letter">A</p>
-                    <div class="line"></div>
-                </div>
-                <div id="contact" onclick="changeColor(); showCard();" class="contact">
-                    <div>
-                        <p class="initial">AM</p>
-                    </div>
-                    <div class="initial-text">
-                        <p>Alex Mustermann</p>
-                        <p>alex@gmail.com</p>
-                    </div>
-                </div>
-            </div>
+            <button onclick="newContact()" class="add-contacts-btn">Add new Contact<img src="/img/person_add.png">
+            </button>
+
+            <div id="advanceCard" class="contacts"></div>
+
         </div>
         <div class="contact-view">
             <div class="contact-header">
