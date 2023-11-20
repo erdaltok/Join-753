@@ -40,11 +40,13 @@ function showCard(name, email, phone) {
         <a class="info-2" href="tel:${phone}">${phone}</a>
       </div>
     `;
+
+    saveContactsToLocalStorage();
 }
 
 function advanceCard(name, email) {
     let initials = getInitials(name);
-  
+
     document.getElementById('advanceCard').innerHTML = `
       <div>
         <div>
@@ -62,8 +64,8 @@ function advanceCard(name, email) {
         </div>
       </div>
     `;
-  }
-  
+}
+
 
 function getInitials(name) {
     let splitName = name.split(' ');
@@ -120,6 +122,9 @@ function newContact() {
         </div>
     </div>
   `;
+
+    saveContactsToLocalStorage();
+
 }
 
 function closeNewContact() {
@@ -141,9 +146,37 @@ function createContact(event) {
     emails.push(email);
     phones.push(phone);
 
+    saveContactsToLocalStorage();
     showCard(name, email, phone);
-    advanceCard(name,email);
+    advanceCard(name, email);
     closeNewContact();
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    loadContacts();
+});
+
+function loadContacts() {
+    if (localStorage.getItem('contacts')) {
+        let storedContacts = JSON.parse(localStorage.getItem('contacts'));
+        names = storedContacts.names || [];
+        emails = storedContacts.emails || [];
+        phones = storedContacts.phones || [];
+
+        for (let i = 0; i < names.length; i++) {
+            showCard(names[i], emails[i], phones[i]);
+            advanceCard(names[i], emails[i]);
+        }
+    }
+}
+
+function saveContactsToLocalStorage() {
+    let contacts = {
+        names: names,
+        emails: emails,
+        phones: phones
+    };
+    localStorage.setItem('contacts', JSON.stringify(contacts));
 }
 
 function editContact() {
@@ -191,6 +224,9 @@ function editContact() {
             </div>
         </div>
   `;
+
+    saveContactsToLocalStorage();
+
 }
 
 function closeEditContact() {
