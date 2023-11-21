@@ -24,7 +24,7 @@ body {
 }
 
 .add-contacts-btn {
-    position: relative;
+    position: sticky;
     top: 48px;
     width: 352px;
     height: 56px;

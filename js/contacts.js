@@ -3,12 +3,7 @@ let emails = [];
 let phones = [];
 
 
-function changeColor() {
-    let contactDiv = document.getElementById("contact");
-    contactDiv.classList.add("clicked");
-}
-
-function showCard(name, email, phone) {
+function showCard(name, email, phone, index) {
     let initials = getInitials(name);
     document.getElementById('card').innerHTML = ``;
     document.getElementById('card').innerHTML = `
@@ -25,7 +20,7 @@ function showCard(name, email, phone) {
             </div>
             <div class="edit-delete">
               <img style="cursor: default;" class="edit-del" src="/img/delete.png">
-              <p class="edit-del">Delete</p>
+              <p class="edit-del" onclick="deleteContact(${index})">Delete</p>
             </div>
           </div>
         </div>
@@ -46,8 +41,10 @@ function showCard(name, email, phone) {
 
 function advanceCard(name, email) {
     let initials = getInitials(name);
+    let advanceCardContainer = document.getElementById('advanceCard');
 
-    document.getElementById('advanceCard').innerHTML = `
+    let newAdvanceCard = document.createElement('div');
+    newAdvanceCard.innerHTML = `
       <div>
         <div>
           <p class="initial-letter">${initials}</p>
@@ -64,7 +61,28 @@ function advanceCard(name, email) {
         </div>
       </div>
     `;
+
+    advanceCardContainer.appendChild(newAdvanceCard);
+
+      newAdvanceCard.querySelector('.contact').addEventListener('click', function() {
+        handleContactClick(this, name, email);
+    });
 }
+
+function handleContactClick(clickedContact, name, email) {
+    // Entferne die "clicked" Klasse von allen Kontakt-Elementen
+    let allContactElements = document.getElementsByClassName('contact');
+    for (let element of allContactElements) {
+        element.classList.remove('clicked');
+    }
+
+    // Füge die "clicked" Klasse nur dem gerade angeklickten Kontakt hinzu
+    clickedContact.classList.add('clicked');
+
+    // Zeige die Karte des ausgewählten Kontakts
+    showCard(name, email);
+}
+
 
 
 function getInitials(name) {
@@ -163,8 +181,11 @@ function loadContacts() {
         emails = storedContacts.emails || [];
         phones = storedContacts.phones || [];
 
+        document.getElementById('card').innerHTML = '';
+        document.getElementById('advanceCard').innerHTML = '';
+
         for (let i = 0; i < names.length; i++) {
-            showCard(names[i], emails[i], phones[i]);
+            showCard(names[i], emails[i], phones[i], i);
             advanceCard(names[i], emails[i]);
         }
     }
@@ -178,6 +199,22 @@ function saveContactsToLocalStorage() {
     };
     localStorage.setItem('contacts', JSON.stringify(contacts));
 }
+
+function deleteContact(index) {
+    names.splice(index, 1);
+    emails.splice(index, 1);
+    phones.splice(index, 1);
+
+    saveContactsToLocalStorage();
+    updateContactDisplay();
+}
+
+function updateContactDisplay() {
+    document.getElementById('card').innerHTML = '';
+
+    loadContacts();
+}
+
 
 function editContact() {
     let openDiv = document.getElementById('editContact');
