@@ -70,16 +70,13 @@ function advanceCard(name, email) {
 }
 
 function handleContactClick(clickedContact, name, email) {
-    // Entferne die "clicked" Klasse von allen Kontakt-Elementen
     let allContactElements = document.getElementsByClassName('contact');
     for (let element of allContactElements) {
         element.classList.remove('clicked');
     }
 
-    // Füge die "clicked" Klasse nur dem gerade angeklickten Kontakt hinzu
     clickedContact.classList.add('clicked');
 
-    // Zeige die Karte des ausgewählten Kontakts
     showCard(name, email);
 }
 
