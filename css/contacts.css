@@ -71,7 +71,11 @@ body {
 
 .initial-text {
     line-height: 0.5;
-    margin: 22px 90px 21px -50px;
+    margin: 22px 164px 21px -74px;
+    max-width: 86px;
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: ellipsis;
 }
 
 .line {

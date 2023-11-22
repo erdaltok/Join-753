@@ -39,35 +39,57 @@ function showCard(name, email, phone, index) {
     saveContactsToLocalStorage();
 }
 
+
 function advanceCard(name, email) {
-    let initials = getInitials(name);
+    let firstLetter = getFirstLetter(name);
     let advanceCardContainer = document.getElementById('advanceCard');
+    let existingLetterContainer = document.querySelector(`.letter-container[data-letter='${firstLetter}']`);
+
+    if (!existingLetterContainer) {
+        existingLetterContainer = document.createElement('div');
+        existingLetterContainer.className = 'letter-container';
+        existingLetterContainer.dataset.letter = firstLetter;
+
+        existingLetterContainer.innerHTML = `
+            <div>
+                <p class="initial-letter">${firstLetter}</p>
+                <div class="line"></div>
+            </div>
+        `;
+
+        advanceCardContainer.appendChild(existingLetterContainer);
+    }
 
     let newAdvanceCard = document.createElement('div');
     newAdvanceCard.innerHTML = `
-      <div>
+      <div id="contact" showCard('${name}', '${email}');" class="contact">
         <div>
-          <p class="initial-letter">${initials}</p>
-          <div class="line"></div>
+          <p class="initial">${getInitials(name)}</p>
         </div>
-        <div id="contact" onclick="changeColor(); showCard('${name}', '${email}');" class="contact">
-          <div>
-            <p class="initial">${initials}</p>
-          </div>
-          <div class="initial-text">
-            <p>${name}</p>
-            <p>${email}</p>
-          </div>
+        <div class="initial-text">
+          <p>${name}</p>
+          <p>${email}</p>
         </div>
       </div>
     `;
 
-    advanceCardContainer.appendChild(newAdvanceCard);
+    existingLetterContainer.appendChild(newAdvanceCard);
 
-      newAdvanceCard.querySelector('.contact').addEventListener('click', function() {
+    newAdvanceCard.querySelector('.contact').addEventListener('click', function () {
         handleContactClick(this, name, email);
     });
+
+    deleteContact();
 }
+
+
+function getFirstLetter(name) {
+    if (name && name.trim() !== '') {
+        return name.trim()[0].toUpperCase();
+    }
+    return 'A';
+}
+
 
 function handleContactClick(clickedContact, name, email) {
     let allContactElements = document.getElementsByClassName('contact');
@@ -77,9 +99,11 @@ function handleContactClick(clickedContact, name, email) {
 
     clickedContact.classList.add('clicked');
 
-    showCard(name, email);
-}
+    let index = names.indexOf(name);
+    clickedContact.dataset.index = index;
 
+    showCard(name, email, phones[index]);
+}
 
 
 function getInitials(name) {
@@ -90,6 +114,7 @@ function getInitials(name) {
     }
     return initials;
 }
+
 
 function newContact() {
     let openDiv = document.getElementById('newContact');
@@ -142,10 +167,12 @@ function newContact() {
 
 }
 
+
 function closeNewContact() {
     let openDiv = document.getElementById('newContact');
     openDiv.style.display = 'none';
 }
+
 
 function createContact(event) {
     event.preventDefault();
@@ -171,6 +198,7 @@ document.addEventListener('DOMContentLoaded', function () {
     loadContacts();
 });
 
+
 function loadContacts() {
     if (localStorage.getItem('contacts')) {
         let storedContacts = JSON.parse(localStorage.getItem('contacts'));
@@ -188,6 +216,7 @@ function loadContacts() {
     }
 }
 
+
 function saveContactsToLocalStorage() {
     let contacts = {
         names: names,
@@ -197,14 +226,22 @@ function saveContactsToLocalStorage() {
     localStorage.setItem('contacts', JSON.stringify(contacts));
 }
 
-function deleteContact(index) {
-    names.splice(index, 1);
-    emails.splice(index, 1);
-    phones.splice(index, 1);
 
-    saveContactsToLocalStorage();
-    updateContactDisplay();
+function deleteContact() {
+    let selectedContact = document.querySelector('.contact.clicked');
+
+    if (selectedContact) {
+        let index = selectedContact.dataset.index;
+
+        names.splice(index, 1);
+        emails.splice(index, 1);
+        phones.splice(index, 1);
+
+        saveContactsToLocalStorage();
+        updateContactDisplay();
+    }
 }
+
 
 function updateContactDisplay() {
     document.getElementById('card').innerHTML = '';
@@ -260,8 +297,8 @@ function editContact() {
   `;
 
     saveContactsToLocalStorage();
-
 }
+
 
 function closeEditContact() {
     let openDiv = document.getElementById('editContact');
