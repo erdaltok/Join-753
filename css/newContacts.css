@@ -14,10 +14,10 @@
 }
 
 .div-container {
+    display: flex;
+    justify-content: space-between;
     width: 1212px;
     height: 592px;
-    top: -2901px;
-    left: 42px;
     border-radius: 30px;
     background-color: #2a3647;
 }
@@ -27,6 +27,7 @@
     font-family: inter;
     font-weight: 700;
     font-size: 61px;
+    cursor: default;
 }
 
 .new-text-2 {
@@ -34,6 +35,7 @@
     font-family: inter;
     font-weight: 400;
     font-size: 27px;
+    cursor: default;
 }
 
 .new-card {
@@ -41,4 +43,118 @@
     left: 68px;
     top: 148px;
     line-height: 0.5;
+}
+
+.div-input {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    width: 707px;
+}
+
+.picture {
+    background-color: #d1d1d1;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    box-shadow: 0 0 6px 0 rgb(0, 0, 0, 0.2);
+}
+
+.picture-div {
+    position: relative;
+    left: 38px;
+    top: -34px;
+}
+
+.close {
+    position: relative;
+    top: -258px;
+    left: 538px;
+    cursor: pointer;
+}
+
+.div-input-fields {
+    position: relative;
+    left: 66px;
+    top: 41px;
+}
+
+.input-fields {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 36px;
+    background-color: white;
+    border: 1px solid #d1d1d1;
+    width: 422px;
+    height: auto;
+    border-radius: 10px;
+    padding: 12px 21px;
+}
+
+input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 20px;
+}
+
+.icon-1 {
+    color: #a8a8a8;
+    width: 20px;
+    height: 16px;
+}
+
+.icon-2 {
+    color: #a8a8a8;
+    width: 18px;
+    height: 21px;
+}
+
+.create-btn {
+    width: 214px;
+    height: 57px;
+    font-size: 21px;
+    font-weight: 700;
+    border-radius: 10px;
+    background-color: #2A3647;
+    color: white;
+    font-family: inter;
+    cursor: pointer;
+    border: none;
+    margin: 45px;
+    margin-right: 6px;
+}
+
+.create-btn:hover {
+    background-color: rgb(41, 171, 226);
+}
+
+.cancel-btn {
+    width: 126px;
+    height: 56px;
+    font-size: 20px;
+    font-weight: 400;
+    border-radius: 10px;
+    background-color:white;
+    color: #2A3647;
+    font-family: inter;
+    cursor: pointer;
+    margin: 45px;
+}
+
+.cancel-btn:hover {
+    color: #29abe2;
+    border-color: #29abe2;
+}
+
+.buttons {
+    position: relative;
+    right: 45px;
+    top: -33px;
 }

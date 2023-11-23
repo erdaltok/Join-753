@@ -6,16 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacts</title>
 
-    <link rel="stylesheet" href="/css/contacts.css">
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/fonts.css">
     <link rel="stylesheet" href="/css/desktop_template.css">
     <link rel="stylesheet" href="/css/contacts.css">
     <link rel="stylesheet" href="/css/newContacts.css">
+
     <script src="/js/contacts.js"></script>
+    <script src="/js/main.js"></script>
 </head>
 
-<body>
+<body onload="loadContacts()"> 
     <div id="desktopTemplate">
 
 
@@ -78,26 +79,14 @@
 
     </div>
 
+    <!--ab hier contacts-->
     <div class="contacts-div">
         <div class="contacts-container">
-            <button onclick="newContact()" class="add-contacts-btn">Add new Contact <img
-                    src="/img/person_add.png"></button>
+            <button onclick="newContact()" class="add-contacts-btn">Add new Contact<img src="/img/person_add.png">
+            </button>
 
-            <div class="contacts"> <!--später in js übertragen-->
-                <div>
-                    <p class="initial-letter">A</p>
-                    <div class="line"></div>
-                </div>
-                <div id="contact" onclick="changeColor(); showCard();" class="contact">
-                    <div>
-                        <p class="initial">AM</p>
-                    </div>
-                    <div class="initial-text">
-                        <p>Alex Mustermann</p>
-                        <p>alex@gmail.com</p>
-                    </div>
-                </div>
-            </div>
+            <div id="advanceCard" class="contacts"></div>
+
         </div>
         <div class="contact-view">
             <div class="contact-header">
@@ -113,16 +102,11 @@
             <div id="card"></div>
         </div>
     </div>
-    <div id="newContact" class="new-contact">
-        <div class="div-container">
-            <div class="new-card">
-                <img src="/img/icon2.png">
-                <h1 class="new-text">Add contact</h1>
-                <p class="new-text-2">Tasks are better with a team</p>
-            </div>
-        </div>
 
-    </div>
+    <div id="newContact" class="new-contact"></div>
+
+    <div id="editContact" class="new-contact"></div>
+
 </body>
 
 </html>
