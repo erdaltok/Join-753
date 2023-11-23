@@ -34,24 +34,26 @@
 
             <div class="summary-card-container">
 
-                <div class="first-row">
-
-                    <a href="#" class="first-row-box left-box">
-                        <img src="/img/pen-icon.svg" alt="">
-                        <div class="d-flex">
-                            <div class="summary-count" id="todo-count">2</div>
-                            <span>To-do</span>
-                        </div>
-                    </a>
-
-                    <a href="#" class="first-row-box left-box">
-                        <img src="/img/checkmark-icon.svg" alt="">
-                        <div class="d-flex">
-                            <div class="summary-count" id="done-count">2</div>
-                            <span>Done</span>
-                        </div>
-                    </a>
-                </div>
+            <div class="first-row">
+                <a href="#" class="first-row-box left-box" onmouseover="this.querySelector('img').src='/img/pen-icon-whiteBg.svg';"
+                    onmouseout="this.querySelector('img').src='/img/pen-icon.svg';">
+                    <img src="/img/pen-icon.svg" alt="">
+                    <div class="d-flex">
+                        <div class="summary-count" id="todo-count">2</div>
+                        <span>To-do</span>
+                    </div>
+                </a>
+            
+                <a href="#" class="first-row-box right-box"
+                    onmouseover="this.querySelector('img').src='/img/checkmark-icon-whiteBg.svg';"
+                    onmouseout="this.querySelector('img').src='/img/checkmark-icon.svg';">
+                    <img src="/img/checkmark-icon.svg" alt="">
+                    <div class="d-flex">
+                        <div class="summary-count" id="done-count">2</div>
+                        <span>Done</span>
+                    </div>
+                </a>
+            </div>
 
                 <div class="second-row">
 
