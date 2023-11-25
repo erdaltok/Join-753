@@ -211,3 +211,44 @@ footer {
     font-family: inter;
     border: none;
 }
+
+@media(max-width: 800px) {
+    .signup-window {
+        padding: 48px 0px 0px 0px;
+    }
+
+    .back-arrow {
+        left: 63px;
+    }
+}
+
+@media(max-width: 550px) {
+    .input-fields {
+        width: 275px;
+    }
+
+    .back-arrow {
+        left: 32px;
+    }
+}
+
+@media(max-width: 400px) {
+    .signup-window {
+        width: 328px;
+    }
+
+    .back-arrow {
+        left: 3px;
+    }
+
+    .logo {
+        position: relative;
+        top: -32px;
+        left: 28%;
+    }
+
+    .signup-button {
+        position: relative;
+        right: 28px;
+    }
+}

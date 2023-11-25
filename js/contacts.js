@@ -107,12 +107,15 @@ function handleContactClick(clickedContact, name, email) {
 
 
 function getInitials(name) {
-    let splitName = name.split(' ');
-    let initials = '';
-    for (let i = 0; i < splitName.length; i++) {
-        initials += splitName[i][0].toUpperCase();
+    if (name && name.trim() !== '') {
+        let splitName = name.split(' ');
+        let initials = '';
+        for (let i = 0; i < splitName.length; i++) {
+            initials += splitName[i][0].toUpperCase();
+        }
+        return initials;
     }
-    return initials;
+    return '';
 }
 
 

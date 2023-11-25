@@ -1,12 +1,16 @@
 body {
     display: block;
+    overflow: hidden;
+    max-width: 100%;
 }
 
 .contacts-div {
     display: flex;
     align-items: flex-start;
     padding-left: 243px;
-    margin-top: 96px;
+    margin-top: 113px;
+    position: relative;
+    right: 0;
 }
 
 .contacts-container {

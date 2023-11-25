@@ -13,7 +13,7 @@ body {
     background-color: #f6f7f8;
     height: 100vh;
     margin: 0;
-    overflow: hidden;
+    overflow: scroll;
 }
 
 .logo-container {
@@ -36,6 +36,10 @@ body.animate .logo {
     top: 80px;
     left: 77px;
     transform: scale(0.36);
+}
+
+.not-user-div {
+    display: block;
 }
 
 .not-user {
@@ -208,7 +212,7 @@ input {
     font-size: 21px;
     font-weight: 700;
     border-radius: 8px;
-    background-color:white;
+    background-color: white;
     color: #2A3647;
     font-family: inter;
     cursor: pointer;
@@ -240,4 +244,73 @@ footer {
 .link:hover {
     color: #29abe2;
     font-weight: bold;
+}
+
+@media(max-width: 800px) {
+    .log-in-window {
+        padding: 48px 0px 0px 0px;
+    }
+}
+
+@media (max-width: 550px) {
+    .not-user-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .input-fields {
+        width: 275px;
+    }
+
+    .log-in-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .log-in-btn {
+        position: relative;
+        right: 25px;
+    }
+
+    .remember-me {
+        position: relative;
+        left: 47px;
+    }
+
+    .log-in-window {
+        padding: 16px 0px 0px 0px;
+    }
+}
+
+@media (max-width: 425px) {
+    body.animate .logo {
+        top: 24px;
+        left: 44%;
+        width: 86px;
+    }
+
+    .not-user-div {
+        position: relative;
+        right: 24px;
+    }
+
+    .log-in-window {
+        width: 332px;
+    }
+
+    .not-user {
+        font-size: 12px;
+    }
+
+    .not-user-div {
+        right: 48px;
+    }
+}
+
+@media (max-hight: 1040px) {
+    footer {
+        bottom: -270px;
+    }
 }
