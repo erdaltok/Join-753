@@ -36,7 +36,7 @@
     background: #FFF;
 }
 
-.search-btn{
+.search-btn {
     display: flex;
 }
 
@@ -241,6 +241,7 @@
 .task-small-box-content textarea:focus {
     outline: 0;
 }
+
 .task-small-box-content {
     display: flex;
     flex-direction: column;
@@ -493,6 +494,7 @@
     border-radius: 10px;
     border: 1px solid var(--Style, #D1D1D1);
     background: #FFF;
+    width: auto;
 }
 
 .inputTitleAddTask {
@@ -594,6 +596,7 @@
     border: 1px solid var(--Style, #D1D1D1);
     background: url(/img/arrow_drop_down.svg) no-repeat scroll;
     background-position: right;
+    width: auto;
 }
 
 
@@ -629,6 +632,7 @@
     background: #FFF;
     position: relative;
     color: #000;
+    width: auto;
 }
 
 .titleDateAddTaskBoard input[type=date]:invalid::-webkit-datetime-edit {
@@ -689,7 +693,7 @@ input {
     background: var(--white, #FFF);
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
     filter: none;
-    width: 121px;
+    width: 109px;
     height: 17px;
     color: #000;
     font-size: 20px;
@@ -844,11 +848,19 @@ input {
 
 .formFooter {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 64px;
-
+        /* margin-top: 64px; */
+        /* margin-bottom: 2px !important; */
+        position: fixed;
+        background: #fff;
+        bottom: 120px;
+        /* top: 64px; */
+        align-items: center;
+        justify-content: space-between;
+        right: 213px;
+        width: 67%;
 }
+
+
 
 .footerButtonsAddTask {
     display: flex;
@@ -1000,7 +1012,7 @@ li:hover {
 }
 
 .BigTaskPopUp {
-    max-width: 396px;
+    max-width: 550px;
     width: 100%;
     max-height: calc(100vh - 0px);
     border-radius: 30px;
@@ -1008,15 +1020,200 @@ li:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     background-color: white;
-    padding: 32px 0;
+
 
 }
 
 .BigTaskContent {
-    width: 348px;
     display: flex;
     flex-direction: column;
+    gap: 24px;
+    margin: 48px 40px 48px 40px;
+}
+
+
+.label-big-box {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.label-big-box span {
+    color: #FFF;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    color: #FFF;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    background: #1FD7C1;
+    padding: 4px 16px;
+    border-radius: 8px;
+}
+
+.titleAndDescriptionBigBox {
+    gap: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.titleAndDescriptionBigBox h1 {
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    color: var(--black, #000);
+    font-size: 61px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    align-self: stretch;
+}
+
+.titleAndDescriptionBigBox p {
+    color: var(--black, #000);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    align-self: stretch;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+
+.dueDate {
+    display: flex;
+    align-items: center;
+    align-items: flex-start;
+    gap: 25px;
+    align-self: stretch;
+}
+
+.dueDate span {
+    color: var(--version-2-main-color, #2A3647);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.dueDate p {
+    color: var(--black, #000);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+
+.priorityBigBox {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.selectedPriorityBigBox {
+    display: flex;
+    gap: 10px;
+}
+
+.priorityBigBox span {
+    color: var(--version-2-main-color, #2A3647);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.priorityBigBox p {
+    color: var(--black, #000);
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+
+.assignedBigBox {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.assignedBigBox span {
+    color: var(--version-2-main-color, #2A3647);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    align-self: stretch;
+}
+
+.subtasksBigBox {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 24px;
+
+}
+
+.subtasksBigBox span {
+    color: var(--version-2-main-color, #2A3647);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    align-self: stretch;
+}
+
+.addedSubstaskList {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.subtaskBigBoxContent {
+    display: flex;
     gap: 16px;
+
+}
+
+.subtaskBigBoxContent span {
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.footerBigBox {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.deleteBigBoxFooter,
+.editBigBoxFooter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+}
+
+.deleteBigBoxFooter span,
+.editBigBoxFooter span {
+    color: var(--version-2-main-color, #2A3647);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    display: flex;
+    align-items: center;
 }
