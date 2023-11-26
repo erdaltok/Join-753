@@ -235,3 +235,35 @@ body {
     font-weight: 400;
     text-decoration: none;
 }
+
+@media (max-width: 1360px) {
+    .contact-text {
+        flex-direction: column;
+        align-items: center;
+        gap: 0px;
+        line-height: 0;
+    }
+
+    svg {
+        display: none;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        margin-top: 150px;
+        align-items: center;
+        gap: 0px;
+        margin-left: 27%;
+    }
+
+    .information {
+      left: 50%;
+      line-height: 78px;
+
+    }
+
+    .info {
+       left: 50%;
+    }
+}

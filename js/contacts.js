@@ -3,43 +3,7 @@ let emails = [];
 let phones = [];
 
 
-function showCard(name, email, phone, index) {
-    let initials = getInitials(name);
-    document.getElementById('card').innerHTML = ``;
-    document.getElementById('card').innerHTML = `
-      <div class="card">
-        <div>
-        <p class="initial-2">${initials}</p>
-        </div>
-        <div style="line-height: 0.1;">
-          <h3 class="name">${name}</h3>
-          <div class="del">
-            <div class="edit-delete">
-              <img style="cursor: default;" class="edit-del" src="/img/edit.png">
-              <p onclick="editContact()" class="edit-del">Edit</p>
-            </div>
-            <div class="edit-delete">
-              <img style="cursor: default;" class="edit-del" src="/img/delete.png">
-              <p class="edit-del" onclick="deleteContact(${index})">Delete</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="information">
-        <p>Kontaktinformationen</p>
-      </div>
-      <div class="info">
-        <p class="info-1">E-Mail</p>
-        <a class="info-2" href="mailto:${email}">${email}</a>
-        <p class="info-1">Telefon</p>
-        <a class="info-2" href="tel:${phone}">${phone}</a>
-      </div>
-    `;
-
-    saveContactsToLocalStorage();
-}
-
-
+// Funktion zum Erstellen einer neuen Kontaktkarte und Hinzufügen zum AdvanceCard-Bereich.
 function advanceCard(name, email) {
     let firstLetter = getFirstLetter(name);
     let advanceCardContainer = document.getElementById('advanceCard');
@@ -83,6 +47,45 @@ function advanceCard(name, email) {
 }
 
 
+// Funktion zum Anzeigen der ausgewählten Kontaktinformationen in der Detailansichtskarte.
+function showCard(name, email, phone, index) {
+    let initials = getInitials(name);
+    document.getElementById('card').innerHTML = ``;
+    document.getElementById('card').innerHTML = `
+      <div class="card">
+        <div>
+        <p class="initial-2">${initials}</p>
+        </div>
+        <div style="line-height: 0.1;">
+          <p class="name">${name}</p>
+          <div class="del">
+            <div class="edit-delete">
+              <img style="cursor: default;" class="edit-del" src="/img/edit.png">
+              <p onclick="editContact()" class="edit-del">Edit</p>
+            </div>
+            <div class="edit-delete">
+              <img style="cursor: default;" class="edit-del" src="/img/delete.png">
+              <p class="edit-del" onclick="deleteContact(${index})">Delete</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="information">
+        <p>Contact Information</p>
+      </div>
+      <div class="info">
+        <p class="info-1">E-Mail</p>
+        <a class="info-2" href="mailto:${email}">${email}</a>
+        <p class="info-1">Telefon</p>
+        <a class="info-2" href="tel:${phone}">${phone}</a>
+      </div>
+    `;
+
+    saveContactsToLocalStorage();
+}
+
+
+// Funktion zum Extrahieren des ersten Buchstabens aus einem Namen für die Kategorisierung.
 function getFirstLetter(name) {
     if (name && name.trim() !== '') {
         return name.trim()[0].toUpperCase();
@@ -91,6 +94,7 @@ function getFirstLetter(name) {
 }
 
 
+// Funktion zum Aktualisieren des ausgewählten Kontakts und Anzeigen der Detailansicht.
 function handleContactClick(clickedContact, name, email) {
     let allContactElements = document.getElementsByClassName('contact');
     for (let element of allContactElements) {
@@ -106,6 +110,7 @@ function handleContactClick(clickedContact, name, email) {
 }
 
 
+// Funktion zum Extrahieren der Initialen aus einem Namen.
 function getInitials(name) {
     if (name && name.trim() !== '') {
         let splitName = name.split(' ');
@@ -119,6 +124,7 @@ function getInitials(name) {
 }
 
 
+// Funktion zum Öffnen des Formulars zum Hinzufügen eines neuen Kontakts.
 function newContact() {
     let openDiv = document.getElementById('newContact');
     openDiv.style.display = 'flex';
@@ -171,12 +177,14 @@ function newContact() {
 }
 
 
+// Funktion zum Schließen des Formulars zum Hinzufügen eines neuen Kontakts.
 function closeNewContact() {
     let openDiv = document.getElementById('newContact');
     openDiv.style.display = 'none';
 }
 
 
+// Funktion zum Erstellen eines neuen Kontakts basierend auf den Formulareingaben.
 function createContact(event) {
     event.preventDefault();
     let nameInput = document.querySelector('.input-fields input[placeholder="Name"]');
@@ -197,11 +205,13 @@ function createContact(event) {
     closeNewContact();
 }
 
+// Funktion zum Laden der gespeicherten Kontakte beim Start der Seite.
 document.addEventListener('DOMContentLoaded', function () {
     loadContacts();
 });
 
 
+// Funktion zum Laden der Kontakte aus dem lokalen Speicher und Anzeigen im AdvanceCard-Bereich.
 function loadContacts() {
     if (localStorage.getItem('contacts')) {
         let storedContacts = JSON.parse(localStorage.getItem('contacts'));
@@ -209,17 +219,18 @@ function loadContacts() {
         emails = storedContacts.emails || [];
         phones = storedContacts.phones || [];
 
-        document.getElementById('card').innerHTML = '';
         document.getElementById('advanceCard').innerHTML = '';
 
         for (let i = 0; i < names.length; i++) {
-            showCard(names[i], emails[i], phones[i], i);
             advanceCard(names[i], emails[i]);
         }
+    } else {
+        document.getElementById('advanceCard').innerHTML = 'Keine Kontakte verfügbar.';
     }
 }
 
 
+// Funktion zum Speichern der Kontakte im lokalen Speicher.
 function saveContactsToLocalStorage() {
     let contacts = {
         names: names,
@@ -230,6 +241,7 @@ function saveContactsToLocalStorage() {
 }
 
 
+// Funktion zum Löschen eines ausgewählten Kontakts.
 function deleteContact() {
     let selectedContact = document.querySelector('.contact.clicked');
 
@@ -246,6 +258,7 @@ function deleteContact() {
 }
 
 
+// Funktion zum Aktualisieren der Kontaktanzeige.
 function updateContactDisplay() {
     document.getElementById('card').innerHTML = '';
 
@@ -253,6 +266,7 @@ function updateContactDisplay() {
 }
 
 
+// Funktion zum Öffnen des Formulars zum Bearbeiten eines Kontakts.
 function editContact() {
     let selectedContact = document.querySelector('.contact.clicked');
 
@@ -308,6 +322,7 @@ function editContact() {
 }
 
 
+// Funktion zum Speichern der bearbeiteten Kontaktdaten.
 function saveEditedContact(event, index) {
     event.preventDefault();
     let nameInput = document.querySelector('.input-fields input[placeholder="Name"]');
@@ -329,6 +344,7 @@ function saveEditedContact(event, index) {
 }
 
 
+// Funktion zum Löschen eines bearbeiteten Kontakts.
 function deleteEditedContact(index) {
     let selectedContact = document.querySelector('.contact.clicked');
 
@@ -345,7 +361,7 @@ function deleteEditedContact(index) {
 }
 
 
-
+// Funktion zum Schließen des Formulars zum Bearbeiten eines Kontakts.
 function closeEditContact() {
     let openDiv = document.getElementById('editContact');
     openDiv.style.display = 'none';
