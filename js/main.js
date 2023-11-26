@@ -159,26 +159,32 @@ function toggleContactList() {
 }
 
 
-// PRÜFEN !!!! Funktioniert, aber Fehlermeldung in der Console wg. DOM 
-document.addEventListener("click", function (event) {
+window.addEventListener("click", function (event) {
   const contactInput = document.getElementById("idTitleSelectContactsAddTask");
   const contactList = document.querySelector(".listSelectableContacts");
 
-  // Prüfen, ob das geklickte Element weder das Eingabefeld noch ein Teil der Liste ist
-  if (
-    !contactInput.contains(event.target) &&
-    !contactList.contains(event.target)
-  ) {
-    // Kontaktliste und Hintergrund des Eingabefelds zurücksetzen
-    contactList.style.display = "none";
-    contactInput.style.background =
-      "url(/img/arrow_drop_down.svg) no-repeat scroll right";
+  // Sicherstellen, dass beide Elemente existieren, bevor die contains-Methode aufgerufen wird
+  if (contactInput && contactList) {
+    if (
+      !contactInput.contains(event.target) &&
+      !contactList.contains(event.target)
+    ) {
+      // Kontaktliste und Hintergrund des Eingabefelds zurücksetzen
+      contactList.style.display = "none";
+      contactInput.style.background =
+        "url(/img/arrow_drop_down.svg) no-repeat scroll right";
 
-    // Anzeigen des Containers mit den ausgewählten Kontakten
-    document.getElementById("addedContactsProfilBadges").style.display =
-      "block";
+      // Anzeigen des Containers mit den ausgewählten Kontakten
+      document.getElementById("addedContactsProfilBadges").style.display =
+        "block";
+    }
   }
 });
+
+
+
+
+
 
 // Globale Variable zur Speicherung der ausgewählten Kontakte
 let selectedContacts = [];
