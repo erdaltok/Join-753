@@ -10,12 +10,16 @@
     <link rel="stylesheet" href="/fonts.css">
     <link rel="stylesheet" href="/css/desktop_template.css">
     <link rel="stylesheet" href="/css/board.css">
+    <link rel="stylesheet" href="/css/addTaskInBoardPage.css">
     <!-- <link rel="stylesheet" href="/css/addTask.css"> -->
 
 
     <script src="/js/storage.js"></script>
     <script src="/js/main.js"></script>
+    <script src="/js/summary.js"></script>
+    <script src="/js/boardHtmlTemplates.js"></script>
     <script src="/js/w3IncludeHtml.js"></script>
+    <script src="/js/board.js"></script>
     <!-- <script src="/js/addTask.js"></script> -->
     
 
@@ -61,7 +65,7 @@
                 <div class="todo-column">
                     <div class="column-title">
                         <span>To do</span>
-                        <img src="/img/plus-icon-board-column.svg" alt="">
+                        <img src="/img/plus-icon-board-column.svg" onclick="addNewTaskBoard()">
                     </div>
 
                     <div class="column-content drag-area" id="todo" ondrop="moveTo('todo')"

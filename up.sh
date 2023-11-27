@@ -1,4 +1,4 @@
 git pull
 git add .
-git commit -m "E"
+git commit -m "create new files in js an css"
 git push
