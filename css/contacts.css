@@ -17,13 +17,13 @@ body {
     width: 400px;
     min-width: 430px;
     height: 100vh;
-    margin-top: 72px;
+    margin-top: -14px;
     display: flex;
     flex-direction: column;
     align-items: center;
     background: #FFF;
     overflow-y: scroll;
-    height: calc(100vh - 185px);
+    /*height: calc(100vh - 185px);*/
     gap: 76px;
 }
 
@@ -116,6 +116,9 @@ body {
 }
 
 .contact-view {
+    display: flex;
+    flex-direction: column;
+    margin-top: -16px;
     position: absolute;
     right: 0px;
     left: 672px;
@@ -132,6 +135,7 @@ body {
 .contact-text {
     display: flex;
     align-items: center;
+    margin-top: -96px;
     gap: 36px;
     cursor: default;
 }
@@ -236,10 +240,16 @@ body {
     text-decoration: none;
 }
 
+.name-div {
+    line-height: 0.1;
+}
+
 @media (max-width: 1360px) {
     .contact-text {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
+        margin-left: -70px;
+        margin-top: -96px;
         gap: 0px;
         line-height: 0;
     }
@@ -252,18 +262,64 @@ body {
         display: flex;
         flex-direction: column;
         margin-top: 150px;
-        align-items: center;
+        align-items: flex-start;
         gap: 0px;
-        margin-left: 27%;
+        margin-left: 15px;
     }
 
     .information {
-      left: 50%;
-      line-height: 78px;
+        left: 15px;
+        line-height: 78px;
+        top: 498px;
 
     }
 
     .info {
-       left: 50%;
+        left: 15px;
+        top: 5px;
+    }
+
+    .name-div {
+        position: relative;
+        top: -78px;
+        line-height: normal;
+    }
+
+    .del {
+        margin-top: -34px;
+        gap: 20px;
     }
 }
+
+@media (max-width: 955px) {
+    .text-1 {
+        font-size: 36px;
+    }
+
+    .text-2 {
+        font-size: 16px;
+    }
+
+    .name {
+        font-size: 37px;
+    }
+
+    .desktop-navbar {
+        width: 128px;
+    }
+
+    .desktop-navbar-menu {
+        align-items: center;
+    }
+
+    .contacts-container {
+        width: 370px;
+        min-width: 370px;
+        margin-left: -114px;
+        align-items: flex-start;
+    }
+
+    .contact-view {
+        left: 498px;
+    }
+}   

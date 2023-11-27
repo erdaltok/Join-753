@@ -56,7 +56,7 @@ function showCard(name, email, phone, index) {
         <div>
         <p class="initial-2">${initials}</p>
         </div>
-        <div style="line-height: 0.1;">
+        <div class = name-div>
           <p class="name">${name}</p>
           <div class="del">
             <div class="edit-delete">
