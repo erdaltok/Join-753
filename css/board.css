@@ -275,7 +275,7 @@
 
 
 .drag-area {
-    min-height: 400px;
+    min-height: 1000px;
     margin-bottom: 50px;
     display: flex;
     align-items: flex-start;

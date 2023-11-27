@@ -15,10 +15,14 @@
 
     <script src="/js/contacts.js"></script>
     <script src="/js/main.js"></script>
+    <script src="/js/w3IncludeHtml.js"></script>
 </head>
 
-<body onload="loadContacts()"> 
-    <div id="desktopTemplate">
+<body onload="loadContacts(); init();"> 
+
+<div w3-include-html="/template/desktop_template.html"></div>
+
+    <!-- <div id="desktopTemplate">
 
 
         <div class="desktop-header">
@@ -57,11 +61,11 @@
                     <img src="/img/addTask-icon.svg" />
                     <span>Add Task</span>
                 </a>
-                <a href="#" onclick="showBoard()" class="menu-links">
+                <a href="/template/board_template.html" onclick="showBoard()" class="menu-links">
                     <img src="/img/board-icon.svg" />
                     <span>Board</span>
                 </a>
-                <a href="#" onclick="showContacts()" class="menu-links">
+                <a href="/template/contacts_template.html" onclick="showContacts()" class="menu-links">
                     <img src="/img/contacts-icon.svg" />
                     <span>Contacts</span>
                 </a>
@@ -78,7 +82,7 @@
 
         </div>
 
-    </div>
+    </div> -->
 
     <!--ab hier contacts-->
     <div class="contacts-div">

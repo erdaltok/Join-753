@@ -1,48 +1,41 @@
-function initPage() {
-  showSummary();
+let tasks = [];
+let selectedContacts = [];
+let subtasks = [];
+let totalSubtasks = 0;
+let completedSubtasks = 0;
+
+async function initPage() { 
+  await loadTasksFromStorage();
+  
 }
 
-// LOAD TEAMPLATES FROM NAVBAR
 
-async function loadTemplate(templateName, targetElementId) {
-  let targetElement = document.getElementById(targetElementId);
+// ADD TASK IN BOARD PAGE
 
+async function saveTasksToStorage() {
+  await setItem("tasks", tasks);
+}
+
+async function loadTasksFromStorage() {
   try {
-    let response = await fetch(`/template/${templateName}_template.html`);
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
+    const loadedTasks = await getItem("tasks");
+    if (!loadedTasks) {
+      tasks = [];
+      return;
     }
-    let data = await response.text();
-    targetElement.innerHTML = data;
-
+    tasks = Array.isArray(loadedTasks) ? loadedTasks : JSON.parse(loadedTasks);
+    renderTasks(); // Funktion zum Rendern der Tasks
   } catch (error) {
-    console.error("Ein Fehler ist aufgetreten:", error);
+    console.error("Fehler beim Laden der Tasks:", error);
   }
 }
 
-
-
-function guestLogin() {
-  showSummary(); // Lädt die Summary-Seite, wenn Guest Log in geklickt wird
+function renderTasks() {
+  console.log(document.getElementById("todo")); // Sollte das Element ausgeben, nicht null
+  tasks.forEach((task) => {
+    addTaskToBoard(task);
+  });
 }
-
-function showSummary() {
-  loadTemplate("summary", "mainContent");
-}
-
-function showBoard() {
-  loadTemplate("board", "mainContent");
-}
-
-function showAddTasks() {
-  loadTemplate("addTask", "mainContent");
-}
-
-function showContacts() {
-  loadTemplate("contacts", "mainContent");
-}
-
-// ADD TASK IN BOARD PAGE
 
 function getCategoryBackgroundColor(category) {
   switch (category) {
@@ -56,10 +49,7 @@ function getCategoryBackgroundColor(category) {
 }
 
 function addNewTaskBoard() {
-  // Zugriff auf das Pop-up-Formular über die Klasse
   let popup = document.querySelector(".addTaskFormPopUp");
-
-  // Anzeigen des Pop-up-Formulars
   popup.style.display = "block";
 }
 
@@ -68,9 +58,6 @@ function closeAddTaskForm() {
   let popup = document.querySelector(".addTaskFormPopUp");
   popup.style.display = "none";
 }
-
-// Globale Variable zur Speicherung der Tasks
-let tasks = [];
 
 function getFormData() {
   return {
@@ -99,39 +86,46 @@ function getAssignedContactsSVGs() {
   );
 }
 
+function getSubtasks() {
+  const subtaskListElement = document.getElementById("addedSubstaskList");
+  const subtaskElements = subtaskListElement.querySelectorAll("li");
+  const subtasks = Array.from(subtaskElements).map((subtaskElement) => {
+    return {
+      text: subtaskElement.querySelector("span").textContent.trim(),
+      completed: false, 
+    };
+  });
+
+  return subtasks;
+}
+
 function createTask() {
   const formData = getFormData();
   const priorityImage = getActivePriorityImage();
   const assignedContactsSVGs = getAssignedContactsSVGs();
 
-  // Neues Task Element erstellen
+  const subtasks = getSubtasks(); 
   const newTask = {
     id: Date.now(),
-    ...formData, // "..." bedeutet: Spread-Operator. Damit kann man alle Eigenschaften von formData hier einzufügen, ohne sie einzeln aufzuführen
+    ...formData,
     priorityImage,
     assignedContactsSVGs,
+    subtasks, 
   };
 
   tasks.push(newTask);
   closeAddTaskForm();
   addTaskToBoard(newTask);
+  saveTasksToStorage();
 }
 
 function addTaskToBoard(task) {
   const todoColumn = document.getElementById("todo");
-
-  // Hintergrundfarbe und Bildpfad für Priorität 
   const backgroundColor = getCategoryBackgroundColor(task.category);
-
-  // Erstellen des Task-HTML
-  const taskHtml = createTaskHtml(task, backgroundColor);
-
-  // Hinzufügen des neuen Task-HTML zum 'todo'-Element
-  todoColumn.innerHTML += taskHtml;
+  todoColumn.innerHTML += createTaskHtml(task, backgroundColor);
 }
 
 // CONTACT-LIST IN ADD TASK ON BOARD PAGE
-
 function toggleContactList() {
   const contactInput = document.getElementById("idTitleSelectContactsAddTask");
   const contactList = document.querySelector(".listSelectableContacts");
@@ -140,54 +134,31 @@ function toggleContactList() {
   );
 
   if (contactList.style.display === "block") {
-    // Kontaktliste schließen
     contactList.style.display = "none";
-    contactInput.style.background =
-      "url(/img/arrow_drop_down.svg) no-repeat scroll right";
-
-    // Anzeigen des Containers mit den ausgewählten Kontakten
+    contactInput.style.background = "url(/img/arrow_drop_down.svg) no-repeat scroll right";
     addedContactsContainer.style.display = "block";
   } else {
-    // Kontaktliste öffnen
     contactList.style.display = "block";
-    contactInput.style.background =
-      "url(/img/arrow_drop_up.svg) no-repeat scroll right";
-
-    // Verstecken des Containers mit den ausgewählten Kontakten
+    contactInput.style.background = "url(/img/arrow_drop_up.svg) no-repeat scroll right";
     addedContactsContainer.style.display = "none";
   }
 }
-
 
 window.addEventListener("click", function (event) {
   const contactInput = document.getElementById("idTitleSelectContactsAddTask");
   const contactList = document.querySelector(".listSelectableContacts");
 
-  // Sicherstellen, dass beide Elemente existieren, bevor die contains-Methode aufgerufen wird
   if (contactInput && contactList) {
     if (
       !contactInput.contains(event.target) &&
       !contactList.contains(event.target)
     ) {
-      // Kontaktliste und Hintergrund des Eingabefelds zurücksetzen
       contactList.style.display = "none";
-      contactInput.style.background =
-        "url(/img/arrow_drop_down.svg) no-repeat scroll right";
-
-      // Anzeigen des Containers mit den ausgewählten Kontakten
-      document.getElementById("addedContactsProfilBadges").style.display =
-        "block";
+      contactInput.style.background = "url(/img/arrow_drop_down.svg) no-repeat scroll right";
+      document.getElementById("addedContactsProfilBadges").style.display = "block";
     }
   }
 });
-
-
-
-
-
-
-// Globale Variable zur Speicherung der ausgewählten Kontakte
-let selectedContacts = [];
 
 function addContactToTask(event) {
   const contactLine = event.currentTarget;
@@ -207,18 +178,16 @@ function addedContactToTask(contactLine) {
   imgElement.src = "/img/check-button-checked-white.svg";
   contactLine.classList.add("selected");
 
-  // Hinzufügen des Kontakts zur globalen Variable
   selectedContacts.push(contactLine);
 }
 
 function removeContactFromTask(contactLine) {
-  contactLine.style.backgroundColor = ""; // Auf Standard-Hintergrundfarbe setzen
-  contactLine.querySelector(".contact-name").style.color = ""; // Auf Standard-Textfarbe setzen
+  contactLine.style.backgroundColor = ""; 
+  contactLine.querySelector(".contact-name").style.color = "";
   const imgElement = contactLine.querySelector("img");
-  imgElement.src = "/img/check-button-default.svg"; // Pfad zum Standardbild-Prio
+  imgElement.src = "/img/check-button-default.svg"; 
   contactLine.classList.remove("selected");
 
-  // Entfernen des Kontakts aus der globalen Variable
   selectedContacts = selectedContacts.filter(
     (contact) => contact !== contactLine
   );
@@ -229,23 +198,16 @@ function updateAddedContactsDisplay() {
     "addedContactsProfilBadges"
   );
 
-  // Leeren des Containers, um die neuen ausgewählten Kontakte hinzuzufügen
   addedContactsContainer.innerHTML = "";
-
   selectedContacts.forEach((contact) => {
-    // Kopieren des SVG-Elements aus dem Kontakt
     const svgElement = contact.querySelector("svg").cloneNode(true);
-
-    // Hinzufügen des kopierten SVG-Elements zum Container
     addedContactsContainer.appendChild(svgElement);
   });
 
-  // Anzeigen des Containers, wenn es ausgewählte Kontakte gibt, sonst ausblenden
   addedContactsContainer.style.display =
     selectedContacts.length > 0 ? "block" : "none";
 }
 
-// Event-Listener für alle Kontaktzeilen hinzufügen
 document.addEventListener("DOMContentLoaded", function () {
   const contactLines = document.querySelectorAll(".contact-line");
   contactLines.forEach((line) => {
@@ -253,8 +215,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-
-// Styles von Prio Buttons verändert durch anklicken 
 function changeButtonStyle(selectedButton) {
   if (isButtonActive(selectedButton)) {
     resetButtonStyle(selectedButton);
@@ -306,13 +266,11 @@ function getDefaultImageSrc(buttonId) {
 // SUBTASKS IN ADD TASK BOARD PAGE
 
 function openSubtasks() {
-  // Zugriff auf das "+" Bild und Ausblenden
   const subtaskImage = document.querySelector(".subtaskImage");
   if (subtaskImage) {
     subtaskImage.style.display = "none";
   }
 
-  // Zugriff auf die Div mit der Klasse 'closeCheckSubstask' und Einblenden
   const closeCheckSubtaskDiv = document.querySelector(".closeCheckSubstask");
   if (closeCheckSubtaskDiv) {
     closeCheckSubtaskDiv.style.display = "flex";
@@ -320,20 +278,17 @@ function openSubtasks() {
 }
 
 function closeSubtasks() {
-  // Zugriff auf das "+" Bild und Einblenden
   const subtaskImage = document.querySelector(".subtaskImage");
   if (subtaskImage) {
     subtaskImage.style.display = "block";
   }
 
-  // Zugriff auf die Div mit der Klasse 'closeCheckSubstask' und Ausblenden
   const closeCheckSubtaskDiv = document.querySelector(".closeCheckSubstask");
   if (closeCheckSubtaskDiv) {
     closeCheckSubtaskDiv.style.display = "none";
   }
 }
 
-// Subtasks nach dem Hinzufügen editieren
 function editSubtask(event) {
   const liElement = event.target.closest("li");
   const span = liElement.querySelector("span");
@@ -351,7 +306,6 @@ function editSubtask(event) {
   }
 }
 
-// Subtasks nach dem Editieren bestätigen
 function confirmEditSubtask(event) {
   const liElement = event.target.closest("li");
   const span = liElement.querySelector("span");
@@ -362,34 +316,20 @@ function confirmEditSubtask(event) {
   editDeleteDiv.style.display = "flex";
   confirmEditDiv.style.display = "none";
 
-  // Hier Code hinzufügen, um die Änderungen zu speichern für später mit Backend 
+  // Hier Code hinzufügen, um die Änderungen zu speichern für später mit Backend
 }
-
-
-// Globale Variable für Subtasks
-let subtasks = [];
 
 function addNewSubtask() {
   const inputField = document.getElementById("inputFieldSubtaskId");
   const subtaskText = inputField.value.trim();
 
   if (subtaskText) {
-    // Subtask zum globalen Array hinzufügen
     subtasks.push(subtaskText);
 
-    // Liste aktualisieren
     updateSubtaskList();
-
-    // Aktualisieren der Gesamtanzahl der Subtasks
     totalSubtasks = subtasks.length;
-
-    // Aktualisieren der Progress-Bar und des Zählers
     updateProgressBar();
-
-    // Eingabefeld leeren
     inputField.value = "";
-
-    // Anzeige der Elemente ändern
     toggleSubtaskDisplay();
   }
 }
@@ -404,58 +344,42 @@ function toggleSubtaskDisplay() {
   }
 }
 
-
 function updateSubtaskList() {
-    const listElement = document.getElementById('addedSubstaskList');
-    listElement.innerHTML = ''; // Liste leeren
+  const listElement = document.getElementById("addedSubstaskList");
+  listElement.innerHTML = "";
 
-    subtasks.forEach(subtask => {
-        listElement.innerHTML += createSubtaskHtml(subtask);
-    });
+  subtasks.forEach((subtask) => {
+    listElement.innerHTML += createSubtaskHtml(subtask);
+  });
 }
 
 function deleteSubtask(event) {
-  // Das Event-Objekt verwenden, um das übergeordnete <li>-Element zu finden
   const liElement = event.target.closest("li");
   if (!liElement) return;
 
-  // Den Text des Subtasks ermitteln
   const subtaskText = liElement.querySelector("span").textContent.trim();
-
-  // Subtask aus dem globalen Array entfernen
   const index = subtasks.indexOf(subtaskText);
   if (index > -1) {
     subtasks.splice(index, 1);
   }
 
-  // Das <li>-Element aus der Liste entfernen
   liElement.remove();
-
-  // Liste aktualisieren, falls erforderlich
   updateSubtaskList();
 }
 
-
-// Globale Variablen
-let totalSubtasks = 0;
-let completedSubtasks = 0;
-
 function updateProgressBar() {
-    // Berechnen des Fortschritts
-    const progress = totalSubtasks > 0 ? (completedSubtasks / totalSubtasks) * 100 : 0;
+  // Berechnen des Fortschritts
+  const progress =
+    totalSubtasks > 0 ? (completedSubtasks / totalSubtasks) * 100 : 0;
 
-    // Aktualisieren der Progress-Bar und des Zählers
-    document.querySelectorAll('.progress-bar').forEach(bar => {
-        bar.style.setProperty('--width', progress);
-    });
-    document.querySelectorAll('.counter-subtasks').forEach(counter => {
-        counter.textContent = `${completedSubtasks}/${totalSubtasks} Subtasks`;
-    });
+  // Aktualisieren der Progress-Bar und des Zählers
+  document.querySelectorAll(".progress-bar").forEach((bar) => {
+    bar.style.setProperty("--width", progress);
+  });
+  document.querySelectorAll(".counter-subtasks").forEach((counter) => {
+    counter.textContent = `${completedSubtasks}/${totalSubtasks} Subtasks`;
+  });
 }
-
-
-
-
 
 
 
@@ -529,16 +453,29 @@ document.addEventListener("DOMContentLoaded", function () {
 // HTML TEMPLATES
 
 function createTaskHtml(task, backgroundColor) {
+  // Überprüfen, ob assignedContactsSVGs ein Array ist und es initialisieren, falls es undefined ist
+  const assignedContactsSVGs = Array.isArray(task.assignedContactsSVGs)
+    ? task.assignedContactsSVGs
+    : [];
+
   const priorityImageHtml = task.priorityImage
     ? `<img src="${task.priorityImage}" alt="Priority Image">`
     : "";
 
-  // HTML-Strings für die SVGs der zugewiesenen Kontakte ersetellen
-  const assignedContactsHtml = task.assignedContactsSVGs.join("");
+  // Verwenden von assignedContactsSVGs, das jetzt sicher ein Array ist
+  const assignedContactsHtml = assignedContactsSVGs.join("");
 
+  const subtasks = task.subtasks || []; // Fallback auf leeres Array, falls undefined
+  const totalSubtasks = subtasks.length;
+  const completedSubtasks = subtasks.filter(
+    (subtask) => subtask.completed
+  ).length;
   // Berechnen des Fortschritts für diese spezifische Task
   const progress =
     totalSubtasks > 0 ? (completedSubtasks / totalSubtasks) * 100 : 0;
+
+ 
+  
 
   return `
     <div class="task-small-box" id="${task.id}" draggable="true" ondragstart="startDragging('${task.id}')">
@@ -571,7 +508,6 @@ function createTaskHtml(task, backgroundColor) {
   `;
 }
 
-
 function createSubtaskHtml(subtaskText) {
   return `
         <li>
@@ -593,3 +529,4 @@ function createSubtaskHtml(subtaskText) {
 
 
 
+document.addEventListener("DOMContentLoaded", initPage);

@@ -14,13 +14,18 @@
 
     <script src="/js/storage.js"></script>
     <script src="/js/main.js"></script>
+    <script src="/js/w3IncludeHtml.js"></script>
     <!-- <script src="/js/addTask.js"></script> -->
     
 
 </head>
 
-<body>
+<body onload="init()">
    
+    
+
+    <div w3-include-html="/template/desktop_template.html" ></div>
+
         <div id="mainBoard" class="board-main">
 
 
@@ -221,7 +226,7 @@
 
                     <div id="listSelectableContacts" class="listSelectableContacts" style="display: none;">
                         <ul>
-                            <li class="contact-line" onclick="addContactToTask(event)">
+                            <li class="contact-line">
                                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle id="Ellipse 5" cx="16" cy="16" r="15.5" fill="#1FD7C1" stroke="white" />
                                     <text x="16" y="16" alignment-baseline="central" text-anchor="middle" fill="white">
@@ -231,7 +236,7 @@
                                 <span class="contact-name">Erik Müller</span>
                                 <img src="/img/check-button-default.svg" alt="">
                             </li>
-                            <li class="contact-line" onclick="addContactToTask(event)">
+                            <li class="contact-line" ">
                                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <circle id="Ellipse 5" cx="16" cy="16" r="15.5" fill="#FF7A00"
