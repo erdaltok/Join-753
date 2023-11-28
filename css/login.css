@@ -282,6 +282,12 @@ footer {
     .log-in-window {
         padding: 16px 0px 0px 0px;
     }
+
+    .guest-btn {
+        margin: -20px;
+        position: relative;
+        top: -15px;
+    }
 }
 
 @media (max-width: 425px) {
@@ -306,6 +312,15 @@ footer {
 
     .not-user-div {
         right: 48px;
+    }
+
+    .remember-me {
+        position: relative;
+        left: 24px;
+    }
+
+    .inputs {
+        margin: -8px;
     }
 }
 
