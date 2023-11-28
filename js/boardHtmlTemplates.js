@@ -71,3 +71,71 @@ function createSubtaskHtml(subtaskText) {
         </li>
     `;
 }
+
+
+function showBigTaskPopupHtmlTemplate(task, subtasksHtml) {
+  return `
+    <div class="BigTaskFormPopUp" id="BigTaskFormPopUp">
+        <div class="popupFlex">
+            <form class="BigTaskPopUp">
+                <div class="BigTaskContent">
+                    <div class="category">
+                        <div class="label-big-box">
+                            <span>${task.category}</span>
+                            <img src="/img/close-icon-subtasks.svg" onclick="closeBigTaskBox()">
+                        </div>
+                    </div>
+
+                    <div class="titleAndDescriptionBigBox">
+                        <h1>${task.title}</h1>
+                        <p>${task.description}</p>
+                    </div>
+
+                    <div class="dueDate">
+                        <span>Due date:</span>
+                        <p>${task.dueDate}</p>
+                    </div>
+
+                    <div class="priorityBigBox">
+                        <span>Priority:</span>
+                        <div class="selectedPriorityBigBox">
+                            <p>${task.priority}</p>
+                            <img src="${task.priorityImage}" alt="">
+                        </div>
+                    </div>
+
+                    <div class="assignedBigBox">
+                        <span>Assigned To:</span>
+                        <div class="listSelectableContactsBigBox">
+                            <ul>
+                              <li class="contact-line-BigBox">
+                                ${task.assignedContactsSVGs.join("")}
+                              </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subtasksBigBox">
+                        <span>Subtasks:</span>
+                        <div class="addedSubstaskList">
+                            ${subtasksHtml}
+                        </div>
+                    </div>
+                    
+                    <div class="footerBigBox">
+                        <div class="deleteBigBoxFooter" onclick="deleteBigTaskBox()">
+                            <img src="/img/delete-icon-subtasks.svg">
+                            <span>Delete</span>
+                        </div>
+                        <img src="/img/divider-icon-subtasks.svg" alt="">
+                        <div class="editBigBoxFooter">
+                            <img src="/img/edit-pen-icon-subtasks.svg">
+                            <span>Edit</span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+  `;
+}

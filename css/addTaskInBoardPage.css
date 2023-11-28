@@ -610,7 +610,7 @@ input {
 }
 
 
-li:hover {
+.listSelectableContacts li:hover {
     background-color: rgb(209, 202, 202);
     cursor: pointer;
 }

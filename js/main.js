@@ -3,15 +3,13 @@ let selectedContacts = [];
 let subtasks = [];
 let totalSubtasks = 0;
 let completedSubtasks = 0;
+let currentTaskId = null;
 
 async function initPage() { 
-  await loadTasksFromStorage();
-  
+  await loadTasksFromStorage();  
 }
 
-
 // ADD TASK IN BOARD PAGE
-
 async function saveTasksToStorage() {
   await setItem("tasks", tasks);
 }
@@ -24,18 +22,30 @@ async function loadTasksFromStorage() {
       return;
     }
     tasks = Array.isArray(loadedTasks) ? loadedTasks : JSON.parse(loadedTasks);
-    renderTasks(); // Funktion zum Rendern der Tasks
+    renderTasks(); 
   } catch (error) {
     console.error("Fehler beim Laden der Tasks:", error);
   }
 }
 
 function renderTasks() {
-  console.log(document.getElementById("todo")); // Sollte das Element ausgeben, nicht null
-  tasks.forEach((task) => {
-    addTaskToBoard(task);
-  });
+  const todoColumn = document.getElementById("todo");
+  if (todoColumn) {
+    todoColumn.innerHTML = ""; 
+
+    tasks.forEach((task) => {
+      addTaskToBoard(task);
+    });
+
+    document.querySelectorAll(".task-small-box").forEach((box) => {
+      box.addEventListener("click", function () {
+        const taskId = this.id; 
+        showBigTaskBox(taskId);
+      });
+    });
+  }
 }
+
 
 function getCategoryBackgroundColor(category) {
   switch (category) {
@@ -53,7 +63,6 @@ function addNewTaskBoard() {
   popup.style.display = "block";
 }
 
-// Funktion zum Schließen des Pop-up-Formulars
 function closeAddTaskForm() {
   let popup = document.querySelector(".addTaskFormPopUp");
   popup.style.display = "none";
@@ -264,7 +273,6 @@ function getDefaultImageSrc(buttonId) {
 }
 
 // SUBTASKS IN ADD TASK BOARD PAGE
-
 function openSubtasks() {
   const subtaskImage = document.querySelector(".subtaskImage");
   if (subtaskImage) {
@@ -368,17 +376,75 @@ function deleteSubtask(event) {
 }
 
 function updateProgressBar() {
-  // Berechnen des Fortschritts
+  // Berechnen des Fortschritts !!!!!
   const progress =
     totalSubtasks > 0 ? (completedSubtasks / totalSubtasks) * 100 : 0;
 
-  // Aktualisieren der Progress-Bar und des Zählers
+  // Aktualisieren der Progress-Bar und des Zählers !!!!!!
   document.querySelectorAll(".progress-bar").forEach((bar) => {
     bar.style.setProperty("--width", progress);
   });
   document.querySelectorAll(".counter-subtasks").forEach((counter) => {
     counter.textContent = `${completedSubtasks}/${totalSubtasks} Subtasks`;
   });
+}
+
+// POPUP BIG TASK IN BOARD
+function createSubtasksHtml(subtasks) {
+  if (subtasks.length === 0) {
+    return "<p>Keine Subtasks</p>";
+  }
+
+  return subtasks
+    .map(
+      (subtask) => `
+      <div class="subtaskBigBoxContent">
+        <img src="/img/check-button-default.svg" alt="">
+        <span>${subtask.text}</span>
+      </div>
+    `
+    )
+    .join("");
+}
+
+function showBigTaskBox(taskId) {
+  currentTaskId = taskId;
+  const task = tasks.find((t) => t.id.toString() === taskId);
+  if (!task) return;
+
+  task.assignedContactsSVGs = task.assignedContactsSVGs || [];
+  task.subtasks = task.subtasks || [];
+
+  const subtasksHtml = createSubtasksHtml(task.subtasks);
+  const bigTaskBoxHtml = showBigTaskPopupHtmlTemplate(task, subtasksHtml);
+  const bigTaskBoxContainer = document.getElementById("bigTaskBoxContainer");
+  if (bigTaskBoxContainer) {
+    bigTaskBoxContainer.innerHTML = bigTaskBoxHtml;
+    document.getElementById("BigTaskFormPopUp").style.display = "block";
+  }
+}
+
+function closeBigTaskBox() {
+  document.getElementById("BigTaskFormPopUp").style.display = "none";
+}
+
+
+function deleteBigTaskBox() {
+  if (currentTaskId === null) {
+    console.error("Keine Task-ID gefunden");
+    return;
+  }
+  tasks = tasks.filter(
+    (task) => task.id.toString() !== currentTaskId.toString()
+  );
+  saveTasksToStorage();
+  renderTasks();
+
+  const bigTaskBox = document.getElementById("BigTaskFormPopUp");
+  if (bigTaskBox) {
+    bigTaskBox.style.display = "none";
+  }
+  currentTaskId = null; 
 }
 
 
