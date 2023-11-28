@@ -36,8 +36,8 @@ async function register() {
     resetForm();
 
     setTimeout(function () {
-        window.location.href = 'login.html';
-    }, 3500);
+        window.location.href = '/index.html';
+    }, 3000);
 }
 
 function resetForm() {

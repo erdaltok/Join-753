@@ -15,7 +15,7 @@ function show() {
 }
 
 function guestLogin() {
-    window.location.href = "index.html";
+    window.location.href = "summary.html";
 }
 
 
