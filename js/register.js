@@ -41,9 +41,9 @@ async function register() {
 }
 
 function resetForm() {
-    name = '';
-    email.value = '';
-    password.value = '';
-    confirmPassword = '';
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('password').value = '';
+    document.getElementById('confirm_password').value = '';
     document.getElementById('register_btn').disabled = false;
 }

@@ -21,11 +21,21 @@ function guestLogin() {
 
 
 function login() {
-    let email = document.getElementById('email');
-    let password = document.getElementById('password');
-    let users = users.find(u => u.name == name.value && u.email == email.value && u.password == password.value);
-    console.log(users);
-    if (users) {
-        console.log('user gefunden')
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
+
+    let user = users.find(u => u.email === email && u.password === password);
+
+    let errorContainer = document.getElementById('error-message');
+    errorContainer.style.display = 'flex';
+
+    console.log(user);
+
+    if (user) {
+        console.log('User found');
+        guestLogin();
+    } else {
+        console.log('User not found');
+        errorContainer.innerHTML = 'User not found';
     }
 }
