@@ -200,10 +200,13 @@ function createContact(event) {
     phones.push(phone);
 
     saveContactsToLocalStorage();
+    loadContacts();
     showCard(name, email, phone);
     advanceCard(name, email);
     closeNewContact();
+    created();
 }
+
 
 // Funktion zum Laden der gespeicherten Kontakte beim Start der Seite.
 document.addEventListener('DOMContentLoaded', function () {
@@ -221,6 +224,11 @@ function loadContacts() {
 
         document.getElementById('advanceCard').innerHTML = '';
 
+        // Sortiere die Namen nach dem ersten Buchstaben
+        names.sort(function (a, b) {
+            return getFirstLetter(a).localeCompare(getFirstLetter(b));
+        });
+
         for (let i = 0; i < names.length; i++) {
             advanceCard(names[i], emails[i]);
         }
@@ -228,6 +236,7 @@ function loadContacts() {
         document.getElementById('advanceCard').innerHTML = 'Keine Kontakte verfügbar.';
     }
 }
+
 
 
 // Funktion zum Speichern der Kontakte im lokalen Speicher.
@@ -366,3 +375,15 @@ function closeEditContact() {
     let openDiv = document.getElementById('editContact');
     openDiv.style.display = 'none';
 }
+
+
+// Funktion zum zeigen einer Erfolgsmeldung, die nach 2 Sekunden automatisch ausgeblendet wird.
+function created() {
+    let msgBox = document.getElementById('msgBox');
+    msgBox.innerHTML = 'Contact successfully created';
+    msgBox.style.display = 'flex';
+
+    setTimeout(function () {
+        msgBox.style.display = 'none';
+    }, 2000);
+} 

@@ -244,6 +244,25 @@ body {
     line-height: 0.1;
 }
 
+.msg2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    position: absolute;
+    bottom: 137px;
+    left: 841px;
+    width: 312px;
+    height: 74px;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 16px;
+    background-color: #2A3647;
+    color: white;
+    font-family: inter;
+    border: none;
+}
+
 @media (max-width: 1360px) {
     .contact-text {
         flex-direction: column;
