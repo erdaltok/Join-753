@@ -5,8 +5,9 @@ let totalSubtasks = 0;
 let completedSubtasks = 0;
 let currentTaskId = null;
 
-async function initPage() { 
-  await loadTasksFromStorage();  
+async function initPage() {
+  await loadTasksFromStorage();
+  updateTaskCounts();
 }
 
 // ADD TASK IN BOARD PAGE
@@ -29,22 +30,23 @@ async function loadTasksFromStorage() {
 }
 
 function renderTasks() {
-  ["todo", "inProgress", "awaitFeedback", "done"].forEach(columnId => {
+  ["todo", "inProgress", "awaitFeedback", "done"].forEach((columnId) => {
     document.getElementById(columnId).innerHTML = "";
   });
 
-   tasks.forEach((task) => {
+  tasks.forEach((task) => {
     const columnId = task.status || "todo";
     addTaskToBoard(task, columnId);
   });
 
-    document.querySelectorAll(".task-small-box").forEach((box) => {
-      box.addEventListener("click", function () {
-        const taskId = this.id; 
-        showBigTaskBox(taskId);
-      });
-    });    
-  }
+  document.querySelectorAll(".task-small-box").forEach((box) => {
+    box.addEventListener("click", function () {
+      const taskId = this.id;
+      showBigTaskBox(taskId);
+    });
+  });
+ 
+}
 
 
 function getCategoryBackgroundColor(category) {
@@ -474,5 +476,5 @@ function deleteBigTaskBox() {
 }
 
 
-
 document.addEventListener("DOMContentLoaded", initPage);
+
