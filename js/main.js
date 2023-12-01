@@ -29,22 +29,22 @@ async function loadTasksFromStorage() {
 }
 
 function renderTasks() {
-  const todoColumn = document.getElementById("todo");
-  if (todoColumn) {
-    todoColumn.innerHTML = ""; 
+  ["todo", "inProgress", "awaitFeedback", "done"].forEach(columnId => {
+    document.getElementById(columnId).innerHTML = "";
+  });
 
-    tasks.forEach((task) => {
-      addTaskToBoard(task);
-    });
+   tasks.forEach((task) => {
+    const columnId = task.status || "todo";
+    addTaskToBoard(task, columnId);
+  });
 
     document.querySelectorAll(".task-small-box").forEach((box) => {
       box.addEventListener("click", function () {
         const taskId = this.id; 
         showBigTaskBox(taskId);
       });
-    });
+    });    
   }
-}
 
 
 function getCategoryBackgroundColor(category) {
@@ -89,6 +89,13 @@ function getActivePriorityImage() {
   return "";
 }
 
+function getActivePriority() {
+  const activeButton = document.querySelector(".prioButtons.active");
+  return activeButton ? activeButton.getAttribute("data-priority") : "Standard";
+}
+
+
+
 function getAssignedContactsSVGs() {
   return selectedContacts.map(
     (contact) => contact.querySelector("svg").outerHTML
@@ -108,31 +115,50 @@ function getSubtasks() {
   return subtasks;
 }
 
+// Verhindert das Standard-Submit-Verhalten und ruft dann die Funktion zum Erstellen eines Tasks auf
+function handleFormSubmit(event) {
+  event.preventDefault(); 
+  createTask(); 
+}
+
+
+
 function createTask() {
+  console.log("createTask aufgerufen"); // Zum testen bzw. debuggen
   const formData = getFormData();
+  console.log("Form Data:", formData); // Zum testen bzw. debuggen
   const priorityImage = getActivePriorityImage();
   const assignedContactsSVGs = getAssignedContactsSVGs();
 
-  const subtasks = getSubtasks(); 
+  const priority = getActivePriority();
+  const subtasks = getSubtasks();
   const newTask = {
     id: Date.now(),
     ...formData,
     priorityImage,
+    priority,
     assignedContactsSVGs,
-    subtasks, 
+    subtasks,
+    status: "todo",
   };
 
   tasks.push(newTask);
   closeAddTaskForm();
-  addTaskToBoard(newTask);
+  addTaskToBoard(newTask, newTask.status || "todo");
   saveTasksToStorage();
 }
 
-function addTaskToBoard(task) {
-  const todoColumn = document.getElementById("todo");
-  const backgroundColor = getCategoryBackgroundColor(task.category);
-  todoColumn.innerHTML += createTaskHtml(task, backgroundColor);
+
+function addTaskToBoard(task, columnId) {
+  const column = document.getElementById(columnId);
+  const taskHtml = createTaskHtml(
+    task,
+    getCategoryBackgroundColor(task.category)
+  );
+  column.insertAdjacentHTML("beforeend", taskHtml);
 }
+
+
 
 // CONTACT-LIST IN ADD TASK ON BOARD PAGE
 function toggleContactList() {

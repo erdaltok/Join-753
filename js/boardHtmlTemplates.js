@@ -1,7 +1,6 @@
 // HTML TEMPLATES
 
 function createTaskHtml(task, backgroundColor) {
-  // Überprüfen, ob assignedContactsSVGs ein Array ist und es initialisieren, falls es undefined ist
   const assignedContactsSVGs = Array.isArray(task.assignedContactsSVGs)
     ? task.assignedContactsSVGs
     : [];
@@ -10,10 +9,9 @@ function createTaskHtml(task, backgroundColor) {
     ? `<img src="${task.priorityImage}" alt="Priority Image">`
     : "";
 
-  // Verwenden von assignedContactsSVGs, das jetzt sicher ein Array ist
   const assignedContactsHtml = assignedContactsSVGs.join("");
 
-  const subtasks = task.subtasks || []; // Fallback auf leeres Array, falls undefined
+  const subtasks = task.subtasks || [];
   const totalSubtasks = subtasks.length;
   const completedSubtasks = subtasks.filter(
     (subtask) => subtask.completed
@@ -22,7 +20,7 @@ function createTaskHtml(task, backgroundColor) {
   const progress =
     totalSubtasks > 0 ? (completedSubtasks / totalSubtasks) * 100 : 0;
 
-  return `
+  const html = `
     <div class="task-small-box" id="${task.id}" draggable="true" ondragstart="startDragging('${task.id}')">
         <div class="task-small-box-content">
             <div class="category">
@@ -51,6 +49,8 @@ function createTaskHtml(task, backgroundColor) {
         </div>
     </div>
   `;
+    
+    return html;
 }
 
 function createSubtaskHtml(subtaskText) {

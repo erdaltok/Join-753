@@ -153,7 +153,10 @@
     gap: 16px;
 }
 
-.placeholder-tasks {
+.placeholder-tasks-todo,
+.placeholder-tasks-progress,
+.placeholder-tasks-feedback,
+.placeholder-tasks-done {
     display: flex;
     height: 48px;
     flex-direction: column;
@@ -165,8 +168,6 @@
     border: 1px dashed #A8A8A8;
     background: #E7E7E7;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
-    display: none;
-    /* display none */
 }
 
 .placeholder-tasks span {
@@ -190,7 +191,10 @@
     border-radius: 24px;
     background: var(--white, #FFF);
     box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
-    min-width: 200px;
+    min-width: 250px;
+    max-width: 250px;
+    height: auto;
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08)
 }
 
 .task-small-box:hover {
@@ -234,13 +238,13 @@
     border: none;
 }
 
-.task-small-box-content textarea::-webkit-scrollbar {
+/* .task-small-box-content textarea::-webkit-scrollbar {
     display: none;
-}
+} */
 
-.task-small-box-content textarea:focus {
+/* .task-small-box-content textarea:focus {
     outline: 0;
-}
+} */
 
 .task-small-box-content {
     display: flex;

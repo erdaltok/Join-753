@@ -72,59 +72,8 @@
                         ondragleave="removeHighlight('todo')" ondragover="allowDrop(event); highlight('todo')">
 
 
-                        <div class="placeholder-tasks">
+                        <div class="placeholder-tasks-todo">
                             <span>No tasks To do</span>
-                        </div>
-
-                        <div class="task-small-box" id="${task.id}" draggable="true"
-                            ondragstart="startDragging('${task.id}')">
-                            <div class="task-small-box-content">
-                                <div class="category">
-                                    <div class="label-small-box">
-                                        <span>Technical Taks</span>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <h1>Contacts Form & Imprint</h1>
-                                    <p>Create a contact form and imprint page</p>
-                                </div>
-
-                                <div class="progress-subtasks">
-
-                                    <div class="progress-bar" style="--width: 50"></div>
-                                    <div class="counter-subtasks">1/2 Subtasks</div>
-                                </div>
-
-                                <div class="profilBadges-priority">
-                                    <div class="profil-badges">
-                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <circle id="Ellipse 5" cx="16" cy="16" r="15.5" fill="#FF7A00"
-                                                stroke="white" />
-                                            <text x="16" y="16" alignment-baseline="central" text-anchor="middle"
-                                                fill="white">
-                                                AM
-                                            </text>
-                                        </svg>
-
-                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <circle id="Ellipse 5" cx="16" cy="16" r="15.5" fill="#1FD7C1"
-                                                stroke="white" />
-                                            <text x="16" y="16" alignment-baseline="central" text-anchor="middle"
-                                                fill="white">
-                                                EM
-                                            </text>
-                                        </svg>
-                                    </div>
-
-                                    <div class="priority-icons">
-                                        <img src="/img/prio-icon-small-task.svg" alt="">
-                                    </div>
-                                </div>
-
-                            </div>
                         </div>
 
                     </div>
@@ -140,11 +89,13 @@
                         ondragleave="removeHighlight('inProgress')"
                         ondragover="allowDrop(event); highlight('inProgress')">
 
-
-                        <div class="placeholder-tasks">
-                            <span>No tasks To do</span>
+                        <div class="placeholder-tasks-progress">
+                            <span>No tasks in progress</span>
                         </div>
+                       
                     </div>
+                                    
+
                 </div>
 
 
@@ -160,8 +111,8 @@
                         ondragleave="removeHighlight('awaitFeedback')"
                         ondragover="allowDrop(event); highlight('awaitFeedback')">
 
-                        <div class="placeholder-tasks">
-                            <span>No tasks To do</span>
+                        <div class="placeholder-tasks-feedback">
+                            <span>No tasks Await feedback</span>
                         </div>
                     </div>
                 </div>
@@ -175,8 +126,8 @@
                     <div class="todo-column-content drag-area" id="done" ondrop="moveTo('done')"
                         ondragleave="removeHighlight('done')" ondragover="allowDrop(event); highlight('done')">
 
-                        <div class="placeholder-tasks">
-                            <span>No tasks To do</span>
+                        <div class="placeholder-tasks-done">
+                            <span>No tasks Done</span>
                         </div>
                     </div>
                 </div>
@@ -190,7 +141,7 @@
 
 <div class="addTaskFormPopUp" style="display: none;">
             <div class="popupFlex">
-    <form class="addTaskPopUp" id="#">
+    <form class="addTaskPopUp" onsubmit="handleFormSubmit(event)">
                 <div class="addTaskLittle">
                     <div class="titlePositionLittle">
                         <h1>Add Task</h1>
@@ -207,7 +158,7 @@
                             <p style="color: #FF8190;">*</p>
                         </label>
                         <input class="inputTitleAddTask" id="idTitleInputAddTask" type="text" 
-                        maxlength="48" placeholder="Enter a title" required>
+                        placeholder="Enter a title" required>
                         <div class="requestWarningInputField">This field is required</div>
                     </div>
 
@@ -215,8 +166,8 @@
                         <label for="idDescriptionAddTask">Description
                             <p style="color: #FF8190;">*</p>
                         </label>
-                        <textarea class="inputTitleAddTask" id="idDescriptionAddTask" type="text" 
-                        maxlength="100" wrap=physical placeholder="Enter a Description" required></textarea>
+                        <textarea class="inputTitleAddTask" id="idDescriptionAddTask" type="text" name="inputDesciption"
+                         placeholder="Enter a Description" required></textarea>
                         <div class="requestWarningInputField">This field is required</div>
                     </div>
 
@@ -347,7 +298,7 @@
 
                 <div class="subtaskSection">
                     <div class="titleSubtaskAddTask">
-                        <label for="idTitleSubtaskAddTask">Subtask</label>
+                        <label for="inputFieldSubtaskId">Subtask</label>
                         <div class="subtaskBox">
                             <input onclick="openSubtasks()" class="inputTitleAddTask" id="inputFieldSubtaskId" type="text" placeholder="Add new subtask">
                             <img onclick="openSubtasks()" class="subtaskImage" src="/img/subtasksIcon.png" >  
@@ -393,9 +344,10 @@
                             stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </button>
-                <button class="footerButtonCreateTask" onclick="createTask()">Create Task
+                <button class="footerButtonCreateTask" type="submit">Create Task
                     <img src="/img/check-icon-footer-board-addTask.svg" alt="">
                 </button>
+               
             </div>
 
         </div>
