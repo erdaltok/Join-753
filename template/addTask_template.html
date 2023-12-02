@@ -9,24 +9,35 @@
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/fonts.css">
     <link rel="stylesheet" href="/css/desktop_template.css">
+    <link rel="icon" href="/img/logo1.png">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/fonts.css">
+    <link rel="stylesheet" href="/css/desktop_template.css">
+    <link rel="stylesheet" href="/css/board.css">
+
 
     <script src="/js/w3IncludeHtml.js"></script>
-
+    <script src="/js/storage.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/summary.js"></script>
+    <script src="/js/boardHtmlTemplates.js"></script>
+    <script src="/js/w3IncludeHtml.js"></script>
+    <script src="/js/board.js"></script>
 
 
     <title>Add Task</title>
-    
+
 </head>
 
 <body onload="init()">
-    
+
     <div w3-include-html="/template/desktop_template.html"></div>
 
 
-     <!-- <div id="desktopTemplate"> -->
-    
-        <!-- Header -->
-        <!-- <div class="desktop-header">
+    <!-- <div id="desktopTemplate"> -->
+
+    <!-- Header -->
+    <!-- <div class="desktop-header">
             <span class="header-text">
                 <span>Kanban Project Management Tool</span>
             </span>
@@ -42,10 +53,10 @@
                 </div>
             </div>
         </div> -->
-    
-        <!-- Navbar on left Side -->
-    
-        <!-- <div class="desktop-navbar">
+
+    <!-- Navbar on left Side -->
+
+    <!-- <div class="desktop-navbar">
     
             <div class="logo">
                 <img src="/img/Join-icon-desktop.svg" />
@@ -88,79 +99,241 @@
     
     </div>  -->
 
-    <form id="addTaskFrom">
-    <div class="addTask">
-        <div class="titlePosition">
-            <h1>Add Task</h1>
-            </div>
-        <div class="addTaskLeft">
-          
-            <h2>Title</h2>
-            <input type="text">
-            <h2>Description</h2>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-            <h2>Assigned to</h2>
-            <input type="text" id="contactsInput" placeholder="Click to show contacts">
+    <div class="addTaskFormPopUp">
+        <div class="popupFlex">
+            <form class="addTaskPopUp" id="#">
+                <div class="addTaskLittle">
+                    <div class="titlePositionLittle">
+                        <h1>Add Task</h1>
+                    </div>
 
-        </div>
+                    <div class="formLeftAndRightFlex">
 
-        <div class="divider">
+                        <div class="addTaskLeftLittle">
 
-        </div>
+                            <div class="titleInputAddTaskBoard">
+                                <label for="idTitleInputAddTask">Title
+                                    <p style="color: #FF8190;">*</p>
+                                </label>
+                                <input class="inputTitleAddTask" id="idTitleInputAddTask" type="text" maxlength="48"
+                                    placeholder="Enter a title" required>
+                                <div class="requestWarningInputField">This field is required</div>
+                            </div>
+
+                            <div class="titleDescriptionAddTaskBoard">
+                                <label for="idDescriptionAddTask">Description
+                                    <p style="color: #FF8190;">*</p>
+                                </label>
+                                <textarea class="inputTitleAddTask" id="idDescriptionAddTask" type="text"
+                                    maxlength="100" wrap=physical placeholder="Enter a Description" required></textarea>
+                                <div class="requestWarningInputField">This field is required</div>
+                            </div>
 
 
-        <div class="addTaskRight">
-            
-            <h2>Due Date</h2>
-            <div class="inputATR">
-                <input class="click" required="" placeholder="dd/mm/yyyy" type="text" id="calendar" aria-label="Use the arrow keys to pick a date">
-            </div>
-            <h2>Prio</h2>
-            <div class="prioButtonsBox">
-                
-                <div onclick="colorChange1()" id="btn1">
-                    Urgent
-                    <img src="/img/Urgent.png" alt="Image not found">
+                            <div class="titleSelectContactsAddTaskBoard">
+                                <label for="idTitleSelectContactsAddTask">Assigned to</label>
+                                <input class="inputTitleAddTask" id="idTitleSelectContactsAddTask" type="text"
+                                    placeholder="Select contacts to assign" onclick="toggleContactList()">
+
+                            </div>
+
+
+                            <div id="listSelectableContacts" class="listSelectableContacts" style="display: none;">
+                                <ul>
+                                    <li class="contact-line">
+                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <circle id="Ellipse 5" cx="16" cy="16" r="15.5" fill="#1FD7C1"
+                                                stroke="white" />
+                                            <text x="16" y="16" alignment-baseline="central" text-anchor="middle"
+                                                fill="white">
+                                                EM
+                                            </text>
+                                        </svg>
+                                        <span class="contact-name">Erik Müller</span>
+                                        <img src="/img/check-button-default.svg" alt="">
+                                    </li>
+                                    <li class="contact-line" ">
+                            <svg width=" 32" height="32" viewBox="0 0 32 32" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <circle id="Ellipse 5" cx="16" cy="16" r="15.5" fill="#FF7A00" stroke="white" />
+                                        <text x="16" y="16" alignment-baseline="central" text-anchor="middle"
+                                            fill="white">
+                                            AM
+                                        </text>
+                                        </svg>
+                                        <span class="contact-name">Alfred Manninger</span>
+                                        <img src="/img/check-button-default.svg" alt="">
+                                    </li>
+                                    <li class="contact-line">
+                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <circle id="Ellipse 5" cx="16" cy="16" r="15.5" fill="#1FD7C1"
+                                                stroke="white" />
+                                            <text x="16" y="16" alignment-baseline="central" text-anchor="middle"
+                                                fill="white">
+                                                EM
+                                            </text>
+                                        </svg>
+                                        <span class="contact-name">Erik Müller</span>
+                                        <img src="/img/check-button-default.svg" alt="">
+                                    </li>
+                                </ul>
+                            </div>
+
+
+                            <div class="addedContactsProfilBadges" id="addedContactsProfilBadges"
+                                style="display: none;">
+                                <!-- <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle id="Ellipse 5" cx="16" cy="16" r="15.5" fill="#1FD7C1" stroke="white" />
+                        <text x="16" y="16" alignment-baseline="central" text-anchor="middle" fill="white">
+                            EM
+                        </text>
+                    </svg>
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle id="Ellipse 5" cx="16" cy="16" r="15.5" fill="#FF7A00" stroke="white" />
+                        <text x="16" y="16" alignment-baseline="central" text-anchor="middle" fill="white">
+                            AM
+                        </text>
+                    </svg> -->
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="dividerLittle"></div>
+
+
+                        <div class="addTaskRightLittle">
+
+                            <div class="titleDateAddTaskBoard">
+                                <label for="idTitleDateAddTask">Due date
+                                    <p style="color: #FF8190;">*</p>
+                                </label>
+                                <input class="inputDateAddTask" id="idTitleDateAddTask" type="date"
+                                    placeholder="tt/mm/jjjj" required>
+                                <div class="requestWarningInputField">This field is required</div>
+                            </div>
+
+
+
+                            <div class="prioSection">
+                                <div class="titlePrioSection">Prio</div>
+                                <div class="prioButtonsBox" id="idPrioAddTask">
+
+                                    <div class="prioButtons" id="urgentButton" onclick="changeButtonStyle(this)"
+                                        data-color="#FF3D00" data-text-color="white"
+                                        data-img-src="/img/prio-icon-small-task-white.svg" data-priority="Urgent">
+                                        Urgent
+                                        <img src="/img/Urgent.png">
+                                    </div>
+                                    <div class="prioButtons" id="mediumButton" onclick="changeButtonStyle(this)"
+                                        data-color="#FFA800" data-text-color="white"
+                                        data-img-src="/img/prio-icon-medium-white.svg" data-priority="Medium">
+                                        Medium
+                                        <img src="/img/Medium.png">
+                                    </div>
+                                    <div class="prioButtons" id="lowButton" onclick="changeButtonStyle(this)"
+                                        data-color="#7AE229" data-text-color="white"
+                                        data-img-src="/img/prio-icon-low-white.svg" data-priority="Low">
+                                        Low
+                                        <img src="/img/Low.png">
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="categorySection">
+                                <div class="titleCategoryAddTask">
+                                    <label for="idSelectCategoryAddTask">Category
+                                        <p style="color: #FF8190;">*</p>
+                                    </label>
+                                    <select style="background-color: white;" id="idSelectCategoryAddTask"
+                                        class="selectContainerOv selectArrow" name="category" required="">
+                                        <option disabled selected="" hidden="">Select task category</option>
+                                        <option value="Technical Task">Technical Task</option>
+                                        <option value="User Story">User Story</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="subtaskSection">
+                                <div class="titleSubtaskAddTask">
+                                    <label for="idTitleSubtaskAddTask" style="margin-top: 5px;">Subtask</label>
+                                    <div class="subtaskBox">
+                                        <input onclick="openSubtasks()" class="inputTitleAddTask"
+                                            id="inputFieldSubtaskId" type="text" placeholder="Add new subtask">
+                                        <img onclick="openSubtasks()" class="subtaskImage" src="/img/subtasksIcon.png">
+
+                                        <div class="closeCheckSubstask" style="display: none;">
+                                            <img onclick="closeSubtasks()" src="/img/close-icon-subtasks.svg">
+                                            <img src="/img/divider-icon-subtasks.svg">
+                                            <img onclick="addNewSubtask()" src="/img/check-icon-subtasks.svg">
+                                        </div>
+                                    </div>
+                                    <ul id="addedSubstaskList" class="addedSubstaskList">
+                                        <!-- <li>
+                            <span>Contact Form
+                                <div class="editDeleteSubtask">
+                                    <img src="/img/edit-pen-icon-subtasks.svg" onclick="editSubtask(event)">
+                                    <img src="/img/divider-icon-subtasks.svg" >
+                                    <img src="/img/delete-icon-subtasks.svg" alt="">
+                                </div>
+                                <div class="confirmEditSubtask">
+                                    <img src="/img/delete-icon-subtasks.svg">
+                                    <img src="/img/divider-icon-subtasks.svg">
+                                    <img src="/img/check-icon-subtasks.svg" onclick="confirmEditSubtask(event)">
+                                </div>
+                            </span>
+                        </li> -->
+
+                                    </ul>
+                                </div>
+                            </div>
+
+
+
+
+
+                        </div>
+
+                        
+                    </div>
+
+                    <div class="formFooter">
+                        <p style="color: #FF8190;">*<span style="color: #000;">This field is required</span></p>
+
+                        <div class="footerButtonsAddTask">
+                            <button class="footerButtonClear">Clear
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24"
+                                    fill="none">
+                                    <path
+                                        d="M12.2495 12.0001L17.4925 17.2431M7.00653 17.2431L12.2495 12.0001L7.00653 17.2431ZM17.4925 6.75708L12.2485 12.0001L17.4925 6.75708ZM12.2485 12.0001L7.00653 6.75708L12.2485 12.0001Z"
+                                        stroke="#2A3647" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                            <button class="footerButtonCreateTask" onclick="createTask()">Create Task
+                                <img src="/img/check-icon-footer-board-addTask.svg" alt="">
+                            </button>
+                        </div>
+
+                    </div>
+
+
                 </div>
-                <div onclick="colorChange2()"  id="btn2">
-                    Medium
-                    <img src="/img/Medium.png" alt="Image not found">
-                </div>
-                <div onclick="colorChange3()" id="btn3">
-                    Low
-                    <img src="/img/Low.png" alt="Image not found">
-                </div>
-            </div>
-            <h2>Category</h2>
-            <select id="categoryInput">
-            
-                <option disabled>Categories</option>
-                <option>Design</option>
-            <option >Team Work</option>
-            <option >Bussines</option>
-            
-            </select>
-                
-            <h2>Subtasks</h2>
-            <div class="inputContainer">
-            
-                <input class="subtaskInput" type="text" placeholder="Add new subtask">
-                <img class="subtaskImage" src="/img/subtasksIcon.png" alt="">
-                
-
-            </div>
-            <div class="addTaskButtonsRightSide">
-                <button>Clear</button>
-                <button>Create Task</button>
-                
-            </div>
+            </form>
         </div>
-
     </div>
-</form>
-<script src="/js/addTask.js"></script>
-<script src="/js/main.js"></script>
-
+    <script src="/js/addTask.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 
 </html>
