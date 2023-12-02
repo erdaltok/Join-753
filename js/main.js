@@ -123,10 +123,11 @@ function handleFormSubmit(event) {
   createTask(); 
 }
 
-
-
 function createTask() {
-  console.log("createTask aufgerufen"); // Zum testen bzw. debuggen
+  if (!isCategorySelected()) {
+    return;
+  }
+
   const formData = getFormData();
   console.log("Form Data:", formData); // Zum testen bzw. debuggen
   const priorityImage = getActivePriorityImage();
@@ -160,6 +161,27 @@ function addTaskToBoard(task, columnId) {
   column.insertAdjacentHTML("beforeend", taskHtml);
 }
 
+// CONDITIONS FOR A TASK, TO BE CREATED
+
+
+function isCategorySelected() {
+  const categorySelect = document.getElementById("idSelectCategoryAddTask");
+  const selectedCategory = categorySelect.value;
+  const warningDiv = categorySelect.nextElementSibling;
+
+  if (
+    selectedCategory === "Technical Task" ||
+    selectedCategory === "User Story"
+  ) {
+    categorySelect.style.borderColor = ""; 
+    warningDiv.style.display = "none";
+    return true;
+  } else {
+    categorySelect.style.borderColor = "red";
+    warningDiv.style.display = "block";
+    return false;
+  }
+}
 
 
 // CONTACT-LIST IN ADD TASK ON BOARD PAGE
