@@ -93,7 +93,7 @@ function showBigTaskPopupHtmlTemplate(task, subtasksHtml) {
 
                     <div class="dueDate">
                         <span>Due date:</span>
-                        <p>${task.dueDate}</p>
+                        <p>${formatDueDate(task.dueDate)}</p>
                     </div>
 
                     <div class="priorityBigBox">

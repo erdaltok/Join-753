@@ -161,6 +161,15 @@ function addTaskToBoard(task, columnId) {
   column.insertAdjacentHTML("beforeend", taskHtml);
 }
 
+function formatDueDate(dateString) {
+  const date = new Date(dateString);
+  const day = date.getDate().toString().padStart(2, "0");
+  const month = (date.getMonth() + 1).toString().padStart(2, "0"); // Monate sind 0-basiert
+  const year = date.getFullYear();
+  return `${day}/${month}/${year}`;
+}
+
+
 // CONDITIONS FOR A TASK, TO BE CREATED
 
 
