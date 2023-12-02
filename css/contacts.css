@@ -8,22 +8,23 @@ body {
     display: flex;
     align-items: flex-start;
     padding-left: 243px;
-    margin-top: 113px;
+    margin-top: 147px;
     position: relative;
     right: 0;
+    height: 100vh;
 }
 
 .contacts-container {
     width: 400px;
     min-width: 430px;
     height: 100vh;
-    margin-top: -49px;
+    margin-top: -50px;
     display: flex;
     flex-direction: column;
     align-items: center;
     background: #FFF;
     overflow-y: scroll;
-    /*height: calc(100vh - 185px);*/
+    height: calc(100vh - 100px);
     gap: 76px;
 }
 
@@ -85,7 +86,7 @@ body {
 .line {
     height: 1px;
     background: #D1D1D1;
-    margin: 8px -30px 8px;
+    margin: 8px 0px 8px;
     font-weight: 400;
 }
 
@@ -121,7 +122,7 @@ body {
     margin-top: -47px;
     position: absolute;
     right: 0px;
-    left: 672px;
+    left: 673px;
     height: -webkit-fill-available;
     background-color: #f6f7f8;
 }
@@ -263,6 +264,35 @@ body {
     border: none;
 }
 
+.contacts-container::-webkit-scrollbar-button:start:decrement {
+    background-position: center;
+    background-image: url('/img/scroll-up.png');
+    width: 10px;
+    height: 4px;
+}
+
+.contacts-container::-webkit-scrollbar-button:end:increment {
+    background-position: center;
+    background-image: url('../img/scroll-down.png');
+    width: 10px;
+    height: 4px;
+}
+
+.contacts-container::-webkit-scrollbar {
+    display: block;
+    width: 8px;
+   
+}
+
+.contacts-container::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.contacts-container::-webkit-scrollbar-thumb {
+    background-color:#A8A8A8;
+    border-radius: 10px;
+}
+
 @media (max-width: 1360px) {
     .contact-text {
         flex-direction: column;
@@ -341,4 +371,4 @@ body {
     .contact-view {
         left: 498px;
     }
-}   
+}
