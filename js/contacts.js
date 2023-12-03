@@ -13,17 +13,17 @@ function advanceCard(name, email) {
         existingLetterContainer = document.createElement('div');
         existingLetterContainer.className = 'letter-container';
         existingLetterContainer.dataset.letter = firstLetter;
-
+    
         existingLetterContainer.innerHTML = `
             <div>
                 <p class="initial-letter">${firstLetter}</p>
                 <div class="line"></div>
             </div>
         `;
-
+    
         advanceCardContainer.appendChild(existingLetterContainer);
     }
-
+    
     let newAdvanceCard = document.createElement('div');
     newAdvanceCard.innerHTML = `
       <div id="contact" showCard('${name}', '${email}');" class="contact">
@@ -36,8 +36,11 @@ function advanceCard(name, email) {
         </div>
       </div>
     `;
-
-    existingLetterContainer.appendChild(newAdvanceCard);
+    
+    if (!existingLetterContainer.contains(newAdvanceCard)) {
+        existingLetterContainer.appendChild(newAdvanceCard);
+    }
+    
 
     newAdvanceCard.querySelector('.contact').addEventListener('click', function () {
         handleContactClick(this, name, email);
@@ -195,12 +198,17 @@ function createContact(event) {
     let email = emailInput.value;
     let phone = phoneInput.value;
 
+      // Überprüfe, ob der Kontakt bereits existiert.
+      if (names.includes(name)) {
+        alert('Der Kontakt existiert bereits.');
+        return;
+    }
+
     names.push(name);
     emails.push(email);
     phones.push(phone);
 
     saveContactsToLocalStorage();
-    loadContacts();
     showCard(name, email, phone);
     advanceCard(name, email);
     closeNewContact();
@@ -230,12 +238,16 @@ function loadContacts() {
         });
 
         for (let i = 0; i < names.length; i++) {
-            advanceCard(names[i], emails[i]);
+            // Überprüfe, ob der Kontakt bereits angezeigt wird.
+            if (document.querySelector(`.contact[data-index='${i}']`) === null) {
+                advanceCard(names[i], emails[i]);
+            }
         }
     } else {
         document.getElementById('advanceCard').innerHTML = 'Keine Kontakte verfügbar.';
     }
 }
+
 
 
 

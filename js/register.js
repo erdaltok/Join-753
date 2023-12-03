@@ -1,9 +1,11 @@
 let users = [];
 
+// Initialisiert die Anwendung, indem sie Benutzerdaten lädt.
 async function init() {
     loadUsers();
 }
 
+// Lädt Benutzerdaten aus dem lokalen Speicher.
 async function loadUsers() {
     try {
         users = JSON.parse(await getItem('users'));
@@ -12,6 +14,7 @@ async function loadUsers() {
     }
 }
 
+// Registriert einen neuen Benutzer und aktualisiert die Benutzerdaten im lokalen Speicher.
 async function register() {
     const name = document.getElementById('name');
     const email = document.getElementById('email');
@@ -40,6 +43,7 @@ async function register() {
     }, 3000);
 }
 
+  // Setzt die Eingabefelder des Registrierungsformulars zurück und aktiviert den Registrierungsbutton.
 function resetForm() {
     document.getElementById('name').value = '';
     document.getElementById('email').value = '';

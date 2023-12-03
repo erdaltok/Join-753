@@ -1,5 +1,7 @@
 .desktop-header {
     height: 10vh;
+    min-height: 96px;
+    max-height: 96px;
     gap: 34px;
     top: 0px;
     left: 0px;
@@ -46,7 +48,7 @@
 
 .user-initials {
     position: absolute;
-    top: 13px;
+    top: 15px;
     left: 12px;
     color: #29ABE2;
     font-size: 20px;
