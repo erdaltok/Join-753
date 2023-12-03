@@ -232,5 +232,28 @@ function getDefaultImageSrc(buttonId) {
   }
 }
 
+function searchTask() {
+  const searchText = document.getElementById("search-Task").value.toLowerCase();
+  const filteredTasks = tasks.filter(
+    (task) =>
+      task.title.toLowerCase().includes(searchText) ||
+      task.description.toLowerCase().includes(searchText)
+  );
+
+  renderFilteredTasks(filteredTasks);
+}
+
+function renderFilteredTasks(filteredTasks) {
+  ["todo", "inProgress", "awaitFeedback", "done"].forEach((columnId) => {
+    document.getElementById(columnId).innerHTML = "";
+  });
+
+  filteredTasks.forEach((task) => {
+    const columnId = task.status || "todo";
+    addTaskToBoard(task, columnId);
+  });
+}
+
+
 document.addEventListener("DOMContentLoaded", initPage);
 

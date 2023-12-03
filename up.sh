@@ -1,4 +1,4 @@
 git pull
 git add .
-git commit -m "new js and css files for clarity"
+git commit -m "new search tasks in board"
 git push
