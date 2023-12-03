@@ -5,6 +5,7 @@ let totalSubtasks = 0;
 let completedSubtasks = 0;
 let currentTaskId = null;
 
+
 async function initPage() {
   await loadTasksFromStorage();
   updateTaskCounts();
@@ -448,33 +449,61 @@ function updateProgressBar() {
   });
 }
 
-// POPUP BIG TASK IN BOARD
-function createSubtasksHtml(subtasks) {
-  if (subtasks.length === 0) {
-    return "<p>Keine Subtasks</p>";
-  }
 
+
+
+
+
+// POPUP BIG TASK IN BOARD
+function createSubtasksHtml(subtasks, taskId) {
+  // Nehmen Sie taskId als Argument
   return subtasks
     .map(
-      (subtask) => `
-      <div class="subtaskBigBoxContent">
-        <img src="/img/check-button-default.svg" alt="">
-        <span>${subtask.text}</span>
-      </div>
-    `
+      (subtask, index) => `
+    <div class="subtaskBigBoxContent" data-index="${index}" onclick="toggleSubtaskStatus('${taskId}', ${index})">
+      <img src="/img/${
+        subtask.completed ? "check-button-checked-bigTask" : "check-button-default"
+      }.svg" alt="">
+      <span>${subtask.text}</span>
+    </div>
+  `
     )
     .join("");
 }
 
+
+function toggleSubtaskStatus(taskId, subtaskIndex) {
+  const task = tasks.find((t) => t.id.toString() === taskId);
+  if (!task || !task.subtasks[subtaskIndex]) return;
+
+  // Toggle des Status
+  task.subtasks[subtaskIndex].completed =
+    !task.subtasks[subtaskIndex].completed;
+
+  // Aktualisieren des Bildes für den angeklickten Subtask
+  const subtaskElement = document.querySelector(
+    `.subtaskBigBoxContent[data-index="${subtaskIndex}"]`
+  );
+  if (subtaskElement) {
+    const imgElement = subtaskElement.querySelector("img");
+    imgElement.src = task.subtasks[subtaskIndex].completed
+      ? "/img/check-button-checked.svg"
+      : "/img/check-button-default.svg";
+  }
+  // Speichern der Änderungen (falls erforderlich)
+  saveTasksToStorage();  
+}
+
+
+
 function showBigTaskBox(taskId) {
-  currentTaskId = taskId;
   const task = tasks.find((t) => t.id.toString() === taskId);
   if (!task) return;
 
   task.assignedContactsSVGs = task.assignedContactsSVGs || [];
   task.subtasks = task.subtasks || [];
 
-  const subtasksHtml = createSubtasksHtml(task.subtasks);
+  const subtasksHtml = createSubtasksHtml(task.subtasks, taskId); // Übergeben Sie taskId hier
   const bigTaskBoxHtml = showBigTaskPopupHtmlTemplate(task, subtasksHtml);
   const bigTaskBoxContainer = document.getElementById("bigTaskBoxContainer");
   if (bigTaskBoxContainer) {
@@ -483,8 +512,10 @@ function showBigTaskBox(taskId) {
   }
 }
 
+
 function closeBigTaskBox() {
   document.getElementById("BigTaskFormPopUp").style.display = "none";
+  location.reload();
 }
 
 

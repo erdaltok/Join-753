@@ -589,8 +589,18 @@
 .subtaskBigBoxContent {
     display: flex;
     gap: 16px;
-
+    width: 50%;
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
+.subtaskBigBoxContent:hover {
+  cursor: pointer;
+  background-color: #e7e1e1;
+  border-radius: 8px;
+  
+}
+
+
 
 .subtaskBigBoxContent span {
     color: #000;
@@ -598,6 +608,11 @@
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
+    
+}
+
+.subtaskBigBoxContent img {
+    padding-left: 8px;
 }
 
 .footerBigBox {
