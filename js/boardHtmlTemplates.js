@@ -1,5 +1,4 @@
 // HTML TEMPLATES
-
 function createTaskHtml(task, backgroundColor) {
   const assignedContactsSVGs = Array.isArray(task.assignedContactsSVGs)
     ? task.assignedContactsSVGs
@@ -16,7 +15,7 @@ function createTaskHtml(task, backgroundColor) {
   const completedSubtasks = subtasks.filter(
     (subtask) => subtask.completed
   ).length;
-  // Berechnen des Fortschritts für diese spezifische Task
+  // Berechnen des Fortschritts für Subtasks
   const progress =
     totalSubtasks > 0 ? (completedSubtasks / totalSubtasks) * 100 : 0;
 
@@ -48,8 +47,7 @@ function createTaskHtml(task, backgroundColor) {
             </div>
         </div>
     </div>
-  `;
-    
+  `;    
     return html;
 }
 
@@ -71,7 +69,6 @@ function createSubtaskHtml(subtaskText) {
         </li>
     `;
 }
-
 
 function showBigTaskPopupHtmlTemplate(task, subtasksHtml) {
   return `

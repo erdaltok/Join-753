@@ -11,7 +11,6 @@
     justify-content: center;
     align-items: center;
     z-index: 21;
-
 }
 
 .popupFlex {
@@ -27,7 +26,6 @@
     color: black;
     width: 78%;
     height: 85%;
-
     /* transition: width 0.3s;
     transform: translateX(0%); */
 }
@@ -51,8 +49,6 @@
         transform: translateX(100%);
     }
 } */
-
-
 
 .addTaskLittle {
     margin-left: 74px !important;
@@ -112,7 +108,6 @@
     line-height: 120%;
     display: flex;
     align-items: center;
-
 }
 
 .titleInputAddTaskBoard p {
@@ -141,7 +136,6 @@
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
-
 }
 
 ::placeholder {
@@ -157,7 +151,6 @@
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
-
 }
 
 .requestWarningInputField {
@@ -170,7 +163,6 @@
     background-color: #D1D1D1;
     display: block;
 }
-
 
 .addTaskRightLittle {
     gap: 24px;
@@ -246,8 +238,6 @@
     background-position: right;
     width: auto;
 }
-
-
 
 .titleDateAddTaskBoard {
     display: flex;
@@ -473,7 +463,6 @@ input {
     text-align: start;
 }
 
-
 .addedSubstaskList ul {
     padding-inline-start: 0px !important;
     height: 10px !important;
@@ -513,8 +502,6 @@ input {
     width: 67%;
 }
 
-
-
 .footerButtonsAddTask {
     display: flex;
     align-items: center;
@@ -540,7 +527,6 @@ input {
     line-height: 120%;
     width: 183px;
     height: 56px;
-
 }
 
 .footerButtonClear {
@@ -571,8 +557,6 @@ input {
 .footerButtonCreateTask svg:hover {
     fill: #29ABE2;
 }
-
-
 
 .listSelectableContacts {
     display: flex;
@@ -624,10 +608,8 @@ input {
         background: #ccc;
         border-bottom: black 1px solid;
         padding: 4px;
-
     }
 }
-
 
 .listSelectableContacts li:hover {
     background-color: rgb(209, 202, 202);

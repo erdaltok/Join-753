@@ -1,4 +1,4 @@
 git pull
 git add .
-git commit -m "Subtasks and progress bar"
+git commit -m "new js and css files for clarity"
 git push
