@@ -134,6 +134,8 @@ function createTask() {
   closeAddTaskForm();
   addTaskToBoard(newTask, newTask.status || "todo");
   saveTasksToStorage();
+  newTaskAddedMessage();
+  resetTaskForm();
 }
 
 function addTaskToBoard(task, columnId) {
@@ -254,6 +256,40 @@ function renderFilteredTasks(filteredTasks) {
   });
 }
 
+function newTaskAddedMessage() {
+  let messageBox = document.getElementById("addNewTaskMessage");
+  messageBox.innerHTML = `
+        <span>Task added to board</span>
+        <img src="/img/board-icon-tasl-added-message.svg" alt="" style="margin-left: 10px;">
+    `;
+  messageBox.style.display = "flex";
+
+  setTimeout(function () {
+    messageBox.style.display = "none";
+  }, 2000);
+}
+
+function resetTaskForm() {
+  document.getElementById("idTitleInputAddTask").value = "";
+  document.getElementById("idDescriptionAddTask").value = "";
+  document.getElementById("idTitleSelectContactsAddTask").value = "";
+  document.getElementById("idTitleDateAddTask").value = "";
+  document.getElementById("idSelectCategoryAddTask").value = "";
+  document.getElementById("addedSubstaskList").innerHTML = "";
+
+  resetAllButtons();
+  selectedContacts = []; 
+  updateAddedContactsDisplay();
+}
+
+function updateAddedContactsDisplay() {
+  const addedContactsContainer = document.getElementById(
+    "addedContactsProfilBadges"
+  );
+  if (addedContactsContainer) {
+    addedContactsContainer.innerHTML = ""; 
+  }
+}
 
 document.addEventListener("DOMContentLoaded", initPage);
 

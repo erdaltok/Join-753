@@ -1,4 +1,4 @@
 git pull
 git add .
-git commit -m "new search tasks in board"
+git commit -m "New message and clear form after add new Task"
 git push

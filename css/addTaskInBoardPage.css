@@ -209,7 +209,7 @@
     border: 1px solid #FF8190;
 }
 
-.titleDescriptionAddTaskBoard textarea:focus + .requestWarningInputField {
+.titleDescriptionAddTaskBoard textarea:focus+.requestWarningInputField {
     display: block;
 }
 
@@ -627,4 +627,23 @@ input {
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
+}
+
+.addNewTaskMessage {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 137px;
+    left: 841px;
+    width: 312px;
+    height: 74px;
+    font-size: 20px;
+    font-weight: 400;
+    border-radius: 16px;
+    background-color: #2A3647;
+    color: white;
+    font-family: inter;
+    border: none;
+    gap: 20px;
 }
