@@ -1,4 +1,4 @@
 git pull
 git add .
-git commit -m "New message and clear form after add new Task"
+git commit -m "New css first steps boardPage responsive"
 git push
