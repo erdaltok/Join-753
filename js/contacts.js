@@ -45,8 +45,6 @@ function advanceCard(name, email) {
     newAdvanceCard.querySelector('.contact').addEventListener('click', function () {
         handleContactClick(this, name, email);
     });
-
-    deleteContact();
 }
 
 
@@ -231,11 +229,6 @@ function loadContacts() {
         phones = storedContacts.phones || [];
 
         document.getElementById('advanceCard').innerHTML = '';
-
-        // Sortiere die Namen nach dem ersten Buchstaben
-        names.sort(function (a, b) {
-            return getFirstLetter(a).localeCompare(getFirstLetter(b));
-        });
 
         for (let i = 0; i < names.length; i++) {
             // Überprüfe, ob der Kontakt bereits angezeigt wird.

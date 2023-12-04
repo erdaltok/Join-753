@@ -43,6 +43,7 @@ body {
     align-items: center;
     justify-content: space-evenly;
     cursor: pointer;
+    z-index: 99;
 }
 
 .add-contacts-btn:hover {
@@ -55,10 +56,12 @@ body {
     font-size: 20px;
     font-weight: 400;
     cursor: default;
-    margin-left: 33px;
+    margin-left: 31px;
 }
 
 .initial {
+    position: relative;
+    left: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,7 +79,7 @@ body {
 
 .initial-text {
     line-height: 0.5;
-    margin: 22px 164px 21px -74px;
+    margin: 22px 164px 21px -56px;
     max-width: 86px;
     white-space: nowrap;
     overflow: visible;
@@ -92,7 +95,7 @@ body {
 
 .contact {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     background-color: white;
     gap: 96px;
