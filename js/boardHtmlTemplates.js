@@ -1,7 +1,7 @@
 // HTML TEMPLATES
 function createTaskHtml(task, backgroundColor) {
   const assignedContactsSVGs = Array.isArray(task.assignedContactsSVGs)
-    ? task.assignedContactsSVGs
+    ? extractSVGsFromAssignedContacts(task.assignedContactsSVGs)
     : [];
 
   const priorityImageHtml = task.priorityImage
@@ -71,6 +71,11 @@ function createSubtaskHtml(subtaskText) {
 }
 
 function showBigTaskPopupHtmlTemplate(task, subtasksHtml) {
+    const assignedContactsHtml =
+      task.assignedContactsSVGs.length > 0
+        ? `${task.assignedContactsSVGs.join("")}`
+            : "<p>No contacts assigned</p>";
+    
   return `
     <div class="BigTaskFormPopUp" id="BigTaskFormPopUp">
         <div class="popupFlex">
@@ -106,7 +111,9 @@ function showBigTaskPopupHtmlTemplate(task, subtasksHtml) {
                         <div class="listSelectableContactsBigBox">
                             <ul>
                               <li class="contact-line-BigBox">
-                                ${task.assignedContactsSVGs.join("")}
+                                ${assignedContactsHtml}
+                                   
+
                               </li>
                             </ul>
                         </div>
@@ -134,5 +141,17 @@ function showBigTaskPopupHtmlTemplate(task, subtasksHtml) {
             </form>
         </div>
     </div>
+  `;
+}
+
+
+function loadContactsForFormHtmlTemplate(name, initials) {
+  return `
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="16" cy="16" r="15.5" fill="#1FD7C1" stroke="white" />
+      <text x="16" y="16" alignment-baseline="central" text-anchor="middle" fill="white">${initials}</text>
+    </svg>
+    <span class="contact-name">${name}</span>
+    <img src="/img/check-button-default.svg" alt="">
   `;
 }

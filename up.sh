@@ -1,4 +1,4 @@
 git pull
 git add .
-git commit -m "New css first steps boardPage responsive"
+git commit -m "New Contacts are now include in BigBigTask and css adjusted"
 git push

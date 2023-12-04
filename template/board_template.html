@@ -25,6 +25,7 @@
     <script src="/js/popUpBigTaskInBoard.js"></script>
     <script src="/js/subtasksInAddTaskBoardPage.js"></script>
     <script src="/js/contactListAddTaskInBoardPage.js"></script>
+    <script src="/js/contacts.js"></script>
     <!-- <script src="/js/addTask.js"></script> -->
     
 
@@ -59,8 +60,6 @@
                         <span>Add Task</span>
                         <img src="/img/add-icon-board.svg" alt="">
                     </button>
-
-
                 </div>
             </div>
 
@@ -76,11 +75,9 @@
                     <div class="column-content drag-area" id="todo" ondrop="moveTo('todo')"
                         ondragleave="removeHighlight('todo')" ondragover="allowDrop(event); highlight('todo')">
 
-
                         <div class="placeholder-tasks-todo">
                             <span>No tasks To do</span>
                         </div>
-
                     </div>
                 </div>
 
@@ -96,15 +93,9 @@
 
                         <div class="placeholder-tasks-progress">
                             <span>No tasks in progress</span>
-                        </div>
-                       
+                        </div>                       
                     </div>
-                                    
-
                 </div>
-
-
-
 
                 <div class="feedback-column">
                     <div class="column-title">
@@ -140,8 +131,6 @@
 
         </div>
 
-
-
 <!-- AddTask Form in Board-Page -->
 
 <div class="addTaskFormPopUp" style="display: none;">
@@ -151,7 +140,6 @@
                     <div class="titlePositionLittle">
                         <h1>Add Task</h1>
                         <img src="/img/close-icon-board-addtask.svg" alt="" onclick="closeAddTaskForm()">
-
                     </div>
 
             <div class="formLeftAndRightFlex">
@@ -176,76 +164,23 @@
                         <div class="requestWarningInputField" style="display: none;">This field is required</div>
                     </div>
 
-
                     <div class="titleSelectContactsAddTaskBoard">
                         <label for="idTitleSelectContactsAddTask">Assigned to</label>
                         <input class="inputTitleAddTask" id="idTitleSelectContactsAddTask" type="text"
                              placeholder="Select contacts to assign" onclick="toggleContactList()">
-
-                    </div>   
-                    
+                    </div>                       
 
                     <div id="listSelectableContacts" class="listSelectableContacts" style="display: none;">
                         <ul>
-                            <li class="contact-line">
-                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle id="Ellipse 5" cx="16" cy="16" r="15.5" fill="#1FD7C1" stroke="white" />
-                                    <text x="16" y="16" alignment-baseline="central" text-anchor="middle" fill="white">
-                                        ET
-                                    </text>
-                                </svg>
-                                <span class="contact-name">Erdal Tok</span>
-                                <img src="/img/check-button-default.svg" alt="">
-                            </li>
-                            <li class="contact-line" ">
-                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <circle id="Ellipse 5" cx="16" cy="16" r="15.5" fill="#FF7A00"
-                                                stroke="white" />
-                                            <text x="16" y="16" alignment-baseline="central" text-anchor="middle"
-                                                fill="white">
-                                                DW
-                                            </text>
-                                        </svg>
-                                <span class="contact-name">Dennis Weinhardt</span>
-                                <img src="/img/check-button-default.svg" alt="">
-                            </li>
-                            <li class="contact-line">
-                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle id="Ellipse 5" cx="16" cy="16" r="15.5" fill="#1FD7C1" stroke="white" />
-                                    <text x="16" y="16" alignment-baseline="central" text-anchor="middle" fill="white">
-                                        TD
-                                    </text>
-                                </svg>
-                                <span class="contact-name">Toma Daniel</span>
-                                <img src="/img/check-button-default.svg" alt="">
-                            </li>
-                        </ul>
+                            <!-- Hir kommen die Kontakte rein -->
+                        </ul>                        
                     </div>
 
-
-                    <div class="addedContactsProfilBadges" id="addedContactsProfilBadges" style="display: none;">
-                        <!-- <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle id="Ellipse 5" cx="16" cy="16" r="15.5" fill="#1FD7C1" stroke="white" />
-                            <text x="16" y="16" alignment-baseline="central" text-anchor="middle" fill="white">
-                                EM
-                            </text>
-                        </svg>
-                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle id="Ellipse 5" cx="16" cy="16" r="15.5" fill="#FF7A00" stroke="white" />
-                            <text x="16" y="16" alignment-baseline="central" text-anchor="middle" fill="white">
-                                AM
-                            </text>
-                        </svg> -->
-                    
-                    </div>
-        
+                    <div class="addedContactsProfilBadges" id="addedContactsProfilBadges" style="display: none;"></div>        
                 </div>
-
 
         
                 <div class="dividerLittle"></div>
-        
         
                 <div class="addTaskRightLittle">
 
@@ -257,8 +192,6 @@
                                 placeholder="tt/mm/jjjj" required>
                                 <div class="requestWarningInputField" style="display: none;">This field is required</div>
                         </div>
-
-
 
                 <div class="prioSection">
                     <div class="titlePrioSection">Prio</div>              
@@ -279,13 +212,8 @@
                             Low
                             <img src="/img/Low.png" >
                         </div>
-
-
                     </div>
                 </div>
-
-
-
 
                 <div class="categorySection">
                     <div class="titleCategoryAddTask">
@@ -315,28 +243,10 @@
                                 <img onclick="addNewSubtask()" src="/img/check-icon-subtasks.svg" >
                             </div>
                         </div>
-                        <ul id="addedSubstaskList" class="addedSubstaskList">
-                            <!-- <li>
-                                <span>Contact Form
-                                    <div class="editDeleteSubtask">
-                                        <img src="/img/edit-pen-icon-subtasks.svg" onclick="editSubtask(event)">
-                                        <img src="/img/divider-icon-subtasks.svg" >
-                                        <img src="/img/delete-icon-subtasks.svg" alt="">
-                                    </div>
-                                    <div class="confirmEditSubtask">
-                                        <img src="/img/delete-icon-subtasks.svg">
-                                        <img src="/img/divider-icon-subtasks.svg">
-                                        <img src="/img/check-icon-subtasks.svg" onclick="confirmEditSubtask(event)">
-                                    </div>
-                                </span>
-                            </li> -->
-                            
-                        </ul>
+                        <ul id="addedSubstaskList" class="addedSubstaskList"></ul>
                     </div>
-                </div>          
-
-            </div>      
-        
+                </div>       
+            </div>       
         </div>
 
         <div class="formFooter">
@@ -355,10 +265,7 @@
                 </button>
                
             </div>
-
         </div>
-
-
     </div>
 </form>
 </div>

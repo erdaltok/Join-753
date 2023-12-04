@@ -91,3 +91,37 @@ document.addEventListener("DOMContentLoaded", function () {
     line.addEventListener("click", addContactToTask);
   });
 });
+
+function loadContactsForForm() {
+  const listSelectableContacts = document.getElementById(
+    "listSelectableContacts"
+  );
+  const ulElement = listSelectableContacts.querySelector("ul");
+  const contacts = JSON.parse(localStorage.getItem("contacts")) || {
+    names: [],
+    emails: [],
+    phones: [],
+  };
+  ulElement.innerHTML = "";
+
+  contacts.names.forEach((name) => {
+    const initials = getInitials(name);
+    const liElement = document.createElement("li");
+    liElement.className = "contact-line";
+    liElement.innerHTML = loadContactsForFormHtmlTemplate(name, initials);
+    ulElement.appendChild(liElement);
+  });
+
+  addEventListenersToContactLines();
+}
+
+function addEventListenersToContactLines() {
+  const contactLines = document.querySelectorAll(".contact-line");
+  contactLines.forEach((line) => {
+    line.addEventListener("click", addContactToTask);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  loadContactsForForm();
+});

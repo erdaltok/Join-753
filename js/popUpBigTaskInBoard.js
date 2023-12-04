@@ -77,3 +77,13 @@ function toggleSubtaskStatus(taskId, subtaskIndex) {
   }
   saveTasksToStorage();
 }
+
+function getAssignedContactsSVGs() {
+  return selectedContacts.map((contact) => {
+    const svgHTML = contact.querySelector("svg").outerHTML;
+    const contactName = contact.querySelector(".contact-name").textContent;
+    return `<li class="contact-line-BigBox">${svgHTML}<span class="contact-name">${contactName}</span></li>`;
+  });
+}
+
+

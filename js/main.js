@@ -138,6 +138,20 @@ function createTask() {
   resetTaskForm();
 }
 
+
+function extractSVGsFromAssignedContacts(assignedContacts) {
+  return assignedContacts.map((html) => {
+    const div = document.createElement("div");
+    div.innerHTML = html;
+    const svg = div.querySelector("svg");
+    return svg ? svg.outerHTML : "";
+  });
+}
+
+
+
+
+
 function addTaskToBoard(task, columnId) {
   const column = document.getElementById(columnId);
   const taskHtml = createTaskHtml(
