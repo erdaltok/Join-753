@@ -3,6 +3,11 @@ let emails = [];
 let phones = [];
 
 
+function reload() {
+    location.reload();
+}
+
+
 // Funktion zum Erstellen einer neuen Kontaktkarte und Hinzufügen zum AdvanceCard-Bereich.
 function advanceCard(name, email) {
     let firstLetter = getFirstLetter(name);
@@ -26,7 +31,7 @@ function advanceCard(name, email) {
     
     let newAdvanceCard = document.createElement('div');
     newAdvanceCard.innerHTML = `
-      <div id="contact" showCard('${name}', '${email}');" class="contact">
+    <div id="contact" onclick="showCard('${name}', '${email}')" class="contact">
         <div>
           <p class="initial">${getInitials(name)}</p>
         </div>
@@ -41,7 +46,6 @@ function advanceCard(name, email) {
         existingLetterContainer.appendChild(newAdvanceCard);
     }
     
-
     newAdvanceCard.querySelector('.contact').addEventListener('click', function () {
         handleContactClick(this, name, email);
     });
@@ -174,7 +178,6 @@ function newContact() {
   `;
 
     saveContactsToLocalStorage();
-
 }
 
 
@@ -207,10 +210,11 @@ function createContact(event) {
     phones.push(phone);
 
     saveContactsToLocalStorage();
-    showCard(name, email, phone);
     advanceCard(name, email);
     closeNewContact();
+    loadContacts();
     created();
+    reload();
 }
 
 
@@ -220,7 +224,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// Funktion zum Laden der Kontakte aus dem lokalen Speicher und Anzeigen im AdvanceCard-Bereich.
+// Funktion zum Laden der Kontakte aus dem lokalen Speicher, alphabetisch sortieren und Anzeigen im AdvanceCard-Bereich.
 function loadContacts() {
     if (localStorage.getItem('contacts')) {
         let storedContacts = JSON.parse(localStorage.getItem('contacts'));
@@ -228,20 +232,22 @@ function loadContacts() {
         emails = storedContacts.emails || [];
         phones = storedContacts.phones || [];
 
+        // Erstellt ein Array von Objekten, jedes enthält Name, Email und Telefonnummer.
+        let contactArray = names.map((name, index) => ({ name, email: emails[index], phone: phones[index] }));
+
+        // Sortiert das Array alphabetisch nach dem Namen.
+        contactArray.sort((a, b) => a.name.localeCompare(b.name));
+
         document.getElementById('advanceCard').innerHTML = '';
 
-        for (let i = 0; i < names.length; i++) {
-            // Überprüfe, ob der Kontakt bereits angezeigt wird.
-            if (document.querySelector(`.contact[data-index='${i}']`) === null) {
-                advanceCard(names[i], emails[i]);
-            }
+        // Iteriert durch das sortierte Array und erstelle die AdvanceCard für jeden Kontakt.
+        for (let i = 0; i < contactArray.length; i++) {
+            advanceCard(contactArray[i].name, contactArray[i].email);
         }
     } else {
         document.getElementById('advanceCard').innerHTML = 'Keine Kontakte verfügbar.';
     }
 }
-
-
 
 
 // Funktion zum Speichern der Kontakte im lokalen Speicher.
@@ -325,7 +331,7 @@ function editContact() {
                             </div>
                             <div class="buttons">
                                 <button class="cancel-btn" onclick="deleteEditedContact(${index})">Delete <img src="/img/cencel.png" alt=""></button>
-                                <button style="position: relative; right: 40px;" class="create-btn" type="submit">Save <img src="/img/check.png" alt=""></button>
+                                <button onclick="saveEditedContact(${index}" style="position: relative; right: 40px;" class="create-btn" type="submit">Save <img src="/img/check.png" alt=""></button>
                             </div>
                         </div>
                     </form>
