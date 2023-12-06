@@ -218,12 +218,6 @@ function createContact(event) {
 }
 
 
-// Funktion zum Laden der gespeicherten Kontakte beim Start der Seite.
-document.addEventListener('DOMContentLoaded', function () {
-    loadContacts();
-});
-
-
 // Funktion zum Laden der Kontakte aus dem lokalen Speicher, alphabetisch sortieren und Anzeigen im AdvanceCard-Bereich.
 function loadContacts() {
     if (localStorage.getItem('contacts')) {
@@ -268,12 +262,21 @@ function deleteContact() {
     if (selectedContact) {
         let index = selectedContact.dataset.index;
 
-        names.splice(index, 1);
-        emails.splice(index, 1);
-        phones.splice(index, 1);
+        // Zugriff auf den Local Storage, um die gespeicherten Kontakte zu erhalten
+        let storedContacts = JSON.parse(localStorage.getItem('contacts'));
 
-        saveContactsToLocalStorage();
-        updateContactDisplay();
+        if (storedContacts && index >= 0 && index < storedContacts.names.length) {
+            // Entferne den Kontakt aus den gespeicherten Daten
+            storedContacts.names.splice(index, 1);
+            storedContacts.emails.splice(index, 1);
+            storedContacts.phones.splice(index, 1);
+
+            // Aktualisiere den Local Storage
+            localStorage.setItem('contacts', JSON.stringify(storedContacts));
+
+            // Aktualisiere die Anzeige
+            updateContactDisplay();
+        }
     }
 }
 
@@ -330,7 +333,7 @@ function editContact() {
                                 <img src="/img/call.png" alt="icon" class="icon-2">
                             </div>
                             <div class="buttons">
-                                <button class="cancel-btn" onclick="deleteEditedContact(${index})">Delete <img src="/img/cencel.png" alt=""></button>
+                                <button class="cancel-btn" onclick="deleteContact(${index})">Delete <img src="/img/cencel.png" alt=""></button>
                                 <button onclick="saveEditedContact(${index}" style="position: relative; right: 40px;" class="create-btn" type="submit">Save <img src="/img/check.png" alt=""></button>
                             </div>
                         </div>
@@ -361,23 +364,6 @@ function saveEditedContact(event, index) {
     showCard(newName, newEmail, newPhone, index);
     updateContactDisplay();
     closeEditContact();
-}
-
-
-// Funktion zum Löschen eines bearbeiteten Kontakts.
-function deleteEditedContact(index) {
-    let selectedContact = document.querySelector('.contact.clicked');
-
-    if (selectedContact) {
-
-        names.splice(index, 1);
-        emails.splice(index, 1);
-        phones.splice(index, 1);
-
-        saveContactsToLocalStorage();
-        updateContactDisplay();
-        closeEditContact();
-    }
 }
 
 
