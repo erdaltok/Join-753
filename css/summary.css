@@ -233,3 +233,44 @@
     font-weight: 700;
     line-height: 120%;
 }
+
+
+
+@media(max-width: 600px){
+    body{
+        min-height: 100vh;
+    }
+    
+    .summary-main{
+        margin-left: 1px;
+    }
+
+    .summary-headline{
+      flex-direction: column;
+      margin-right: 411px;
+      
+    }
+
+    .summary-headline h1{
+     padding-top: 0px;
+     padding-bottom: 0px;
+     margin-right: 117px;
+     padding: 0;
+    }
+    
+    #separator{
+      position: absolute;
+      height: 10px;
+      width: 160px;
+      content: url('/img/separator1.svg');
+      top: 240px;
+      left: 27px;
+      
+    }
+
+    .summary-headline span{
+     font-size: 2.10rem;
+    }
+
+
+}

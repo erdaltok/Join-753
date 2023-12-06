@@ -143,12 +143,33 @@
 
 @media(max-width: 600px){
     body{
-        height: 100vh;
+        min-height: 100vh;
     }
     
-    .logo img { 
-        
+    .header-text{
         display: none;
+    }
+
+    #LogoImage{
+        content: url('/img/LogoWhite1.svg');
+        position: absolute;
+        width: 50px;
+        margin-left: -297px;
+        margin-right: 100px;
+    }
+
+    .user-help{
+        display: none;
+    }
+
+    .header-user-help{
+        margin-left: 140px;
+        margin-top: 5px;
+    }
+
+    .logo img { 
+        display: none;
+        
     }
     .desktop-navbar {
         width: 100vw;
@@ -181,12 +202,11 @@
         height: 91px;
         width: 9px;
         flex-direction: column;
+        border-radius: 10px;
     }
     
     .navbar-footer{
         display: none;
     }
-       
-    
 
 }
