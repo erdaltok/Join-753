@@ -239,6 +239,8 @@
 @media(max-width: 600px){
     body{
         min-height: 100vh;
+        overflow: scroll;
+        -webkit-overflow-scrolling: touch;
     }
     
     .summary-main{
@@ -246,6 +248,7 @@
     }
 
     .summary-headline{
+        width: 530px;
       flex-direction: column;
       margin-right: 411px;
       
@@ -254,8 +257,10 @@
     .summary-headline h1{
      padding-top: 0px;
      padding-bottom: 0px;
-     margin-right: 117px;
+     margin-right: 166px;
      padding: 0;
+     line-height: 0%;
+     font-size: 55px;
     }
     
     #separator{
@@ -263,13 +268,14 @@
       height: 10px;
       width: 160px;
       content: url('/img/separator1.svg');
-      top: 240px;
-      left: 27px;
+      top: 158px;
+      left: 69px;
       
     }
 
     .summary-headline span{
      font-size: 2.10rem;
+     margin-right: 23px;
     }
 
 

@@ -173,8 +173,8 @@
     }
     .desktop-navbar {
         width: 100vw;
-       top: 600px;
-        bottom: 0%;
+       
+        top: 721px;
         height: 1px;
         display: flex;
         padding: 64px 0;
@@ -196,6 +196,7 @@
         position: relative;
         top: 2px;
         flex: 1;
+        height: 135px;
     }
 
     .desktop-navbar-menu a{
