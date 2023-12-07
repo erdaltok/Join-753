@@ -1,3 +1,12 @@
+html,body {
+    height: 100%;
+    width: 100% ;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+
+}
+
 .summary-main {
     margin-left: 328px;
     display: flex;
@@ -242,15 +251,26 @@
         overflow: scroll;
         -webkit-overflow-scrolling: touch;
     }
+
+    .desktop-header{
+        padding-left: 328px;
+    }
     
     .summary-main{
         margin-left: 1px;
+        margin-top: 3px;
+        width: 100vw;
+    }
+
+    .summary-flex{
+       
     }
 
     .summary-headline{
         width: 530px;
       flex-direction: column;
       margin-right: 411px;
+      margin-top: 125px;
       
     }
 
@@ -268,8 +288,8 @@
       height: 10px;
       width: 160px;
       content: url('/img/separator1.svg');
-      top: 158px;
-      left: 69px;
+      top: 272px;
+    left: 68px;
       
     }
 
@@ -277,6 +297,148 @@
      font-size: 2.10rem;
      margin-right: 23px;
     }
+     
+    .greeting-user{
+        display: none;
+    }
+
+    .summary-card-container{
+        
+    }
+
+    .summary-card-container span{
+        font-size: 14px;
+    }
+
+    .summary-count{
+        font-size: 42px;
+    }
+
+    .first-row{
+        height: 120px;
+    }
+    .first-row-box{
+        width: 234px;
+        height: 120px;
+    }
+
+    .second-row-box{
+        width: 495px;
+        height: 120px;
+    margin-left: 30px;
+    }
+
+    .third-row-box{
+        width: calc(100% / 3.9);
+        height: 120px;
+    }
+
+    .middle-box img{
+        position: relative;
+  left: 30px !important;
+  height: 69px;
+  margin-right: -7px;
+    }
+}
 
 
+@media  (max-width: 800px)and (min-width: 601px){
+    .summary-headline{
+        width: 530px;
+      flex-direction: column;
+      margin-right: 411px;
+      margin-top: 20px;
+      
+    }
+
+    .summary-headline h1{
+     padding-top: 0px;
+     padding-bottom: 0px;
+     margin-right: 166px;
+     padding: 0;
+     line-height: 0%;
+     font-size: 55px;
+    }
+    
+    #separator{
+      position: absolute;
+      height: 10px;
+      width: 160px;
+      content: url('/img/separator1.svg');
+      top: 166px;
+    left: 68px;
+      
+    }
+    .header-text span{
+        margin-right: 10px;
+        position: fixed;
+        right: 191px;
+    top: 35px;
+
+    }
+
+    .summary-headline span{
+     font-size: 2.10rem;
+     margin-right: 23px;
+    }
+     
+    .greeting-user{
+        display: none;
+    }
+
+    .summary-main{
+        margin-left: 241px;
+    }
+
+    .summary-card-container{
+        
+    }
+
+    .summary-card-container span{
+        font-size: 14px;
+    }
+
+    .summary-count{
+        font-size: 42px;
+    }
+
+    .first-row{
+        height: 120px;
+    }
+    .first-row-box{
+        width: 234px;
+        height: 120px;
+    }
+
+    .second-row-box{
+        width: 495px;
+        height: 120px;
+    margin-left: 30px;
+    }
+
+    .third-row-box{
+        width: calc(100% / 3.9);
+        height: 120px;
+    }
+
+    .middle-box img{
+        position: relative;
+  left: 30px !important;
+  height: 69px;
+  margin-right: -7px;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    .first-row-box{
+        width: 234px;
+        height: 120px;
+    }
 }

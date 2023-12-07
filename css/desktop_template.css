@@ -1,3 +1,16 @@
+html,body {
+    height: 100%;
+    width: 100% ;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+}
 
 .desktop-header {
     height: 10vh;
@@ -173,8 +186,9 @@
     }
     .desktop-navbar {
         width: 100vw;
+      
        
-        top: 721px;
+        top: 780px;
         height: 1px;
         display: flex;
         padding: 64px 0;
@@ -185,6 +199,10 @@
         flex-direction: row;
         justify-content: space-around;
         background-color: rgba(42, 54, 71, 1);
+    }
+
+    .menu-links{
+
     }
 
     .desktop-navbar-menu{
@@ -201,13 +219,23 @@
 
     .desktop-navbar-menu a{
         height: 91px;
-        width: 9px;
-        flex-direction: column;
-        border-radius: 10px;
+    width: 9px;
+    flex-direction: column;
+    border-radius: 10px;
+    align-self: center;
+    position: relative;
+    right: -10px;
+    margin-right: 38px;
     }
     
     .navbar-footer{
+        height: 100px;
         display: none;
     }
 
+    .summary-card-container{
+
+    }
+
+  
 }
