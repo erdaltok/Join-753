@@ -1,6 +1,7 @@
 let names = [];
 let emails = [];
 let phones = [];
+let letterColors = {};
 
 
 function reload() {
@@ -30,10 +31,13 @@ function advanceCard(name, email) {
     }
     
     let newAdvanceCard = document.createElement('div');
+    let initials = getInitials(name);
+    let initialColor = getLetterColor(firstLetter);
+
     newAdvanceCard.innerHTML = `
     <div id="contact" onclick="showCard('${name}', '${email}')" class="contact">
         <div>
-          <p class="initial">${getInitials(name)}</p>
+          <p style="background-color: ${initialColor};" class="initial">${getInitials(name)}</p>
         </div>
         <div class="initial-text">
           <p>${name}</p>
@@ -55,11 +59,13 @@ function advanceCard(name, email) {
 // Funktion zum Anzeigen der ausgewählten Kontaktinformationen in der Detailansichtskarte.
 function showCard(name, email, phone, index) {
     let initials = getInitials(name);
+    let firstLetter = getFirstLetter(name);
+    let letterColor = getLetterColor(firstLetter);
     document.getElementById('card').innerHTML = ``;
     document.getElementById('card').innerHTML = `
-      <div class="card">
+    <div class="card">
         <div>
-        <p class="initial-2">${initials}</p>
+        <p  style="background-color: ${letterColor};" class="initial-2">${initials}</p>
         </div>
         <div class = name-div>
           <p class="name">${name}</p>
@@ -88,6 +94,11 @@ function showCard(name, email, phone, index) {
 
     saveContactsToLocalStorage();
 }
+
+
+// Funktion zum Abrufen der Hintergrundfarbe basierend auf dem Buchstaben
+function getLetterColor(letter) { const colorMap = {'A':'blue','Ä':'cyan','B':'green','C':'red','D':'purple','E':'orange','F':'pink','G':'cyan','H':'brown','I':'teal','J':'yellow','K':'maroon','L':'navy','M':'olive','N':'lime','O':'indigo','Ö':'darkorange','P':'magenta','Q':'tan','R':'slategray','S':'lightcoral','T':'peru','U':'darkorange','Ü':'mediumseagreen','V':'orangered','W':'goldenrod','X':'steelblue','Y':'darkviolet','Z':'gray',}; 
+return colorMap[letter.toUpperCase()] || 'gray'; }
 
 
 // Funktion zum Extrahieren des ersten Buchstabens aus einem Namen für die Kategorisierung.
