@@ -134,8 +134,8 @@
 
 .profil-badges {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 .profil-badges text {
@@ -151,7 +151,6 @@
     margin-right: -8px;
 }
 
-/* .priority-icons img {
-    position: relative;
-    left: 178px;
-} */
+.priority-icons {
+    margin-left: 16px;
+}

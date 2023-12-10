@@ -84,10 +84,17 @@ function getActivePriority() {
   return activeButton ? activeButton.getAttribute("data-priority") : "Standard";
 }
 
-function getAssignedContactsSVGs() {
-  return selectedContacts.map(
-    (contact) => contact.querySelector("svg").outerHTML
-  );
+function getAssignedContactsBadges() {
+  return selectedContacts.map((contact) => {
+    const name = contact.querySelector(".contact-name").textContent;
+    const initials = getInitials(name);
+    const firstLetter = getFirstLetter(name);
+    const initialColor = getLetterColor(firstLetter);
+    return {
+      badgeHtml: `<div class="initial" style="background-color: ${initialColor};">${initials}</div>`,
+      name,
+    };
+  });
 }
 
 function getSubtasks() {
@@ -116,16 +123,16 @@ function createTask() {
   const formData = getFormData();
   console.log("Form Data:", formData); // Zum testen bzw. debuggen
   const priorityImage = getActivePriorityImage();
-  const assignedContactsSVGs = getAssignedContactsSVGs();
-
+  const assignedContactsData = getAssignedContactsBadges();
   const priority = getActivePriority();
   const subtasks = getSubtasks();
+  
   const newTask = {
     id: Date.now(),
     ...formData,
     priorityImage,
     priority,
-    assignedContactsSVGs,
+    assignedContactsBadges: assignedContactsData,
     subtasks,
     status: "todo",
   };
@@ -136,15 +143,6 @@ function createTask() {
   saveTasksToStorage();
   newTaskAddedMessage();
   resetTaskForm();
-}
-
-function extractSVGsFromAssignedContacts(assignedContacts) {
-  return assignedContacts.map((html) => {
-    const div = document.createElement("div");
-    div.innerHTML = html;
-    const svg = div.querySelector("svg");
-    return svg ? svg.outerHTML : "";
-  });
 }
 
 function addTaskToBoard(task, columnId) {

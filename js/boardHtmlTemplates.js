@@ -1,21 +1,21 @@
 // HTML TEMPLATES
 function createTaskHtml(task, backgroundColor) {
-  const assignedContactsSVGs = Array.isArray(task.assignedContactsSVGs)
-    ? extractSVGsFromAssignedContacts(task.assignedContactsSVGs)
-    : [];
+  let assignedContactsHtml = "";
+  if (Array.isArray(task.assignedContactsBadges)) {
+    assignedContactsHtml = task.assignedContactsBadges
+      .map((contactData) => contactData.badgeHtml)
+      .join("");
+  }
 
   const priorityImageHtml = task.priorityImage
     ? `<img src="${task.priorityImage}" alt="Priority Image">`
     : "";
-
-  const assignedContactsHtml = assignedContactsSVGs.join("");
 
   const subtasks = task.subtasks || [];
   const totalSubtasks = subtasks.length;
   const completedSubtasks = subtasks.filter(
     (subtask) => subtask.completed
   ).length;
-  // Berechnen des Fortschritts für Subtasks
   const progress =
     totalSubtasks > 0 ? (completedSubtasks / totalSubtasks) * 100 : 0;
 
@@ -24,14 +24,13 @@ function createTaskHtml(task, backgroundColor) {
         <div class="task-small-box-content">
             <div class="category">
                 <div class="label-small-box" style="background-color: ${backgroundColor};">
-                    <span>${task.category}</span>
-                </div>
+                    <span>${task.category}</span>                    
+                </div>                
             </div>
+            
             <div>
                 <h1>${task.title}</h1>
                 <p>${task.description}</p>
-
-              
             </div>
             <div class="progress-subtasks">
                 <div class="progress-bar" style="--width: ${progress}"></div>
@@ -47,8 +46,8 @@ function createTaskHtml(task, backgroundColor) {
             </div>
         </div>
     </div>
-  `;    
-    return html;
+  `;
+  return html;
 }
 
 function createSubtaskHtml(subtaskText) {
@@ -71,11 +70,17 @@ function createSubtaskHtml(subtaskText) {
 }
 
 function showBigTaskPopupHtmlTemplate(task, subtasksHtml) {
-    const assignedContactsHtml =
-      task.assignedContactsSVGs.length > 0
-        ? `${task.assignedContactsSVGs.join("")}`
-            : "<p>No contacts assigned</p>";
-    
+  let assignedContactsHtml = task.assignedContactsBadges
+    .map((contactData) => {
+      return `<li class="contact-line-BigBox">
+              <div class="contact-badge-container">
+                ${contactData.badgeHtml}
+                <span class="contact-name">${contactData.name}</span>
+              </div>
+            </li>`;
+    })
+    .join("");
+
   return `
     <div class="BigTaskFormPopUp" id="BigTaskFormPopUp">
         <div class="popupFlex">
@@ -110,11 +115,7 @@ function showBigTaskPopupHtmlTemplate(task, subtasksHtml) {
                         <span>Assigned To:</span>
                         <div class="listSelectableContactsBigBox">
                             <ul>
-                              <li class="contact-line-BigBox">
-                                ${assignedContactsHtml}
-                                   
-
-                              </li>
+                              ${assignedContactsHtml}
                             </ul>
                         </div>
                     </div>
@@ -144,13 +145,9 @@ function showBigTaskPopupHtmlTemplate(task, subtasksHtml) {
   `;
 }
 
-
-function loadContactsForFormHtmlTemplate(name, initials) {
+function loadContactsForFormHtmlTemplate(name, initials, initialColor) {
   return `
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="16" cy="16" r="15.5" fill="#1FD7C1" stroke="white" />
-      <text x="16" y="16" alignment-baseline="central" text-anchor="middle" fill="white">${initials}</text>
-    </svg>
+    <div class="initial" style="background-color: ${initialColor};">${initials}</div>
     <span class="contact-name">${name}</span>
     <img src="/img/check-button-default.svg" alt="">
   `;

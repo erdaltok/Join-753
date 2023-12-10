@@ -180,13 +180,19 @@
 
 .contact-line-BigBox {
     display: flex;
-    align-items: center;
-    padding: 9px;
+    align-items: flex-start;
+    padding: 3px;
+    flex-direction: column;
 }
 
 .contact-line-BigBox span {
     display: flex;
     align-items: center;
+}
+
+.contact-badge-container {
+    display: flex;
+    gap: 12px;
 }
 
 .subtasksBigBox {

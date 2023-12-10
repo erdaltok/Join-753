@@ -576,7 +576,9 @@ input {
 .contact-line {
     display: flex;
     align-items: center;
-    padding: 9px;
+    gap: 16px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .contact-line img {
@@ -599,7 +601,7 @@ input {
 
 .listSelectableContacts ul {
     list-style: none;
-    height: 100px;
+    height: 140px;
     overflow-x: hidden;
     overflow-y: scroll;
 
@@ -618,6 +620,7 @@ input {
 
 .addedContactsProfilBadges {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .addedContactsProfilBadges text {
