@@ -138,7 +138,6 @@ function createTask() {
   resetTaskForm();
 }
 
-
 function extractSVGsFromAssignedContacts(assignedContacts) {
   return assignedContacts.map((html) => {
     const div = document.createElement("div");
@@ -147,10 +146,6 @@ function extractSVGsFromAssignedContacts(assignedContacts) {
     return svg ? svg.outerHTML : "";
   });
 }
-
-
-
-
 
 function addTaskToBoard(task, columnId) {
   const column = document.getElementById(columnId);

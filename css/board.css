@@ -215,6 +215,7 @@
 
     .todo-column, .progress-column, .feedback-column, .done-column {
         overflow: auto;
+        margin-bottom: 8px;
     }
 
     .drag-area {
