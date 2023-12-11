@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/fonts.css">
     <link rel="stylesheet" href="/css/desktop_template.css">
     <link rel="stylesheet" href="/css/board.css">
-    <link rel="stylesheet" href="/css/addTaskInBoardPage.css">
+    
     <link rel="stylesheet" href="/css/popUpBigTaskInBoardPage.css">
     <link rel="stylesheet" href="/css/taskSmallBoxInBoardPage.css">
 
@@ -43,12 +43,10 @@
    
     <div class="addTaskFormPopUp">
         <div class="popupFlex">
-            <form class="addTaskPopUp" onsubmit="handleFormSubmit(event)">
+            <form class="addTaskPopUp">
                 <div class="addTaskLittle">
                     <div class="titlePositionLittle">
                         <h1>Add Task</h1>
-                        <img src="/img/close-icon-board-addtask.svg" alt="" onclick="closeAddTaskForm()">
-
                     </div>
 
                     <div class="formLeftAndRightFlex">
@@ -255,7 +253,9 @@
                         <p style="color: #FF8190;">*<span style="color: #000;">This field is required</span></p>
 
                         <div class="footerButtonsAddTask">
-                            <button class="footerButtonClear">Clear
+                            
+
+                            <button class="footerButtonClear" onclick="resetTaskForm()">Clear
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24"
                                     fill="none">
                                     <path
@@ -264,7 +264,7 @@
                                         stroke-linejoin="round" />
                                 </svg>
                             </button>
-                            <button class="footerButtonCreateTask" type="submit">Create Task
+                            <button class="footerButtonCreateTask" onclick="handleFormSubmitFromAddTask(event)" type="submit">Create Task
                                 <img src="/img/check-icon-footer-board-addTask.svg" alt="">
                             </button>
 
@@ -279,6 +279,7 @@
     </div>
     <script src="/js/addTask.js"></script>
     <script src="/js/main.js"></script>
+    <div id="addNewTaskMessage" class="addNewTaskMessage"></div>
 </body>
 
 </html>

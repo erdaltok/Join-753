@@ -20,7 +20,7 @@ function moveTo(columnId) {
     );
     if (task) {
       task.status = columnId;
-      saveTasksToStorage(); 
+      saveTasksToStorage();
     }
 
     draggedItemId = null;

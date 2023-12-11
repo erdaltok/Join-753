@@ -4,6 +4,7 @@ let subtasks = [];
 let totalSubtasks = 0;
 let completedSubtasks = 0;
 let currentTaskId = null;
+let fromAddTask = false;
 
 
 async function initPage() {
@@ -115,6 +116,14 @@ function handleFormSubmit(event) {
   createTask(); 
 }
 
+function handleFormSubmitFromAddTask(event)
+{
+  event.preventDefault();
+  fromAddTask = true;
+  createTask();
+  fromAddTask = false;
+}
+
 function createTask() {
   if (!isCategorySelected()) {
     return;
@@ -138,8 +147,11 @@ function createTask() {
   };
 
   tasks.push(newTask);
-  closeAddTaskForm();
-  addTaskToBoard(newTask, newTask.status || "todo");
+  if(fromAddTask == false)
+  {
+    closeAddTaskForm();
+    addTaskToBoard(newTask, newTask.status || "todo");
+  }
   saveTasksToStorage();
   newTaskAddedMessage();
   resetTaskForm();
@@ -283,6 +295,7 @@ function resetTaskForm() {
   document.getElementById("idTitleDateAddTask").value = "";
   document.getElementById("idSelectCategoryAddTask").value = "";
   document.getElementById("addedSubstaskList").innerHTML = "";
+  document.getElementById("inputFieldSubtaskId").value = "";
 
   resetAllButtons();
   selectedContacts = []; 
