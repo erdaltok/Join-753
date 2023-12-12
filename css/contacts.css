@@ -376,3 +376,9 @@ body {
         left: 498px;
     }
 }
+
+@media (max-width: 720px) {
+    .contact-view {
+        display: none;
+    }
+}
