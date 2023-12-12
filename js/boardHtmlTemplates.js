@@ -147,7 +147,7 @@ function showBigTaskPopupHtmlTemplate(task, subtasksHtml) {
 
 function loadContactsForFormHtmlTemplate(name, initials, initialColor) {
   return `
-    <div class="initial" style="background-color: ${initialColor};">${initials}</div>
+    <div class="initial initial-margin-small-task" style="background-color: ${initialColor};">${initials}</div>
     <span class="contact-name">${name}</span>
     <img src="/img/check-button-default.svg" alt="">
   `;
