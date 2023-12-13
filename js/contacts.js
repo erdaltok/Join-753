@@ -70,12 +70,12 @@ function showCard(name, email, phone, index) {
         <div class = name-div>
           <p class="name">${name}</p>
           <div class="del">
-            <div class="edit-delete">
-              <img style="cursor: default;" class="edit-del" src="/img/edit.png">
+            <div onclick="editContact()" class="edit-delete">
+              <img class="edit-del" src="/img/edit.png">
               <p onclick="editContact()" class="edit-del">Edit</p>
             </div>
-            <div class="edit-delete">
-              <img style="cursor: default;" class="edit-del" src="/img/delete.png">
+            <div onclick="deleteContact(${index})" class="edit-delete">
+            <img class="edit-del" src="/img/delete.png">     
               <p class="edit-del" onclick="deleteContact(${index})">Delete</p>
             </div>
           </div>
@@ -162,7 +162,7 @@ function newContact() {
                 </div>
             </div>
             <div class="close">
-                <img onclick="closeNewContact()" src="/img/close.png">
+            <img id="closeButton" onclick="closeNewContact()" src="/img/close.png">
             </div>
             <form onsubmit="createContact(event)">
              <div class="div-input-fields">
@@ -179,7 +179,7 @@ function newContact() {
                     <img src="/img/call.png" alt="icon" class="icon-2">
                 </div>
                 <div class="buttons">
-                    <button onclick="closeNewContact()" class="cancel-btn">Cancel <img src="/img/cencel.png" alt=""></button>
+                    <button onclick="closeNewContact()" class="cancel-btn">Cancel &#10006;</button>
                     <button style="position: relative; right: 40px;" class="create-btn">Create contact <img src="/img/check.png" alt=""></button>
                 </div>
              </div>
@@ -189,6 +189,8 @@ function newContact() {
   `;
 
     saveContactsToLocalStorage();
+    updateCloseButtonImage();
+    window.addEventListener('resize', updateCloseButtonImage);
 }
 
 
@@ -198,6 +200,18 @@ function closeNewContact() {
     openDiv.style.display = 'none';
 }
 
+
+function updateCloseButtonImage() {
+    let closeButton = document.getElementById('closeButton');
+    if (window.innerWidth <= 1250) {
+        closeButton.src = '/img/close-white.png';
+    } else {
+        closeButton.src = '/img/close.png';
+    }
+}
+
+updateCloseButtonImage();
+window.addEventListener('resize', updateCloseButtonImage);
 
 // Funktion zum Erstellen eines neuen Kontakts basierend auf den Formulareingaben.
 function createContact(event) {
@@ -306,6 +320,10 @@ function editContact() {
 
     if (selectedContact) {
         let index = selectedContact.dataset.index;
+        let name = names[index];
+        let initials = getInitials(name);
+        let firstLetter = getFirstLetter(name);
+        let initialColor = getLetterColor(firstLetter);
 
         let openDiv = document.getElementById('editContact');
         openDiv.style.display = 'flex';
@@ -322,12 +340,12 @@ function editContact() {
                 </div>
                 <div class=" div-input">
                     <div class="picture-div">
-                        <div class="picture">
-                            <img style="width: 42px; height: 42px;" src="/img/person (1).png">
-                        </div>
+                    <div class="picture" style="background-color: ${initialColor};">
+                    <p style="color: white; font-size: 47px; font-weight: 400; line-height: 42px;">${initials}</p>
+                </div>
                     </div>
                     <div class="close">
-                        <img onclick="closeEditContact()" src="/img/close.png">
+                        <img id="closeButton" onclick="closeEditContact()" src="/img/close.png">
                     </div>
                     <form onsubmit="saveEditedContact(event, ${index})">
                         <div class="div-input-fields">
@@ -344,7 +362,7 @@ function editContact() {
                                 <img src="/img/call.png" alt="icon" class="icon-2">
                             </div>
                             <div class="buttons">
-                                <button class="cancel-btn" onclick="deleteContact(${index})">Delete <img src="/img/cencel.png" alt=""></button>
+                                <button class="cancel-btn" onclick="deleteContact(${index})">Delete &#10006;</button>
                                 <button onclick="saveEditedContact(${index}" style="position: relative; right: 40px;" class="create-btn" type="submit">Save <img src="/img/check.png" alt=""></button>
                             </div>
                         </div>
@@ -353,6 +371,8 @@ function editContact() {
             </div>
         `;
     }
+    updateCloseButtonImage();
+    window.addEventListener('resize', updateCloseButtonImage);
 }
 
 

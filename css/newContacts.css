@@ -79,6 +79,16 @@
     cursor: pointer;
 }
 
+/*.close:hover {
+    border-radius: 50%;
+    background-color: #f2f2f2ec;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}*/
+
 .div-input-fields {
     position: relative;
     left: 66px;
@@ -146,6 +156,7 @@ input {
     font-family: inter;
     cursor: pointer;
     margin: 45px;
+    border: 2px solid transparent;
 }
 
 .cancel-btn:hover {
@@ -202,6 +213,7 @@ input {
     }
 
     .close {
-        display: none;
+        top: -365px;
+        left: 223px;
     }
 }

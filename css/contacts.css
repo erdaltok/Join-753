@@ -188,9 +188,10 @@ body {
     cursor: pointer;
 }
 
-.edit-del:hover {
+.edit-delete:hover {
     color: #29abe2;
     font-weight: 700;
+    filter: invert(35%) sepia(85%) saturate(1500%) hue-rotate(175deg) brightness(100%) contrast(101%);
 }
 
 .card {
@@ -207,6 +208,7 @@ body {
     align-items: center;
     justify-content: flex-start;
     gap: 13px;
+    cursor: pointer;
 }
 
 .del {
