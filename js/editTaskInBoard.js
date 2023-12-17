@@ -176,10 +176,10 @@ function setActivePriorityButton(priority) {
   }
 }
 
-function closeAddTaskForm() {
-    document.getElementById("editTaskBoxContainer").style.display = "none";
-    location.reload();
-}
+// function closeAddTaskForm() {
+//     document.getElementById("editTaskBoxContainer").style.display = "none";
+//     location.reload();
+// }
 
 // function updateCssClassesForEdit() {
 //   updateClass("titlePositionLittle", "editTitle");
