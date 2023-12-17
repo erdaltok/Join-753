@@ -24,7 +24,7 @@
     background-color: #fff;
     border-radius: 15px;
     color: black;
-    width: 78%;
+    
     height: 85%;
     /* transition: width 0.3s;
     transform: translateX(0%); */
@@ -51,7 +51,7 @@
 } */
 
 .addTaskLittle {
-    margin-left: 74px !important;
+    margin-left: 65.75px !important;
     background: none !important;
     margin-right: 65.75px;
 }
@@ -95,9 +95,19 @@
 }
 
 .formLeftAndRightFlex {
-    display: flex;
-    width: 100%;
-    margin-top: 32px;
+        display: flex;
+            width: 100%;
+            margin-top: 32px;
+            /* overflow-y: auto; */
+            /* overflow-y: auto; */
+            /* width: 440px; */
+            max-height: 588px;
+            overflow-y: auto;
+            
+}
+
+.formLeftAndRightFlex::-webkit-scrollbar {
+    display: none;
 }
 
 .titleInputAddTaskBoard label {
@@ -490,16 +500,15 @@ input {
 
 .formFooter {
     display: flex;
-    /* margin-top: 64px; */
-    /* margin-bottom: 2px !important; */
-    position: fixed;
-    background: #fff;
-    bottom: 120px;
-    /* top: 64px; */
-    align-items: center;
-    justify-content: space-between;
-    right: 213px;
-    width: 67%;
+        /* position: absolute; */
+        background: rgb(255, 255, 255);
+        bottom: 119px;
+        align-items: center;
+        justify-content: space-between;
+        /* right: 213px; */
+        width: auto;
+        height: 100px;
+        
 }
 
 .footerButtonsAddTask {

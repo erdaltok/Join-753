@@ -48,7 +48,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
-    background: #1FD7C1;
+    /* background: #0038FF; */
     padding: 4px 16px;
     border-radius: 8px;
 }
@@ -269,4 +269,112 @@
     line-height: 120%;
     display: flex;
     align-items: center;
+}
+
+
+/* CSS For Edit Form */
+
+.editTitle h1 {
+    display: none;
+}
+
+.editTitle {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 0px;
+    height: 78px;
+}
+
+.editLeftAndRight {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0px;
+    gap: 24px;
+}
+
+.editHideDivider {
+    display: none;
+}
+
+.editLeft {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.editDate {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.editDate label {
+    display: flex;
+    font-size: 21px;
+    align-items: center;
+}
+
+.editDate p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.editDate input {
+    color: #D1D1D1;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    width: auto;
+    border: 1px solid;
+    padding: 10px;
+    border-radius: 8px;
+
+}
+
+.editRight {
+    margin-left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.editPopUp {
+    overflow-x: auto;
+    max-height: 900px;
+    background-color: #fff;
+    border-radius: 15px;
+    color: black;
+    max-width: 550px;
+    width: 550px;
+}
+
+.editPopUp::-webkit-scrollbar {
+    display: none;
+}
+
+.editFooter {
+    position: sticky;
+    height: 100px;
+    bottom: 0px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #FFF;
+    width: 100%;
+}
+
+.footerEditTask {
+    padding: 8px;
+    background-color: #2A3647;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
 }

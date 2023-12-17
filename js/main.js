@@ -32,6 +32,8 @@ async function loadTasksFromStorage() {
 }
 
 function renderTasks() {
+  console.log("Aktuelle Tasks:", tasks); // Zum Testen
+
   ["todo", "inProgress", "awaitFeedback", "done"].forEach((columnId) => {
     document.getElementById(columnId).innerHTML = "";
   });
@@ -46,12 +48,15 @@ function renderTasks() {
       const taskId = this.id;
       showBigTaskBox(taskId);
     });
-  }); 
+  });
+  console.log("Event-Listener hinzugefügt"); // Zum Testen
 }
 
 function addNewTaskBoard() {
   let popup = document.querySelector(".addTaskFormPopUp");
   popup.style.display = "block";
+
+  resetCssClassesForNewTask();
 }
 
 function closeAddTaskForm() {
@@ -110,7 +115,6 @@ function getSubtasks() {
   return subtasks;
 }
 
-// Verhindert das Standard-Submit-Verhalten und ruft dann die Funktion zum Erstellen eines Tasks auf
 function handleFormSubmit(event) {
   event.preventDefault(); 
   createTask(); 
@@ -124,18 +128,36 @@ function handleFormSubmitFromAddTask(event)
   fromAddTask = false;
 }
 
-function createTask() {
-  if (!isCategorySelected()) {
-    return;
-  }
 
-  const formData = getFormData();
-  console.log("Form Data:", formData); // Zum testen bzw. debuggen
-  const priorityImage = getActivePriorityImage();
-  const assignedContactsData = getAssignedContactsBadges();
-  const priority = getActivePriority();
-  const subtasks = getSubtasks();
-  
+function updateExistingTask(
+  formData,
+  priorityImage,
+  assignedContactsData,
+  priority,
+  subtasks
+) {
+  const currentTaskIndex = tasks.findIndex(
+    (task) => task.id.toString() === currentTaskId
+  );
+  if (currentTaskIndex !== -1) {
+    tasks[currentTaskIndex] = {
+      ...tasks[currentTaskIndex],
+      ...formData,
+      priorityImage,
+      priority,
+      assignedContactsBadges: assignedContactsData,
+      subtasks,
+    };
+  }
+}
+
+function createNewTask(
+  formData,
+  priorityImage,
+  assignedContactsData,
+  priority,
+  subtasks
+) {
   const newTask = {
     id: Date.now(),
     ...formData,
@@ -145,16 +167,37 @@ function createTask() {
     subtasks,
     status: "todo",
   };
-
   tasks.push(newTask);
-  if(fromAddTask == false)
-  {
-    closeAddTaskForm();
-    addTaskToBoard(newTask, newTask.status || "todo");
-  }
+  addTaskToBoard(newTask, newTask.status || "todo");
+}
+
+function finalizeTaskCreation() {
   saveTasksToStorage();
+  if (fromAddTask === false) {
+    closeAddTaskForm();
+  }
   newTaskAddedMessage();
   resetTaskForm();
+}
+
+function createTask() {
+  if (!isCategorySelected()) {
+    return;
+  }
+
+  const formData = getFormData();
+  const priorityImage = getActivePriorityImage();
+  const assignedContactsData = getAssignedContactsBadges();
+  const priority = getActivePriority();
+  const subtasks = getSubtasks();
+
+  if (currentTaskId) {
+    updateExistingTask(formData,priorityImage,assignedContactsData,priority,subtasks);
+  } else {
+    createNewTask(formData,priorityImage,assignedContactsData,priority,subtasks);
+  }
+
+  finalizeTaskCreation();
 }
 
 function addTaskToBoard(task, columnId) {
@@ -312,4 +355,23 @@ function updateAddedContactsDisplay() {
 }
 
 document.addEventListener("DOMContentLoaded", initPage);
+
+function resetCssClassesForNewTask() {
+  updateClass("editTitle", "titlePositionLittle");
+  updateClass("editLeftAndRight", "formLeftAndRightFlex");
+  updateClass("editHideDivider", "dividerLittle");
+  updateClass("editLeft", "addTaskLeftLittle");
+  updateClass("editDate", "titleDateAddTaskBoard");
+  updateClass("editRight", "addTaskRightLittle");
+  updateClass("editPopUp", "addTaskPopUp");
+  updateClass("editFooter", "formFooter");
+}
+
+function updateClass(oldClass, newClass) {
+  const elements = document.querySelectorAll(`.${oldClass}`);
+  elements.forEach((element) => {
+    element.classList.remove(oldClass);
+    element.classList.add(newClass);
+  });
+}
 

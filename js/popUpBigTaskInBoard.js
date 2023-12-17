@@ -1,19 +1,18 @@
 // POPUP BIG TASK IN BOARD
 function showBigTaskBox(taskId) {
-  console.log("showBigTaskBox, taskId:", taskId);
   currentTaskId = taskId;
+
   const task = tasks.find((t) => t.id.toString() === taskId);
-  if (!task) return;
+  if (!task) return;  
 
-  task.assignedContactsSVGs = task.assignedContactsSVGs || [];
-  task.subtasks = task.subtasks || [];
-
-  const subtasksHtml = createSubtasksHtml(task.subtasks, taskId); 
+  const subtasksHtml = createSubtasksHtml(task.subtasks, taskId);
   const bigTaskBoxHtml = showBigTaskPopupHtmlTemplate(task, subtasksHtml);
+
   const bigTaskBoxContainer = document.getElementById("bigTaskBoxContainer");
   if (bigTaskBoxContainer) {
     bigTaskBoxContainer.innerHTML = bigTaskBoxHtml;
     document.getElementById("BigTaskFormPopUp").style.display = "block";
+    editBigBoxTask();
   }
 }
 
@@ -42,22 +41,6 @@ function deleteBigTaskBox() {
 }
 
 
-function createSubtasksHtml(subtasks, taskId) {
-  return subtasks
-    .map(
-      (subtask, index) => `
-    <div class="subtaskBigBoxContent" data-index="${index}" onclick="toggleSubtaskStatus('${taskId}', ${index})">
-      <img src="/img/${
-        subtask.completed
-          ? "check-button-checked-bigTask"
-          : "check-button-default"
-      }.svg" alt="">
-      <span>${subtask.text}</span>
-    </div>
-  `
-    )
-    .join("");
-}
 
 function toggleSubtaskStatus(taskId, subtaskIndex) {
   const task = tasks.find((t) => t.id.toString() === taskId);

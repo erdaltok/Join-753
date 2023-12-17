@@ -19,16 +19,17 @@
     <!-- <link rel="stylesheet" href="/css/addTask.css"> -->
 
 
-    <script src="/js/storage.js"></script>
-    <script src="/js/main.js"></script>
-    <script src="/js/summary.js"></script>
-    <script src="/js/boardHtmlTemplates.js"></script>
-    <script src="/js/w3IncludeHtml.js"></script>
-    <script src="/js/board.js"></script>
-    <script src="/js/popUpBigTaskInBoard.js"></script>
-    <script src="/js/subtasksInAddTaskBoardPage.js"></script>
-    <script src="/js/contactListAddTaskInBoardPage.js"></script>
-    <script src="/js/contacts.js"></script>
+    <script src="/js/storage.js" defer></script>
+    <script src="/js/main.js" defer></script>
+    <script src="/js/summary.js" defer></script>
+    <script src="/js/boardHtmlTemplates.js" defer></script>
+    <script src="/js/w3IncludeHtml.js" defer></script>
+    <script src="/js/board.js" defer></script>
+    <script src="/js/popUpBigTaskInBoard.js" defer></script>
+    <script src="/js/subtasksInAddTaskBoardPage.js" defer></script>
+    <script src="/js/contactListAddTaskInBoardPage.js" defer></script>
+    <script src="/js/contacts.js" defer></script>
+    <script src="/js/editTaskInBoard.js" defer></script>
     <!-- <script src="/js/addTask.js"></script> -->
     
 
@@ -138,16 +139,17 @@
 
 <div class="addTaskFormPopUp" style="display: none;">
             <div class="popupFlex">
-    <form class="addTaskPopUp" onsubmit="handleFormSubmit(event)">
+                
+    <form class="addTaskPopUp editPopUp" onsubmit="handleFormSubmit(event)" id="editTask">
                 <div class="addTaskLittle">
-                    <div class="titlePositionLittle">
+                    <div class="titlePositionLittle editTitle">
                         <h1>Add Task</h1>
                         <img src="/img/close-icon-board-addtask.svg" alt="" onclick="closeAddTaskForm()">
                     </div>
 
-            <div class="formLeftAndRightFlex">
+            <div class="formLeftAndRightFlex editLeftAndRight">
                 
-                <div class="addTaskLeftLittle">
+                <div class="addTaskLeftLittle editLeft">
                   
                     <div class="titleInputAddTaskBoard">
                         <label for="idTitleInputAddTask">Title
@@ -184,11 +186,11 @@
                 </div>
 
         
-                <div class="dividerLittle"></div>
+                <div class="dividerLittle editHideDivider"></div>
         
-                <div class="addTaskRightLittle">
+                <div class="addTaskRightLittle editRight">
 
-                        <div class="titleDateAddTaskBoard">
+                        <div class="titleDateAddTaskBoard editDate">
                             <label for="idTitleDateAddTask">Due date
                                 <p style="color: #FF8190;">*</p>
                             </label>
@@ -253,8 +255,8 @@
             </div>       
         </div>
 
-        <div class="formFooter">
-            <p style="color: #FF8190;">*<span style="color: #000;">This field is required</span></p>
+        <div class="formFooter editFooter">
+            <p class="requiredFooter" style="color: #FF8190;">*<span style="color: #000;">This field is required</span></p>
          
             <div class="footerButtonsAddTask">
                 <button class="footerButtonClear">Clear
@@ -267,6 +269,10 @@
                 <button class="footerButtonCreateTask" type="submit">Create Task
                     <img src="/img/check-icon-footer-board-addTask.svg" alt="">
                 </button>
+                <button class="footerEditTask" type="submit" style="display: none;">OK
+                    <img src="/img/check-icon-footer-board-addTask.svg" alt="">
+                </button>
+
                
             </div>
         </div>
@@ -284,7 +290,9 @@
 
     <div class="editBigTaskFormPopUp" id="editBigTaskFormPopUp">
     <div class="editPopUpFlex">
-      <form class="editBigTaskPopUp" onsubmit="handleFormSubmit(event)">
+        <div id="editTaskDisplay"></div>
+
+      <!-- <form class="editBigTaskPopUp" onsubmit="handleFormSubmit(event)">
         <div class="editBigTaskContent">
             <div class="editBigTaskPopUpCloseBtn">
                 <img src="/img/close-icon-subtasks.svg" onclick="closeBigTaskBox()">
@@ -346,23 +354,11 @@
             
             <div class="listSelectableContacts" style="display: none;">
                 <ul>
-                    <!-- Hier kommen die Kontakte rein -->
-                </ul>
-            </div>
-
-            <!-- <div class="titleSelectContactsAddTaskBoard">
-                <label for="idTitleSelectContactsAddTask">Assigned to</label>
-                <input class="inputTitleAddTask" id="idTitleSelectContactsAddTask" type="text"
-                    placeholder="Select contacts to assign" onclick="toggleContactList(event)">
-            </div>
-
-            <div id="listSelectableContacts" class="listSelectableContacts" style="display: none;">
-                <ul>
                     
                 </ul>
-            </div> -->
+            </div>
 
-            
+                    
 
         
             <div class="categorySection">
@@ -408,7 +404,7 @@
 
         </div>
                 
-      </form>
+      </form> -->
     </div>
     </div>
 </div>

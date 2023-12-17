@@ -79,7 +79,9 @@ function showBigTaskPopupHtmlTemplate(task, subtasksHtml) {
               </div>
             </li>`;
     })
-    .join("");
+      .join("");
+    
+     const categoryColor = getCategoryBackgroundColor(task.category);
 
   return `
     <div class="BigTaskFormPopUp" id="BigTaskFormPopUp">
@@ -88,7 +90,7 @@ function showBigTaskPopupHtmlTemplate(task, subtasksHtml) {
                 <div class="BigTaskContent">
                     <div class="category">
                         <div class="label-big-box">
-                            <span>${task.category}</span>
+                            <span style="background-color: ${categoryColor};">${task.category}</span>
                             <img src="/img/close-icon-subtasks.svg" onclick="closeBigTaskBox()">
                         </div>
                     </div>
@@ -151,4 +153,22 @@ function loadContactsForFormHtmlTemplate(name, initials, initialColor) {
     <span class="contact-name">${name}</span>
     <img src="/img/check-button-default.svg" alt="">
   `;
+}
+
+
+function createSubtasksHtml(subtasks, taskId) {
+  return subtasks
+    .map(
+      (subtask, index) => `
+    <div class="subtaskBigBoxContent" data-index="${index}" onclick="toggleSubtaskStatus('${taskId}', ${index})">
+      <img src="/img/${
+        subtask.completed
+          ? "check-button-checked-bigTask"
+          : "check-button-default"
+      }.svg" alt="">
+      <span>${subtask.text}</span>
+    </div>
+  `
+    )
+    .join("");
 }

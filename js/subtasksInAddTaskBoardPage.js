@@ -78,14 +78,26 @@ function toggleSubtaskDisplay() {
   }
 }
 
+// function updateSubtaskList() {
+//   const listElement = document.getElementById("addedSubstaskList");
+//   listElement.innerHTML = "";
+
+//   subtasks.forEach((subtask) => {
+//     listElement.innerHTML += createSubtaskHtml(subtask);
+//   });
+// }
+
 function updateSubtaskList() {
   const listElement = document.getElementById("addedSubstaskList");
   listElement.innerHTML = "";
 
-  subtasks.forEach((subtask) => {
-    listElement.innerHTML += createSubtaskHtml(subtask);
+  subtasks.forEach((subtaskText) => {
+    listElement.innerHTML += createSubtaskHtml(subtaskText);
   });
 }
+
+
+
 
 function deleteSubtask(event) {
   const liElement = event.target.closest("li");

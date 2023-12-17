@@ -26,6 +26,7 @@ function moveTo(columnId) {
     draggedItemId = null;
   }
   // updatePlaceholders();
+  
 }
 
 function highlight(columnId) {
