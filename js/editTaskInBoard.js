@@ -9,7 +9,7 @@ function toggleDisplayForEdit() {
     container.style.display = "block";
     displayArea.appendChild(form);
     bigTaskBoxContainer.style.display = "none";
-    updateCssClassesForEdit();
+    // updateCssClassesForEdit();
   }
 }
 
@@ -181,22 +181,22 @@ function closeAddTaskForm() {
     location.reload();
 }
 
-function updateCssClassesForEdit() {
-  updateClass("titlePositionLittle", "editTitle");
-  updateClass("formLeftAndRightFlex", "editLeftAndRight");
-  updateClass("dividerLittle", "editHideDivider");
-  updateClass("addTaskLeftLittle", "editLeft");
-  updateClass("titleDateAddTaskBoard", "editDate");
-  updateClass("addTaskRightLittle", "editRight");
-  updateClass("addTaskPopUp", "editPopUp");
-  updateClass("formFooter", "editFooter");
-}
+// function updateCssClassesForEdit() {
+//   updateClass("titlePositionLittle", "editTitle");
+//   updateClass("formLeftAndRightFlex", "editLeftAndRight");
+//   updateClass("dividerLittle", "editHideDivider");
+//   updateClass("addTaskLeftLittle", "editLeft");
+//   updateClass("titleDateAddTaskBoard", "editDate");
+//   updateClass("addTaskRightLittle", "editRight");
+//   updateClass("addTaskPopUp", "editPopUp");
+//   updateClass("formFooter", "editFooter");
+// }
 
-function updateClass(oldClass, newClass) {
-  const elements = document.querySelectorAll(`.${oldClass}`);
-  elements.forEach((element) => {
-    element.classList.remove(oldClass);
-    element.classList.add(newClass);
-  });
-}
+// function updateClass(oldClass, newClass) {
+//   const elements = document.querySelectorAll(`.${oldClass}`);
+//   elements.forEach((element) => {
+//     element.classList.remove(oldClass);
+//     element.classList.add(newClass);
+//   });
+// }
 

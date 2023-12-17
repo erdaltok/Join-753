@@ -354,7 +354,7 @@ function updateAddedContactsDisplay() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", initPage);
+
 
 function resetCssClassesForNewTask() {
   updateClass("editTitle", "titlePositionLittle");
@@ -375,3 +375,4 @@ function updateClass(oldClass, newClass) {
   });
 }
 
+document.addEventListener("DOMContentLoaded", initPage);
