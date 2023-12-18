@@ -20,6 +20,7 @@
     box-shadow: 0px 0px 4px 0px #00000029;
     display: flex;
     background-color: white;
+    overflow-x: hidden;
 }
 
 .BigTaskContent {
@@ -28,6 +29,9 @@
     gap: 24px;
     padding: 48px 40px 48px 40px;
     width: 100%;
+    max-height: 800px;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 .label-big-box {
@@ -249,6 +253,9 @@
     display: flex;
     justify-content: flex-end;
     gap: 8px;
+    position: sticky;
+    bottom: 13px;
+    background: #FFF;
 }
 
 .deleteBigBoxFooter,

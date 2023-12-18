@@ -24,7 +24,7 @@
     background-color: #fff;
     border-radius: 15px;
     color: black;
-    
+
     height: 85%;
     /* transition: width 0.3s;
     transform: translateX(0%); */
@@ -95,15 +95,15 @@
 }
 
 .formLeftAndRightFlex {
-        display: flex;
-            width: 100%;
-            margin-top: 32px;
-            /* overflow-y: auto; */
-            /* overflow-y: auto; */
-            /* width: 440px; */
-            max-height: 588px;
-            overflow-y: auto;
-            
+    display: flex;
+    width: 100%;
+    margin-top: 32px;
+    /* overflow-y: auto; */
+    /* overflow-y: auto; */
+    /* width: 440px; */
+    max-height: 588px;
+    overflow-y: auto;
+
 }
 
 .formLeftAndRightFlex::-webkit-scrollbar {
@@ -500,15 +500,12 @@ input {
 
 .formFooter {
     display: flex;
-        /* position: absolute; */
-        background: rgb(255, 255, 255);
-        bottom: 119px;
-        align-items: center;
-        justify-content: space-between;
-        /* right: 213px; */
-        width: auto;
-        height: 100px;
-        
+    position: sticky;
+    background: rgb(255, 255, 255);
+    bottom: 119px;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 306px;
 }
 
 .footerButtonsAddTask {
@@ -610,10 +607,12 @@ input {
 
 .listSelectableContacts ul {
     list-style: none;
-    height: 140px;
+    height: 141px;
     overflow-x: hidden;
     overflow-y: scroll;
-
+    position: fixed;
+    z-index: 25;
+    
     .listSelectableContacts li {
         height: 30px;
         background: #ccc;
