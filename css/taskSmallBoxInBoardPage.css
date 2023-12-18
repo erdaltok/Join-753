@@ -155,3 +155,7 @@
     margin-left: 16px;
 }
 
+.initial-margin-small-task {
+    width: 32px !important;
+    height: 32px !important;
+}
