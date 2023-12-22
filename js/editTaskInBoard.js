@@ -46,7 +46,9 @@ function showEditButton() {
   if (createTaskButton && editTaskButton) {
     createTaskButton.style.display = "none";
     editTaskButton.style.display = "flex";
+    
   }
+  
 }
 
 function editBigBoxTask() {
@@ -176,8 +178,6 @@ function setActivePriorityButton(priority) {
   }
 }
 
-
-
 function closeEditTask() {
   const closeEditTaskButton = document.querySelector(".closeEditTask");
   if (closeEditTaskButton) {
@@ -219,25 +219,4 @@ document.addEventListener("DOMContentLoaded", function () {
   editBigBoxTask();
 });
 
-
-
-
-// function updateCssClassesForEdit() {
-//   updateClass("titlePositionLittle", "editTitle");
-//   updateClass("formLeftAndRightFlex", "editLeftAndRight");
-//   updateClass("dividerLittle", "editHideDivider");
-//   updateClass("addTaskLeftLittle", "editLeft");
-//   updateClass("titleDateAddTaskBoard", "editDate");
-//   updateClass("addTaskRightLittle", "editRight");
-//   updateClass("addTaskPopUp", "editPopUp");
-//   updateClass("formFooter", "editFooter");
-// }
-
-// function updateClass(oldClass, newClass) {
-//   const elements = document.querySelectorAll(`.${oldClass}`);
-//   elements.forEach((element) => {
-//     element.classList.remove(oldClass);
-//     element.classList.add(newClass);
-//   });
-// }
 

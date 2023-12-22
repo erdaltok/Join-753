@@ -354,8 +354,6 @@ function updateAddedContactsDisplay() {
   }
 }
 
-
-
 function resetCssClassesForNewTask() {
   updateClass("editTitle", "titlePositionLittle");
   updateClass("editLeftAndRight", "formLeftAndRightFlex");
@@ -374,5 +372,14 @@ function updateClass(oldClass, newClass) {
     element.classList.add(newClass);
   });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const clearButton = document.querySelector(".footerButtonClear");
+  if (clearButton) {
+    clearButton.addEventListener("click", function () {
+      resetTaskForm();
+    });
+  }
+});
 
 document.addEventListener("DOMContentLoaded", initPage);

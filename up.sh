@@ -1,4 +1,4 @@
 git pull
 git add .
-git commit -m "Close btn EditTask"
+git commit -m "fix highlight drag and drop boardPage"
 git push

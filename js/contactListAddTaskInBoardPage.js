@@ -3,7 +3,7 @@ function toggleContactList() {
   const contactInput = document.getElementById("idTitleSelectContactsAddTask");
   const contactList = document.querySelector(".listSelectableContacts");
   const addedContactsContainer = document.getElementById("addedContactsProfilBadges");
-  const hideRequired = document.querySelector(".requiredFooter");
+  // const hideRequired = document.querySelector(".requiredFooter");
 
   if (contactList.style.display === "block") {
     contactList.style.display = "none";
@@ -16,7 +16,7 @@ function toggleContactList() {
     contactInput.style.background =
       "url(/img/arrow_drop_up.svg) no-repeat scroll right";
     addedContactsContainer.style.display = "none";
-    hideRequired.style.display = "none";
+    // hideRequired.style.display = "none";
   }
 }
 
@@ -24,7 +24,7 @@ function toggleContactList() {
 window.addEventListener("click", function (event) {
   const contactInput = document.getElementById("idTitleSelectContactsAddTask");
   const contactList = document.querySelector(".listSelectableContacts");
-  const hideRequired = document.querySelector(".requiredFooter");
+  // const hideRequired = document.querySelector(".requiredFooter");
 
 
   if (contactInput && contactList) {
@@ -36,7 +36,7 @@ window.addEventListener("click", function (event) {
       contactInput.style.background =
         "url(/img/arrow_drop_down.svg) no-repeat scroll right";
       document.getElementById("addedContactsProfilBadges").style.display = "flex";
-      hideRequired.style.display = "block";
+      // hideRequired.style.display = "block";
     }
   }
 });

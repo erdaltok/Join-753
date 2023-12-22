@@ -1,9 +1,8 @@
-// DRAG AND DROP !!!! PRÜFEN Hintergrund nach dem Absetzen des Tasks in neuer Spalte, bleibt. Muss aber weg... schaue ich später nochmal + Backend fehlt
-
-let draggedItemId = null;
-
+// DRAG AND DROP 
 function startDragging(id) {
   draggedItemId = id;
+  const item = document.getElementById(draggedItemId);
+  item.addEventListener("dragend", clearHighlights);
 }
 
 function allowDrop(event) {
@@ -24,9 +23,8 @@ function moveTo(columnId) {
     }
 
     draggedItemId = null;
+    clearHighlights();
   }
-  // updatePlaceholders();
-  
 }
 
 function highlight(columnId) {
@@ -37,22 +35,14 @@ function removeHighlight(columnId) {
   document.getElementById(columnId).style.background = "";
 }
 
-// function updatePlaceholders() {
-//   const columns = ["todo", "inProgress", "awaitFeedback", "done"];
-//   columns.forEach((columnId) => {
-//     const column = document.getElementById(columnId);
-//     const placeholder = document.querySelector(
-//       `.placeholder-tasks-${columnId}`
-//     );
-//     if (column && placeholder) {
-//       const taskCount = Array.from(column.children).filter((child) =>
-//         child.classList.contains("task-small-box")
-//       ).length;
+function clearHighlights() {
+  ["todo", "inProgress", "awaitFeedback", "done"].forEach(removeHighlight);
+}
 
-//       placeholder.style.display = taskCount === 0 ? "flex" : "none";
-//     }
-//   });
-// }
+["todo", "inProgress", "awaitFeedback", "done"].forEach((columnId) => {
+  const column = document.getElementById(columnId);
+  column.addEventListener("drop", clearHighlights);
+});
 
 
 

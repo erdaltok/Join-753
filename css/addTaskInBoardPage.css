@@ -512,6 +512,8 @@ input {
     display: flex;
     align-items: center;
     gap: 25px;
+    position: fixed;
+        bottom: 163px;
 }
 
 .footerButtonsAddTask button {
@@ -607,7 +609,7 @@ input {
 
 .listSelectableContacts ul {
     list-style: none;
-    height: 141px;
+    height: 181px;
     overflow-x: hidden;
     overflow-y: scroll;
     /* position: fixed;
