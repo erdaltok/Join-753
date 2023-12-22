@@ -176,10 +176,51 @@ function setActivePriorityButton(priority) {
   }
 }
 
-// function closeAddTaskForm() {
-//     document.getElementById("editTaskBoxContainer").style.display = "none";
-//     location.reload();
-// }
+
+
+function closeEditTask() {
+  const closeEditTaskButton = document.querySelector(".closeEditTask");
+  if (closeEditTaskButton) {
+    closeEditTaskButton.addEventListener("click", async function () {
+      await saveUpdatedTask();
+      const editTaskBoxContainer = document.getElementById(
+        "editTaskBoxContainer"
+      );
+      const bigTaskBoxContainer = document.getElementById(
+        "bigTaskBoxContainer"
+      );
+
+      if (editTaskBoxContainer && bigTaskBoxContainer) {
+        editTaskBoxContainer.style.display = "none";
+        const currentTask = tasks.find(
+          (task) => task.id.toString() === currentTaskId
+        );
+
+        if (currentTask) {
+          const subtasksHtml = createSubtasksHtml(
+            currentTask.subtasks,
+            currentTaskId
+          );
+          const bigTaskBoxHtml = showBigTaskPopupHtmlTemplate(
+            currentTask,
+            subtasksHtml
+          );
+          bigTaskBoxContainer.innerHTML = bigTaskBoxHtml;
+          bigTaskBoxContainer.style.display = "block";
+        }
+      }
+    });
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  commitEditTask();
+  closeEditTask();
+  editBigBoxTask();
+});
+
+
+
 
 // function updateCssClassesForEdit() {
 //   updateClass("titlePositionLittle", "editTitle");

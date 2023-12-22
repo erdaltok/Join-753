@@ -502,7 +502,7 @@ input {
     display: flex;
     position: sticky;
     background: rgb(255, 255, 255);
-    bottom: 119px;
+    bottom: 110px;
     align-items: flex-end;
     justify-content: flex-end;
     gap: 306px;
@@ -610,8 +610,8 @@ input {
     height: 141px;
     overflow-x: hidden;
     overflow-y: scroll;
-    position: fixed;
-    z-index: 25;
+    /* position: fixed;
+    z-index: 25; */
     
     .listSelectableContacts li {
         height: 30px;
