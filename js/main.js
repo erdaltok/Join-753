@@ -54,15 +54,37 @@ function renderTasks() {
 
 function addNewTaskBoard() {
   let popup = document.querySelector(".addTaskFormPopUp");
-  popup.style.display = "block";
-
-  resetCssClassesForNewTask();
+  if (popup) {
+    popup.style.display = "block";
+    let popUpContent = popup.querySelector(".addTaskPopUp");
+    if (popUpContent) {
+      popUpContent.classList.add("slide-in");
+      popUpContent.classList.remove("slide-out");
+    }
+    resetCssClassesForNewTask();
+  }
 }
 
 function closeAddTaskForm() {
   let popup = document.querySelector(".addTaskFormPopUp");
-  popup.style.display = "none";
+  if (popup) {
+    let popUpContent = popup.querySelector(".addTaskPopUp");
+    if (popUpContent) {      
+      popUpContent.classList.remove("slide-in");
+      popUpContent.classList.add("slide-out");
+
+      popUpContent.addEventListener(
+        "animationend",
+        function () {
+          popup.style.display = "none";
+        },
+        { once: true }
+      ); 
+    }
+  }
+  renderTasks();
 }
+
 
 function getFormData() {
   return {
@@ -296,27 +318,7 @@ function getDefaultImageSrc(buttonId) {
   }
 }
 
-function searchTask() {
-  const searchText = document.getElementById("search-Task").value.toLowerCase();
-  const filteredTasks = tasks.filter(
-    (task) =>
-      task.title.toLowerCase().includes(searchText) ||
-      task.description.toLowerCase().includes(searchText)
-  );
 
-  renderFilteredTasks(filteredTasks);
-}
-
-function renderFilteredTasks(filteredTasks) {
-  ["todo", "inProgress", "awaitFeedback", "done"].forEach((columnId) => {
-    document.getElementById(columnId).innerHTML = "";
-  });
-
-  filteredTasks.forEach((task) => {
-    const columnId = task.status || "todo";
-    addTaskToBoard(task, columnId);
-  });
-}
 
 function newTaskAddedMessage() {
   let messageBox = document.getElementById("addNewTaskMessage");
@@ -381,5 +383,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const clearButtons = document.querySelectorAll(".footerButtonClear");
+
+  clearButtons.forEach((button) => {
+    button.addEventListener("mouseover", function () {
+      const icon = this.querySelector(".clearIconFooter");
+      if (icon) {
+        icon.src = "/img/clear-icon-footer-board-addTask-blue.svg";
+      }
+    });
+
+    button.addEventListener("mouseout", function () {
+      const icon = this.querySelector(".clearIconFooter");
+      if (icon) {
+        icon.src = "/img/clear-icon-footer-board-addTask.svg";
+      }
+    });
+  });
+});
+
 
 document.addEventListener("DOMContentLoaded", initPage);

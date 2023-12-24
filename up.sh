@@ -1,4 +1,4 @@
 git pull
 git add .
-git commit -m "fix highlight drag and drop boardPage"
+git commit -m "New animation open/close Task, remove location.relaod, searchContacts in Form, change img hover"
 git push

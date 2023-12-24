@@ -9,7 +9,7 @@ function toggleDisplayForEdit() {
     container.style.display = "block";
     displayArea.appendChild(form);
     bigTaskBoxContainer.style.display = "none";
-    // updateCssClassesForEdit();
+    form.classList.remove("slide-in", "slide-out");
   }
 }
 
@@ -45,10 +45,8 @@ function showEditButton() {
 
   if (createTaskButton && editTaskButton) {
     createTaskButton.style.display = "none";
-    editTaskButton.style.display = "flex";
-    
-  }
-  
+    editTaskButton.style.display = "flex";    
+  }  
 }
 
 function editBigBoxTask() {
@@ -63,7 +61,6 @@ function editBigBoxTask() {
       if (currentTask) {
         showCurrentValuesFromTask(currentTask);
       }
-
       hideUnneededItems();
       showEditButton();
     });
@@ -108,7 +105,13 @@ document.addEventListener("DOMContentLoaded", function () {
   editBigBoxTask();
 });
 
+
 async function saveUpdatedTask() {
+  if (currentTaskId === null) {
+    console.error("Keine Task-ID zum Speichern vorhanden.");
+    return;
+  }
+
   const currentTaskIndex = tasks.findIndex(
     (task) => task.id.toString() === currentTaskId
   );
@@ -126,6 +129,7 @@ async function saveUpdatedTask() {
     );
   }
 }
+
 
 function updateSelectedContactsForTask(task) {
   selectedContacts = [];
@@ -181,8 +185,7 @@ function setActivePriorityButton(priority) {
 function closeEditTask() {
   const closeEditTaskButton = document.querySelector(".closeEditTask");
   if (closeEditTaskButton) {
-    closeEditTaskButton.addEventListener("click", async function () {
-      await saveUpdatedTask();
+    closeEditTaskButton.addEventListener("click", function () {
       const editTaskBoxContainer = document.getElementById(
         "editTaskBoxContainer"
       );
@@ -192,22 +195,7 @@ function closeEditTask() {
 
       if (editTaskBoxContainer && bigTaskBoxContainer) {
         editTaskBoxContainer.style.display = "none";
-        const currentTask = tasks.find(
-          (task) => task.id.toString() === currentTaskId
-        );
-
-        if (currentTask) {
-          const subtasksHtml = createSubtasksHtml(
-            currentTask.subtasks,
-            currentTaskId
-          );
-          const bigTaskBoxHtml = showBigTaskPopupHtmlTemplate(
-            currentTask,
-            subtasksHtml
-          );
-          bigTaskBoxContainer.innerHTML = bigTaskBoxHtml;
-          bigTaskBoxContainer.style.display = "block";
-        }
+        bigTaskBoxContainer.style.display = "block";
       }
     });
   }
@@ -218,5 +206,4 @@ document.addEventListener("DOMContentLoaded", function () {
   closeEditTask();
   editBigBoxTask();
 });
-
 

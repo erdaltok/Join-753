@@ -144,4 +144,50 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+function searchContacts() {
+  const searchText = document
+    .getElementById("idTitleSelectContactsAddTask")
+    .value.toLowerCase();
+  const contacts = JSON.parse(localStorage.getItem("contacts")) || {
+    names: [],
+    emails: [],
+    phones: [],
+  };
 
+  const filteredContacts = contacts.names.filter((name) =>
+    name.toLowerCase().includes(searchText)
+  );
+
+  renderFilteredContacts(filteredContacts);
+}
+
+function renderFilteredContacts(filteredContactNames) {
+  const listSelectableContacts = document.getElementById(
+    "listSelectableContacts"
+  );
+  const ulElement = listSelectableContacts.querySelector("ul");
+  ulElement.innerHTML = "";
+
+  filteredContactNames.forEach((name) => {
+    const initials = getInitials(name);
+    const firstLetter = getFirstLetter(name);
+    const initialColor = getLetterColor(firstLetter);
+    const liElement = document.createElement("li");
+    liElement.className = "contact-line";
+    liElement.innerHTML = loadContactsForFormHtmlTemplate(
+      name,
+      initials,
+      initialColor
+    );
+    ulElement.appendChild(liElement);
+  });
+
+  addEventListenersToContactLines();
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  loadContactsForForm();
+
+  const searchInput = document.getElementById("idTitleSelectContactsAddTask");
+  searchInput.addEventListener("input", searchContacts);
+});

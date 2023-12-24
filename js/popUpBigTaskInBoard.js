@@ -3,7 +3,7 @@ function showBigTaskBox(taskId) {
   currentTaskId = taskId;
 
   const task = tasks.find((t) => t.id.toString() === taskId);
-  if (!task) return;  
+  if (!task) return;
 
   const subtasksHtml = createSubtasksHtml(task.subtasks, taskId);
   const bigTaskBoxHtml = showBigTaskPopupHtmlTemplate(task, subtasksHtml);
@@ -11,15 +11,18 @@ function showBigTaskBox(taskId) {
   const bigTaskBoxContainer = document.getElementById("bigTaskBoxContainer");
   if (bigTaskBoxContainer) {
     bigTaskBoxContainer.innerHTML = bigTaskBoxHtml;
-    document.getElementById("BigTaskFormPopUp").style.display = "block";
+    animatePopupOpen();
     editBigBoxTask();
   }
 }
 
 function closeBigTaskBox() {
-  document.getElementById("BigTaskFormPopUp").style.display = "none";
-  location.reload();
+  animatePopupClose(() => {
+    saveTasksToStorage();
+    renderTasks();
+  });
 }
+
 
 function deleteBigTaskBox() {
   console.log("deleteBigTaskBox, currentTaskId:", currentTaskId);
@@ -39,8 +42,6 @@ function deleteBigTaskBox() {
   }
   currentTaskId = null;
 }
-
-
 
 function toggleSubtaskStatus(taskId, subtaskIndex) {
   const task = tasks.find((t) => t.id.toString() === taskId);
@@ -69,4 +70,36 @@ function getAssignedContactsSVGs() {
   });
 }
 
+function animatePopupOpen() {
+  const bigTaskBoxContainer = document.getElementById("bigTaskBoxContainer");
+  if (bigTaskBoxContainer) {
+    const bigTaskPopUp = bigTaskBoxContainer.querySelector(".BigTaskPopUp");
+    if (bigTaskPopUp) {
+      bigTaskPopUp.classList.add("slide-in");
+    }
+    bigTaskBoxContainer.style.display = "block";
+  }
+}
+
+function animatePopupClose(callback) {
+  const bigTaskBox = document.getElementById("BigTaskFormPopUp");
+  if (bigTaskBox) {
+    const bigTaskPopUp = bigTaskBox.querySelector(".BigTaskPopUp");
+    if (bigTaskPopUp) {
+      bigTaskPopUp.classList.remove("slide-in");
+      bigTaskPopUp.classList.add("slide-out");
+
+      bigTaskPopUp.addEventListener(
+        "animationend",
+        function () {
+          bigTaskBox.style.display = "none";
+          if (callback && typeof callback === "function") {
+            callback();
+          }
+        },
+        { once: true }
+      );
+    }
+  }
+}
 

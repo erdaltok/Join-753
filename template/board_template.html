@@ -73,7 +73,7 @@
                 <div class="todo-column">
                     <div class="column-title">
                         <span>To do</span>
-                        <img src="/img/plus-icon-board-column.svg" onclick="addNewTaskBoard()">
+                        <img src="/img/plus-icon-board-column.svg" class="changeableImage" onclick="addNewTaskBoard()">
                     </div>
 
                     <div class="column-content drag-area" id="todo" ondrop="moveTo('todo')"
@@ -88,7 +88,7 @@
                 <div class="progress-column">
                     <div class="column-title">
                         <span>In progress</span>
-                        <img src="/img/plus-icon-board-column.svg" alt="">
+                        <img src="/img/plus-icon-board-column.svg" class="changeableImage" alt="">
                     </div>
 
                     <div class="column-content drag-area" id="inProgress" ondrop="moveTo('inProgress')"
@@ -104,7 +104,7 @@
                 <div class="feedback-column">
                     <div class="column-title">
                         <span>Await feedback</span>
-                        <img src="/img/plus-icon-board-column.svg" alt="">
+                        <img src="/img/plus-icon-board-column.svg" class="changeableImage" alt="">
                     </div>
 
                     <div class="column-content drag-area" id="awaitFeedback" ondrop="moveTo('awaitFeedback')"
@@ -260,11 +260,8 @@
          
             <div class="footerButtonsAddTask">
                 <button class="footerButtonClear">Clear
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-                        <path
-                            d="M12.2495 12.0001L17.4925 17.2431M7.00653 17.2431L12.2495 12.0001L7.00653 17.2431ZM17.4925 6.75708L12.2485 12.0001L17.4925 6.75708ZM12.2485 12.0001L7.00653 6.75708L12.2485 12.0001Z"
-                            stroke="#2A3647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
+                    <img src="/img/clear-icon-footer-board-addTask.svg" class="clearIconFooter">
+                   
                 </button>
                 <button class="footerButtonCreateTask" >Create Task
                     <img src="/img/check-icon-footer-board-addTask.svg" alt="">
