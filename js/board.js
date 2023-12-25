@@ -39,12 +39,6 @@ function clearHighlights() {
   ["todo", "inProgress", "awaitFeedback", "done"].forEach(removeHighlight);
 }
 
-["todo", "inProgress", "awaitFeedback", "done"].forEach((columnId) => {
-  const column = document.getElementById(columnId);
-  column.addEventListener("drop", clearHighlights);
-});
-
-
 function searchTask() {
   const searchText = document.getElementById("search-Task").value.toLowerCase();
   const filteredTasks = tasks.filter(
@@ -68,8 +62,14 @@ function renderFilteredTasks(filteredTasks) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  const imageElements = document.querySelectorAll(".changeableImage");
+  ["todo", "inProgress", "awaitFeedback", "done"].forEach((columnId) => {
+    const column = document.getElementById(columnId);
+    if (column) {
+      column.addEventListener("drop", clearHighlights);
+    }
+  });
 
+  const imageElements = document.querySelectorAll(".changeableImage");
   imageElements.forEach((imageElement) => {
     imageElement.addEventListener("mouseover", function () {
       this.src = "/img/plus-icon-board-column-blue.svg";
@@ -80,4 +80,5 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
 

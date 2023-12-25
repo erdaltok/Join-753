@@ -90,7 +90,9 @@ function showBigTaskPopupHtmlTemplate(task, subtasksHtml) {
                 <div class="BigTaskContent">
                     <div class="category">
                         <div class="label-big-box">
-                            <span style="background-color: ${categoryColor};">${task.category}</span>
+                            <span style="background-color: ${categoryColor};">${
+    task.category
+  }</span>
                             <img src="/img/close-icon-subtasks.svg" onclick="closeBigTaskBox()">
                         </div>
                     </div>
@@ -129,17 +131,18 @@ function showBigTaskPopupHtmlTemplate(task, subtasksHtml) {
                         </div>
                     </div>
                     
-                    <div class="footerBigBox">
-                        <div class="deleteBigBoxFooter" onclick="deleteBigTaskBox()">
-                            <img src="/img/delete-icon-subtasks.svg">
-                            <span>Delete</span>
-                        </div>
-                        <img src="/img/divider-icon-subtasks.svg" alt="">
-                        <div class="editBigBoxFooter">
-                            <img src="/img/edit-pen-icon-subtasks.svg">
-                            <span>Edit</span>
-                        </div>
-                    </div>
+              <div class="footerBigBox">
+                <div class="deleteBigBoxFooter" onclick="deleteBigTaskBox()">
+                  <div class="icon deleteIcon"></div>
+                    <span>Delete</span>
+                </div>
+                <img src="/img/divider-icon-subtasks.svg" alt="">
+                <div class="editBigBoxFooter">
+                  <div class="icon editIcon"></div>
+                    <span>Edit</span>
+                  </div>
+              </div>
+
                 </div>
             </form>
         </div>

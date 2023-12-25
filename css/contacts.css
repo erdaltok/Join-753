@@ -44,6 +44,8 @@ body {
     justify-content: space-evenly;
     cursor: pointer;
     z-index: 99;
+    padding: 15px;
+    border: none;
 }
 
 .add-contacts-btn:hover {

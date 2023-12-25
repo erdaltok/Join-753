@@ -210,7 +210,7 @@
     margin: 0;
     padding-left: 0;
     overflow-x: hidden;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 
 
     .listSelectableContacts li {
@@ -306,7 +306,6 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-top: 24px;
     cursor: pointer;
 }
 
@@ -319,6 +318,34 @@
     line-height: 120%;
     display: flex;
     align-items: center;
+}
+.icon {
+    width: 24px;
+    /* oder die Größe Ihres Icons */
+    height: 24px;
+    background-size: cover;
+    display: inline-block;
+}
+
+.deleteIcon {
+    background-image: url('/img/delete-icon-subtasks.svg');
+}
+
+.deleteBigBoxFooter:hover .deleteIcon {
+    background-image: url('/img/delete-icon-subtasks-blue.svg');
+}
+
+.editIcon {
+    background-image: url('/img/edit-pen-icon-subtasks.svg');
+}
+
+.editBigBoxFooter:hover .editIcon {
+    background-image: url('/img/edit-pen-icon-subtasks-blue.svg');
+}
+
+.deleteBigBoxFooter:hover span,
+.editBigBoxFooter:hover span {
+    color: #29ABE2;
 }
 
 

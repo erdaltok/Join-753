@@ -8,9 +8,14 @@ let fromAddTask = false;
 
 
 async function initPage() {
-  await loadTasksFromStorage();
-  updateTaskCounts();
+  try {
+    await loadTasksFromStorage();
+    updateTaskCounts();
+  } catch (error) {
+    console.error("Fehler beim Initialisieren der Seite:", error);
+  }
 }
+
 
 // ADD TASK IN BOARD PAGE
 async function saveTasksToStorage() {
@@ -33,6 +38,9 @@ async function loadTasksFromStorage() {
 
 function renderTasks() {
   console.log("Aktuelle Tasks:", tasks); // Zum Testen
+  if (!document.getElementById("todo")) {
+    return;
+  }
 
   ["todo", "inProgress", "awaitFeedback", "done"].forEach((columnId) => {
     document.getElementById(columnId).innerHTML = "";
@@ -49,7 +57,6 @@ function renderTasks() {
       showBigTaskBox(taskId);
     });
   });
-  console.log("Event-Listener hinzugefügt"); // Zum Testen
 }
 
 function addNewTaskBoard() {
