@@ -20,12 +20,28 @@ function closeBigTaskBox() {
   animatePopupClose(() => {
     saveTasksToStorage();
     renderTasks();
+    resetSelectedContacts();
+    resetTaskForm();
   });
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("click", function (event) {
+    const bigTaskFormPopUp = document.querySelector(".BigTaskFormPopUp");
+    const bigTaskPopUp = document.querySelector(".BigTaskPopUp");
+    if (bigTaskFormPopUp && bigTaskPopUp) {
+      let isClickInsideBigTaskPopUp = bigTaskPopUp.contains(event.target);
+      if (
+        !isClickInsideBigTaskPopUp &&
+        bigTaskFormPopUp.contains(event.target)
+      ) {
+        closeBigTaskBox();
+      }
+    }
+  });
+});
 
 function deleteBigTaskBox() {
-  console.log("deleteBigTaskBox, currentTaskId:", currentTaskId);
   if (currentTaskId === null) {
     console.error("Keine Task-ID gefunden");
     return;

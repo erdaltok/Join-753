@@ -75,7 +75,7 @@
                 <div class="todo-column">
                     <div class="column-title">
                         <span>To do</span>
-                        <img src="/img/plus-icon-board-column.svg" class="changeableImage" onclick="addNewTaskBoard()">
+                        <img src="/img/plus-icon-board-column.svg" class="changeableImage" onclick="addNewTaskBoard('todo')">
                     </div>
 
                     <div class="column-content drag-area" id="todo" ondrop="moveTo('todo')"
@@ -90,7 +90,7 @@
                 <div class="progress-column">
                     <div class="column-title">
                         <span>In progress</span>
-                        <img src="/img/plus-icon-board-column.svg" class="changeableImage" alt="">
+                        <img src="/img/plus-icon-board-column.svg" class="changeableImage" onclick="addNewTaskBoard('inProgress')">
                     </div>
 
                     <div class="column-content drag-area" id="inProgress" ondrop="moveTo('inProgress')"
@@ -106,7 +106,7 @@
                 <div class="feedback-column">
                     <div class="column-title">
                         <span>Await feedback</span>
-                        <img src="/img/plus-icon-board-column.svg" class="changeableImage" alt="">
+                        <img src="/img/plus-icon-board-column.svg" class="changeableImage" onclick="addNewTaskBoard('awaitFeedback')">
                     </div>
 
                     <div class="column-content drag-area" id="awaitFeedback" ondrop="moveTo('awaitFeedback')"
@@ -157,7 +157,7 @@
                         <label for="idTitleInputAddTask">Title
                             <p style="color: #FF8190;">*</p>
                         </label>
-                        <input class="inputTitleAddTask" id="idTitleInputAddTask" type="text" 
+                        <input class="inputTitleAddTask" id="idTitleInputAddTask" type="text" autocomplete="off"
                         placeholder="Enter a title" required>
                         <div class="requestWarningInputField" style="display: none;">This field is required</div>
                     </div>
@@ -174,7 +174,7 @@
 
                     <div class="titleSelectContactsAddTaskBoard">
                         <label for="idTitleSelectContactsAddTask">Assigned to</label>
-                        <input class="inputTitleAddTask" id="idTitleSelectContactsAddTask" type="text"
+                        <input class="inputTitleAddTask" id="idTitleSelectContactsAddTask" type="text" autocomplete="off"
                              placeholder="Select contacts to assign" onclick="toggleContactList()">
                     </div>                       
 
@@ -242,7 +242,7 @@
                     <div class="titleSubtaskAddTask">
                         <label for="inputFieldSubtaskId">Subtask</label>
                         <div class="subtaskBox">
-                            <input onclick="openSubtasks()" class="inputTitleAddTask" id="inputFieldSubtaskId" type="text" placeholder="Add new subtask">
+                            <input onclick="openSubtasks()" class="inputTitleAddTask" id="inputFieldSubtaskId" type="text" autocomplete="off" placeholder="Add new subtask">
                             <img onclick="openSubtasks()" class="subtaskImage" src="/img/subtasksIcon.png" >  
 
                             <div class="closeCheckSubstask" style="display: none;">

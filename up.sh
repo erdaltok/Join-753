@@ -1,4 +1,4 @@
 git pull
 git add .
-git commit -m "delete old HTML in AddTaskPage"
+git commit -m "New, add Taks inProgress and awaitFeedback, close Popup und Form with target, fixed some bugs"
 git push

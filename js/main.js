@@ -5,6 +5,7 @@ let totalSubtasks = 0;
 let completedSubtasks = 0;
 let currentTaskId = null;
 let fromAddTask = false;
+let newTaskStatus = "todo";
 
 
 async function initPage() {
@@ -59,7 +60,8 @@ function renderTasks() {
   });
 }
 
-function addNewTaskBoard() {
+function addNewTaskBoard(status = "todo") {
+  newTaskStatus = status;
   let popup = document.querySelector(".addTaskFormPopUp");
   if (popup) {
     popup.style.display = "block";
@@ -90,7 +92,24 @@ function closeAddTaskForm() {
     }
   }
   renderTasks();
+  resetTaskForm();
+  resetSelectedContacts();
 }
+
+document.addEventListener("click", function (event) {
+  const clickedElement = event.target;
+  const popupFlex = document.querySelector(".popupFlex");
+
+  if (
+    popupFlex &&
+    popupFlex.contains(clickedElement) &&
+    !clickedElement.closest(".addTaskPopUp")
+  ) {
+    closeAddTaskForm();
+  }
+});
+
+
 
 
 function getFormData() {
@@ -149,8 +168,7 @@ function handleFormSubmit(event) {
   createTask(); 
 }
 
-function handleFormSubmitFromAddTask(event)
-{
+function handleFormSubmitFromAddTask(event) {
   event.preventDefault();
   fromAddTask = true;
   createTask();
@@ -194,10 +212,11 @@ function createNewTask(
     priority,
     assignedContactsBadges: assignedContactsData,
     subtasks,
-    status: "todo",
+    status: newTaskStatus,
   };
   tasks.push(newTask);
   addTaskToBoard(newTask, newTask.status || "todo");
+  resetTaskForm();
 }
 
 function finalizeTaskCreation() {
@@ -213,7 +232,6 @@ function createTask() {
   if (!isCategorySelected()) {
     return;
   }
-
   const formData = getFormData();
   const priorityImage = getActivePriorityImage();
   const assignedContactsData = getAssignedContactsBadges();
@@ -227,6 +245,8 @@ function createTask() {
   }
 
   finalizeTaskCreation();
+  updateAddedContactsDisplay();
+  resetTaskForm();
 }
 
 function addTaskToBoard(task, columnId) {
@@ -288,7 +308,6 @@ function changeButtonStyle(selectedButton) {
 
 function isButtonActive(button) {
   const isActive = button.classList.contains("active");
-  console.log("isButtonActive:", button.id, isActive);
   return isActive;
 }
 
@@ -312,7 +331,6 @@ function SelectedButtonStyle(button) {
 }
 
 function getDefaultImageSrc(buttonId) {
-  console.log("getDefaultImageSrc aufgerufen für:", buttonId); // Zusätzlicher Log
   switch (buttonId) {
     case "urgentButton":
       return "/img/Urgent.png";
@@ -352,6 +370,7 @@ function resetTaskForm() {
   resetAllButtons();
   selectedContacts = []; 
   updateAddedContactsDisplay();
+  resetSelectedContacts();
 }
 
 function updateAddedContactsDisplay() {
@@ -362,6 +381,20 @@ function updateAddedContactsDisplay() {
     addedContactsContainer.innerHTML = ""; 
   }
 }
+
+function resetSelectedContacts() {
+  selectedContacts.forEach((contactLine) => {
+    contactLine.style.backgroundColor = "";
+    contactLine.querySelector(".contact-name").style.color = "";
+    const imgElement = contactLine.querySelector("img");
+    imgElement.src = "/img/check-button-default.svg";
+    contactLine.classList.remove("selected");
+  });
+
+  selectedContacts = [];
+  loadContactsForForm();
+}
+
 
 function resetCssClassesForNewTask() {
   updateClass("editTitle", "titlePositionLittle");
@@ -387,13 +420,13 @@ document.addEventListener("DOMContentLoaded", function () {
   if (clearButton) {
     clearButton.addEventListener("click", function () {
       resetTaskForm();
+      
     });
   }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
   const clearButtons = document.querySelectorAll(".footerButtonClear");
-
   clearButtons.forEach((button) => {
     button.addEventListener("mouseover", function () {
       const icon = this.querySelector(".clearIconFooter");
@@ -408,7 +441,7 @@ document.addEventListener("DOMContentLoaded", function () {
         icon.src = "/img/clear-icon-footer-board-addTask.svg";
       }
     });
-  });
+  });  
 });
 
 

@@ -10,7 +10,7 @@ function toggleContactList() {
     contactInput.style.background =
       "url(/img/arrow_drop_down.svg) no-repeat scroll right";
     addedContactsContainer.style.display = "block";
-    hideRequired.style.display = "none"
+    // hideRequired.style.display = "none"
   } else {
     contactList.style.display = "block";
     contactInput.style.background =
@@ -142,6 +142,13 @@ function addEventListenersToContactLines() {
 document.addEventListener("DOMContentLoaded", function () {
   loadContactsForForm();
 });
+
+
+document.addEventListener("click", function (event) {
+  console.log("Angeklicktes Element:", event.target);
+});
+
+
 
 
 function searchContacts() {
