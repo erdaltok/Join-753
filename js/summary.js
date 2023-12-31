@@ -100,7 +100,7 @@ function updateGreeting() {
   const greetingElement = document.querySelector(".greeting-user h2");
   const userNameElement = document.getElementById("user-name-greet");
   if (!greetingElement || !userNameElement) {
-    console.error("Greeting elements not found");
+    // console.error("Greeting elements not found");
     return;
   }
   const currentHour = new Date().getHours();
