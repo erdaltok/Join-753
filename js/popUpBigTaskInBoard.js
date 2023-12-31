@@ -29,7 +29,7 @@ function closeBigTaskBox() {
     saveTasksToStorage();
     renderTasks();
     resetSelectedContacts();
-    resetTaskForm();
+    resetTaskForm();    
   });
 }
 
