@@ -1,4 +1,4 @@
 git pull
 git add .
-git commit -m "board and AddTask are ready"
+git commit -m "Summaray greetings ready"
 git push
