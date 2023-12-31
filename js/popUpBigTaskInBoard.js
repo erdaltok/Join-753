@@ -1,4 +1,9 @@
 // POPUP BIG TASK IN BOARD
+
+/**
+ * Displays the big task box for a specific task.
+ * @param {string} taskId - The ID of the task to display.
+ */
 function showBigTaskBox(taskId) {
   currentTaskId = taskId;
 
@@ -12,10 +17,13 @@ function showBigTaskBox(taskId) {
   if (bigTaskBoxContainer) {
     bigTaskBoxContainer.innerHTML = bigTaskBoxHtml;
     animatePopupOpen();
-    editBigBoxTask();
+    editBigBoxTask();    
   }
 }
 
+/**
+ * Closes the big task box and performs necessary updates and resets.
+ */
 function closeBigTaskBox() {
   animatePopupClose(() => {
     saveTasksToStorage();
@@ -25,6 +33,9 @@ function closeBigTaskBox() {
   });
 }
 
+/**
+ * Event listener for closing the big task box when clicking outside of it.
+ */
 document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("click", function (event) {
     const bigTaskFormPopUp = document.querySelector(".BigTaskFormPopUp");
@@ -41,6 +52,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+/**
+ * Deletes a task from the task list and updates the display.
+ */
 function deleteBigTaskBox() {
   if (currentTaskId === null) {
     console.error("Keine Task-ID gefunden");
@@ -59,6 +73,11 @@ function deleteBigTaskBox() {
   currentTaskId = null;
 }
 
+/**
+ * Toggles the completion status of a subtask.
+ * @param {string} taskId - The ID of the task containing the subtask.
+ * @param {number} subtaskIndex - The index of the subtask in the task's subtask array.
+ */
 function toggleSubtaskStatus(taskId, subtaskIndex) {
   const task = tasks.find((t) => t.id.toString() === taskId);
   if (!task || !task.subtasks[subtaskIndex]) return;
@@ -78,6 +97,10 @@ function toggleSubtaskStatus(taskId, subtaskIndex) {
   saveTasksToStorage();
 }
 
+/**
+ * Generates HTML for displaying assigned contacts in the big task box.
+ * @returns {string} - HTML string of assigned contacts.
+ */
 function getAssignedContactsSVGs() {
   return selectedContacts.map((contact) => {
     const svgHTML = contact.querySelector("svg").outerHTML;
@@ -86,6 +109,9 @@ function getAssignedContactsSVGs() {
   });
 }
 
+/**
+ * Animates the opening of the big task box.
+ */
 function animatePopupOpen() {
   const bigTaskBoxContainer = document.getElementById("bigTaskBoxContainer");
   if (bigTaskBoxContainer) {
@@ -97,6 +123,10 @@ function animatePopupOpen() {
   }
 }
 
+/**
+ * Animates the closing of the big task box and executes a callback function after closing.
+ * @param {Function} callback - The function to execute after closing the popup.
+ */
 function animatePopupClose(callback) {
   const bigTaskBox = document.getElementById("BigTaskFormPopUp");
   if (bigTaskBox) {
@@ -119,3 +149,40 @@ function animatePopupClose(callback) {
   }
 }
 
+/**
+ * Sets up event listeners for clear buttons in the task form.
+ */
+function setupClearButtonListeners() {
+  const clearButtons = document.querySelectorAll(".footerButtonClear");
+  clearButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      resetTaskForm();
+    });
+
+    button.addEventListener("mouseover", function () {
+      const icon = this.querySelector(".clearIconFooter");
+      if (icon) {
+        icon.src = "/img/clear-icon-footer-board-addTask-blue.svg";
+      }
+    });
+
+    button.addEventListener("mouseout", function () {
+      const icon = this.querySelector(".clearIconFooter");
+      if (icon) {
+        icon.src = "/img/clear-icon-footer-board-addTask.svg";
+      }
+    });
+  });
+}
+
+/**
+ * Event listener for input events on the document. Triggers contact search when the specific input field is used.
+ */
+document.addEventListener("input", function (event) {
+  if (event.target && event.target.id === "idTitleSelectContactsAddTask") {
+    searchContacts();
+  }
+});
+
+
+document.addEventListener("DOMContentLoaded", initPage);

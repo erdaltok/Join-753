@@ -175,3 +175,287 @@ function createSubtasksHtml(subtasks, taskId) {
     )
     .join("");
 }
+
+
+
+function generateAddTaskFormHtml() {
+  return `
+    <form class="addTaskPopUp" onsubmit="handleFormSubmit(event)">
+            <div class="addTaskLittle">
+                <div class="titlePositionLittle">
+                    <h1>Add Task</h1>
+                    <img src="/img/close-icon-board-addtask.svg" onclick="closeAddTaskForm()">
+                </div>
+        
+                <div class="formLeftAndRightFlex">
+        
+                    <div class="addTaskLeftLittle">
+        
+                        <div class="titleInputAddTaskBoard">
+                            <label for="idTitleInputAddTask">Title
+                                <p style="color: #FF8190;">*</p>
+                            </label>
+                            <input class="inputTitleAddTask" id="idTitleInputAddTask" type="text" autocomplete="off"
+                                placeholder="Enter a title" required>
+                            <div class="requestWarningInputField" style="display: none;">This field is required</div>
+                        </div>
+        
+                        <div class="titleDescriptionAddTaskBoard">
+                            <label for="idDescriptionAddTask">Description
+                                <p style="color: #FF8190;">*</p>
+                            </label>
+                            <textarea class="inputTitleAddTask" id="idDescriptionAddTask" type="text" name="inputDesciption"
+                                placeholder="Enter a Description" required></textarea>
+                            <div class="requestWarningInputField" style="display: none;">This field is required</div>
+                        </div>
+        
+        
+                        <div class="titleSelectContactsAddTaskBoard">
+                            <label for="idTitleSelectContactsAddTask">Assigned to</label>
+                            <input class="inputTitleAddTask" id="idTitleSelectContactsAddTask" type="text" autocomplete="off"
+                                placeholder="Select contacts to assign" onclick="toggleContactList()">
+                        </div>
+        
+                        <div id="listSelectableContacts" class="listSelectableContacts" style="display: none;">
+                            <ul>
+        
+                            </ul>
+                        </div>
+        
+                        <div class="addedContactsProfilBadges" id="addedContactsProfilBadges" style="display: none;"></div>
+                    </div>
+        
+        
+                    <div class="dividerLittle"></div>
+        
+                    <div class="addTaskRightLittle">
+        
+                        <div class="titleDateAddTaskBoard">
+                            <label for="idTitleDateAddTask">Due date
+                                <p style="color: #FF8190;">*</p>
+                            </label>
+                            <input class="inputDateAddTask" id="idTitleDateAddTask" type="date" placeholder="tt/mm/jjjj"
+                                required>
+                            <div class="requestWarningInputField" style="display: none;">This field is required</div>
+                        </div>
+        
+                        <div class="prioSection">
+                            <div class="titlePrioSection">Prio</div>
+                            <div class="prioButtonsBox" id="idPrioAddTask">
+        
+                                <div class="prioButtons" id="urgentButton" onclick="changeButtonStyle(this)"
+                                    data-color="#FF3D00" data-text-color="white"
+                                    data-img-src="/img/prio-icon-small-task-white.svg" data-priority="Urgent">
+                                    Urgent
+                                    <img src="/img/Urgent.png">
+                                </div>
+                                <div class="prioButtons" id="mediumButton" onclick="changeButtonStyle(this)"
+                                    data-color="#FFA800" data-text-color="white" data-img-src="/img/prio-icon-medium-white.svg"
+                                    data-priority="Medium">
+                                    Medium
+                                    <img src="/img/Medium.png">
+                                </div>
+                                <div class="prioButtons" id="lowButton" onclick="changeButtonStyle(this)" data-color="#7AE229"
+                                    data-text-color="white" data-img-src="/img/prio-icon-low-white.svg" data-priority="Low">
+                                    Low
+                                    <img src="/img/Low.png">
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="categorySection">
+                            <div class="titleCategoryAddTask">
+                                <label for="idSelectCategoryAddTask">Category
+                                    <p style="color: #FF8190;">*</p>
+                                </label>
+                                <select id="idSelectCategoryAddTask" class="selectContainerOv selectArrow" name="category"
+                                    required="">
+                                    <option disabled selected="" hidden="">Select task category</option>
+                                    <option value="Technical Task">Technical Task</option>
+                                    <option value="User Story">User Story</option>
+                                </select>
+                                <div class="requestWarningInputField" style="display: none;">This field is required</div>
+                            </div>
+                        </div>
+        
+        
+                        <div class="subtaskSection">
+                            <div class="titleSubtaskAddTask">
+                                <label for="inputFieldSubtaskId">Subtask</label>
+                                <div class="subtaskBox">
+                                    <input onclick="openSubtasks()" class="inputTitleAddTask" id="inputFieldSubtaskId"
+                                        type="text" autocomplete="off" placeholder="Add new subtask">
+                                    <img onclick="openSubtasks()" class="subtaskImage" src="/img/subtasksIcon.png">
+        
+                                    <div class="closeCheckSubstask" style="display: none;">
+                                        <img onclick="closeSubtasks()" src="/img/close-icon-subtasks.svg">
+                                        <img src="/img/divider-icon-subtasks.svg">
+                                        <img onclick="addNewSubtask()" src="/img/check-icon-subtasks.svg">
+                                    </div>
+                                </div>
+                                <ul id="addedSubstaskList" class="addedSubstaskList"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="editFooter">
+                    <!-- <p class="requiredFooter" style="color: #FF8190;">*<span style="color: #000;">This field is required</span></p> -->
+        
+                    <div class="footerButtonsAddTask">
+                        <button class="footerButtonClear" type="button">Clear
+                            <img src="/img/clear-icon-footer-board-addTask.svg" class="clearIconFooter">
+        
+                        </button>
+                        <button class="footerButtonCreateTask">Create Task
+                            <img src="/img/check-icon-footer-board-addTask.svg" alt="">
+                        </button>
+                        <button class="footerEditTask" type="submit" style="display: none;">OK
+                            <img src="/img/check-icon-footer-board-addTask.svg" alt="">
+                        </button>
+        
+        
+                    </div>
+                </div>
+            </div>
+        </form>
+  `;
+}
+
+function generateEditTaskFormHtml() {
+  return `
+<form class="editPopUp" onsubmit="handleFormSubmit(event)" id="editTask">
+    <div class="addTaskLittle">
+        <div class="editTitle">
+           
+            <img src="/img/close-icon-board-addtask.svg" class="closeEditTask">
+        </div>
+
+        <div class="editLeftAndRight">
+
+            <div class="editLeft">
+
+                <div class="titleInputAddTaskBoard">
+                    <label for="idTitleInputAddTask">Title
+                        <p style="color: #FF8190;">*</p>
+                    </label>
+                    <input class="inputTitleAddTask" id="idTitleInputAddTask" type="text" autocomplete="off"
+                        placeholder="Enter a title" required>
+                    <div class="requestWarningInputField" style="display: none;">This field is required</div>
+                </div>
+
+                <div class="titleDescriptionAddTaskBoard">
+                    <label for="idDescriptionAddTask">Description
+                        <p style="color: #FF8190;">*</p>
+                    </label>
+                    <textarea class="inputTitleAddTask" id="idDescriptionAddTask" type="text" name="inputDesciption"
+                        placeholder="Enter a Description" required></textarea>
+                    <div class="requestWarningInputField" style="display: none;">This field is required</div>
+                </div>
+
+
+                <div class="titleSelectContactsAddTaskBoard">
+                    <label for="idTitleSelectContactsAddTask">Assigned to</label>
+                    <input class="inputTitleAddTask" id="idTitleSelectContactsAddTask" type="text" autocomplete="off"
+                        placeholder="Select contacts to assign" onclick="toggleContactList()">
+                </div>
+
+                <div id="listSelectableContacts" class="listSelectableContacts" style="display: none;">
+                    <ul>
+
+                    </ul>
+                </div>
+
+                <div class="addedContactsProfilBadges" id="addedContactsProfilBadges" style="display: none;"></div>
+            </div>
+
+
+            <div class="editHideDivider"></div>
+
+            <div class="editRight">
+
+                <div class="editDate">
+                    <label for="idTitleDateAddTask">Due date
+                        <p style="color: #FF8190;">*</p>
+                    </label>
+                    <input class="inputDateAddTask" id="idTitleDateAddTask" type="date" placeholder="tt/mm/jjjj"
+                        required>
+                    <div class="requestWarningInputField" style="display: none;">This field is required</div>
+                </div>
+
+                <div class="prioSection">
+                    <div class="titlePrioSection">Prio</div>
+                    <div class="prioButtonsBox" id="idPrioAddTask">
+
+                        <div class="prioButtons" id="urgentButton" onclick="changeButtonStyle(this)"
+                            data-color="#FF3D00" data-text-color="white"
+                            data-img-src="/img/prio-icon-small-task-white.svg" data-priority="Urgent">
+                            Urgent
+                            <img src="/img/Urgent.png">
+                        </div>
+                        <div class="prioButtons" id="mediumButton" onclick="changeButtonStyle(this)"
+                            data-color="#FFA800" data-text-color="white" data-img-src="/img/prio-icon-medium-white.svg"
+                            data-priority="Medium">
+                            Medium
+                            <img src="/img/Medium.png">
+                        </div>
+                        <div class="prioButtons" id="lowButton" onclick="changeButtonStyle(this)" data-color="#7AE229"
+                            data-text-color="white" data-img-src="/img/prio-icon-low-white.svg" data-priority="Low">
+                            Low
+                            <img src="/img/Low.png">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categorySection">
+                    <div class="titleCategoryAddTask">
+                        <label for="idSelectCategoryAddTask">Category
+                            <p style="color: #FF8190;">*</p>
+                        </label>
+                        <select id="idSelectCategoryAddTask" class="selectContainerOv selectArrow" name="category"
+                            required="">
+                            <option disabled selected="" hidden="">Select task category</option>
+                            <option value="Technical Task">Technical Task</option>
+                            <option value="User Story">User Story</option>
+                        </select>
+                        <div class="requestWarningInputField" style="display: none;">This field is required</div>
+                    </div>
+                </div>
+
+
+                <div class="subtaskSection">
+                    <div class="titleSubtaskAddTask">
+                        <label for="inputFieldSubtaskId">Subtask</label>
+                        <div class="subtaskBox">
+                            <input onclick="openSubtasks()" class="inputTitleAddTask" id="inputFieldSubtaskId"
+                                type="text" autocomplete="off" placeholder="Add new subtask">
+                            <img onclick="openSubtasks()" class="subtaskImage" src="/img/subtasksIcon.png">
+
+                            <div class="closeCheckSubstask" style="display: none;">
+                                <img onclick="closeSubtasks()" src="/img/close-icon-subtasks.svg">
+                                <img src="/img/divider-icon-subtasks.svg">
+                                <img onclick="addNewSubtask()" src="/img/check-icon-subtasks.svg">
+                            </div>
+                        </div>
+                        <ul id="addedSubstaskList" class="addedSubstaskList"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="editFooter">
+           
+
+            <div class="footerButtonsAddTask">
+                
+                <button id="footerEditTask" class="footerEditTask" type="button">OK
+                    <img src="/img/check-icon-footer-board-addTask.svg" alt="">
+                </button>
+
+
+            </div>
+        </div>
+    </div>
+</form>
+`;
+} 

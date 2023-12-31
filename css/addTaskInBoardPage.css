@@ -25,7 +25,7 @@
     background-color: #fff;
     border-radius: 15px;
     color: black;
-    min-height: 900px;
+    min-height: 920px;
 }
 
 @keyframes slide-in {
@@ -57,13 +57,14 @@
 }
 
 .addTaskLittle {
-    margin-left: 65.75px !important;
-    background: none !important;
-    margin-right: 65.75px;
+    /* margin-left: 65.75px; */
+    background: none;
+    padding: 65px;
+    /* margin-right: 65.75px; */
 }
 
 .addTaskLeftLittle {
-    gap: 16px;
+    gap: 20px;
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -74,7 +75,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 64px;
+    /* margin-top: 64px; */
     height: 78px;
 }
 
@@ -101,9 +102,6 @@
     background-color: #eaeaea;
 }
 
-
-
-
 .titleInputAddTaskBoard {
     display: flex;
     flex-direction: column;
@@ -113,13 +111,9 @@
 .formLeftAndRightFlex {
     display: flex;
     width: 100%;
-    margin-top: 32px;
-    /* overflow-y: auto; */
-    /* overflow-y: auto; */
-    /* width: 440px; */
+    margin-top: 45px;
     max-height: 588px;
     overflow-y: auto;
-
 }
 
 .formLeftAndRightFlex::-webkit-scrollbar {
@@ -191,7 +185,7 @@
 }
 
 .addTaskRightLittle {
-    gap: 24px;
+    gap: 20px;
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -437,6 +431,14 @@ input {
     gap: 8px;
 }
 
+.titleSubtaskAddTask label {
+    color: var(--version-2-main-color, #2A3647);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+}
+
 .subtaskBox {
     display: flex;
     padding: 12px 16px;
@@ -529,7 +531,7 @@ input {
     align-items: center;
     gap: 25px;
     position: fixed;
-    bottom: 107px;
+    bottom: 101px;
 }
 
 .footerButtonsAddTask button {
@@ -663,8 +665,8 @@ input {
     justify-content: center;
     align-items: center;
     position: absolute;
-    bottom: 137px;
-    left: 841px;
+    top: 50%;
+    left: 50%;
     width: 312px;
     height: 74px;
     font-size: 20px;

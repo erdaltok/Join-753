@@ -79,22 +79,55 @@ function updateAddedContactsDisplay() {
   const addedContactsContainer = document.querySelector(
     ".addedContactsProfilBadges"
   );
-  addedContactsContainer.innerHTML = "";
-  selectedContacts.forEach((contact) => {
-    const name = contact.querySelector(".contact-name").textContent;
-    const firstLetter = getFirstLetter(name);
-    const initialColor = getLetterColor(firstLetter);
-    const initials = getInitials(name);
-    const badgeElement = document.createElement("div");
-    badgeElement.className = "initial";
-    badgeElement.style.backgroundColor = initialColor;
-    badgeElement.textContent = initials;
-    addedContactsContainer.appendChild(badgeElement);
-  });
+  if (addedContactsContainer) {
+    addedContactsContainer.innerHTML = "";
+    selectedContacts.forEach((contact) => {
+      const name = contact.querySelector(".contact-name").textContent;
+      const firstLetter = getFirstLetter(name);
+      const initialColor = getLetterColor(firstLetter);
+      const initials = getInitials(name);
+      const badgeElement = document.createElement("div");
+      badgeElement.className = "initial";
+      badgeElement.style.backgroundColor = initialColor;
+      badgeElement.textContent = initials;
+      addedContactsContainer.appendChild(badgeElement);
+    });
 
-  addedContactsContainer.style.display =
-    selectedContacts.length > 0 ? "flex" : "none";
+    addedContactsContainer.style.display =
+      selectedContacts.length > 0 ? "flex" : "none";
+  }
 }
+
+// function updateAddedContactsDisplay() {
+//   // Überprüfen, ob das Element existiert, bevor es aktualisiert wird
+//   const addedContactsContainer = document.querySelector(
+//     ".addedContactsProfilBadges"
+//   );
+//   if (!addedContactsContainer) {
+//     console.error("Element .addedContactsProfilBadges wurde nicht gefunden.");
+//     return;
+//   }
+
+//   addedContactsContainer.innerHTML = "";
+//   selectedContacts.forEach((contact) => {
+//     const name = contact.querySelector(".contact-name").textContent;
+//     const firstLetter = getFirstLetter(name);
+//     const initialColor = getLetterColor(firstLetter);
+//     const initials = getInitials(name);
+//     const badgeElement = document.createElement("div");
+//     badgeElement.className = "initial";
+//     badgeElement.style.backgroundColor = initialColor;
+//     badgeElement.textContent = initials;
+//     addedContactsContainer.appendChild(badgeElement);
+//   });
+
+//   addedContactsContainer.style.display =
+//     selectedContacts.length > 0 ? "flex" : "none";
+// }
+
+
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const contactLines = document.querySelectorAll(".contact-line");
@@ -107,28 +140,33 @@ function loadContactsForForm() {
   const listSelectableContacts = document.getElementById(
     "listSelectableContacts"
   );
-  const ulElement = listSelectableContacts.querySelector("ul");
-  const contacts = JSON.parse(localStorage.getItem("contacts")) || {
-    names: [],
-    emails: [],
-    phones: [],
-  };
-  ulElement.innerHTML = "";
+  if (listSelectableContacts) {
+    const ulElement = listSelectableContacts.querySelector("ul");
+    const contacts = JSON.parse(localStorage.getItem("contacts")) || {
+      names: [],
+      emails: [],
+      phones: [],
+    }
+  
 
-  contacts.names.forEach((name) => {
-    const initials = getInitials(name);
-    const firstLetter = getFirstLetter(name);
-    const initialColor = getLetterColor(firstLetter);
-    const liElement = document.createElement("li");
-    liElement.className = "contact-line";
-    liElement.innerHTML = loadContactsForFormHtmlTemplate(
-      name,
-      initials,
-      initialColor
-    );
-    ulElement.appendChild(liElement);
-  });
-  addEventListenersToContactLines();
+    ulElement.innerHTML = "";
+
+    contacts.names.forEach((name) => {
+      const initials = getInitials(name);
+      const firstLetter = getFirstLetter(name);
+      const initialColor = getLetterColor(firstLetter);
+      const liElement = document.createElement("li");
+      liElement.className = "contact-line";
+      liElement.innerHTML = loadContactsForFormHtmlTemplate(
+        name,
+        initials,
+        initialColor
+      );
+      ulElement.appendChild(liElement);
+    });
+  
+    addEventListenersToContactLines();
+  }
 }
 
 
@@ -143,10 +181,10 @@ document.addEventListener("DOMContentLoaded", function () {
   loadContactsForForm();
 });
 
-
-document.addEventListener("click", function (event) {
-  console.log("Angeklicktes Element:", event.target);
-});
+// // Hilfsfunktion 
+// document.addEventListener("click", function (event) {
+//   console.log("Angeklicktes Element:", event.target);
+// });
 
 
 
@@ -196,5 +234,8 @@ document.addEventListener("DOMContentLoaded", function () {
   loadContactsForForm();
 
   const searchInput = document.getElementById("idTitleSelectContactsAddTask");
-  searchInput.addEventListener("input", searchContacts);
+  if (searchInput) {
+    searchInput.addEventListener("input", searchContacts);
+  }
 });
+

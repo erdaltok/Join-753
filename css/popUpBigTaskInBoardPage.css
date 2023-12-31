@@ -51,15 +51,6 @@
     animation: slide-out 0.1s ease-in-out forwards;
 }
 
-
-
-
-
-
-
-
-
-
 .BigTaskContent {
     display: flex;
     flex-direction: column;
@@ -351,15 +342,15 @@
 
 /* CSS For Edit Form */
 
-.editTitle h1 {
-    display: none;
+.editTitle img {
+    cursor: pointer;
 }
 
 .editTitle {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin-top: 0px;
+    margin-top: -64px;
     height: 78px;
 }
 
@@ -388,9 +379,13 @@
 }
 
 .editDate label {
-    display: flex;
-    font-size: 21px;
-    align-items: center;
+    color: var(--version-2-main-color, #2A3647);
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;
+        display: flex;
+        align-items: center;
 }
 
 .editDate p {
@@ -399,17 +394,52 @@
 }
 
 .editDate input {
-    color: var(--version-2-main-color, #2A3647);
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120%;
-    width: auto;
-    border: 1px solid;
-    padding: 10px;
-    border-radius: 8px;
+    display: flex;
+        padding: 12px 16px;
+        justify-content: space-between;
+        align-items: center;
+        align-self: stretch;
+        border-radius: 10px;
+        border: 1px solid var(--Style, #D1D1D1);
+        background: #FFF;
+        position: relative;
+        color: #000;
+        width: auto;
 
 }
+
+.editdate input:focus {
+    outline: none !important;
+    border: 1px solid #FF8190;
+}
+
+.editdate input[type="date"]:invalid::-webkit-datetime-edit {
+    color: var(--Style, #D1D1D1);
+}
+
+.editdate input[type="date"]::-webkit-calendar-picker-indicator {
+    background-position: right;
+    background-size: 24px;
+    bottom: 0;
+    margin-right: 16px;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+}
+
+
+
+
+
+
+
+
+
 
 .editRight {
     margin-left: 0;
@@ -435,7 +465,7 @@
 
 .editFooter {
     position: sticky;
-    height: 100px;
+    height: 75px;
     bottom: 0px;
     display: flex;
     justify-content: flex-end;
