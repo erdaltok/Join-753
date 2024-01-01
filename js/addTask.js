@@ -161,7 +161,7 @@ async function finalizeTaskCreation() {
     closeAddTaskForm();
   }
   newTaskAddedMessage();
-  resetTaskForm();
+    resetTaskForm();
 }
 
 /**
@@ -181,6 +181,11 @@ function resetTaskForm() {
   updateAddedContactsDisplay();
   resetSelectedContacts();
 }
+
+
+
+
+
 
 /**
  * Displays a message indicating a new task has been added to the board.
