@@ -21,6 +21,37 @@
     display: flex;
     background-color: white;
     overflow-x: hidden;
+<<<<<<< HEAD
+=======
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-out {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.BigTaskPopUp.slide-in {
+    animation: slide-in 0.2s ease-in-out forwards;
+}
+
+.BigTaskPopUp.slide-out {
+    animation: slide-out 0.1s ease-in-out forwards;
+>>>>>>> f17084f5985f5787d12ce115d6fe38469550ade5
 }
 
 .BigTaskContent {
@@ -59,6 +90,12 @@
 
 .label-big-box img {
     cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+}
+
+.label-big-box img:hover {
+    background-color: #eaeaea;
 }
 
 .titleAndDescriptionBigBox {
@@ -167,7 +204,7 @@
     margin: 0;
     padding-left: 0;
     overflow-x: hidden;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 
 
     .listSelectableContacts li {
@@ -263,7 +300,6 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-top: 24px;
     cursor: pointer;
 }
 
@@ -277,19 +313,47 @@
     display: flex;
     align-items: center;
 }
+.icon {
+    width: 24px;
+    /* oder die Größe Ihres Icons */
+    height: 24px;
+    background-size: cover;
+    display: inline-block;
+}
+
+.deleteIcon {
+    background-image: url('/img/delete-icon-subtasks.svg');
+}
+
+.deleteBigBoxFooter:hover .deleteIcon {
+    background-image: url('/img/delete-icon-subtasks-blue.svg');
+}
+
+.editIcon {
+    background-image: url('/img/edit-pen-icon-subtasks.svg');
+}
+
+.editBigBoxFooter:hover .editIcon {
+    background-image: url('/img/edit-pen-icon-subtasks-blue.svg');
+}
+
+.deleteBigBoxFooter:hover span,
+.editBigBoxFooter:hover span {
+    color: #29ABE2;
+}
 
 
 /* CSS For Edit Form */
 
-.editTitle h1 {
-    display: none;
+.editTitle img {
+    cursor: pointer;
 }
 
 .editTitle {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin-top: 0px;
+    margin-top: -64px;
     height: 78px;
 }
 
@@ -318,9 +382,13 @@
 }
 
 .editDate label {
-    display: flex;
-    font-size: 21px;
-    align-items: center;
+    color: var(--version-2-main-color, #2A3647);
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;
+        display: flex;
+        align-items: center;
 }
 
 .editDate p {
@@ -329,17 +397,52 @@
 }
 
 .editDate input {
-    color: var(--version-2-main-color, #2A3647);
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120%;
-    width: auto;
-    border: 1px solid;
-    padding: 10px;
-    border-radius: 8px;
+    display: flex;
+        padding: 12px 16px;
+        justify-content: space-between;
+        align-items: center;
+        align-self: stretch;
+        border-radius: 10px;
+        border: 1px solid var(--Style, #D1D1D1);
+        background: #FFF;
+        position: relative;
+        color: #000;
+        width: auto;
 
 }
+
+.editdate input:focus {
+    outline: none !important;
+    border: 1px solid #FF8190;
+}
+
+.editdate input[type="date"]:invalid::-webkit-datetime-edit {
+    color: var(--Style, #D1D1D1);
+}
+
+.editdate input[type="date"]::-webkit-calendar-picker-indicator {
+    background-position: right;
+    background-size: 24px;
+    bottom: 0;
+    margin-right: 16px;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+}
+
+
+
+
+
+
+
+
+
 
 .editRight {
     margin-left: 0;
@@ -365,7 +468,7 @@
 
 .editFooter {
     position: sticky;
-    height: 100px;
+    height: 75px;
     bottom: 0px;
     display: flex;
     justify-content: flex-end;
@@ -384,4 +487,5 @@
     font-style: normal;
     font-weight: 700;
     line-height: 120%;
+    cursor: pointer;
 }

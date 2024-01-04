@@ -201,14 +201,27 @@ function closeNewContact() {
 }
 
 
+// function updateCloseButtonImage() {
+//     let closeButton = document.getElementById('closeButton');
+//     if (window.innerWidth <= 1250) {
+//         closeButton.src = '/img/close-white.png';
+//     } else {
+//         closeButton.src = '/img/close.png';
+//     }
+// }
+
 function updateCloseButtonImage() {
-    let closeButton = document.getElementById('closeButton');
+  let closeButton = document.getElementById("closeButton");
+  if (closeButton) {
     if (window.innerWidth <= 1250) {
-        closeButton.src = '/img/close-white.png';
+      closeButton.src = "/img/close-white.png";
     } else {
-        closeButton.src = '/img/close.png';
+      closeButton.src = "/img/close.png";
     }
+  }
 }
+
+
 
 updateCloseButtonImage();
 window.addEventListener('resize', updateCloseButtonImage);

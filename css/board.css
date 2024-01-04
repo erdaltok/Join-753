@@ -4,7 +4,7 @@
     justify-content: flex-start;
     flex-direction: column;
     position: absolute;
-    margin-top: 192px;
+    margin-top: 150px;
     width: 72%;
 }
 
@@ -206,6 +206,13 @@
     background-color: rgba(0, 0, 0, 0.1);
 }
 
+.testContainerAddTaskPage {
+    width: 1000px;
+    height: 500px;
+    background-color: red;
+    margin-top: 180px;
+    margin-left: 378px;
+}
 
 
 @media (max-width: 1550px) {

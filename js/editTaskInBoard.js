@@ -1,26 +1,43 @@
-// Formular für edit
+
+/**
+ * Toggles the display between the edit task form and the big task box.
+ */
 function toggleDisplayForEdit() {
   const container = document.getElementById("editTaskBoxContainer");
-  const form = document.getElementById("editTask");
   const displayArea = document.getElementById("editTaskDisplay");
   const bigTaskBoxContainer = document.getElementById("bigTaskBoxContainer");
 
-  if (container && form && displayArea && bigTaskBoxContainer) {
+  if (container && displayArea && bigTaskBoxContainer) {
+    displayArea.innerHTML = generateEditTaskFormHtml();
     container.style.display = "block";
-    displayArea.appendChild(form);
     bigTaskBoxContainer.style.display = "none";
-    // updateCssClassesForEdit();
+
+    const form = document.getElementById("editTask");
+    if (form) {
+      form.classList.remove("slide-in", "slide-out");
+    }
+    loadContactsForForm();
+    setTimeout(() => {
+      const currentTask = tasks.find(
+        (task) => task.id.toString() === currentTaskId
+      );
+      if (currentTask) {
+        showCurrentValuesFromTask(currentTask);
+      }
+    }, 100); 
+    bindCloseEditTaskButton();
   }
 }
 
+/**
+ * Fills the edit task form with the current values of the selected task.
+ * @param {object} currentTask - The task currently being edited.
+ */
 function showCurrentValuesFromTask(currentTask) {
   document.getElementById("idTitleInputAddTask").value = currentTask.title;
-  document.getElementById("idDescriptionAddTask").value =
-    currentTask.description;
+  document.getElementById("idDescriptionAddTask").value = currentTask.description;
   updateSelectedContactsForTask(currentTask);
-  document.getElementById("idTitleDateAddTask").value = formatDueDateForInput(
-    currentTask.dueDate
-  );
+  document.getElementById("idTitleDateAddTask").value = formatDueDateForInput(currentTask.dueDate);
   setActivePriorityButton(currentTask.priority);
 
   const categorySelect = document.getElementById("idSelectCategoryAddTask");
@@ -31,100 +48,147 @@ function showCurrentValuesFromTask(currentTask) {
   }
 }
 
-function hideUnneededItems() {
-  const requiredFooter = document.querySelector(".requiredFooter");
-  const clearButton = document.querySelector(".footerButtonClear");
-
-  if (requiredFooter) requiredFooter.style.display = "none";
-  if (clearButton) clearButton.style.display = "none";
-}
-
-function showEditButton() {
-  const createTaskButton = document.querySelector(".footerButtonCreateTask");
-  const editTaskButton = document.querySelector(".footerEditTask");
-
-  if (createTaskButton && editTaskButton) {
-    createTaskButton.style.display = "none";
-    editTaskButton.style.display = "flex";
-  }
-}
-
+/**
+ * Sets up the edit functionality for the big task box.
+ */
 function editBigBoxTask() {
   const editFooter = document.querySelector(".editBigBoxFooter");
   if (editFooter) {
     editFooter.addEventListener("click", function () {
-      toggleDisplayForEdit();
+     toggleDisplayForEdit();
 
       const currentTask = tasks.find(
         (task) => task.id.toString() === currentTaskId
       );
       if (currentTask) {
-        showCurrentValuesFromTask(currentTask);
+        setTimeout(() => {
+          showCurrentValuesFromTask(currentTask);
+          updateSelectedContactsForTask(currentTask);
+        }, 0);
       }
-
-      hideUnneededItems();
-      showEditButton();
-    });
-  }
-}
-
-function commitEditTask() {
-  const editTaskButton = document.querySelector(".footerEditTask");
-  if (editTaskButton) {
-    editTaskButton.addEventListener("click", async function () {
-      await saveUpdatedTask();
-      const editTaskBoxContainer = document.getElementById(
-        "editTaskBoxContainer"
-      );
-      const bigTaskBoxContainer = document.getElementById(
-        "bigTaskBoxContainer"
-      );
-      if (editTaskBoxContainer && bigTaskBoxContainer) {
-        editTaskBoxContainer.style.display = "none";
-        const currentTask = tasks.find(
-          (task) => task.id.toString() === currentTaskId
-        );
-        if (currentTask) {
-          const subtasksHtml = createSubtasksHtml(
-            currentTask.subtasks,
-            currentTaskId
-          );
-          const bigTaskBoxHtml = showBigTaskPopupHtmlTemplate(
-            currentTask,
-            subtasksHtml
-          );
-          bigTaskBoxContainer.innerHTML = bigTaskBoxHtml;
-          bigTaskBoxContainer.style.display = "block";
-        }
-      }
+      setupEditTaskButton();
     });
   }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  commitEditTask();
   editBigBoxTask();
 });
 
+/**
+ * Sets up the edit task button to commit changes when clicked.
+ */
+ function setupEditTaskButton() {
+  const editTaskButton = document.getElementById("footerEditTask");
+  if (editTaskButton) {
+    editTaskButton.addEventListener("click", async function () {
+      await commitEditTask();
+    });
+  } else {
+    console.log("Edit-Button wurde nicht gefunden");
+  }
+}
+
+/**
+ * Commits the edits made to a task and updates the display.
+ */
+async function commitEditTask() {
+  if (!validateCurrentTaskId()) {
+    return;
+  }
+  // console.log("Speichern der Änderungen für Task-ID:", currentTaskId);
+  await saveUpdatedTask();
+  await updateDisplayAfterEdit();
+  await initPage();
+}
+
+/**
+ * Validates if the current task ID is set.
+ * @returns {boolean} - True if the current task ID is valid, false otherwise.
+ */
+function validateCurrentTaskId() {
+  if (currentTaskId === null) {
+    // console.error("Keine Task-ID zum Speichern vorhanden.");
+    return false;
+  }
+  return true;
+}
+
+/**
+ * Updates the task display after editing a task.
+ */
+async function updateDisplayAfterEdit() {
+  const editTaskBoxContainer = document.getElementById("editTaskBoxContainer");
+  const bigTaskBoxContainer = document.getElementById("bigTaskBoxContainer");
+
+  if (!editTaskBoxContainer || !bigTaskBoxContainer) {
+    console.log("Container nicht gefunden.");
+    return;
+  }
+  const currentTask = tasks.find(
+    (task) => task.id.toString() === currentTaskId
+  );
+  if (!currentTask) {
+    console.log("Aktualisierter Task nicht gefunden.");
+    return;
+  }
+  // console.log("Aktualisierter Task gefunden:", currentTask);
+  updateBigTaskBoxContainer(currentTask, bigTaskBoxContainer);
+  toggleContainersVisibility(editTaskBoxContainer, bigTaskBoxContainer);
+}
+
+/**
+ * Updates the big task box container with the current task's details.
+ * @param {object} currentTask - The task currently being edited.
+ * @param {HTMLElement} container - The container element for the big task box.
+ */
+function updateBigTaskBoxContainer(currentTask, container) {
+  const subtasksHtml = createSubtasksHtml(currentTask.subtasks, currentTaskId);
+  const bigTaskBoxHtml = showBigTaskPopupHtmlTemplate(
+    currentTask,
+    subtasksHtml
+  );
+  container.innerHTML = bigTaskBoxHtml;
+}
+
+/**
+ * Toggles the visibility of the edit task and big task box containers.
+ * @param {HTMLElement} editContainer - The container for the edit task form.
+ * @param {HTMLElement} bigTaskContainer - The container for the big task box.
+ */
+function toggleContainersVisibility(editContainer, bigTaskContainer) {
+  editContainer.style.display = "none";
+  bigTaskContainer.style.display = "block";
+}
+
+/**
+ * Saves the updated task to the task list.
+ */
 async function saveUpdatedTask() {
   const currentTaskIndex = tasks.findIndex(
     (task) => task.id.toString() === currentTaskId
   );
-  if (currentTaskIndex !== -1) {
-    const updatedTaskData = getFormData();
-    tasks[currentTaskIndex] = {
-      ...tasks[currentTaskIndex],
-      ...updatedTaskData,
-    };
-
-    await saveTasksToStorage();
-  } else {
+  if (currentTaskIndex === -1) {
     console.error(
       "Task mit der ID " + currentTaskId + " wurde nicht gefunden."
     );
+    return;
   }
+  const updatedTaskData = getFormData();
+  const updatedContacts = getAssignedContactsBadges();
+
+  tasks[currentTaskIndex] = {
+    ...tasks[currentTaskIndex],
+    ...updatedTaskData,
+    assignedContactsBadges: updatedContacts,
+  };
+  await saveTasksToStorage();
 }
 
+/**
+ * Updates the selected contacts for the current task.
+ * @param {object} task - The task whose contacts are being updated.
+ */
 function updateSelectedContactsForTask(task) {
   selectedContacts = [];
 
@@ -144,6 +208,11 @@ function updateSelectedContactsForTask(task) {
   updateAddedContactsDisplay();
 }
 
+/**
+ * Formats a date string for input fields.
+ * @param {string} dateString - The date string to format.
+ * @returns {string} - The formatted date string.
+ */
 function formatDueDateForInput(dateString) {
   const date = new Date(dateString);
   const year = date.getFullYear();
@@ -152,9 +221,12 @@ function formatDueDateForInput(dateString) {
   return `${year}-${month}-${day}`;
 }
 
+/**
+ * Sets the active priority button based on the task's priority.
+ * @param {string} priority - The priority level of the task.
+ */
 function setActivePriorityButton(priority) {
   resetAllButtons();
-
   let buttonId;
   switch (priority) {
     case "Urgent":
@@ -169,34 +241,60 @@ function setActivePriorityButton(priority) {
     default:
       return;
   }
-
   const buttonToActivate = document.getElementById(buttonId);
   if (buttonToActivate) {
     SelectedButtonStyle(buttonToActivate);
   }
 }
 
-// function closeAddTaskForm() {
-//     document.getElementById("editTaskBoxContainer").style.display = "none";
-//     location.reload();
-// }
+/**
+ * Binds the close button functionality for the edit task form.
+ */
+function bindCloseEditTaskButton() {
+  const closeEditTaskButton = document.querySelector(".closeEditTask");
+  if (closeEditTaskButton) {
+    closeEditTaskButton.addEventListener("click", handleCloseEditTask);
+  }
+}
 
-// function updateCssClassesForEdit() {
-//   updateClass("titlePositionLittle", "editTitle");
-//   updateClass("formLeftAndRightFlex", "editLeftAndRight");
-//   updateClass("dividerLittle", "editHideDivider");
-//   updateClass("addTaskLeftLittle", "editLeft");
-//   updateClass("titleDateAddTaskBoard", "editDate");
-//   updateClass("addTaskRightLittle", "editRight");
-//   updateClass("addTaskPopUp", "editPopUp");
-//   updateClass("formFooter", "editFooter");
-// }
+/**
+ * Handles the closing of the edit task form.
+ */
+function handleCloseEditTask() {
+  const editTaskBoxContainer = document.getElementById("editTaskBoxContainer");
+  const bigTaskBoxContainer = document.getElementById("bigTaskBoxContainer");
 
-// function updateClass(oldClass, newClass) {
-//   const elements = document.querySelectorAll(`.${oldClass}`);
-//   elements.forEach((element) => {
-//     element.classList.remove(oldClass);
-//     element.classList.add(newClass);
-//   });
-// }
+  if (editTaskBoxContainer && bigTaskBoxContainer) {
+    editTaskBoxContainer.style.display = "none";
+    bigTaskBoxContainer.style.display = "block";
+  }
+}
 
+/**
+ * Closes the edit task form when the close button is clicked.
+ */
+function closeEditTask() {
+  const closeEditTaskButton = document.querySelector(".closeEditTask");
+  if (closeEditTaskButton) {
+    closeEditTaskButton.addEventListener("click", function () {
+      const editTaskBoxContainer = document.getElementById(
+        "editTaskBoxContainer"
+      );
+      const bigTaskBoxContainer = document.getElementById(
+        "bigTaskBoxContainer"
+      );
+
+      if (editTaskBoxContainer && bigTaskBoxContainer) {
+        editTaskBoxContainer.style.display = "none";
+        bigTaskBoxContainer.style.display = "block";
+      }
+    });
+  }
+}
+
+// Event listener for document ready state.
+document.addEventListener("DOMContentLoaded", function () {
+  commitEditTask();
+  closeEditTask();
+  editBigBoxTask();
+});
