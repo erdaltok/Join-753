@@ -53,11 +53,42 @@ body {
     display: flex;
     align-items: center;
     padding-right: 40px;
+    position: absolute;
+    right: 8px;
 }
 
 .user-profil-box {
     display: flex;
     position: relative;
+    cursor: pointer;
+}
+
+.text {
+    position: absolute;
+    top: 34px;
+    left: 360px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    margin-top: 284px;
+    margin-right: 8px;
+    background-color: #2a3647;
+    border-radius: 20px 0px 20px 20px;
+    padding: 30px 16px 0px 16px;
+    gap: 30px;
+    text-align: center;
+    height: 158px;
+    width: 150px;
+    font-family: inter;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+    color: #cdcdcd;
 }
 
 .user-initials {
