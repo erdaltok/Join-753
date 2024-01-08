@@ -1,0 +1,41 @@
+body{
+    background-color: #f6f7f8;
+    height: 100vh;
+    margin: 0;
+    
+    
+}
+
+.helpPageBody{
+    height: 100vh;
+    width: 1501px;
+    margin-left: 325px;
+}
+
+
+
+.helpPageInstructions{
+    margin-top: 200px;
+    word-wrap: break-word;
+}
+
+
+table {
+    width: 1470px; /* Set the total width of the table */
+    border-collapse: collapse;
+    
+}
+
+th, td {
+    border: 1px solid black;
+    height: 100px;
+    text-align: left;
+}
+
+th:nth-child(1), td:nth-child(1) {
+    width: 50px; /* Set the width of the first column */
+}
+
+th:nth-child(2), td:nth-child(2) {
+    width: 500px; /* Set the width of the second column */
+}
