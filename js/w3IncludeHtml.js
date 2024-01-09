@@ -1,10 +1,3 @@
-
-function menuStyle() {
-  let openDiv = document.getElementById('style');
-  openDiv.style.display = 'flex';
-}
-
-
 async function init() {
   await includeHTML();
 
