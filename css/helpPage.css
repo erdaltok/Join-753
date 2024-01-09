@@ -2,6 +2,7 @@ body{
     background-color: #f6f7f8;
     height: 100vh;
     margin: 0;
+    scroll-behavior: smooth;
     
     
 }
@@ -17,23 +18,55 @@ body{
 .helpPageInstructions{
     margin-top: 200px;
     word-wrap: break-word;
+    font-size: 20px;
 }
 
 
 table {
     width: 1470px; /* Set the total width of the table */
     border-collapse: collapse;
+    font-size: 20px;
+    
+}
+table h2 {
+    
+    margin-bottom: 84px;
+    font-size: 29px;
+    margin-left: 2px;
+    
+}
+
+table h3 {
+    margin: 0;
+    
+}
+
+table h5 {
+    font-size: 29px;
+    margin-bottom: 133px;
+    
+}
+
+table p {
+    margin-bottom: 10px;
+    top: -11px;
+    position: relative;
+}
+
+table br {
+ 
     
 }
 
 th, td {
-    border: 1px solid black;
-    height: 100px;
+    
+    height: 50px;
     text-align: left;
 }
 
 th:nth-child(1), td:nth-child(1) {
-    width: 50px; /* Set the width of the first column */
+    width: 1px; /* Set the width of the first column */
+    text-align: center;
 }
 
 th:nth-child(2), td:nth-child(2) {
