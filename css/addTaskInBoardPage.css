@@ -25,7 +25,7 @@
     background-color: #fff;
     border-radius: 15px;
     color: black;
-    min-height: 920px;
+    min-height: 810px;
 }
 
 @keyframes slide-in {
@@ -59,7 +59,7 @@
 .addTaskLittle {
     /* margin-left: 65.75px; */
     background: none;
-    padding: 65px;
+    padding: 60px;
     /* margin-right: 65.75px; */
 }
 
@@ -531,7 +531,7 @@ input {
     align-items: center;
     gap: 25px;
     position: fixed;
-    bottom: 101px;
+    bottom: 80px;
 }
 
 .footerButtonsAddTask button {

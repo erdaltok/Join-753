@@ -19,6 +19,8 @@ function showBigTaskBox(taskId) {
     animatePopupOpen();
     editBigBoxTask();    
   }
+    document.documentElement.style.overflowY = "hidden";
+    document.body.style.overflowY = "hidden";
 }
 
 /**
@@ -29,9 +31,10 @@ function closeBigTaskBox() {
     saveTasksToStorage();
     renderTasks();
     resetSelectedContacts();
-    resetTaskForm(); 
-    initPage();
+    // resetTaskForm(); 
   });
+  document.documentElement.style.overflowY = "auto";
+  document.body.style.overflowY = "auto";
 }
 
 /**
@@ -186,4 +189,4 @@ document.addEventListener("input", function (event) {
 });
 
 
-document.addEventListener("DOMContentLoaded", initPage);
+// document.addEventListener("DOMContentLoaded", initPage);

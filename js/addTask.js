@@ -20,6 +20,8 @@ function addNewTaskBoard(status = "todo") {
       popUpContent.classList.remove("slide-out");
     }
   }
+  document.documentElement.style.overflowY = "hidden";
+  document.body.style.overflowY = "hidden";
 }
 
 /**
@@ -46,6 +48,7 @@ function closeAddTaskForm() {
   renderTasks();
   resetTaskForm();
   resetSelectedContacts();
+  location.reload();
 }
 
 document.addEventListener("click", function (event) {
@@ -161,7 +164,8 @@ async function finalizeTaskCreation() {
     closeAddTaskForm();
   }
   newTaskAddedMessage();
-    resetTaskForm();
+  resetTaskForm();
+   location.reload();
 }
 
 /**
