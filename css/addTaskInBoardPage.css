@@ -25,14 +25,10 @@
     background-color: #fff;
     border-radius: 15px;
     color: black;
-<<<<<<< HEAD
-    min-height: 810px;
-=======
     
     height: 85%;
     /* transition: width 0.3s;
     transform: translateX(0%); */
->>>>>>> 960d0b9e80b4063ea4af688a8201745f04b5eea8
 }
 
 @keyframes slide-in {
