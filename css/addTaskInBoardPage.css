@@ -529,7 +529,7 @@ input {
         background: rgb(255, 255, 255);
         bottom: 119px;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-end;
         /* right: 213px; */
         width: auto;
         height: 100px;

@@ -1,4 +1,4 @@
 git pull
 git add .
-git commit -m "fixes and css addTask, borad and edit"
+git commit -m "E"
 git push
