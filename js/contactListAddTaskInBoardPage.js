@@ -3,20 +3,32 @@ function toggleContactList() {
   const contactInput = document.getElementById("idTitleSelectContactsAddTask");
   const contactList = document.querySelector(".listSelectableContacts");
   const addedContactsContainer = document.getElementById("addedContactsProfilBadges");
+<<<<<<< HEAD
+  const hideRequired = document.querySelector(".requiredFooter");
+=======
   // const hideRequired = document.querySelector(".requiredFooter");
+>>>>>>> f17084f5985f5787d12ce115d6fe38469550ade5
 
   if (contactList.style.display === "block") {
     contactList.style.display = "none";
     contactInput.style.background =
       "url(/img/arrow_drop_down.svg) no-repeat scroll right";
     addedContactsContainer.style.display = "block";
+<<<<<<< HEAD
+    hideRequired.style.display = "none"
+=======
     // hideRequired.style.display = "none"
+>>>>>>> f17084f5985f5787d12ce115d6fe38469550ade5
   } else {
     contactList.style.display = "block";
     contactInput.style.background =
       "url(/img/arrow_drop_up.svg) no-repeat scroll right";
     addedContactsContainer.style.display = "none";
+<<<<<<< HEAD
+    hideRequired.style.display = "none";
+=======
     // hideRequired.style.display = "none";
+>>>>>>> f17084f5985f5787d12ce115d6fe38469550ade5
   }
 }
 
@@ -24,7 +36,11 @@ function toggleContactList() {
 window.addEventListener("click", function (event) {
   const contactInput = document.getElementById("idTitleSelectContactsAddTask");
   const contactList = document.querySelector(".listSelectableContacts");
+<<<<<<< HEAD
+  const hideRequired = document.querySelector(".requiredFooter");
+=======
   // const hideRequired = document.querySelector(".requiredFooter");
+>>>>>>> f17084f5985f5787d12ce115d6fe38469550ade5
 
 
   if (contactInput && contactList) {
@@ -36,7 +52,11 @@ window.addEventListener("click", function (event) {
       contactInput.style.background =
         "url(/img/arrow_drop_down.svg) no-repeat scroll right";
       document.getElementById("addedContactsProfilBadges").style.display = "flex";
+<<<<<<< HEAD
+      hideRequired.style.display = "block";
+=======
       // hideRequired.style.display = "block";
+>>>>>>> f17084f5985f5787d12ce115d6fe38469550ade5
     }
   }
 });
