@@ -1,0 +1,15 @@
+.legalContent {
+    width: 1400px;
+    margin-left: 300px;
+    height: 100vh;
+    margin-top: 150px;
+}
+
+.legalContent h1 {
+    margin-bottom: 100px;
+    
+}
+.legalContent h2 {
+    margin-bottom: 0;
+    
+}
