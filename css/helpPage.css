@@ -31,8 +31,8 @@ table {
 table h2 {
     
     margin-bottom: 84px;
-    font-size: 29px;
-    margin-left: 2px;
+    font-size: 40px;
+    
     
 }
 
@@ -42,8 +42,10 @@ table h3 {
 }
 
 table h5 {
-    font-size: 29px;
-    margin-bottom: 133px;
+    font-size: 40px;
+    position: relative;
+    bottom: 53px;
+   
     
 }
 
@@ -58,15 +60,30 @@ table br {
     
 }
 
+table a {
+    font-size: 22px;
+    color: black;
+    font-weight: bold;
+    position: relative;
+    bottom: 4px;
+   
+    
+}
+
 th, td {
     
     height: 50px;
     text-align: left;
 }
+table span {
+    color: rgb(110, 192, 247);
+ 
+    
+}
 
 th:nth-child(1), td:nth-child(1) {
     width: 1px; /* Set the width of the first column */
-    text-align: center;
+    text-align: top;
 }
 
 th:nth-child(2), td:nth-child(2) {
