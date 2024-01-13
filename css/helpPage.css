@@ -89,3 +89,9 @@ th:nth-child(1), td:nth-child(1) {
 th:nth-child(2), td:nth-child(2) {
     width: 500px; /*width of column 2*/
 }
+
+.helpPageInstructions img {
+    position: fixed;
+    left: 1782px;
+  
+}

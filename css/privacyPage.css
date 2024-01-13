@@ -8,3 +8,8 @@
 .privacyContent h1 {
     margin-bottom: 100px;
 }
+.privacyContent img {
+    position: fixed;
+    left: 1655px;
+  
+}
