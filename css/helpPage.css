@@ -82,10 +82,10 @@ table span {
 }
 
 th:nth-child(1), td:nth-child(1) {
-    width: 1px; /* Set the width of the first column */
+    width: 1px; /*width of column 1*/
     text-align: top;
 }
 
 th:nth-child(2), td:nth-child(2) {
-    width: 500px; /* Set the width of the second column */
+    width: 500px; /*width of column 2*/
 }
