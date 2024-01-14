@@ -131,6 +131,8 @@ a {
     top: -150px;
 }
 
+
+
 .menu-links {
     gap: 8px;
     width: 232px;
@@ -261,6 +263,28 @@ a {
     position: relative;
     right: -10px;
     margin-right: 38px;
+    }
+
+    .desktop-navbar-menu a{
+        height: 91px;
+    width: 9px;
+    flex-direction: column;
+    border-radius: 10px;
+    align-self: center;
+    position: relative;
+    right: -10px;
+    margin-right: 38px;
+    }
+
+    .desktop-navbar-menu span {
+        width: 98px;
+    height: 36px;
+    margin-bottom: -24px;
+    text-align: center;
+    }
+
+    #boardImage {
+        margin-top: 7px;
     }
     
     .navbar-footer{
