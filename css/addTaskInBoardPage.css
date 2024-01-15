@@ -686,3 +686,71 @@ input {
     border: none;
     gap: 20px;
 }
+
+@media  (max-width: 800px)and (min-width: 601px){
+    .addTask-main {
+        margin-left: 110px;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: row;
+        position: absolute;
+        margin-top: 72px;
+        width: 800px;
+      }
+
+      .addTaskPopUp {
+        position: relative;
+        background-color: #fff;
+        border-radius: 15px;
+        color: black;
+        
+        height: 100vh;
+        /* transition: width 0.3s;
+        transform: translateX(0%); */
+    }
+
+    .dividerLittle{
+        display: none;
+    }
+
+    .formLeftAndRightFlex {
+        display: flex;
+            width: 100%;
+            margin-top: 32px;
+            /* overflow-y: auto; */
+            /* overflow-y: auto; */
+            /* width: 440px; */
+            max-height: 588px;
+            overflow-y: auto;
+            
+}
+
+/* .formFooter {
+    display: flex;
+    position: absolute;
+    background: rgb(255, 255, 255);
+    bottom: 119px;
+    align-items: center;
+    justify-content: flex-start;
+    right: 173px;
+    width: auto;
+    height: -59px;
+  } */
+
+  /*.formLeftAndRightFlex {
+    display: flex;
+    width: 100%;
+    margin-top: 32px;
+    overflow-y: auto;
+    overflow-y: auto;
+    width: 440px;
+    max-height: 588px;
+    overflow-y: auto;
+    flex-direction: column;
+  }  */
+}
+
+@media(max-width: 600px){
+  
+}
+
