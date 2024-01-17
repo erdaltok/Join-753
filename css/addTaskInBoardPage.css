@@ -687,6 +687,7 @@ input {
     gap: 20px;
 }
 
+
 @media  (max-width: 800px)and (min-width: 300px){
     .addTask-main {
         margin-left: 110px;
