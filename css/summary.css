@@ -156,6 +156,7 @@ html,body {
     width: 100%;
     display: flex;
     align-items: center;
+    
 }
 
 .second-row-box {
@@ -166,6 +167,7 @@ html,body {
     justify-content: center;
     align-items: center;
     gap: 61px;
+    
 }
 
 
@@ -441,4 +443,115 @@ html,body {
         width: 234px;
         height: 120px;
     }
+}
+
+
+@media(max-width: 300px){
+   
+    .summary-headline{
+        width: 530px;
+      flex-direction: column;
+      margin-right: 411px;
+      margin-top: 20px;
+      
+    }
+
+    .summary-headline h1{
+        margin-right: 390px;
+        padding: 0;
+        line-height: 0%;
+        font-size: 25px;
+      }
+    
+    
+    #separator{
+        position: absolute;
+        height: 10px;
+        width: 112px;
+        content: url('/img/separator1.svg');
+        top: 96px;
+        left: 19px;
+      
+    }
+    .header-text span{
+        margin-right: 10px;
+        position: fixed;
+        right: 191px;
+    top: 35px;
+
+    }
+
+    .summary-headline span{
+        font-size: 22px;
+        margin-right: 250px;
+     line-height: 0%;
+    }
+     
+    .greeting-user{
+        display: none;
+    }
+
+    .summary-main{
+        margin-left: -3px;
+        margin-top: 97px;
+        height: 100vh;
+    }
+
+    .summary-card-container{
+        
+    }
+
+    .summary-card-container span{
+        font-size: 9px;
+    }
+
+    .summary-count{
+        font-size: 42px;
+    }
+
+    .first-row{
+        height: 120px;
+        width: 57%;
+    }
+    .first-row-box{
+        width: 120px;
+        height: 103px;
+    }
+
+    .second-row-box{
+        width: 495px;
+        height: 120px;
+    margin-left: 30px;
+    }
+
+    .third-row-box{
+        width: calc(100% / 3.9);
+        height: 120px;
+    }
+
+    .middle-box img{
+        position: relative;
+  left: 30px !important;
+  height: 69px;
+  margin-right: -7px;
+    }
+
+    .toDoImage{
+        width: 40px;
+    }
+    
+    .doneImage{
+        width: 40px;
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
 }

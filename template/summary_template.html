@@ -45,7 +45,8 @@
             <div class="first-row">
                 <a href="/template/board_template.html" class="first-row-box left-box" onmouseover="this.querySelector('img').src='/img/pen-icon-whiteBg.svg';"
                     onmouseout="this.querySelector('img').src='/img/pen-icon.svg';">
-                    <img src="/img/pen-icon.svg" alt="">
+    
+        <img class="toDoImage" src="/img/pen-icon.svg" alt="">
                     <div class="d-flex">
                         <div class="summary-count" id="todo-count">2</div>
                         <span>To-do</span>
@@ -55,7 +56,7 @@
                 <a href="/template/board_template.html" class="first-row-box right-box"
                     onmouseover="this.querySelector('img').src='/img/checkmark-icon-whiteBg.svg';"
                     onmouseout="this.querySelector('img').src='/img/checkmark-icon.svg';">
-                    <img src="/img/checkmark-icon.svg" alt="">
+                    <img class="doneImage" src="/img/checkmark-icon.svg" alt="">
                     <div class="d-flex">
                         <div class="summary-count" id="done-count">2</div>
                         <span>Done</span>
@@ -64,19 +65,20 @@
             </div>
 
                 <div class="second-row">
-
+                
                     <a href="/template/board_template.html" class="second-row-box middle-box">
                         <img src="/img/urgend-icon-red.svg" alt="">
                         <div class="d-flex">
                             <div class="summary-count" id="deadline-count">1</div>
                             <span>Urgent</span>
                         </div>
+                    
 
 
                         <img src="/img/separator-long.svg" alt="">
 
                         <div class="date-deadline">
-                            <div class="deadline" id="deadline">August 28, 2009</div>
+                            <div class="deadline" id="deadline"><p>August 28, 2009</p></div>
                             <span>Upcoming Deadline</span>
                         </div>
 
