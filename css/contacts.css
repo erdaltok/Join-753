@@ -389,8 +389,28 @@ body {
     }
 }
 
+@media (max-width: 600px) {
+    .desktop-navbar {
+        width: 100vw;
+    }
+}
+
 @media (max-width: 550px) {
     .contacts-container {
         margin-left: -235px;
+    }
+}
+
+@media (max-width: 400px) {
+    .contact.clicked {
+        width: 260px;
+    }
+
+    .add-contacts-btn {
+        width: 260px;
+    }
+
+    .contact {
+        width: 260px;
     }
 }

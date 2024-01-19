@@ -1,6 +1,7 @@
-html,body {
+html,
+body {
     height: 100%;
-    width: 100% ;
+    width: 100%;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -55,7 +56,7 @@ body {
     padding-right: 40px;
     position: absolute;
     right: 50px;
-  top: 33px;
+    top: 33px;
 }
 
 
@@ -90,6 +91,7 @@ body {
     font-weight: 400;
     position: fixed;
     right: 0px;
+    z-index: 999;
 }
 
 a {
@@ -192,22 +194,26 @@ a {
     font-weight: bold;
 }
 
+@media (max-width: 750px) and (min-width: 601px) {
+    .header-text span {
+        display: none;
+    }
+}
 
-@media(max-width: 600px){
-    body{
+@media(max-width: 600px) {
+    body {
         min-height: 100vh;
     }
 
     .titleDateAddTaskBoard {
-        
         margin-top: 20px;
-      }
-    
-    .header-text{
+    }
+
+    .header-text {
         display: none;
     }
 
-    #LogoImage{
+    #LogoImage {
         content: url('/img/LogoWhite1.svg');
         position: absolute;
         width: 50px;
@@ -215,30 +221,27 @@ a {
         margin-right: 100px;
     }
 
-    .user-help{
+    .user-help {
         display: none;
     }
 
-    .header-user-help{
+    .header-user-help {
         margin-left: 140px;
         margin-top: 5px;
     }
 
-    .logo img { 
+    .logo img {
         display: none;
-        
     }
+
     .desktop-navbar {
         width: 100vw;
-      
-       
         top: auto;
         bottom: 0px;
         height: 1px;
         display: flex;
         padding: 64px 0;
         position: fixed;
-       
         box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10000000149011612);
         align-items: center;
         flex-direction: row;
@@ -246,61 +249,73 @@ a {
         background-color: rgba(42, 54, 71, 1);
     }
 
-    .menu-links{
-
+    .menu-links {
+        margin-inline-start: 0px;
     }
 
-    .desktop-navbar-menu{
-        gap: 3px;
-        align-items: flex-start;
+    .desktop-navbar-menu {
+        gap: 0px;
         flex-direction: row;
-        justify-content: center;
-        width: 572px;
-        position: fixed;
-        top: 780px;
-        flex: 1;
-        height: 133px;
+        justify-content: flex-start;
+        position: absolute;
+        height: 400px;
     }
 
-    .desktop-navbar-menu a{
+    .desktop-navbar-menu a {
         height: 83px;
-    width: 9px;
-    flex-direction: column;
-    border-radius: 10px;
-    
-    position: relative;
-    right: -10px;
-    margin-right: 26px;
-    margin-top: 28px;
+        width: 9px;
+        flex-direction: column;
+        border-radius: 10px;
+        position: relative;
+        right: -10px;
+        margin-right: 26px;
+        margin-top: 28px;
     }
-
-  
 
     .desktop-navbar-menu span {
         width: 98px;
-    height: 36px;
-    margin-bottom: -24px;
-    text-align: center;
+        height: 36px;
+        margin-bottom: -24px;
+        text-align: center;
     }
 
     #boardImage {
         margin-top: 7px;
     }
-    
-    .navbar-footer{
+
+    .navbar-footer {
         height: 100px;
         display: none;
     }
 
-    .summary-card-container{
+    .summary-card-container {}
 
+    .user-initials {
+        font-size: 12px;
+        position: absolute;
+        top: 10px;
+        left: 8px
     }
-   
-  
+
+    .user-profil-box {
+        height: 34px;
+        right: 279px;
+    }
 }
 
-@media  (max-width: 750px) and (min-width: 601px){
-    .header-text span{
-        display: none;
+@media (max-width: 550px) {
+    .menu-links {
+        margin-inline-start: -34px;
+    }
+
+    .desktop-navbar-menu {
+        margin-left: 34px;
+    }
+}
+
+@media (max-width: 400px) {
+    .menu-links {
+        margin-inline-start: -58px;
+        font-size: 10px;
     }
 }
