@@ -49,6 +49,7 @@ body {
     font-stretch: normal;
 }
 
+
 .header-user-help a img {
     gap: 16px;
     display: flex;
@@ -224,6 +225,7 @@ a {
     .user-help {
         display: none;
     }
+   
 
     .header-user-help {
         margin-left: 140px;
@@ -259,6 +261,7 @@ a {
         justify-content: flex-start;
         position: absolute;
         height: 400px;
+        align-items: center;
     }
 
     .desktop-navbar-menu a {
@@ -299,7 +302,7 @@ a {
 
     .user-profil-box {
         height: 34px;
-        right: 279px;
+        
     }
 }
 
@@ -319,3 +322,11 @@ a {
         font-size: 10px;
     }
 }
+
+@media (max-width: 301px) {
+    .user-profil-box {
+        height: 34px;
+        right: 300px;
+      }
+}
+
