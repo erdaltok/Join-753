@@ -401,8 +401,10 @@ input {
   line-height: 120%;
 }
 
+
+
 .prioButtonsBox {
-  gap: 16px !important;
+  gap: 16px ;
   display: flex;
 }
 
@@ -1071,7 +1073,7 @@ font-size: 16px;
     line-height: 120%;
     cursor: pointer;
     width: 272px;
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .subtaskBox {
@@ -1150,14 +1152,34 @@ font-size: 16px;
   }
 
   .prioButtonsBox {
-    gap: 16px !important;
+    gap: 1px;
     display: flex;
-    width: 272px;
+    width: 273px;
+  }
+
+  .prioButtons {
+    display: flex;
+   
+    justify-content: center;
+    align-items: center;
+    
+    flex: 1 0 0;
+    border-radius: 10px;
+    background: var(--white, #FFF);
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+    filter: none;
+    width: 109px;
+    height: 17px;
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
   }
 
   .prioButtons {
     color: #000;
-    font-size: 16px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
@@ -1170,6 +1192,12 @@ font-size: 16px;
     overflow-y: scroll;
     height: 60px;
     width: 229px;
+  }
+
+  .prioButtons img {
+    width: 14px;
+    height: 10px;
+   
   }
 
 }
