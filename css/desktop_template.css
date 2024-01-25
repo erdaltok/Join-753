@@ -197,6 +197,14 @@ a {
     font-weight: bold;
 }
 
+@media (max-width: 950px) {
+    .menu-links {
+        width: 128px;
+        font-size: 12px;
+        padding: 10px;
+    }
+}
+
 @media (max-width: 750px) and (min-width: 601px) {
     .header-text span {
         display: none;
@@ -258,7 +266,7 @@ a {
     }
 
     .desktop-navbar-menu {
-        gap: 0px;
+        gap: 64px;
         flex-direction: row;
         justify-content: flex-start;
         position: absolute;
@@ -268,7 +276,7 @@ a {
 
     .desktop-navbar-menu a {
         height: 83px;
-        width: 9px;
+        width: 60px;
         flex-direction: column;
         border-radius: 10px;
         position: relative;
@@ -314,7 +322,7 @@ a {
     }
 
     .desktop-navbar-menu {
-        margin-left: 34px;
+        margin-left: 50px;
     }
 }
 
@@ -322,6 +330,11 @@ a {
     .menu-links {
         margin-inline-start: -58px;
         font-size: 10px;
+    }
+
+    .desktop-navbar-menu {
+        margin-left: 96px;
+        gap: 40px;
     }
 }
 
