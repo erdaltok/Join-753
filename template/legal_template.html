@@ -16,7 +16,7 @@
 <body onload="init()">
     <div w3-include-html="/template/desktop_template.html"></div>
     <div class="legalContent">
-        <img src="/img/arrow-left-line.svg" alt="">
+        <div class="backButton"><img  id="backButton" src="/img/arrow-left-line.svg" alt=""></div>
         <h1>Legal notice</h1>
         <h2>Imprint</h2>
         <p>
@@ -59,6 +59,12 @@
 
     </div>
 
+
+    <script>
+        document.getElementById("backButton").addEventListener("click", function() {
+            window.history.back();
+        });
+    </script>
 </body>
 
 </html>

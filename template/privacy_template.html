@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/fonts.css">
     <link rel="stylesheet" href="/css/privacyPage.css">
-    <link rel="stylesheet" href="/css/contacts.css">
     <script src="/js/w3IncludeHtml.js" defer></script>
     <script src="/js/storage.js" defer></script>
 </head>
@@ -17,7 +16,9 @@
 <body onload="init()">
     <div w3-include-html="/template/desktop_template.html"></div>
 <div class="privacyContent">
-    <img src="/img/arrow-left-line.svg" alt="">
+
+
+   <div class="backButton"> <img id="backButton" src="/img/arrow-left-line.svg" alt=""></div>
     <h1>Privacy Policy</h1>
     <p>Last updated: January 13, 2024</p>
     <p>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.</p>
@@ -195,6 +196,12 @@
     <li>By visiting this page on our website: <a href="www.join.com" rel="external nofollow noopener" target="_blank">www.join.com</a></li>
     </ul>
    </div>
+
+   <script>
+    document.getElementById("backButton").addEventListener("click", function() {
+        window.history.back();
+    });
+</script>
 </body>
 
 </html>

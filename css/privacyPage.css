@@ -1,3 +1,7 @@
+body{
+
+}
+
 .privacyContent {
     width: 1400px;
     margin-left: 300px;
@@ -12,4 +16,10 @@
     position: fixed;
     left: 1655px;
   
+}
+
+.backButton :hover{
+    cursor: pointer;
+    border-radius: 30px;
+    background-color: rgb(218, 223, 223);
 }

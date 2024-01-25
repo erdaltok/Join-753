@@ -1,5 +1,5 @@
 body{
-    background-color: #f6f7f8;
+    background-color:white;
     height: 100vh;
     margin: 0;
     scroll-behavior: smooth;
@@ -11,6 +11,17 @@ body{
     height: 100vh;
     width: 1501px;
     margin-left: 325px;
+}
+
+.helpPageBody img{
+    cursor: pointer;
+   
+}
+
+.backButton :hover{
+    cursor: pointer;
+    border-radius: 30px;
+    background-color: rgb(218, 223, 223);
 }
 
 

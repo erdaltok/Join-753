@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/fonts.css">
     <link rel="stylesheet" href="/css/helpPage.css">
-    <link rel="stylesheet" href="/css/contacts.css">
     <script src="/js/w3IncludeHtml.js" defer></script>
     <script src="/js/storage.js" defer></script>
 </head>
@@ -21,7 +20,7 @@
         
 
         <div class="helpPageInstructions">
-            <img src="/img/arrow-left-line.svg" alt="">
+           <div class="backButton"> <img id="backButton" src="/img/arrow-left-line.svg" alt=""></div>
 
             <h1>Help</h1>
             <p>Welcome to the help page for <span>Join</span>, your guide to using our kanban project management tool. Here, we'll
@@ -111,6 +110,12 @@
 
 
     </div>
+
+    <script>
+        document.getElementById("backButton").addEventListener("click", function() {
+            window.history.back();
+        });
+    </script>
 </body>
 
 </html>
