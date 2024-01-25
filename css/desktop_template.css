@@ -323,10 +323,18 @@ a {
     }
 }
 
-@media (max-width: 301px) {
+@media (max-width: 300px) {
     .user-profil-box {
-        height: 34px;
-        right: 300px;
+        height: 36px;
+        right: 335px;
+      }
+
+      #LogoImage {
+        content: url('/img/LogoWhite1.svg');
+        position: absolute;
+        width: 35px;
+        margin-left: -311px;
+        margin-right: 100px;
       }
 }
 
