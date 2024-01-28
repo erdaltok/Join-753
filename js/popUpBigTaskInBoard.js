@@ -75,6 +75,8 @@ function deleteBigTaskBox() {
     bigTaskBox.style.display = "none";
   }
   currentTaskId = null;
+  document.documentElement.style.overflowY = "auto";
+  document.body.style.overflowY = "auto";
 }
 
 /**
