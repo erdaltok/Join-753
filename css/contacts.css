@@ -132,6 +132,7 @@ body {
     left: 673px;
     height: -webkit-fill-available;
     background-color: #f6f7f8;
+    height: 100vh;
 }
 
 .contact-header {
@@ -350,7 +351,11 @@ body {
     }
 }
 
-@media (max-width: 955px) {
+@media (max-width: 955px) and (min-width: 601px) {
+
+    .contact-header{
+  display: none;
+}
     .text-1 {
         font-size: 36px;
     }
@@ -381,36 +386,93 @@ body {
     .contact-view {
         left: 498px;
     }
+
+    .card{
+        margin-top: 1px;
+    }
+
+    .information
+    {
+        
+        top: 284px;
+      }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 720px) and (min-width: 601px) {
     .contact-view {
         display: none;
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 600px) and (min-width: 551px) {
     .desktop-navbar {
         width: 100vw;
     }
-}
-
-@media (max-width: 550px) {
-    .contacts-container {
-        margin-left: -235px;
+    .contacts-div {
+        display: flex;
+        align-items: flex-start;
+        padding-left: 10px;
+        margin-top: 147px;
+        position: relative;
+        right: 0;
+        height: 100vh;
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 550px) and (min-width: 401px) {
+    .contacts-container {
+        margin-left: -238px;
+    }
+
+   
+}
+
+@media (max-width: 400px) and (min-width: 280px) {
     .contact.clicked {
         width: 260px;
     }
 
     .add-contacts-btn {
-        width: 260px;
+        width: 64px;
+         height: 64px;
+        position: sticky;
+        top: 671px;
+       right: 10px;
+        border-radius: 44px;
+        background-color: #2a3647;
+        color: white;
+        font-family: inter;
+        font-size: 21px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        cursor: pointer;
+        z-index: 99;
+        padding: 15px;
+        border: none;
+        margin-left: 184px;
     }
 
     .contact {
         width: 260px;
     }
+
+    .add-contacts-btn p {
+        display: none;
+    }
+
+    
+        .contacts-div {
+            display: flex;
+            align-items: flex-start;
+            /* padding-left: 159px; */
+            margin-top: 100px;
+            position: relative;
+            right: 313px;
+            height: 100vh;
+        }
+
+       
+
 }

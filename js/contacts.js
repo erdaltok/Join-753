@@ -147,9 +147,10 @@ function newContact() {
     openDiv.innerHTML = `
     <div class="div-container">
         <div class="new-card">
-            <img src="/img/icon2.png">
+            <img id="newContactJoinImage" src="/img/icon2.png">
             <h1 class="new-text">Add contact</h1>
             <p class="new-text-2">Tasks are better with a team</p>
+            <img id="separatorAddContact" src="/img/separator.svg" alt="">
             <svg xmlns="http://www.w3.org/2000/svg" width="88" height="3" viewBox="0 0 3 3" fill="none"
                 style="width: 88px; height: 3px;">
                 <path d="M2 2V61" stroke="#29ABE2" stroke-width="88" stroke-linecap="round" />

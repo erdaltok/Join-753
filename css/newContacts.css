@@ -151,7 +151,7 @@ input {
     font-size: 20px;
     font-weight: 400;
     border-radius: 10px;
-    background-color:white;
+    background-color: white;
     color: #2A3647;
     font-family: inter;
     cursor: pointer;
@@ -168,6 +168,15 @@ input {
     position: relative;
     right: 45px;
     top: -33px;
+}
+
+#separatorAddContact {
+    position: absolute;
+            height: 10px;
+            width: 112px;
+            
+            top: 96px;
+            left: 19px;
 }
 
 @media (max-width: 1250px) {
@@ -215,5 +224,275 @@ input {
     .close {
         top: -365px;
         left: 223px;
+    }
+
+    @media (max-width: 520px) and (min-width: 401px) {
+
+        .div-container {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 757px;
+            width: 399px;
+        }
+
+        .new-card {
+            line-height: 0.1;
+            text-align: center;
+        }
+
+        .new-card img {
+            display: none;
+        }
+
+        .new-text {
+            color: white;
+            font-family: inter;
+            font-weight: 700;
+            font-size: 41px;
+            cursor: default;
+        }
+
+        .new-text-2 {
+            color: white;
+            font-family: inter;
+            font-weight: 400;
+            font-size: 20px;
+            cursor: default;
+        }
+
+        .div-input {
+            flex-direction: column;
+            align-items: center;
+            width: 399px;
+            border-top-right-radius: 1px;
+            border-bottom-left-radius: 30px;
+            margin-top: 187px;
+        }
+
+        .picture-div {
+            position: relative;
+            left: 38px;
+            top: -34px;
+        }
+
+        .picture {
+            position: relative;
+            right: 44px;
+            top: -22px;
+        }
+
+        .picture img {}
+
+        .close {
+            top: -365px;
+            left: 155px;
+        }
+
+        .div-input-fields {
+            left: -29px;
+            top: -56px;
+        }
+
+        .input-fields {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 36px;
+            background-color: white;
+            border: 1px solid #d1d1d1;
+            width: 301px;
+            height: auto;
+            border-radius: 10px;
+            padding: 12px 21px;
+            margin-left: 57px;
+        }
+
+        input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 20px;
+        }
+
+        input img {}
+
+        .buttons {
+            right: 14px;
+            height: 82px;
+            padding-left: 133px;
+        }
+
+        .cancel-btn {
+            display: none;
+        }
+
+        .create-btn {
+            width: 214px;
+            height: 57px;
+            font-size: 21px;
+            font-weight: 700;
+            border-radius: 10px;
+            background-color: #2A3647;
+            color: white;
+            font-family: inter;
+            cursor: pointer;
+            border: none;
+            margin: 45px;
+            margin-right: 45px;
+            margin-right: 6px;
+        }
+
+        .create-btn img {}
+
+
+
+
+    }
+
+
+
+    @media (max-width: 400px) and (min-width: 280px) {
+
+        .div-container {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 564px;
+            width: 288px;
+        }
+
+        .new-card {
+            line-height: 0.1;
+            text-align: left;
+            margin-right: 60px;
+        }
+
+        .new-card img {
+            
+        }
+
+        #newContactJoinImage{
+            display: none;
+        }
+
+
+
+        .new-text {
+            color: white;
+            font-family: inter;
+            font-weight: 700;
+            font-size: 30px;
+            cursor: default;
+            padding-bottom: 10px;
+        }
+
+        .new-text-2 {
+            color: white;
+            font-family: inter;
+            font-weight: 400;
+            font-size: 13px;
+            cursor: default;
+        }
+
+        .div-input {
+            flex-direction: column;
+            align-items: center;
+            width: 288px;
+            border-top-right-radius: 1px;
+            border-bottom-left-radius: 30px;
+            margin-top: 187px;
+        }
+
+        .picture-div {
+            position: relative;
+            left: 38px;
+            top: -34px;
+        }
+
+        .picture {
+            position: relative;
+            right: 44px;
+            top: -22px;
+        }
+
+        .picture img {}
+
+        .close {
+            top: -313px;
+            left: 116px;
+        }
+
+        .div-input-fields {
+            left: -29px;
+            top: -56px;
+        }
+
+        .input-fields {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            background-color: white;
+            border: 1px solid #d1d1d1;
+            width: 230px;
+            height: auto;
+            border-radius: 10px;
+            
+            margin-left: 90px;
+        }
+
+        input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        input img {
+
+        }
+
+        .buttons {
+            right: 14px;
+            height: 82px;
+            padding-left: 133px;
+        }
+
+        .cancel-btn {
+            display: none;
+        }
+
+        .create-btn {
+            width: 214px;
+            height: 57px;
+            font-size: 21px;
+            font-weight: 700;
+            border-radius: 10px;
+            background-color: #2A3647;
+            color: white;
+            font-family: inter;
+            cursor: pointer;
+            border: none;
+            margin: 45px;
+            margin-right: 6px;
+            margin-top: 82px;
+            
+        }
+
+        .create-btn img {}
+
+
+        #separatorAddContact {
+            position: absolute;
+      height: 13px;
+      width: 58px;
+      content: url('/img/separator1.svg');
+      top: 64px;
+      left: 1px;
+            
+        }
+
+
+
+
     }
 }
