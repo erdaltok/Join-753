@@ -400,8 +400,54 @@ body {
 
 @media (max-width: 720px) and (min-width: 601px) {
     .contact-view {
-        display: none;
+        left: 355px;
     }
+
+    .add-contacts-btn
+{
+  position: sticky;
+  top: 48px;
+  width: 221px;
+  height: 56px;
+  border-radius: 10px;
+  background-color: #2a3647;
+  color: white;
+  font-family: inter;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  cursor: pointer;
+  z-index: 99;
+  padding: 15px;
+  border: none;
+}
+
+.contact
+{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: white;
+  gap: 96px;
+  border-radius: 10px;
+  width: 221px;
+  height: 78px;
+  cursor: pointer;
+  overflow: hidden;
+  font-size: 13px;
+}
+
+.contacts-container
+{
+    width: 247px; !important
+    
+    margin-left: -114px;
+    align-items: flex-start;
+  }
+
+
 }
 
 @media (max-width: 600px) and (min-width: 551px) {

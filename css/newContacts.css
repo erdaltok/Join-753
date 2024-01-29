@@ -359,6 +359,7 @@ input {
             align-items: center;
             height: 564px;
             width: 288px;
+            margin-bottom: 16px;
         }
 
         .new-card {
