@@ -8,7 +8,7 @@ function createTaskHtml(task, backgroundColor) {
   }
 
   const priorityImageHtml = task.priorityImage
-    ? `<img src="${task.priorityImage}" alt="Priority Image">`
+    ? `<img id="priorityBoardImage" src="${task.priorityImage}" alt="Priority Image">`
     : "";
 
   const subtasks = task.subtasks || [];
