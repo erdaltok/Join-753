@@ -272,6 +272,8 @@ a {
         position: absolute;
         height: 400px;
         align-items: center;
+        height: 93px;
+    margin-top: 156px;
     }
 
     .desktop-navbar-menu a {

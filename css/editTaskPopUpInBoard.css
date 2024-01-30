@@ -260,7 +260,7 @@
 
 .editFooter {
     position: sticky;
-    height: 75px;
+    
     bottom: 0px;
     display: flex;
     justify-content: flex-end;
