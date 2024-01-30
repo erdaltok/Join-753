@@ -926,6 +926,7 @@ input {
   margin-right: 65.75px;
   width: 387px;
   height: 662px;
+  overflow-x: hidden;
 }
     
     .addTaskPopUp {
