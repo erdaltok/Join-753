@@ -789,6 +789,7 @@
         margin-bottom: 20px;
         width: 227px;
         word-break: break-word;
+        font-size: 16px;
     }
 
     .subtaskBigBoxContent {

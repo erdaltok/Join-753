@@ -1330,6 +1330,7 @@ input {
     border: 1px solid var(--Style, #D1D1D1);
     background: #FFF;
     width: 220px;
+    font-size: 16px;
   }
   
   .titleDescriptionAddTaskBoard textarea {
@@ -1343,6 +1344,7 @@ input {
     border: 1px solid var(--Style, #D1D1D1);
     background: #FFF;
     width: 230px;
+    font-size: 16px;
   }
   
   .titleSelectContactsAddTaskBoard input {
@@ -1354,7 +1356,9 @@ input {
     border: 1px solid var(--Style, #D1D1D1);
     background: url(/img/arrow_drop_down.svg) no-repeat scroll;
     background-position: right;
-    width: 230px;}
+    width: 230px;
+    font-size: 16px;
+}
   
     .titleDateAddTaskBoard input {
         display: flex;
@@ -1368,6 +1372,7 @@ input {
         position: relative;
         color: #000;
         width: 230px;
+        font-size: 16px;
       }
   
       .titleCategoryAddTask select {
@@ -1380,6 +1385,7 @@ input {
         line-height: 120%;
         cursor: pointer;
         width: 265px;
+        font-size: 16px;
       }
   
       .subtaskBox {
@@ -1402,6 +1408,7 @@ input {
         line-height: 120%;
         border: none;
         width: 164px;
+        font-size: 16px;
       }
   
       .addTaskRightLittle {
@@ -1422,6 +1429,7 @@ input {
         overflow: auto;
         margin-right: 141px;
       }
+
 
       .bottomSpacer{
         width: 10px;
