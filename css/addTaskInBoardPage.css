@@ -544,6 +544,7 @@ input {
     gap: 25px;
     position: fixed;
     bottom: 16px;
+    right: 57px;
 }
 
 .footerButtonsAddTask button {
@@ -874,7 +875,7 @@ input {
         position: relative;
         bottom: -420px;
         margin-left: 21px;
-        margin-right: 35px;
+        margin-right: -14px;
       }
   
       .prioSection {
@@ -1112,7 +1113,7 @@ input {
         bottom: -415px;
         margin-left: 21px;
         overflow: auto;
-        margin-right: 15px;
+        margin-right: -332px;
       }
   
       .prioSection {
@@ -1427,7 +1428,7 @@ input {
         bottom: -400px;
         margin-left: 21px;
         overflow: auto;
-        margin-right: -165px;
+        margin-right: -225px;
       }
 
 
