@@ -296,6 +296,7 @@ function generateAddTaskFormHtml() {
                                 <ul id="addedSubstaskList" class="addedSubstaskList"></ul>
                             </div>
                         </div>
+                        <div class="bottomSpacer" ></div>
                     </div>
                 </div>
         
@@ -303,7 +304,7 @@ function generateAddTaskFormHtml() {
                     <!-- <p class="requiredFooter" style="color: #FF8190;">*<span style="color: #000;">This field is required</span></p> -->
         
                     <div class="footerButtonsAddTask">
-                        <button class="footerButtonClear" type="button">Clear
+                        <button id="ClearButton" class="footerButtonClear" type="button">Clear
                             <img src="/img/clear-icon-footer-board-addTask.svg" class="clearIconFooter">
         
                         </button>
@@ -318,6 +319,7 @@ function generateAddTaskFormHtml() {
                     </div>
                 </div>
             </div>
+            
         </form>
   `;
 }

@@ -787,6 +787,8 @@
         overflow-y: scroll;
         height: 80px;
         margin-bottom: 20px;
+        width: 227px;
+        word-break: break-word;
     }
 
     .subtaskBigBoxContent {
