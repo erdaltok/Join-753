@@ -721,7 +721,7 @@ input {
 
 @media  (max-width: 800px)and (min-width: 301px){
   .addTask-main {
-      margin-left: -29px;
+      margin-left: 100px;
       display: flex;
       justify-content: flex-start;
       flex-direction: row;
@@ -920,6 +920,20 @@ input {
     }
 
 }
+
+@media(max-width: 600px){
+  .addTask-main {
+    margin-left: -24px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    position: absolute;
+    margin-top: 72px;
+    width: 800px;
+}
+}
+
+
 
 @media(max-width: 300px){
   .addTask-main {
