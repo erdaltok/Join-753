@@ -64,7 +64,7 @@
     background: none;
     padding: 60px;
     /* margin-right: 65.75px; */
-    width: 894px;
+    width: 376px;
     height: 662px;
 }
 
@@ -691,7 +691,7 @@ input {
 }
 
 
-@media (max-width: 724px) and (min-width:601px) {
+@media (max-width: 3000px) and (min-width:601px) {
     .addTaskLittle {
         /* margin-left: 65.75px; */
         background: none;
@@ -1428,7 +1428,7 @@ input {
         bottom: -400px;
         margin-left: 21px;
         overflow: auto;
-        margin-right: -225px;
+        margin-right: -210px;
       }
 
 

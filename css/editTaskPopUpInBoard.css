@@ -163,6 +163,8 @@
     flex-direction: column;
     margin-top: 0px;
     gap: 24px;
+    width: 418px;
+    overflow-x: hidden;
 }
 
 .editHideDivider {
@@ -251,7 +253,7 @@
     border-radius: 15px;
     color: black;
     max-width: 550px;
-    width: 550px;
+    width: 523px;
 }
 
 .editPopUp::-webkit-scrollbar {
@@ -307,7 +309,7 @@
         justify-content: flex-end;
         align-items: center;
         background-color: #ffffff;
-        width:100px;
+        width: 116px;
         
             
     }

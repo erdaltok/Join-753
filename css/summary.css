@@ -274,8 +274,8 @@ body {
 }
 
 @media (max-width: 840px) {
-    
-    
+
+
     .summary-headline {
         width: 530px;
         flex-direction: column;
@@ -465,7 +465,7 @@ body {
     .summary-main {
         margin-left: 129px;
     }
-    
+
     .summary-headline h1 {
         padding-top: 0px;
         padding-bottom: 0px;
@@ -475,13 +475,14 @@ body {
         font-size: 55px;
     }
 
-    
 
 
 
-#b21{
-   width: 36px;
-}
+
+    #b21 {
+        width: 33px;
+    margin-left: 23px;
+    }
 
     .summary-card-container {
         margin-left: -34px;
@@ -495,7 +496,7 @@ body {
     #separator {
         position: absolute;
         height: 10px;
-        width: 160px; 
+        width: 160px;
         content: url(/img/separator1.svg);
         top: 166px;
         left: 61px;
@@ -518,31 +519,25 @@ body {
         margin-left: -8px;
     }
 
-    .date-deadline {
+    .date-deadline
+    {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 13px;
-        margin-right: 35px;
-    }
+        margin-right: 29px;
+        margin-bottom: 26px;
+      }
 
-    .toDoImage{
+    .toDoImage {
         width: 50px;
     }
 
-    .doneImage{
+    .doneImage {
         width: 50px;
     }
 
-    .date-deadline {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 13px;
-        height: 99px;
-        margin-right: -4px;
-        
-    }
+    
 
     .deadline {
         color: #2A3647;
@@ -551,6 +546,7 @@ body {
         font-weight: 700;
         line-height: 120%;
         width: 169px;
+        margin-top: 22px;
     }
 }
 
@@ -581,9 +577,9 @@ body {
         margin-left: 89px;
         gap: 42px;
     }
-   
 
-   
+
+
 
     .third-row {
         display: flex;
@@ -631,13 +627,14 @@ body {
         top: 270px;
         left: 45px;
     }
+
     .date-deadline {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 13px;
         height: 99px;
-        margin-left: 40px;
+        margin-left: 3px;
     }
 
     .deadline {
@@ -647,6 +644,7 @@ body {
         font-weight: 700;
         line-height: 120%;
         width: 169px;
+        margin-top: 22px;
     }
 
     .summary-headline span {
@@ -694,10 +692,10 @@ body {
 
     .summary-headline h1 {
         margin-right: 342px;
-    font-size: 30px;
-    margin-bottom: 0;
-    top: 54px;
-    position: relative;
+        font-size: 30px;
+        margin-bottom: 0;
+        top: 54px;
+        position: relative;
     }
 
     .summary-card-container {
@@ -742,14 +740,14 @@ body {
     }
 
     .first-row-box {
-        
-            width: 115px;
-            height: 75px;
-        
+
+        width: 115px;
+        height: 75px;
+
     }
 
     .first-row {
-        
+
         width: 383px;
         height: 168px;
         justify-content: center;
@@ -757,6 +755,7 @@ body {
         gap: 18px;
         margin-bottom: -90px;
     }
+
     .second-row {
         width: 383px;
         display: flex;
@@ -781,14 +780,11 @@ body {
     }
 
     .third-row {
-        
+
         gap: 11px;
     }
 
-    .middle-box img {
-       
-        
-    }
+    .middle-box img {}
 
     .toDoImage {
         width: 30px;
@@ -815,14 +811,14 @@ body {
         margin-right: 49px;
     }
 
-    #b21{
+    #b21 {
         position: relative;
         left: 45px !important;
-        
+
         width: 30px;
     }
 
-    #b22{
+    #b22 {
         position: relative;
         left: -45px !important;
         height: 70px;
@@ -845,7 +841,7 @@ body {
         content: url(/img/separator1.svg);
         top: 143px;
         left: 32px;
-        
+
     }
 
     .date-deadline {
@@ -855,19 +851,21 @@ body {
         gap: 13px;
         height: 99px;
         margin-right: 2px;
-    margin-left: -87px;
-}
-        
+        margin-left: -87px;
     }
 
     .deadline {
         color: #2A3647;
-        font-size: 15px;
+        font-size: 12px;
         font-style: normal;
         font-weight: 700;
         line-height: 120%;
         width: 169px;
+        margin-top: 27px;
     }
 
-   
 }
+
+
+
+
