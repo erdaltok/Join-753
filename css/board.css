@@ -44,10 +44,12 @@
     border: 1px solid #29ABE2;
 }
 
-.search-box input {
-    border: none;
-    outline: none;
-    font-size: 20px;
+.search-box input
+{
+  border: none;
+  outline: none;
+  font-size: 20px;
+  width: 155px;
 }
 
 .search-svg:hover {
