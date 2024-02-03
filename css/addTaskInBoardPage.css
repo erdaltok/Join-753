@@ -254,6 +254,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
+    width: 142px;
 }
 
 .titleSelectContactsAddTaskBoard input {
@@ -692,13 +693,15 @@ input {
 
 
 @media (max-width: 3000px) and (min-width:601px) {
-    .addTaskLittle {
-        /* margin-left: 65.75px; */
-        background: none;
-        padding: 60px;
-        /* margin-right: 65.75px; */
-        width: 541px;
-        height: 662px;
+  .addTaskLittle
+  {
+      margin-left: 17.8px;
+      background: none;
+      padding: 0px;
+      margin-right: 65.75px;
+      width: 541px;
+      height: 662px;
+      margin-top: 68px;
     }
     
     .addTaskPopUp {
@@ -1233,7 +1236,7 @@ input {
         background: none;
         padding: 60px;
         margin-right: 65.75px;
-        width: 410px;
+        width: 230px;
         height: 662px;
         overflow-x: hidden;
     }

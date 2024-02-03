@@ -158,13 +158,14 @@
     height: 78px;
 }
 
-.editLeftAndRight {
-    display: flex;
-    flex-direction: column;
-    margin-top: 0px;
-    gap: 24px;
-    width: 418px;
-    overflow-x: hidden;
+.editLeftAndRight
+{
+  display: flex;
+  flex-direction: column;
+  margin-top: 0px;
+  gap: 24px;
+  width: 514px;
+  overflow-x: hidden;
 }
 
 .editHideDivider {
@@ -172,7 +173,7 @@
 }
 
 .editLeft {
-    width: 100%;
+    width: 100px;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -246,14 +247,15 @@
     gap: 24px;
 }
 
-.editPopUp {
-    overflow-x: auto;
-    max-height: 751px;
-    background-color: #fff;
-    border-radius: 15px;
-    color: black;
-    max-width: 550px;
-    width: 523px;
+.editPopUp
+{
+  overflow-x: auto;
+  max-height: 751px;
+  background-color: #fff;
+  border-radius: 15px;
+  color: black;
+  max-width: 633px;
+  width: 705px;
 }
 
 .editPopUp::-webkit-scrollbar {
@@ -262,14 +264,14 @@
 
 .editFooter {
     position: sticky;
-    
+
     bottom: 0px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     background-color: #FFF;
-    width:auto;
-        height: 50px;
+    width: auto;
+    height: 50px;
 }
 
 .footerEditTask {
@@ -284,33 +286,185 @@
     line-height: 120%;
     cursor: pointer;
 }
-
-@media (max-width: 724px) and (min-width:601px) {
+@media (max-width:1000px) and (min-width:725px) {
     .editFooter {
         position: sticky;
-        
+
         bottom: 0px;
         display: flex;
         justify-content: flex-end;
         align-items: center;
         background-color: #ffffff;
-        width:auto;
-        
-            
+        width: auto;
+
+
+    }
+
+    .editPopUp {
+        overflow-x: auto;
+        max-height: 751px;
+        background-color: #fff;
+        border-radius: 15px;
+        color: black;
+        max-width: 633px;
+        width: 600px;
     }
 }
 
-@media (max-width: 600px) and (min-width:280px) {
+
+@media (max-width: 724px) and (min-width:601px) {
     .editFooter {
         position: sticky;
-        
+
+        bottom: 0px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        background-color: #ffffff;
+        width: auto;
+
+
+    }
+
+    .editPopUp {
+        overflow-x: auto;
+        max-height: 751px;
+        background-color: #fff;
+        border-radius: 15px;
+        color: black;
+        max-width: 633px;
+        width: 575px;
+    }
+}
+
+@media (max-width: 600px) and (min-width:321px) {
+    .editFooter {
+        position: sticky;
+
         bottom: 0px;
         display: flex;
         justify-content: flex-end;
         align-items: center;
         background-color: #ffffff;
         width: 116px;
-        
-            
     }
+        .editLeftAndRight {
+            display: flex;
+            flex-direction: column;
+            margin-top: 0px;
+            gap: 24px;
+            width: 655px;
+            overflow-x: hidden;
+        }
+
+        .editPopUp {
+            overflow-x: auto;
+            max-height: 751px;
+            background-color: #fff;
+            border-radius: 15px;
+            color: black;
+            max-width: 633px;
+            width: 420px;
+        }
+
+        .editLeftAndRight {
+            display: flex;
+            flex-direction: column;
+            margin-top: 0px;
+            gap: 24px;
+            width: 386px;
+            overflow-x: hidden;
+        }
+
+        .editPopUp {
+            overflow-x: auto;
+            max-height: 810px;
+            background-color: #fff;
+            border-radius: 15px;
+            color: black;
+            max-width: 709px;
+            width: 478px;
+            overflow-y: auto;
+            
+        }
+        .footerEditTask
+{
+  padding: 8px;
+  background-color: #2A3647;
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  cursor: pointer;
+  margin-bottom: 669px;
+  position: relative;
 }
+
+
+
+    }
+
+    @media (max-width: 320px) and (min-width:280px) {
+        .editFooter {
+            position: sticky;
+    
+            bottom: 0px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            background-color: #ffffff;
+            width: 116px;
+            height: 10px;
+        }
+            .editLeftAndRight {
+                display: flex;
+                flex-direction: column;
+                margin-top: 0px;
+                gap: 24px;
+                width: 655px;
+                overflow-x: hidden;
+            }
+    
+            
+    
+            .editLeftAndRight {
+                display: flex;
+                flex-direction: column;
+                margin-top: 0px;
+                gap: 24px;
+                width: 273px;
+                overflow-x: hidden;
+            }
+    
+            .editPopUp {
+                overflow-x: auto;
+                max-height: 810px;
+                background-color: #fff;
+                border-radius: 15px;
+                color: black;
+                max-width: 709px;
+                width: 289px;
+                overflow-y: auto;
+            }
+            .footerEditTask
+{
+  padding: 8px;
+  background-color: #2A3647;
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  cursor: pointer;
+  margin-bottom: 669px;
+  position: relative;
+}
+    
+    
+    
+        }
