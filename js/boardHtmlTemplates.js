@@ -308,7 +308,7 @@ function generateAddTaskFormHtml() {
                             <img src="/img/clear-icon-footer-board-addTask.svg" class="clearIconFooter">
         
                         </button>
-                        <button class="footerButtonCreateTask">Create Task
+                        <button id="createTaskFooterButton" class="footerButtonCreateTask">Create Task
                             <img src="/img/check-icon-footer-board-addTask.svg" alt="">
                         </button>
                         <button class="footerEditTask" type="submit" style="display: none;">OK

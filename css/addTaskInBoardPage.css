@@ -556,6 +556,17 @@ input {
     gap: 4px;
     border-radius: 10px;
     border: 1px solid var(--version-2-main-color, #2A3647);
+    margin-top: 68px;
+    top: -420px;
+    right: -169px;
+    position: relative;
+    
+}
+
+#createTaskFooterButton{
+  margin-bottom: -844px;
+  
+  margin-right: 181px;
 }
 
 .footerButtonCreateTask {
@@ -693,6 +704,10 @@ input {
 
 
 @media (max-width: 3000px) and (min-width:601px) {
+  .footerEditTask button {
+   
+  }
+  
   .addTaskLittle
   {
       margin-left: 17.8px;
@@ -700,7 +715,7 @@ input {
       padding: 0px;
       margin-right: 65.75px;
       width: 541px;
-      height: 662px;
+      height: 744px;
       margin-top: 68px;
     }
     
@@ -930,6 +945,7 @@ input {
         width: 410px;
         height: 662px;
         overflow-x: hidden;
+        position: relative;
     }
     
     .addTaskPopUp {
@@ -998,6 +1014,7 @@ input {
     line-height: 120%;
     width: 183px;
     height: 56px;
+    margin-top: 939px;
   }
   
   #ClearButton{
@@ -1110,13 +1127,14 @@ input {
   
       .footerButtonsAddTask {
         display: flex;
-        align-items: center;
-        gap: 25px;
-        position: relative;
-        bottom: -415px;
-        margin-left: 21px;
-        overflow: auto;
-        margin-right: -332px;
+    align-items: center;
+    gap: 25px;
+    position: relative;
+    bottom: 28px;
+    height: 10px;
+    margin-right: -314px;
+    bottom: -395px;
+        
       }
   
       .prioSection {
@@ -1239,6 +1257,7 @@ input {
         width: 230px;
         height: 662px;
         overflow-x: hidden;
+        position: relative;
     }
     
     .addTaskPopUp {

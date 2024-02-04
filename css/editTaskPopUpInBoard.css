@@ -164,8 +164,9 @@
   flex-direction: column;
   margin-top: 0px;
   gap: 24px;
-  width: 514px;
+  width: 534px;
   overflow-x: hidden;
+  height: 600px;
 }
 
 .editHideDivider {
@@ -270,8 +271,8 @@
     justify-content: flex-end;
     align-items: center;
     background-color: #FFF;
-    width: auto;
-    height: 50px;
+    width: 546px;
+    height: 1px;
 }
 
 .footerEditTask {
@@ -285,7 +286,15 @@
     font-weight: 700;
     line-height: 120%;
     cursor: pointer;
+    top: -340px;
+  position: relative;
+  top: 790px;
+  position: fixed;
+  right: 206px;
+  margin-right: 172px;
 }
+
+
 @media (max-width:1000px) and (min-width:725px) {
     .editFooter {
         position: sticky;
@@ -399,8 +408,10 @@
   font-weight: 700;
   line-height: 120%;
   cursor: pointer;
-  margin-bottom: 669px;
+  
   position: relative;
+ top: -2px;
+  
 }
 
 
@@ -448,6 +459,7 @@
                 max-width: 709px;
                 width: 289px;
                 overflow-y: auto;
+                height: 507px;
             }
             .footerEditTask
 {
