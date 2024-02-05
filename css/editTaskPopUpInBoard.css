@@ -250,7 +250,8 @@
 
 .editPopUp
 {
-  overflow-x: auto;
+    overflow: hidden;
+  
   max-height: 751px;
   background-color: #fff;
   border-radius: 15px;
@@ -343,6 +344,7 @@
         color: black;
         max-width: 633px;
         width: 575px;
+        overflow: hidden;
     }
 }
 
@@ -381,7 +383,7 @@
             flex-direction: column;
             margin-top: 0px;
             gap: 24px;
-            width: 386px;
+            width: 403px;
             overflow-x: hidden;
         }
 
@@ -392,8 +394,9 @@
             border-radius: 15px;
             color: black;
             max-width: 709px;
-            width: 478px;
-            overflow-y: auto;
+            width: 301px;
+            
+            overflow: hidden;
             
         }
         .footerEditTask
@@ -446,8 +449,8 @@
                 flex-direction: column;
                 margin-top: 0px;
                 gap: 24px;
-                width: 273px;
-                overflow-x: hidden;
+                width: 289px;
+    overflow-x: hidden;
             }
     
             .editPopUp {
@@ -459,7 +462,8 @@
                 max-width: 709px;
                 width: 289px;
                 overflow-y: auto;
-                height: 507px;
+                height: 754px;
+                overflow: hidden;
             }
             .footerEditTask
 {
@@ -473,7 +477,7 @@
   font-weight: 700;
   line-height: 120%;
   cursor: pointer;
-  margin-bottom: 669px;
+  margin-bottom: -41px;
   position: relative;
 }
     

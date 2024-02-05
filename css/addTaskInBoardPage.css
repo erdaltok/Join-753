@@ -937,7 +937,22 @@ input {
 }
 
 @media (max-width: 600px) and (min-width:420px) {
-    .addTaskLittle {
+  .footerButtonsAddTask button
+{
+  display: flex;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 10px;
+  border: 1px solid var(--version-2-main-color, #2A3647);
+  margin-top: 68px;
+  top: -378px;
+  right: -169px;
+  position: relative;
+}  
+  
+  .addTaskLittle {
         margin-left: -7.25px;
         background: none;
         padding: 60px;
@@ -1449,7 +1464,7 @@ input {
         position: relative;
         bottom: -400px;
         margin-left: 21px;
-        overflow: auto;
+        
         margin-right: -210px;
       }
 
