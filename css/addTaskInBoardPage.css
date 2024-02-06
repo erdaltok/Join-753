@@ -769,9 +769,16 @@ input {
       }
   
   
-    .dividerLittle{
-        display: none;
-    }
+    
+      .dividerLittle
+      {
+        height: 443px;
+        width: 2px;
+        background-color: #D1D1D1;
+        display: block;
+        margin-right: 61px;
+      }
+    
   
     
             
