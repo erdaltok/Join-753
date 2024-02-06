@@ -558,7 +558,7 @@ input {
     border: 1px solid var(--version-2-main-color, #2A3647);
     margin-top: 68px;
     top: -420px;
-    right: -169px;
+    right: -404px;
     position: relative;
     
 }
@@ -569,9 +569,9 @@ input {
    
     margin: 0;
    
-    top: 41px;
+    top: -388px;
     bottom: -86px;
-    left: -2px;
+    left: 438px;
     margin-top: 3px;
   }
 
@@ -711,6 +711,28 @@ input {
 
 
 @media (max-width: 3000px) and (min-width:601px) {
+  .titlePositionLittle img
+{
+  width: 24px;
+  height: 24px;
+  margin-right: -401px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  position: relative;
+}
+  
+  .titlePositionLittle
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2px;
+  height: 78px;
+  top: -51px;
+  position: relative;
+}
+  
   .footerEditTask button {
    
   }
@@ -732,8 +754,8 @@ input {
         border-radius: 15px;
         color: black;
         height: 85%;
-        width: 679px;
-        overflow: auto;
+        width: 1087px;
+        overflow: hidden;
     }
 
     .addTask-main {
@@ -786,19 +808,19 @@ input {
   }
   
   #ClearButton{
-    display: none;
+    
   }
   
   
   .formLeftAndRightFlex {
     display: flex;
     width: 100%;
-    margin-top: 32px;
-    width: 440px;
+    margin-top: -1px;
+    width: 1050px;
     height: 100vh;
     overflow-y: visible;
     
-    flex-direction: column;
+    flex-direction: row;
   } 
   
   .titleInputAddTaskBoard input {
@@ -810,7 +832,7 @@ input {
     border-radius: 10px;
     border: 1px solid var(--Style, #D1D1D1);
     background: #FFF;
-    width: 470px;
+    width: 360px;
   }
   
   .titleDescriptionAddTaskBoard textarea {
@@ -823,7 +845,7 @@ input {
     border-radius: 10px;
     border: 1px solid var(--Style, #D1D1D1);
     background: #FFF;
-    width: 480px;
+    width: 370px;
   }
   
   .titleSelectContactsAddTaskBoard input {
@@ -835,7 +857,7 @@ input {
     border: 1px solid var(--Style, #D1D1D1);
     background: url(/img/arrow_drop_down.svg) no-repeat scroll;
     background-position: right;
-    width: 480px;}
+    width: 370px;}
   
     .titleDateAddTaskBoard input {
         display: flex;
@@ -848,7 +870,7 @@ input {
         background: #FFF;
         position: relative;
         color: #000;
-        width: 480px;
+        width: 370px;
       }
   
       .titleCategoryAddTask select {
@@ -860,7 +882,7 @@ input {
         font-weight: 400;
         line-height: 120%;
         cursor: pointer;
-        width: 507px;
+        width: 400px;
       }
   
       .subtaskBox {
@@ -872,7 +894,7 @@ input {
         border-radius: 10px;
         border: 1px solid var(--Style, #D1D1D1);
         background: #FFF;
-        width: 470px;
+        width: 370px;
       }
   
       .subtaskBox input {
@@ -914,7 +936,7 @@ input {
       .prioButtonsBox {
         gap: 16px !important;
         display: flex;
-        width: 511px;
+        width: 400px;
       }
   
       .addedSubstaskList {
@@ -923,7 +945,7 @@ input {
         gap: 4px;
         overflow-y: scroll;
         height: 60px;
-        width: 463px;
+        width: 363px;
         margin-bottom: 90px;
       }
 
@@ -1279,6 +1301,15 @@ input {
 
 @media (max-width: 419px) and (min-width:280px) {
 
+  #createTaskFooterButton
+{
+  margin: 0;
+    margin-top: 0px;
+    top: -1px;
+    bottom: -86px;
+    left: -4px;
+    margin-top: 3px;
+}
     
 
     .addTaskLittle {
@@ -1299,6 +1330,8 @@ input {
         color: black;
         height: 85%;
         width: 292px;
+        overflow-x: hidden;
+    scrollbar-width: thin;
     }
 
     .titlePositionLittle h1 {
@@ -1561,7 +1594,7 @@ input {
       .prioButtonsBox {
         gap: 1px;
         display: flex;
-        width: 273px;
+        width: 266px;
       }
     
       .prioButtons {
