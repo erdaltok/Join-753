@@ -21,15 +21,15 @@ document.addEventListener("DOMContentLoaded", function () {
   if (leftBox) {
     changeImageOnHover(
       leftBox,
-      "/img/pen-icon-whiteBg.svg",
-      "/img/pen-icon.svg"
+      "/Join/img/pen-icon-whiteBg.svg",
+      "/Join/img/pen-icon.svg"
     );
   }
   if (rightBox) {
     changeImageOnHover(
       rightBox,
-      "/img/checkmark-icon-whiteBg.svg",
-      "/img/checkmark-icon.svg"
+      "/Join/img/checkmark-icon-whiteBg.svg",
+      "/Join/img/checkmark-icon.svg"
     );
   }
 });

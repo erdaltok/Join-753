@@ -8,15 +8,16 @@ function toggleContactList() {
   if (contactList.style.display === "block") {
     contactList.style.display = "none";
     contactInput.style.background =
-      "url(/img/arrow_drop_down.svg) no-repeat scroll right";
+      "url(/Join/img/arrow_drop_down.svg) no-repeat scroll right";
     addedContactsContainer.style.display = "block";
     // hideRequired.style.display = "none"
   } else {
     contactList.style.display = "block";
     contactInput.style.background =
-      "url(/img/arrow_drop_up.svg) no-repeat scroll right";
+      "url(/Join/img/arrow_drop_up.svg) no-repeat scroll right";
     addedContactsContainer.style.display = "none";
     // hideRequired.style.display = "none";
+    //searchContacts();
   }
 }
 
@@ -34,7 +35,7 @@ window.addEventListener("click", function (event) {
     ) {
       contactList.style.display = "none";
       contactInput.style.background =
-        "url(/img/arrow_drop_down.svg) no-repeat scroll right";
+        "url(/Join/img/arrow_drop_down.svg) no-repeat scroll right";
       document.getElementById("addedContactsProfilBadges").style.display = "flex";
       // hideRequired.style.display = "block";
     }
@@ -57,7 +58,7 @@ function addedContactToTask(contactLine) {
   contactLine.style.backgroundColor = "#091931";
   contactLine.querySelector(".contact-name").style.color = "white";
   const imgElement = contactLine.querySelector("img");
-  imgElement.src = "/img/check-button-checked-white.svg";
+  imgElement.src = "/Join/img/check-button-checked-white.svg";
   contactLine.classList.add("selected");
 
   selectedContacts.push(contactLine);
@@ -67,7 +68,7 @@ function removeContactFromTask(contactLine) {
   contactLine.style.backgroundColor = "";
   contactLine.querySelector(".contact-name").style.color = "";
   const imgElement = contactLine.querySelector("img");
-  imgElement.src = "/img/check-button-default.svg";
+  imgElement.src = "/Join/img/check-button-default.svg";
   contactLine.classList.remove("selected");
 
   selectedContacts = selectedContacts.filter(
@@ -230,6 +231,7 @@ function renderFilteredContacts(filteredContactNames) {
   addEventListenersToContactLines();
 }
 
+/*
 document.addEventListener("DOMContentLoaded", function () {
   loadContactsForForm();
 
@@ -238,4 +240,5 @@ document.addEventListener("DOMContentLoaded", function () {
     searchInput.addEventListener("input", searchContacts);
   }
 });
+*/
 

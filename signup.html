@@ -5,27 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join</title>
-    <link rel="icon" href="/img/logo1.png">
-    <link rel="stylesheet" href="/css/signup.css">
-    <link rel="stylesheet" href="/fonts.css">
-    <script src="/js/storage.js"></script>
-    <script src="/js/register.js"></script>
-    <script src="/js/login.js"></script>
+    <link rel="icon" href="./img/logo1.png">
+    <link rel="stylesheet" href="./css/signup.css">
+    <link rel="stylesheet" href="./fonts.css">
+    <script src="./js/storage.js"></script>
+    <script src="./js/register.js"></script>
+    <script src="./js/login.js"></script>
 
 </head>
 
 <body onload="init()">
-    <header>
+    
         <div>
-            <img src="/img/logo1.png" alt="Logo" class="logo" id="logo">
+            <img src="./img/logo1.png" alt="Logo" class="logo" id="logo">
         </div>
-    </header>
+    
     <div class="top-container">
         <div class="signup-div">
             <div class="signup-window">
                 <form onsubmit="register(); return false;">
                     <div class="back-arrow">
-                        <a href="/index.html" style="display: flex;"><img src="/img/Vector.png" alt=""></a>
+                        <a href="./index.html" style="display: flex;"><img src="./img/Vector.png" alt=""></a>
                     </div>
                     <div class="signup-headline">
                         <b>Sign up</b>
@@ -34,26 +34,26 @@
                     <div class="inputs">
                         <div class="input-fields">
                             <input class="input" required id="name" type="text" placeholder="Name">
-                            <img src="/img/person.png" alt="icon" style="width: 24; height: 24;">
+                            <img id="personInputImage" src="/Join/img/person.png" alt="icon" style="width: 24; height: 24;">
                         </div>
                         <div class="input-fields">
                             <input class="input" required id="email" type="email" placeholder="Email">
-                            <img src="/img/mail.png" alt="icon" class="icon-1">
+                            <img src="/Join/img/mail.png" alt="icon" class="icon-1">
                         </div>
                         <div class="input-fields">
                             <input class="input" required id="password" type="password" placeholder="Password">
-                            <img src="/img/lock.png" alt="icon" class="icon-2">
+                            <img src="/Join/img/lock.png" alt="icon" class="icon-2">
                         </div>
                         <div class="input-fields">
                             <input class="input" required id="confirm_password" type="password"
                                 placeholder="Confirm Password">
-                            <img src="/img/lock.png" alt="icon" class="icon-2">
+                            <img src="/Join/img/lock.png" alt="icon" class="icon-2">
                         </div>
                     </div>
                     <div>
                         <div class="i-accept">
                             <input required class="checkbox" type="checkbox">
-                            <span class="accept">I accept the <a class="policy" href="####"> Privacy policy</a></span>
+                            <span class="accept">I accept the <a class="policy" href="/Join/template/privacy_template.html"> Privacy policy</a></span>
                         </div>
                     </div>
                     <div class="signup-button">
@@ -62,12 +62,13 @@
                 </form>
             </div>
             <div id="msg_box" class="msg" ></div>
-            <footer>
-                <a class="link" href="####">Privacy Policy</a>
-                <a class="link" href="####">Legal Notice</a>
-            </footer>
+            
         </div>
     </div>
+    <footer>
+                <a class="link" href="/Join/template/privacy_template.html">Privacy Policy</a>
+                <a class="link" href="/Join/template/legal_template.html">Legal Notice</a>
+            </footer>
 </body>
 
 </html>

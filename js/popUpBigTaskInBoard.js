@@ -31,7 +31,7 @@ function closeBigTaskBox() {
     saveTasksToStorage();
     renderTasks();
     resetSelectedContacts();
-    // resetTaskForm(); 
+    
   });
   document.documentElement.style.overflowY = "auto";
   document.body.style.overflowY = "auto";
@@ -97,8 +97,8 @@ function toggleSubtaskStatus(taskId, subtaskIndex) {
   if (subtaskElement) {
     const imgElement = subtaskElement.querySelector("img");
     imgElement.src = task.subtasks[subtaskIndex].completed
-      ? "/img/check-button-checked.svg"
-      : "/img/check-button-default.svg";
+      ? "/Join/img/check-button-checked.svg"
+      : "/Join/img/check-button-default.svg";
   }
   saveTasksToStorage();
 }
@@ -168,27 +168,15 @@ function setupClearButtonListeners() {
     button.addEventListener("mouseover", function () {
       const icon = this.querySelector(".clearIconFooter");
       if (icon) {
-        icon.src = "/img/clear-icon-footer-board-addTask-blue.svg";
+        icon.src = "/Join/img/clear-icon-footer-board-addTask-blue.svg";
       }
     });
 
     button.addEventListener("mouseout", function () {
       const icon = this.querySelector(".clearIconFooter");
       if (icon) {
-        icon.src = "/img/clear-icon-footer-board-addTask.svg";
+        icon.src = "/Join/img/clear-icon-footer-board-addTask.svg";
       }
     });
   });
 }
-
-/**
- * Event listener for input events on the document. Triggers contact search when the specific input field is used.
- */
-document.addEventListener("input", function (event) {
-  if (event.target && event.target.id === "idTitleSelectContactsAddTask") {
-    searchContacts();
-  }
-});
-
-
-// document.addEventListener("DOMContentLoaded", initPage);

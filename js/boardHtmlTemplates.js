@@ -1,4 +1,4 @@
-// HTML TEMPLATES
+// HTML TEMPLATESsrc
 function createTaskHtml(task, backgroundColor) {
   let assignedContactsHtml = "";
   if (Array.isArray(task.assignedContactsBadges)) {
@@ -6,11 +6,9 @@ function createTaskHtml(task, backgroundColor) {
       .map((contactData) => contactData.badgeHtml)
       .join("");
   }
-
   const priorityImageHtml = task.priorityImage
     ? `<img id="priorityBoardImage" src="${task.priorityImage}" alt="Priority Image">`
     : "";
-
   const subtasks = task.subtasks || [];
   const totalSubtasks = subtasks.length;
   const completedSubtasks = subtasks.filter(
@@ -18,7 +16,6 @@ function createTaskHtml(task, backgroundColor) {
   ).length;
   const progress =
     totalSubtasks > 0 ? (completedSubtasks / totalSubtasks) * 100 : 0;
-
   const html = `
     <div class="task-small-box" id="${task.id}" draggable="true" ondragstart="startDragging('${task.id}')">
         <div class="task-small-box-content">
@@ -27,48 +24,50 @@ function createTaskHtml(task, backgroundColor) {
                     <span>${task.category}</span>                    
                 </div>                
             </div>
-            
             <div>
                 <h1>${task.title}</h1>
                 <p>${task.description}</p>
             </div>
             <div class="progress-subtasks">
+            ${totalSubtasks > 0 ? `
                 <div class="progress-bar" style="--width: ${progress}"></div>
                 <div class="counter-subtasks">${completedSubtasks}/${totalSubtasks} Subtasks</div>
+                ` : ''}
             </div>
             <div class="profilBadges-priority">
                <div class="profil-badges">
                     ${assignedContactsHtml}
                 </div>
                 <div class="priority-icons">
-                    ${priorityImageHtml}
+                ${priorityImageHtml}
                 </div>
             </div>
+        </div>
+        <div class="moveTaskToAnotherCategory" id="move${task.id}">
+            <span>Move to</span>
         </div>
     </div>
   `;
   return html;
 }
-
 function createSubtaskHtml(subtaskText) {
   return `
         <li>
             <span>${subtaskText}
                 <div class="editDeleteSubtask">
-                    <img src="/img/edit-pen-icon-subtasks.svg" onclick="editSubtask(event)">
-                    <img src="/img/divider-icon-subtasks.svg">
-                    <img src="/img/delete-icon-subtasks.svg" onclick="deleteSubtask(event)" >
+                    <img src="/Join/img/edit-pen-icon-subtasks.svg" onclick="editSubtask(event)">
+                    <img src="/Join/img/divider-icon-subtasks.svg">
+                    <img src="/Join/img/delete-icon-subtasks.svg" onclick="deleteSubtask(event)" >
                 </div>
-                <div class="confirmEditSubtask" style="display: none;">
-                    <img src="/img/delete-icon-subtasks.svg" onclick="deleteSubtask(event)" >
-                    <img src="/img/divider-icon-subtasks.svg">
-                    <img src="/img/check-icon-subtasks.svg" onclick="confirmEditSubtask(event)">
+                <div class="confirmEditSubtask" contenteditable="false" style="display: none;">
+                    <img src="/Join/img/delete-icon-subtasks.svg" onclick="deleteSubtask(event)" >
+                    <img src="/Join/img/divider-icon-subtasks.svg">
+                    <img src="/Join/img/check-icon-subtasks.svg" onclick="confirmEditSubtask(event)">
                 </div>
             </span>
         </li>
     `;
 }
-
 function showBigTaskPopupHtmlTemplate(task, subtasksHtml) {
   let assignedContactsHtml = task.assignedContactsBadges
     .map((contactData) => {
@@ -80,9 +79,7 @@ function showBigTaskPopupHtmlTemplate(task, subtasksHtml) {
             </li>`;
     })
       .join("");
-    
      const categoryColor = getCategoryBackgroundColor(task.category);
-
   return `
     <div class="BigTaskFormPopUp" id="BigTaskFormPopUp">
         <div class="popupFlex">
@@ -93,20 +90,17 @@ function showBigTaskPopupHtmlTemplate(task, subtasksHtml) {
                             <span style="background-color: ${categoryColor};">${
     task.category
   }</span>
-                            <img src="/img/close-icon-subtasks.svg" onclick="closeBigTaskBox()">
+                            <img src="/Join/img/close-icon-subtasks.svg" onclick="closeBigTaskBox()">
                         </div>
                     </div>
-
                     <div class="titleAndDescriptionBigBox">
                         <h1>${task.title}</h1>
                         <p>${task.description}</p>
                     </div>
-
                     <div class="dueDate">
                         <span>Due date:</span>
                         <p>${formatDueDate(task.dueDate)}</p>
                     </div>
-
                     <div class="priorityBigBox">
                         <span>Priority:</span>
                         <div class="selectedPriorityBigBox">
@@ -114,7 +108,6 @@ function showBigTaskPopupHtmlTemplate(task, subtasksHtml) {
                             <img src="${task.priorityImage}" alt="">
                         </div>
                     </div>
-
                     <div class="assignedBigBox">
                         <span>Assigned To:</span>
                         <div class="listSelectableContactsBigBox">
@@ -123,26 +116,23 @@ function showBigTaskPopupHtmlTemplate(task, subtasksHtml) {
                             </ul>
                         </div>
                     </div>
-
                     <div class="subtasksBigBox">
                         <span>Subtasks:</span>
                         <div class="addedSubstaskList">
                             ${subtasksHtml}
                         </div>
                     </div>
-                    
               <div class="footerBigBox">
                 <div class="deleteBigBoxFooter" onclick="deleteBigTaskBox()">
                   <div class="icon deleteIcon"></div>
                     <span>Delete</span>
                 </div>
-                <img src="/img/divider-icon-subtasks.svg" alt="">
+                <img src="/Join/img/divider-icon-subtasks.svg" alt="">
                 <div class="editBigBoxFooter">
                   <div class="icon editIcon"></div>
                     <span>Edit</span>
                   </div>
               </div>
-
                 </div>
             </form>
         </div>
@@ -154,7 +144,7 @@ function loadContactsForFormHtmlTemplate(name, initials, initialColor) {
   return `
     <div class="initial initial-margin-small-task" style="background-color: ${initialColor};">${initials}</div>
     <span class="contact-name">${name}</span>
-    <img src="/img/check-button-default.svg" alt="">
+    <img src="/Join/img/check-button-default.svg" alt="">
   `;
 }
 
@@ -164,7 +154,7 @@ function createSubtasksHtml(subtasks, taskId) {
     .map(
       (subtask, index) => `
     <div class="subtaskBigBoxContent" data-index="${index}" onclick="toggleSubtaskStatus('${taskId}', ${index})">
-      <img src="/img/${
+      <img src="/Join/img/${
         subtask.completed
           ? "check-button-checked-bigTask"
           : "check-button-default"
@@ -175,22 +165,16 @@ function createSubtasksHtml(subtasks, taskId) {
     )
     .join("");
 }
-
-
-
 function generateAddTaskFormHtml() {
   return `
     <form class="addTaskPopUp" onsubmit="handleFormSubmit(event)">
             <div class="addTaskLittle">
                 <div class="titlePositionLittle">
                     <h1>Add Task</h1>
-                    <img src="/img/close-icon-board-addtask.svg" onclick="closeAddTaskForm()">
+                    <img src="/Join/img/close-icon-board-addtask.svg" onclick="closeAddTaskForm()">
                 </div>
-        
                 <div class="formLeftAndRightFlex">
-        
                     <div class="addTaskLeftLittle">
-        
                         <div class="titleInputAddTaskBoard">
                             <label for="idTitleInputAddTask">Title
                                 <p style="color: #FF8190;">*</p>
@@ -199,7 +183,6 @@ function generateAddTaskFormHtml() {
                                 placeholder="Enter a title" required>
                             <div class="requestWarningInputField" style="display: none;">This field is required</div>
                         </div>
-        
                         <div class="titleDescriptionAddTaskBoard">
                             <label for="idDescriptionAddTask">Description
                                 <p style="color: #FF8190;">*</p>
@@ -208,28 +191,19 @@ function generateAddTaskFormHtml() {
                                 placeholder="Enter a Description" required></textarea>
                             <div class="requestWarningInputField" style="display: none;">This field is required</div>
                         </div>
-        
-        
                         <div class="titleSelectContactsAddTaskBoard">
                             <label for="idTitleSelectContactsAddTask">Assigned to</label>
                             <input class="inputTitleAddTask" id="idTitleSelectContactsAddTask" type="text" autocomplete="off"
                                 placeholder="Select contacts to assign" onclick="toggleContactList()">
                         </div>
-        
                         <div id="listSelectableContacts" class="listSelectableContacts" style="display: none;">
                             <ul>
-        
                             </ul>
                         </div>
-        
                         <div class="addedContactsProfilBadges" id="addedContactsProfilBadges" style="display: none;"></div>
                     </div>
-        
-        
                     <div class="dividerLittle"></div>
-        
                     <div class="addTaskRightLittle">
-        
                         <div class="titleDateAddTaskBoard">
                             <label for="idTitleDateAddTask">Due date
                                 <p style="color: #FF8190;">*</p>
@@ -238,31 +212,28 @@ function generateAddTaskFormHtml() {
                                 required>
                             <div class="requestWarningInputField" style="display: none;">This field is required</div>
                         </div>
-        
                         <div class="prioSection">
                             <div class="titlePrioSection">Prio</div>
                             <div class="prioButtonsBox" id="idPrioAddTask">
-        
                                 <div class="prioButtons" id="urgentButton" onclick="changeButtonStyle(this)"
                                     data-color="#FF3D00" data-text-color="white"
-                                    data-img-src="/img/prio-icon-small-task-white.svg" data-priority="Urgent">
+                                    data-img-src="/Join/img/prio-icon-small-task-white.svg" data-priority="Urgent">
                                     Urgent
-                                    <img src="/img/Urgent.png">
+                                    <img src="/Join/img/Urgent.png">
                                 </div>
-                                <div class="prioButtons" id="mediumButton" onclick="changeButtonStyle(this)"
-                                    data-color="#FFA800" data-text-color="white" data-img-src="/img/prio-icon-medium-white.svg"
-                                    data-priority="Medium">
+                                <div class="prioButtons active" id="mediumButton" onclick="changeButtonStyle(this)"
+                                    data-color="#FFA800" style="background-color: rgb(255, 168, 0); color: white; data-text-color="white" data-img-src="/Join/img/prio-icon-medium-white.svg"
+                                    data-priority="Medium" >
                                     Medium
-                                    <img src="/img/Medium.png">
+                                    <img src="/Join/img/prio-icon-medium-white.svg">
                                 </div>
                                 <div class="prioButtons" id="lowButton" onclick="changeButtonStyle(this)" data-color="#7AE229"
-                                    data-text-color="white" data-img-src="/img/prio-icon-low-white.svg" data-priority="Low">
+                                    data-text-color="white" data-img-src="/Join/img/prio-icon-low-white.svg" data-priority="Low">
                                     Low
-                                    <img src="/img/Low.png">
+                                    <img src="/Join/img/Low.png">
                                 </div>
                             </div>
                         </div>
-        
                         <div class="categorySection">
                             <div class="titleCategoryAddTask">
                                 <label for="idSelectCategoryAddTask">Category
@@ -277,20 +248,17 @@ function generateAddTaskFormHtml() {
                                 <div class="requestWarningInputField" style="display: none;">This field is required</div>
                             </div>
                         </div>
-        
-        
                         <div class="subtaskSection">
                             <div class="titleSubtaskAddTask">
                                 <label for="inputFieldSubtaskId">Subtask</label>
                                 <div class="subtaskBox">
                                     <input onclick="openSubtasks()" class="inputTitleAddTask" id="inputFieldSubtaskId"
                                         type="text" autocomplete="off" placeholder="Add new subtask">
-                                    <img onclick="openSubtasks()" class="subtaskImage" src="/img/subtasksIcon.png">
-        
+                                    <img onclick="openSubtasks()" class="subtaskImage" src="/Join/img/subtasksIcon.png">
                                     <div class="closeCheckSubstask" style="display: none;">
-                                        <img onclick="closeSubtasks()" src="/img/close-icon-subtasks.svg">
-                                        <img src="/img/divider-icon-subtasks.svg">
-                                        <img onclick="addNewSubtask()" src="/img/check-icon-subtasks.svg">
+                                        <img onclick="closeSubtasks()" src="/Join/img/close-icon-subtasks.svg">
+                                        <img src="/Join/img/divider-icon-subtasks.svg">
+                                        <img onclick="addNewSubtask()" src="/Join/img/check-icon-subtasks.svg">
                                     </div>
                                 </div>
                                 <ul id="addedSubstaskList" class="addedSubstaskList"></ul>
@@ -299,27 +267,21 @@ function generateAddTaskFormHtml() {
                         <div class="bottomSpacer" ></div>
                     </div>
                 </div>
-        
                 <div class="editFooter">
                     <!-- <p class="requiredFooter" style="color: #FF8190;">*<span style="color: #000;">This field is required</span></p> -->
-        
                     <div class="footerButtonsAddTask">
                         <button id="ClearButton" class="footerButtonClear" type="button">Clear
-                            <img src="/img/clear-icon-footer-board-addTask.svg" class="clearIconFooter">
-        
+                            <img src="/Join/img/clear-icon-footer-board-addTask.svg" class="clearIconFooter">
                         </button>
                         <button id="createTaskFooterButton" class="footerButtonCreateTask">Create Task
-                            <img src="/img/check-icon-footer-board-addTask.svg" alt="">
+                            <img src="/Join/img/check-icon-footer-board-addTask.svg" alt="">
                         </button>
                         <button class="footerEditTask" type="submit" style="display: none;">OK
-                            <img src="/img/check-icon-footer-board-addTask.svg" alt="">
+                            <img src="/Join/img/check-icon-footer-board-addTask.svg" alt="">
                         </button>
-        
-        
                     </div>
                 </div>
             </div>
-            
         </form>
   `;
 }
@@ -329,14 +291,10 @@ function generateEditTaskFormHtml() {
 <form class="editPopUp" onsubmit="handleFormSubmit(event)" id="editTask">
     <div class="addTaskLittle">
         <div class="editTitle">
-           
-            <img src="/img/close-icon-board-addtask.svg" class="closeEditTask">
+            <img src="/Join/img/close-icon-board-addtask.svg" class="closeEditTask">
         </div>
-
         <div class="editLeftAndRight">
-
             <div class="editLeft">
-
                 <div class="titleInputAddTaskBoard">
                     <label for="idTitleInputAddTask">Title
                         <p style="color: #FF8190;">*</p>
@@ -345,7 +303,6 @@ function generateEditTaskFormHtml() {
                         placeholder="Enter a title" required>
                     <div class="requestWarningInputField" style="display: none;">This field is required</div>
                 </div>
-
                 <div class="titleDescriptionAddTaskBoard">
                     <label for="idDescriptionAddTask">Description
                         <p style="color: #FF8190;">*</p>
@@ -354,28 +311,19 @@ function generateEditTaskFormHtml() {
                         placeholder="Enter a Description" required></textarea>
                     <div class="requestWarningInputField" style="display: none;">This field is required</div>
                 </div>
-
-
                 <div class="titleSelectContactsAddTaskBoard">
                     <label for="idTitleSelectContactsAddTask">Assigned to</label>
                     <input class="inputTitleAddTask" id="idTitleSelectContactsAddTask" type="text" autocomplete="off"
                         placeholder="Select contacts to assign" onclick="toggleContactList()">
                 </div>
-
                 <div id="listSelectableContacts" class="listSelectableContacts" style="display: none;">
                     <ul>
-
                     </ul>
                 </div>
-
                 <div class="addedContactsProfilBadges" id="addedContactsProfilBadges" style="display: none;"></div>
             </div>
-
-
             <div class="editHideDivider"></div>
-
             <div class="editRight">
-
                 <div class="editDate">
                     <label for="idTitleDateAddTask">Due date
                         <p style="color: #FF8190;">*</p>
@@ -384,31 +332,28 @@ function generateEditTaskFormHtml() {
                         required>
                     <div class="requestWarningInputField" style="display: none;">This field is required</div>
                 </div>
-
                 <div class="prioSection">
                     <div class="titlePrioSection">Prio</div>
                     <div class="prioButtonsBox" id="idPrioAddTask">
-
                         <div class="prioButtons" id="urgentButton" onclick="changeButtonStyle(this)"
                             data-color="#FF3D00" data-text-color="white"
-                            data-img-src="/img/prio-icon-small-task-white.svg" data-priority="Urgent">
+                            data-img-src="/Join/img/prio-icon-small-task-white.svg" data-priority="Urgent">
                             Urgent
-                            <img src="/img/Urgent.png">
+                            <img src="/Join/img/Urgent.png">
                         </div>
                         <div class="prioButtons" id="mediumButton" onclick="changeButtonStyle(this)"
-                            data-color="#FFA800" data-text-color="white" data-img-src="/img/prio-icon-medium-white.svg"
+                            data-color="#FFA800" data-text-color="white" data-img-src="/Join/img/prio-icon-medium-white.svg"
                             data-priority="Medium">
                             Medium
-                            <img src="/img/Medium.png">
+                            <img src="/Join/img/Medium.png">
                         </div>
                         <div class="prioButtons" id="lowButton" onclick="changeButtonStyle(this)" data-color="#7AE229"
-                            data-text-color="white" data-img-src="/img/prio-icon-low-white.svg" data-priority="Low">
+                            data-text-color="white" data-img-src="/Join/img/prio-icon-low-white.svg" data-priority="Low">
                             Low
-                            <img src="/img/Low.png">
+                            <img src="/Join/img/Low.png">
                         </div>
                     </div>
                 </div>
-
                 <div class="categorySection">
                     <div class="titleCategoryAddTask">
                         <label for="idSelectCategoryAddTask">Category
@@ -423,20 +368,18 @@ function generateEditTaskFormHtml() {
                         <div class="requestWarningInputField" style="display: none;">This field is required</div>
                     </div>
                 </div>
-
-
                 <div class="subtaskSection">
                     <div class="titleSubtaskAddTask">
                         <label for="inputFieldSubtaskId">Subtask</label>
                         <div class="subtaskBox">
                             <input onclick="openSubtasks()" class="inputTitleAddTask" id="inputFieldSubtaskId"
                                 type="text" autocomplete="off" placeholder="Add new subtask">
-                            <img onclick="openSubtasks()" class="subtaskImage" src="/img/subtasksIcon.png">
+                            <img onclick="openSubtasks()" class="subtaskImage" src="/Join/img/subtasksIcon.png">
 
                             <div class="closeCheckSubstask" style="display: none;">
-                                <img onclick="closeSubtasks()" src="/img/close-icon-subtasks.svg">
-                                <img src="/img/divider-icon-subtasks.svg">
-                                <img onclick="addNewSubtask()" src="/img/check-icon-subtasks.svg">
+                                <img onclick="closeSubtasks()" src="/Join/img/close-icon-subtasks.svg">
+                                <img src="/Join/img/divider-icon-subtasks.svg">
+                                <img onclick="addNewSubtask()" src="/Join/img/check-icon-subtasks.svg">
                             </div>
                         </div>
                         <ul id="addedSubstaskList" class="addedSubstaskList"></ul>
@@ -444,17 +387,11 @@ function generateEditTaskFormHtml() {
                 </div>
             </div>
         </div>
-
         <div class="editFooter">
-           
-
-            <div class="footerButtonsAddTask">
-                
+            <div class="footerButtonsAddTask"> 
                 <button id="footerEditTask" class="footerEditTask" type="button">OK
-                    <img src="/img/check-icon-footer-board-addTask.svg" alt="">
+                    <img src="/Join/img/check-icon-footer-board-addTask.svg" alt="">
                 </button>
-
-
             </div>
         </div>
     </div>

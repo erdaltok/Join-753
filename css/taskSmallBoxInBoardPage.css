@@ -11,10 +11,11 @@
     border-radius: 24px;
     background: var(--white, #FFF);
     box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
-    min-width: 240px;
-    max-width: 250px;
+    width: 86%;
     height: auto;
-    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08)
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
+    max-width: 286px;
+    margin-bottom: 19px;
 }
 
 .task-small-box:hover {
@@ -84,6 +85,17 @@
     align-self: stretch;
     margin-block-start: 0;
     margin-block-end: 0;
+}
+
+.moveTaskToAnotherCategory
+{
+    width:85%;
+    height:20px;
+    border:solid 2px;
+    border-radius:20px;
+    padding:10px;
+    text-align:center;
+    display:none;
 }
 
 .progress-bar {
@@ -160,6 +172,17 @@
     height: 32px !important;
 }
 
+.moveToDivs
+    {
+        width:85%;
+        height:20px;
+        border:solid 2px;
+        border-radius:20px;
+        padding:12px;
+        text-align:center;
+        position:relative;
+    }
+
 @media (max-width: 450px) and (min-width: 280px) {
     .task-small-box {
         display: flex;
@@ -176,9 +199,9 @@
         max-width: 250px;
         height: auto;
         box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
-        min-width: 196px;
-    max-width: 250px;
-    height: 260px;
+        min-width: 162px;
+    max-width: 179px;
+    height: 28vh;
     }
 
     .task-small-box-content {
@@ -274,6 +297,33 @@
 
     #priorityBoardImage{
         margin-right: 45px;
+    }
+
+    .moveToDivs
+    {
+        width:85%;
+        height:15px;
+        border:solid black 2px;
+        border-radius:8px;
+        position:relative;
+        text-align: center;
+        display: flex;
+    align-items: center; 
+    justify-content: center;
+        
+    }
+
+    .moveTaskToAnotherCategory
+    {
+        width:85%;
+        height:20px;
+        border:solid 2px;
+        border-radius:8px;
+        padding:10px;
+        text-align:center;
+        display:block;
+        align-items: center; 
+        justify-content: center;
     }
 
 }

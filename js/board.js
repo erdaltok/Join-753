@@ -103,11 +103,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const imageElements = document.querySelectorAll(".changeableImage");
   imageElements.forEach((imageElement) => {
     imageElement.addEventListener("mouseover", function () {
-      this.src = "/img/plus-icon-board-column-blue.svg";
+      this.src = "/Join/img/plus-icon-board-column-blue.svg";
     });
 
     imageElement.addEventListener("mouseout", function () {
-      this.src = "/img/plus-icon-board-column.svg";
+      this.src = "/Join/img/plus-icon-board-column.svg";
     });
   });
 });

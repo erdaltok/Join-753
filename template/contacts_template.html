@@ -6,41 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacts</title>
     
-    <link rel="icon" href="/img/logo1.png">
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/fonts.css">
-    <link rel="stylesheet" href="/css/desktop_template.css">
-    <link rel="stylesheet" href="/css/contacts.css">
-    <link rel="stylesheet" href="/css/newContacts.css">
+    <link rel="icon" href="/Join/img/logo1.png">
+    <link rel="stylesheet" href="/Join/style.css">
+    <link rel="stylesheet" href="/Join/fonts.css">
+    <link rel="stylesheet" href="/Join/css/desktop_template.css">
+    <link rel="stylesheet" href="/Join/css/contacts.css">
+    <link rel="stylesheet" href="/Join/css/newContacts.css">
 
-    <script src="/js/contacts.js"></script>
-    <!-- <script src="/js/main.js"></script> -->
-    <script src="/js/w3IncludeHtml.js"></script>
+    <script src="/Join/js/contacts.js"></script>
+    <!-- <script src="/Join/js/main.js"></script> -->
+    <script src="/Join/js/w3IncludeHtml.js"></script>
+    <script src="/Join/js/storage.js" defer></script>
 
-    <script src="/js/summary.js" defer></script>
+    <script src="/Join/js/summary.js" defer></script>
 
 </head>
 
-<body onload="loadContacts(); init();"> 
+<body onload="loadContactsFromStorage(); init();"> 
 
-<div w3-include-html="/template/desktop_template.html"></div>
+<div w3-include-html="/Join/template/desktop_template.html"></div>
 
 
     <!--ab hier contacts-->
+     <button onclick="newContact()" class="add-contacts-btn"><p>Add new Contact</p><img src="/Join/img/person_add.png">
+        </button>
     <div class="contacts-div">
+       
         <div class="contacts-container">
-            <button onclick="newContact()" class="add-contacts-btn"><p>Add new Contact</p><img src="/img/person_add.png">
-            </button>
+           
 
             <div id="advanceCard" class="contacts"></div>
 
         </div>
-        <div class="contact-view">
+        <div id="contact-view" class="contact-view">
             <div class="contact-header">
                 <div class="contact-text">
                     <h2 class="text-1">Contacts</h2>
                     <svg xmlns="http://www.w3.org/2000/svg" width="3" height="59" viewBox="0 0 3 59" fill="none"
-                        style="min-width: 3px; min-height: 59px;">
+                        >
                         <path d="M2 2V61" stroke="#29ABE2" stroke-width="3" stroke-linecap="round" />
                     </svg>
                     <p class="text-2">Better with a team</p>

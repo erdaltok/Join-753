@@ -13,7 +13,9 @@ body {
     background-color: #f6f7f8;
     height: 100vh;
     margin: 0;
-    overflow: scroll;
+   
+    width: 100%;
+  padding: 0;
 }
 
 .logo-container {
@@ -33,13 +35,18 @@ body {
 
 body.animate .logo {
     width: 274px;
-    top: 80px;
+    top: 26px;
     left: 77px;
     transform: scale(0.36);
 }
 
 .not-user-div {
     display: block;
+    display: flex;
+    width: 95%;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 51px;
 }
 
 .not-user {
@@ -71,7 +78,9 @@ body.animate .logo {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 91vh;
 }
+
 
 .log-in-window {
     background-color: white;
@@ -84,13 +93,14 @@ body.animate .logo {
     border-radius: 30px;
     width: auto;
     padding: 48px 115px 20px 115px;
-    position: relative;
+    
 }
 
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 48px;
 }
 
 .login-headline {
@@ -115,6 +125,7 @@ form {
     margin: 35px;
     display: flex;
     flex-direction: column;
+    width: 80%;
 }
 
 input {
@@ -154,15 +165,18 @@ input {
     justify-content: space-between;
     align-content: center;
     align-items: center;
-    height: auto;
+    height: 3%;
     width: 100%;
-    margin: -16px 40px;
+    
 }
 
 .remember-me {
     display: flex;
     align-items: center;
-    padding: 0 64px;
+    
+    justify-content: flex-start;
+  padding-left: 67px;
+  width: 50%;
 }
 
 .checkbox {
@@ -171,7 +185,7 @@ input {
     margin-right: 8px;
     cursor: pointer;
     color: #2A3647;
-    z-index: 99;
+    z-index: 2;
 }
 
 .remember-text {
@@ -262,6 +276,7 @@ footer {
     color: white;
     font-family: inter;
     border: none;
+    z-index: 9;
 }
 
 @media(max-width: 800px) {
@@ -270,11 +285,12 @@ footer {
     }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 599px) {
     .not-user-div {
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
     }
 
     .input-fields {
@@ -285,6 +301,7 @@ footer {
         display: flex;
         flex-direction: column;
         align-items: center;
+        height: 11vh;
     }
 
     .log-in-btn {
@@ -293,53 +310,116 @@ footer {
     }
 
     .remember-me {
-        position: relative;
-        left: 47px;
+        
     }
 
     .log-in-window {
-        padding: 16px 0px 0px 0px;
+        padding: 48px 0px 0px 0px;
     }
 
     .guest-btn {
         margin: -20px;
         position: relative;
-        top: -15px;
+        top: -28px;
     }
 }
 
-@media (max-width: 425px) {
+@media (min-width: 300px) and (max-width: 600px) {
+    .top-container {
+        display: flex;
+        
+        flex-direction: column-reverse;
+    }
+    
+    .log-in-btn {
+        width: 150px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .guest-btn {
+        margin: 0px; 
+        position: relative;
+        font-size: 16px;
+        bottom: 74px;
+        width: 150px;
+        
+        right: 6px;
+        height: 40px;
+    }
+    
+    
+    footer {
+        
+       bottom: 9px;
+        gap: 40px;
+        
+    }
+    
+    .input-fields {
+        width: 80%;
+    height: 17px;
+    margin-bottom: 15px;
+    }
+    
+    .login-headline {
+        
+        font-size: 43px;
+        
+    }
+    
+    
     body.animate .logo {
         top: 24px;
-        left: 44%;
-        width: 86px;
+        left: 61px;
+        width: 84px;
     }
 
     .not-user-div {
-        position: relative;
-        right: 24px;
+       
+        flex-direction: row;
     }
 
     .log-in-window {
-        width: 332px;
+        width: 80%;
+    
+    height: 57vh;
+    margin-top: 90px;
     }
 
     .not-user {
-        font-size: 12px;
+        font-size: 16px;
+        width: 138px;
     }
 
     .not-user-div {
-        right: 48px;
+        margin-left: 8vw;
+       
+        width: 81%;
+        display: flex;
+        height: 0px;
     }
 
     .remember-me {
-        position: relative;
-        left: 24px;
+       
     }
 
     .inputs {
-        margin: -8px;
+        
     }
+    input {
+        
+        font-size: 17px;
+    }
+
+    .underscore {
+        height: 3px;
+        width: 95px;
+        background-color: #29abe2;
+        border-radius: 5px;
+        margin: 2px 0 32px;
+    }
+
 }
 
 @media (max-hight: 1040px) {

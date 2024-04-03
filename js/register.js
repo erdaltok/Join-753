@@ -39,7 +39,7 @@ async function register() {
     resetForm();
 
     setTimeout(function () {
-        window.location.href = '/index.html';
+        window.location.href = './index.html';
     }, 3000);
 }
 

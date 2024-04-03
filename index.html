@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join</title>
-    <link rel="icon" href="/img/logo1.png">
-    <link rel="stylesheet" href="/css/login.css">
-    <link rel="stylesheet" href="/fonts.css">
-    <script src="js/login.js"></script>
-    <script src="js/storage.js"></script>
-    <script src="js/register.js"></script>
+    <link rel="icon" href="/Join/img/logo1.png">
+    <link rel="stylesheet" href="/Join/css/login.css">
+    <link rel="stylesheet" href="/Join/fonts.css">
+    <script src="/Join/js/login.js"></script>
+    <script src="/Join/js/storage.js"></script>
+    <script src="/Join/js/register.js"></script>
     
     
 
@@ -18,15 +18,14 @@
 
 <body onload="load()">
     <div class="logo-container">
-        <img src="/img/logo1.png" alt="Logo" class="logo" id="logo">
+        <img src="/Join/img/logo1.png" alt="Logo" class="logo" id="logo">
     </div>
     <div id="animation" style="display: none;" class="top-container">
-        <header>
+       
             <div class="not-user-div">
                 <span class="not-user">Not a Join user?</span>
-                <a href="signup.html"><button type="button" class="sign-in-btn"><b>Sign up</b></button></a>
+                <a href="/Join/signup.html"><button type="button" class="sign-in-btn"><b>Sign up</b></button></a>
             </div>
-        </header>
         <div class="login-div">
             <div class="log-in-window">
                 <form onsubmit="login(); return false;">
@@ -36,12 +35,12 @@
                     <div class="underscore"></div>
                     <div class="inputs">
                         <div class="input-fields">
-                            <input class="input" required id="email" type="email" placeholder="Email">
-                            <img src="/img/mail.png" alt="icon" class="icon-1">
+                            <input  class="input" required id="email" type="email" placeholder="Email">
+                            <img src="/Join/img/mail.png" alt="icon" class="icon-1">
                         </div>
                         <div class="input-fields">
-                            <input class="input" required id="password" type="password" placeholder="Password">
-                            <img src="/img/lock.png" alt="icon" class="icon-2">
+                            <input   class="input" required id="password" type="password" placeholder="Password">
+                            <img src="/Join/img/lock.png" alt="icon" class="icon-2">
                         </div>
                     </div>
                     <div class="remember">
@@ -53,14 +52,14 @@
                     </div>
                     <div class="log-in-buttons">
                         <button  id="logIn" class="log-in-btn">Log in</button>
-                        <button onclick="guestLogin()" class="guest-btn">Guest Log in</button>
+                        <button onclick="guestLogin1()" class="guest-btn">Guest Log in</button>
                     </div>
                 </form>
             </div>
             <div id="error-message" class="msg1"></div>
             <footer>
-                <a class="link" href="template/privacy_template.html">Privacy Policy</a>
-                <a class="link" href="template/legal_template.html">Legal Notice</a>
+                <a class="link" href="/Join/template/privacy_template.html">Privacy Policy</a>
+                <a class="link" href="/Join/template/legal_template.html">Legal Notice</a>
             </footer>
         </div>
     </div>

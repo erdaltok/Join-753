@@ -5,8 +5,7 @@ header {
 .top-container {
     display: flex;
     flex-direction: column;
-    margin-top: 178px;
-    
+    margin: -68px;
 }
 
 body {
@@ -15,7 +14,6 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
-    overflow: hidden;
 }
 
 .back-arrow {
@@ -23,7 +21,7 @@ body {
     height: 36px;
     position: relative;
     right: 221px;
-    top: 49px;
+    top: 61px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,21 +32,17 @@ body {
     background-color: #f2f2f2ec;
 }
 
-
-    .logo {
-        width: 100px;
-        height: 121px;
-        top: 37px;
-        left: 46px;
-        position: absolute;
-    }
-
+.logo {
+    width: 100px;
+    height: 121px;
+    top: 80px;
+    left: 77px; 
+}
 
 .signup-div {
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
 
 .signup-window {
@@ -60,10 +54,9 @@ body {
     height: auto;
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
     border-radius: 30px;
-    width: 46%;
+    width: auto;
     padding: 40px 80px 0px 80px;
     position: relative;
-    height: 60vh;
 }
 
 form {
@@ -74,7 +67,7 @@ form {
 
 .signup-headline {
     cursor: default;
-    font-size: 50px;
+    font-size: 61px;
     font-family: inter;
     font-weight: 700;
 }
@@ -91,8 +84,6 @@ form {
     margin: 14px;
     display: flex;
     flex-direction: column;
-    height: 28vh;
-  margin-bottom: 36px;
 }
 
 input {
@@ -109,7 +100,7 @@ input {
     background-color: white;
     border: 1px solid #d1d1d1;
     width: 422px;
-    height: 3vh;
+    height: auto;
     border-radius: 10px;
     padding: 12px 21px;
 
@@ -171,7 +162,7 @@ input {
 
 .signup-btn {
     width: 110px;
-    height: 5vh;
+    height: 48px;
     font-size: 21px;
     font-weight: 700;
     border-radius: 8px;
@@ -180,7 +171,8 @@ input {
     font-family: inter;
     cursor: pointer;
     border: none;
-    margin-bottom: 29px;
+    margin: 45px;
+    margin-right: 6px;
 }
 
 .signup-btn:hover {
@@ -233,7 +225,7 @@ footer {
     }
 
     .back-arrow {
-        right: 184px;
+        left: 63px;
     }
 }
 
@@ -243,38 +235,39 @@ footer {
     }
 
     .back-arrow {
-        right: 146px;
+        left: 32px;
     }
 }
 
-@media screen and (min-width: 200px) and (max-width: 600px) {
+@media screen and (max-width: 400px) {
     form {
         
-        width: 100%;
+        width: 80%;
     }
 
     .inputs {
-        width: 88%;
-    display: flex;
-    justify-content: center;
-    
-    align-items: center;
+        
+        width: 98%;
     }
     
     .signup-div {
-        height: 84vh;
-    width: 90%;
+        
+        height: 79vh;
     }
    
    
     .signup-window {
-        
+        width: 80%;
+
+        height: 70vh;
+        padding: 0;
     }
 
     .back-arrow {
-        left: -120px;
-        top: 39px;
-        position: relative;
+        left: 43px;
+    
+    top: 142px;
+    position: fixed;
     }
 
     .logo {
@@ -308,7 +301,7 @@ footer {
     .input {
         border: none;
         outline: none;
-        width: 78%;
+        width: 100%;
         font-size: 15px;
     }
     .inputs img {
@@ -336,10 +329,8 @@ footer {
     }
 
     .top-container {
-        margin-top: 30px;
-        
-        justify-content: center;
-        align-items: center;
+        padding: 20px;
+        margin: 0px;
     }
 
     header {
@@ -365,7 +356,7 @@ footer {
     .signup-btn {
         width: 110px;
         height: 48px;
-        font-size: 16px;
+        font-size: 21px;
         font-weight: 700;
         border-radius: 8px;
         background-color: #2A3647;
@@ -381,11 +372,11 @@ footer {
     }
 
     .signup-window {
-        height: 65vh;
-        width: 91%;
-        margin-top: 20px;
-
+       
+        height: 67vh;
         
+        width: 35%;
+        padding: 40px 80px 0px 80px;
        
     }
 }

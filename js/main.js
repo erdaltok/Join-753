@@ -20,14 +20,12 @@ async function initPage() {
     console.error("Fehler beim Initialisieren der Seite:", error);
   }
 }
-
 /** 
  * Saves the current state of tasks to storage.
  */
 async function saveTasksToStorage() {
   await setItem("tasks", tasks);
 }
-
 /** 
  * Loads tasks from storage and updates the task list.
  */
@@ -44,29 +42,52 @@ async function loadTasksFromStorage() {
     console.error("Fehler beim Laden der Tasks:", error);
   }
 }
-
 /** 
  * Renders all tasks on the board by iterating through each task status category.
  */
 function renderTasks() {
-  // console.log("Aktuelle Tasks:", tasks); // Zum Testen
   if (!document.getElementById("todo")) {
-    return;
-  }
-
+    return;}
   ["todo", "inProgress", "awaitFeedback", "done"].forEach((columnId) => {
     document.getElementById(columnId).innerHTML = "";
   });
-
   tasks.forEach((task) => {
     const columnId = task.status || "todo";
     addTaskToBoard(task, columnId);
   });
-
   document.querySelectorAll(".task-small-box").forEach((box) => {
-    box.addEventListener("click", function () {
+    box.addEventListener("click", function (event) {
+      event.stopPropagation();
       const taskId = this.id;
       showBigTaskBox(taskId);
+    });
+  });
+  document.querySelectorAll(".moveTaskToAnotherCategory").forEach((box1) => {
+    box1.addEventListener("click", function (event) {
+      event.stopPropagation();
+      const trueID = this.id.slice(4);
+      console.log(tasks);
+      console.log(trueID);
+      for(i=0; i<tasks.length;i++)
+      { if(tasks[i].id == trueID)
+        {break;}
+      }
+      renderToDoTaskOptions(tasks, i, trueID);
+      renderInProgressTaskOptions(tasks, i, trueID);
+      renderAwaitFeedbackTaskOptions(tasks, i, trueID);
+      renderDoneTaskOptions(tasks, i, trueID);
+      document.querySelectorAll(".moveToDivs").forEach((box) => {
+        box.addEventListener("click", function (event) {
+          event.stopPropagation();
+          event.preventDefault();
+          for(i=0; i<tasks.length;i++)
+          {if(tasks[i].id == this.id.slice(2))
+            {break;}
+          }  
+          updateTaskStatus(this.id, tasks[i]);
+          renderTasks();
+        });
+      });
     });
   });
 }
@@ -93,7 +114,6 @@ function getActivePriority() {
   const activeButton = document.querySelector(".prioButtons.active");
   return activeButton ? activeButton.getAttribute("data-priority") : "Standard";
 }
-
 /** 
  * Generates HTML badges for assigned contacts.
  * @returns {Array} An array of HTML strings representing contact badges.
@@ -110,7 +130,6 @@ function getAssignedContactsBadges() {
     };
   });
 }
-
 /** 
  * Collects subtasks from the subtask list element.
  * @returns {Array} An array of subtask objects.
@@ -127,8 +146,7 @@ function getSubtasks() {
   return subtasks;
 }
 
-/** 
- * Adds a task to a specific column on the board.
+/** * Adds a task to a specific column on the board.
  * @param {Object} task The task object to be added.
  * @param {string} columnId The ID of the column where the task should be added.
  */
@@ -194,7 +212,6 @@ function getCategoryBackgroundColor(category) {
       return "#StandardFarbcode";
   }
 }
-
 /** 
  * Changes the style of a selected priority button.
  * @param {HTMLElement} selectedButton The button element to change the style of.
@@ -230,9 +247,7 @@ function resetButtonStyle(button) {
   button.querySelector("img").src = originalImgSrc;
 }
 
-/** 
- * Resets the style of all priority buttons to their default state.
- */
+/** * Resets the style of all priority buttons to their default state.*/
 function resetAllButtons() {
   document.querySelectorAll(".prioButtons").forEach(resetButtonStyle);
 }
@@ -247,7 +262,6 @@ function SelectedButtonStyle(button) {
   button.style.color = button.getAttribute("data-text-color");
   button.querySelector("img").src = button.getAttribute("data-img-src");
 }
-
 /** 
  * Gets the default image source for a given priority button ID.
  * @param {string} buttonId The ID of the priority button.
@@ -256,19 +270,16 @@ function SelectedButtonStyle(button) {
 function getDefaultImageSrc(buttonId) {
   switch (buttonId) {
     case "urgentButton":
-      return "/img/Urgent.png";
+      return "/Join/img/Urgent.png";
     case "mediumButton":
-      return "/img/Medium.png";
+      return "/Join/img/Medium.png";
     case "lowButton":
-      return "/img/Low.png";
+      return "/Join/img/Low.png";
     default:
       return "";
   }
 }
-
-/** 
- * Updates the display of added contacts in the task form.
- */
+/*** Updates the display of added contacts in the task form.*/
 function updateAddedContactsDisplay() {
   const addedContactsContainer = document.getElementById(
     "addedContactsProfilBadges"
@@ -277,26 +288,20 @@ function updateAddedContactsDisplay() {
     addedContactsContainer.innerHTML = ""; 
   }
 }
-
-/** 
- * Resets the selected contacts to their default state.
- */
+/** * Resets the selected contacts to their default state.*/
 function resetSelectedContacts() {
   selectedContacts.forEach((contactLine) => {
     contactLine.style.backgroundColor = "";
     contactLine.querySelector(".contact-name").style.color = "";
     const imgElement = contactLine.querySelector("img");
-    imgElement.src = "/img/check-button-default.svg";
+    imgElement.src = "/Join/img/check-button-default.svg";
     contactLine.classList.remove("selected");
   });
 
   selectedContacts = [];
   loadContactsForForm();
 }
-
-/** 
- * Sets up event listeners for the clear button in the task form.
- */
+/** * Sets up event listeners for the clear button in the task form.*/
 document.addEventListener("DOMContentLoaded", function () {
   const clearButton = document.querySelector(".footerButtonClear");
   if (clearButton) {
@@ -305,25 +310,88 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-
 document.addEventListener("DOMContentLoaded", function () {
   const clearButtons = document.querySelectorAll(".footerButtonClear");
   clearButtons.forEach((button) => {
     button.addEventListener("mouseover", function () {
       const icon = this.querySelector(".clearIconFooter");
       if (icon) {
-        icon.src = "/img/clear-icon-footer-board-addTask-blue.svg";
+        icon.src = "/Join/img/clear-icon-footer-board-addTask-blue.svg";
       }
     });
-
     button.addEventListener("mouseout", function () {
       const icon = this.querySelector(".clearIconFooter");
       if (icon) {
-        icon.src = "/img/clear-icon-footer-board-addTask.svg";
+        icon.src = "/Join/img/clear-icon-footer-board-addTask.svg";
       }
     });
   });  
 });
+
+function updateTaskStatus(id, tasks) {
+  if (id.slice(0, 2) === "TD") {
+      tasks.status = "todo";
+  } else if (id.slice(0, 2) === "IP") {
+      tasks.status = "inProgress";
+  } else if (id.slice(0, 2) === "AF") {
+      tasks.status = "awaitFeedback";
+  } else if (id.slice(0, 2) === "DN") {
+      tasks.status = "done";
+  }
+  saveTasksToStorage();
+}
+
+function renderDoneTaskOptions(tasks, i, trueID) {
+  if (tasks[i].status === "done") {
+      document.getElementById(trueID).innerHTML =
+          '<div id="TD'+tasks[i].id+'" class="moveToDivs">To Do</div>'+
+          '<div id="IP'+tasks[i].id+'" class="moveToDivs">In progress</div>'+
+          '<div id="AF'+tasks[i].id+'" class="moveToDivs">Await feedback</div>'+
+          '<div id="CN'+tasks[i].id+'" class="moveToDivs" style="background-color:red;color:white;">Cancel</div>';
+  }
+}
+
+function renderAwaitFeedbackTaskOptions(tasks, i, trueID) {
+  if (tasks[i].status === "awaitFeedback") {
+      document.getElementById(trueID).innerHTML =
+          '<div id="TD'+tasks[i].id+'" class="moveToDivs">To Do</div>'+
+          '<div id="IP'+tasks[i].id+'" class="moveToDivs">In Progress</div>'+
+          '<div id="DN'+tasks[i].id+'" class="moveToDivs">Done</div>'+
+          '<div id="CN'+tasks[i].id+'" class="moveToDivs" style="background-color:red;color:white;">Cancel</div>';
+  }
+}
+
+function renderInProgressTaskOptions(tasks, i, trueID) {
+  if (tasks[i].status === "inProgress") {
+      document.getElementById(trueID).innerHTML =
+          '<div id="TD'+tasks[i].id+'" class="moveToDivs">To Do</div>'+
+          '<div id="AF'+tasks[i].id+'" class="moveToDivs">Await feedback</div>'+
+          '<div id="DN'+tasks[i].id+'" class="moveToDivs">Done</div>'+
+          '<div id="CN'+tasks[i].id+'" class="moveToDivs" style="background-color:red;color:white;">Cancel</div>';
+  }
+}
+
+function renderToDoTaskOptions(tasks, i, trueID) {
+  if (tasks[i].status === "todo") {
+      document.getElementById(trueID).innerHTML =
+          '<div id="IP'+tasks[i].id+'" class="moveToDivs"><span>In progress</span></div>'+
+          '<div id="AF'+tasks[i].id+'" class="moveToDivs">Await feedback</div>'+
+          '<div id="DN'+tasks[i].id+'" class="moveToDivs">Done</div>'+
+          '<div id="CN'+tasks[i].id+'" class="moveToDivs" style="background-color:red;color:white;">Cancel</div>';
+  }
+}
+
+function findTaskIndexById(id, tasks) {
+    for (let i = 0; i < tasks.length; i++) {
+        if (tasks[i].id === id) {
+            return i;
+        }
+    }
+    return -1; // Return -1 if the task with the specified id is not found
+}
+
+
+
 
 
 document.addEventListener("DOMContentLoaded", initPage);

@@ -4,6 +4,7 @@
  * @param {string} status - The initial status of the new task (default: "todo").
  */
 function addNewTaskBoard(status = "todo") {
+  searchContacts();
   newTaskStatus = status;
   let popup = document.querySelector(".addTaskFormPopUp");
   if (popup) {
@@ -227,17 +228,34 @@ function handleFormSubmitFromAddTask(event) {
   fromAddTask = false;
 }
 
-function searchContacts() {
+async function searchContacts() 
+ {
+
+  try {
+    const loadedContacts = await getItem("contacts");
+    if (!loadedContacts) {
+      contactsLocal = [];
+      return;
+    }
+    contactsLocal = Array.isArray(loadedContacts) ? loadedContacts : JSON.parse(loadedContacts);
+    //renderTasks(); 
+  } catch (error) {
+    console.error("Fehler beim Laden der Tasks:", error);
+  }
+
+  console.log(contactsLocal);
+
   const searchText = document
     .getElementById("idTitleSelectContactsAddTask")
     .value.toLowerCase();
-  const contacts = JSON.parse(localStorage.getItem("contacts")) || {
-    names: [],
-    emails: [],
-    phones: [],
-  };
 
-  const filteredContacts = contacts.names.filter((name) =>
+  let names = [];
+  for(i=0; i< contactsLocal.length;i++)
+  {
+    names.push(contactsLocal[i].nameKey);
+  }
+
+  const filteredContacts = names.filter((name) =>
     name.toLowerCase().includes(searchText)
   );
 

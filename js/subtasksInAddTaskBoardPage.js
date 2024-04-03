@@ -33,6 +33,10 @@ function editSubtask(event) {
     !span.getAttribute("contenteditable") ||
     span.getAttribute("contenteditable") === "false"
   ) {
+    // Set the initial value in the dataset attribute
+    span.dataset.originalText = span.textContent.trim();
+    
+    // Enable editing mode
     span.setAttribute("contenteditable", "true");
     span.focus();
     editDeleteDiv.style.display = "none";
@@ -40,17 +44,28 @@ function editSubtask(event) {
   }
 }
 
+  
+
+
 function confirmEditSubtask(event) {
   const liElement = event.target.closest("li");
+  if (!liElement) return;
+
   const span = liElement.querySelector("span");
-  const editDeleteDiv = liElement.querySelector(".editDeleteSubtask");
-  const confirmEditDiv = liElement.querySelector(".confirmEditSubtask");
+  const editedText = span.textContent.trim(); // Get the edited text
 
+  // Find the index of the edited text in the subtasks array
+  const originalText = span.dataset.originalText;
+  const index = subtasks.indexOf(originalText);
+  if (index !== -1) {
+    // Update the subtask text in the subtasks array
+    subtasks[index] = editedText;
+  }
+
+  // Hide editing UI
   span.setAttribute("contenteditable", "false");
-  editDeleteDiv.style.display = "flex";
-  confirmEditDiv.style.display = "none";
-
-  // Hier Code hinzufügen, um die Änderungen zu speichern für später mit Backend
+  liElement.querySelector(".editDeleteSubtask").style.display = "flex";
+  liElement.querySelector(".confirmEditSubtask").style.display = "none";
 }
 
 function addNewSubtask() {
@@ -89,11 +104,7 @@ function toggleSubtaskDisplay() {
 
 function updateSubtaskList() {
   const listElement = document.getElementById("addedSubstaskList");
-  listElement.innerHTML = "";
-
-  subtasks.forEach((subtaskText) => {
-    listElement.innerHTML += createSubtaskHtml(subtaskText);
-  });
+  listElement.innerHTML = subtasks.map(createSubtaskHtml).join("");
 }
 
 
@@ -103,9 +114,11 @@ function deleteSubtask(event) {
   const liElement = event.target.closest("li");
   if (!liElement) return;
 
-  const subtaskText = liElement.querySelector("span").textContent.trim();
-  const index = subtasks.indexOf(subtaskText);
-  if (index > -1) {
+  const span = liElement.querySelector("span");
+  const editedText = span.textContent.trim();
+
+  const index = subtasks.indexOf(editedText);
+  if (index !== -1) {
     subtasks.splice(index, 1);
   }
 

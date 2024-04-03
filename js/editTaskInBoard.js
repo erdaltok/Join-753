@@ -7,6 +7,8 @@ function toggleDisplayForEdit() {
   const displayArea = document.getElementById("editTaskDisplay");
   const bigTaskBoxContainer = document.getElementById("bigTaskBoxContainer");
 
+  searchContacts();
+
   if (container && displayArea && bigTaskBoxContainer) {
     displayArea.innerHTML = generateEditTaskFormHtml();
     container.style.display = "block";

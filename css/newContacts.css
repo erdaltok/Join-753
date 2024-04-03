@@ -156,7 +156,7 @@ input {
     font-family: inter;
     cursor: pointer;
     margin: 45px;
-    border: 2px solid transparent;
+    border: 2px solid ;
 }
 
 .cancel-btn:hover {
@@ -353,13 +353,15 @@ input {
 
     @media (max-width: 400px) and (min-width: 280px) {
 
+
+
         .div-container {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 564px;
+            height: 81%;
             width: 288px;
-            margin-bottom: 16px;
+            margin-bottom: 88px;
         }
 
         .new-card {
@@ -486,7 +488,7 @@ input {
             position: absolute;
       height: 13px;
       width: 58px;
-      content: url('/img/separator1.svg');
+      content: url('/Join/img/separator1.svg');
       top: 64px;
       left: 1px;
             

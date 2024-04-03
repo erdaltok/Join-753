@@ -36,9 +36,34 @@ function login() {
 
     if (user) {
         console.log('User found');
+        errorContainer.style.display = 'none';
         guestLogin();
     } else {
         console.log('User not found');
         errorContainer.innerHTML = 'User not found';
+        setTimeout(function() {
+            errorContainer.style.display = 'none';
+        }, 2000);
     }
+    emptyInputs();
 }
+
+function guestLogin1() {
+    // Predefined guest user credentials
+    const guestEmail = 'Guest@gmail.com';
+    const guestPassword = 'Guest';
+
+    // Simulate filling in email and password fields with predefined guest credentials
+    document.getElementById('email').value = guestEmail;
+    document.getElementById('password').value = guestPassword;
+
+    // Call the login function to authenticate with the predefined guest credentials
+    login();
+    emptyInputs();
+}
+
+function emptyInputs(){
+    document.getElementById('email').value = '';
+    document.getElementById('password').value = '';
+}
+

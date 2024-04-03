@@ -14,7 +14,7 @@
 
 .BigTaskPopUp {
     max-width: 550px;
-    width: 550px;
+    width: 427px;
     max-height: calc(100vh - 0px);
     border-radius: 30px;
     box-shadow: 0px 0px 4px 0px #00000029;
@@ -89,6 +89,7 @@
     cursor: pointer;
     padding: 4px;
     border-radius: 50%;
+    
 }
 
 .label-big-box img:hover {
@@ -293,6 +294,7 @@
     position: sticky;
     bottom: 13px;
     background: #FFF;
+    
 }
 
 .deleteBigBoxFooter,
@@ -323,19 +325,19 @@
 }
 
 .deleteIcon {
-    background-image: url('/img/delete-icon-subtasks.svg');
+    background-image: url('/Join/img/delete-icon-subtasks.svg');
 }
 
 .deleteBigBoxFooter:hover .deleteIcon {
-    background-image: url('/img/delete-icon-subtasks-blue.svg');
+    background-image: url('/Join/img/delete-icon-subtasks-blue.svg');
 }
 
 .editIcon {
-    background-image: url('/img/edit-pen-icon-subtasks.svg');
+    background-image: url('/Join/img/edit-pen-icon-subtasks.svg');
 }
 
 .editBigBoxFooter:hover .editIcon {
-    background-image: url('/img/edit-pen-icon-subtasks-blue.svg');
+    background-image: url('/Join/img/edit-pen-icon-subtasks-blue.svg');
 }
 
 .deleteBigBoxFooter:hover span,
@@ -347,7 +349,7 @@
     .BigTaskPopUp {
         max-width: 550px;
         width: 344px;
-        max-height: calc(100vh - 0px);
+        max-height: calc(76vh - 0px);
         border-radius: 30px;
         box-shadow: 0px 0px 4px 0px #00000029;
         display: flex;
@@ -555,7 +557,7 @@
         gap: 8px;
         position: sticky;
         bottom: 13px;
-        background: #FFF;
+        background: #ffffff00;
     }
 
     .deleteBigBoxFooter, .editBigBoxFooter {
@@ -576,7 +578,7 @@
     }
 
     .editIcon {
-        background-image: url(/img/edit-pen-icon-subtasks.svg);
+        background-image: url(/Join/img/edit-pen-icon-subtasks.svg);
     }
 
     .icon {
@@ -831,7 +833,7 @@
     }
 
     .editIcon {
-        background-image: url(/img/edit-pen-icon-subtasks.svg);
+        background-image: url(/Join/img/edit-pen-icon-subtasks.svg);
     }
 
     .icon {

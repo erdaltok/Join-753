@@ -24,38 +24,4 @@ async function getItem(key) {
         });
 }
 
-// // Zum löschen der Tasks aus dem Remote-Storage, außer einem Task
-// async function removeTasksExceptSpecificOne() {
-//   try {
-//     let tasks = await getItem("tasks");
-//     if (!tasks) {
-//       console.log("Keine Tasks zum Löschen gefunden.");
-//       return;
-//     }
-
-//     // Sicherstellen, ob tasks ein Array ist
-//     if (typeof tasks === "string") {
-//       tasks = JSON.parse(tasks);
-//     }
-
-//     // Überprüfen, ob tasks jetzt ein Array ist
-//     if (!Array.isArray(tasks)) {
-//       console.error("Tasks sind nicht im erwarteten Format (Array).");
-//       return;
-//     }
-
-//     // Behalte nur den Task mit der spezifischen ID
-//     const specificTaskId = 1702229508197;
-//     const updatedTasks = tasks.filter((task) => task.id === specificTaskId);
-
-//     // Speichern der aktualisierten Task-Liste
-//     await setItem("tasks", updatedTasks);
-//     console.log("Nicht spezifizierte Tasks wurden erfolgreich entfernt.");
-//   } catch (error) {
-//     console.error("Fehler beim Entfernen der Tasks:", error);
-//   }
-// }
-
-// // Aufrufen der Funktion
-// removeTasksExceptSpecificOne();
 
