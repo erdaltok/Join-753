@@ -3,7 +3,7 @@ body{
     height: 100vh;
     margin: 0;
     scroll-behavior: smooth;
-    
+    overflow: auto;
     
 }
 
@@ -102,8 +102,10 @@ th:nth-child(2), td:nth-child(2) {
 }
 
 .helpPageInstructions img {
-    position: fixed;
-    left: 1782px;
+    position: sticky;
+    left: 1657px;
+    top: 149px;
+    margin-top: 50px;
   
 }
 

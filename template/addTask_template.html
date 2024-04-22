@@ -2,49 +2,43 @@
 <html lang="en">
 
 <head>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Task</title>
-    <link rel="stylesheet" href="/css/addTask.css">
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/fonts.css">
-    <link rel="stylesheet" href="/css/desktop_template.css">
-    <link rel="icon" href="/img/logo1.png">
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/fonts.css">
-    <link rel="stylesheet" href="/css/desktop_template.css">
+    <link rel="stylesheet" href="/Join/css/addTask.css">
+    <link rel="stylesheet" href="/Join/style.css">
+    <link rel="stylesheet" href="/Join/fonts.css">
+    <link rel="stylesheet" href="/Join/css/desktop_template.css">
+    <link rel="icon" href="/Join/img/logo1.png">
+    
+    <link rel="stylesheet" href="/Join/css/desktop_template.css">
 
-    <link rel="stylesheet" href="/css/taskSmallBoxInBoardPage.css">
-    <link rel="stylesheet" href="/css/contacts.css">
-    <link rel="stylesheet" href="/css/newContacts.css">
+    <link rel="stylesheet" href="/Join/css/taskSmallBoxInBoardPage.css">
+    <link rel="stylesheet" href="/Join/css/contacts.css">
+    <link rel="stylesheet" href="/Join/css/newContacts.css">
 
-
-    <script src="/js/w3IncludeHtml.js" defer></script>
-    <script src="/js/storage.js" defer></script>
-    <!-- <script src="/js/main.js" defer></script> -->
-    <script src="/js/summary.js" defer></script>
-    <script src="/js/boardHtmlTemplates.js" defer></script>
-    <!-- <script src="/js/w3IncludeHtml.js" defer></script> -->
-    <script src="/js/board.js" defer></script>
-    <script src="/js/subtasksInAddTaskBoardPage.js" defer></script>
-    <script src="/js/contactListAddTaskInBoardPage.js" defer></script>
-    <script src="/js/contacts.js" defer></script>
-
-    <script src="/js/addTask.js" defer></script>
-    <script src="/js/popUpBigTaskInBoard.js" defer></script>
-
-    <script src="/js/editTaskInBoard.js" defer></script>
-
-    <script src="/js/main.js" defer></script>
-
+    <script src="/Join/js/editTaskInBoard.js" defer></script>
+    <script src="/Join/js/w3IncludeHtml.js" defer></script>
+    <script src="/Join/js/storage.js" defer></script>
+    <script src="/Join/js/main.js" defer></script>
+    <script src="/Join/js/summary.js" defer></script>
+    <script src="/Join/js/boardHtmlTemplates.js" defer></script>
+    <script src="/Join/js/board.js" defer></script>
+    <script src="/Join/js/subtasksInAddTaskBoardPage.js" defer></script>
+    <script src="/Join/js/contactListAddTaskInBoardPage.js" defer></script>
+    <script src="/Join/js/contacts.js" defer></script>
+    <script src="/Join/js/addTask.js" defer></script>
+    <script src="/Join/js/popUpBigTaskInBoard.js" defer></script>
 
     <title>Add Task</title>
 
 </head>
 
-<body onload="init()">
+<body onload="searchContacts(); init()">
 
-    <div w3-include-html="/template/desktop_template.html"></div>
+    <div w3-include-html="/Join/template/desktop_template.html"></div>
 
     
 
@@ -56,7 +50,7 @@
             <div class="addTaskLittle addTaskBig">
                 <div class="titlePositionLittle">
                     <h1>Add Task</h1>
-                    <!-- <img src="/img/close-icon-board-addtask.svg" class="closeEditTask" onclick="closeAddTaskForm()"> -->
+                    <!-- <img src="/Join/img/close-icon-board-addtask.svg" class="closeEditTask" onclick="closeAddTaskForm()"> -->
                 </div>
         
                 <div class="formLeftAndRightFlex">
@@ -90,7 +84,11 @@
         
                         <div id="listSelectableContacts" class="listSelectableContacts" style="display: none;">
                             <ul>
-        
+                                <li class="contact-line">
+                                    <div class="initial initial-margin-small-task" style="background-color: gray;">A</div>
+                                    <span class="contact-name">Andrei</span>
+                                    <img src="/Join/img/check-button-default.svg" alt="">
+                                  </li>
                             </ul>
                         </div>
         
@@ -117,20 +115,22 @@
         
                                 <div class="prioButtons" id="urgentButton" onclick="changeButtonStyle(this)"
                                     data-color="#FF3D00" data-text-color="white"
-                                    data-img-src="/img/prio-icon-small-task-white.svg" data-priority="Urgent">
+                                    data-img-src="/Join/img/prio-icon-small-task-white.svg" data-priority="Urgent">
                                     Urgent
-                                    <img src="/img/Urgent.png">
+                                    <img src="/Join/img/Urgent.png">
                                 </div>
-                                <div class="prioButtons" id="mediumButton" onclick="changeButtonStyle(this)"
-                                    data-color="#FFA800" data-text-color="white" data-img-src="/img/prio-icon-medium-white.svg"
-                                    data-priority="Medium">
-                                    Medium
-                                    <img src="/img/Medium.png">
-                                </div>
+                                <div class="prioButtons active" id="mediumButton" onclick="changeButtonStyle(this)"
+                                data-color="#FFA800" data-text-color="white" data-img-src="/Join/img/prio-icon-medium-white.svg"
+                                style="background-color: rgb(255, 168, 0); color: white;"
+                                data-priority="Medium">
+
+                                Medium
+                                <img  src="/Join/img/prio-icon-medium-white.svg">
+                            </div>
                                 <div class="prioButtons" id="lowButton" onclick="changeButtonStyle(this)" data-color="#7AE229"
-                                    data-text-color="white" data-img-src="/img/prio-icon-low-white.svg" data-priority="Low">
+                                    data-text-color="white" data-img-src="/Join/img/prio-icon-low-white.svg" data-priority="Low">
                                     Low
-                                    <img src="/img/Low.png">
+                                    <img src="/Join/img/Low.png">
                                 </div>
                             </div>
                         </div>
@@ -157,12 +157,12 @@
                                 <div class="subtaskBox">
                                     <input onclick="openSubtasks()" class="inputTitleAddTask" id="inputFieldSubtaskId"
                                         type="text" autocomplete="off" placeholder="Add new subtask">
-                                    <img onclick="openSubtasks()" class="subtaskImage" src="/img/subtasksIcon.png">
+                                    <img onclick="openSubtasks()" class="subtaskImage" src="/Join/img/subtasksIcon.png">
         
                                     <div class="closeCheckSubstask" style="display: none;">
-                                        <img onclick="closeSubtasks()" src="/img/close-icon-subtasks.svg">
-                                        <img src="/img/divider-icon-subtasks.svg">
-                                        <img onclick="addNewSubtask()" src="/img/check-icon-subtasks.svg">
+                                        <img onclick="closeSubtasks()" src="/Join/img/close-icon-subtasks.svg">
+                                        <img src="/Join/img/divider-icon-subtasks.svg">
+                                        <img onclick="addNewSubtask()" src="/Join/img/check-icon-subtasks.svg">
                                     </div>
                                 </div>
                                 <ul id="addedSubstaskList" class="addedSubstaskList"></ul>
@@ -181,16 +181,16 @@
                         <p class="requieredField"><span>*</span>This field is required!</p>
                       <div class="buttonsFooter">
                         <button id="ClearButton" class="footerButtonClear" type="button">Clear
-                            <img src="/img/clear-icon-footer-board-addTask.svg" class="clearIconFooter">
+                            <img src="/Join/img/clear-icon-footer-board-addTask.svg" class="clearIconFooter">
         
                         </button>
 
                         <button class="footerButtonCreateTask">Create Task
-                            <img src="/img/check-icon-footer-board-addTask.svg" alt="">
+                            <img src="/Join/img/check-icon-footer-board-addTask.svg" alt="">
                         </button></div>  
 
                         <!-- <button class="footerEditTask" type="submit" style="display: none;">OK
-                            <img src="/img/check-icon-footer-board-addTask.svg" alt="">
+                            <img src="/Join/img/check-icon-footer-board-addTask.svg" alt="">
                         </button> -->
         
         
@@ -198,6 +198,7 @@
                 </div>
             </div>
         </form>
+        <div id="addNewTaskMessage"></div>
 
        
 </div>

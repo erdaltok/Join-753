@@ -4,7 +4,8 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    overflow: hidden;
+    
 
 }
 
@@ -24,7 +25,7 @@ body {
     margin: auto;
     display: flex;
     padding-left: 348px;
-    position: fixed;
+    position: relative;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10000000149011612);
     align-items: center;
     z-index: 10;
@@ -78,7 +79,6 @@ body {
 .menu {
     display: flex;
     flex-direction: column;
-    margin-top: 100px;
     margin-right: 8px;
     background-color: #2a3647;
     border-radius: 20px 0px 20px 20px;
@@ -97,7 +97,7 @@ body {
 
 a {
     text-decoration: none;
-    color: #cdcdcd;
+    color: #0edbc8a6;
 }
 
 .user-initials {
@@ -225,17 +225,16 @@ a {
     }
 
     #LogoImage {
-        content: url('/img/LogoWhite1.svg');
+        content: url('/Join/img/LogoWhite1.svg');
         position: absolute;
         width: 50px;
-        margin-left: -297px;
-        margin-right: 100px;
+        
     }
 
     .user-help {
         display: none;
     }
-   
+
 
     .header-user-help {
         margin-left: 140px;
@@ -268,12 +267,12 @@ a {
     .desktop-navbar-menu {
         gap: 64px;
         flex-direction: row;
-        justify-content: flex-start;
+        justify-content: center;
         position: absolute;
         height: 400px;
         align-items: center;
         height: 93px;
-    margin-top: 156px;
+        margin-top: 156px;
     }
 
     .desktop-navbar-menu a {
@@ -314,17 +313,77 @@ a {
 
     .user-profil-box {
         height: 34px;
+        right: 414px;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column;
         
+        margin-right: 8px;
+        background-color: #2a3647;
+        border-radius: 20px 0px 20px 20px;
+        padding: 30px 16px 0px 16px;
+        gap: 30px;
+        text-align: center;
+        height: 158px;
+        width: 150px;
+        font-family: inter;
+        font-size: 16px;
+        font-weight: 400;
+        position: fixed;
+        margin-top: 0px;
+        z-index: 999;
     }
 }
 
 @media (max-width: 550px) {
+    
+  
+   
+
+    #LogoImage {
+        content: url(/Join/img/LogoWhite1.svg);
+        position: absolute;
+        width: 42px;
+    left: 40px;
+    }
+    
+    
+    .desktop-header {
+        height: 10vh;
+        min-height: 96px;
+        max-height: 96px;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        display: flex;
+        position: relative;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10000000149011612);
+        align-items: center;
+        z-index: 10;
+        justify-content: revert-layer;
+        background-color: rgba(255, 255, 255, 1);
+        
+    }
+
+
+    
+    .user-profil-box {
+        height: 34px;
+        
+        right: 38px;
+        position: absolute;
+        top: 34px;
+    }
+    
     .menu-links {
         margin-inline-start: -34px;
     }
 
     .desktop-navbar-menu {
-        margin-left: 50px;
+        margin-left: 40px;
+        justify-content: center;
     }
 }
 
@@ -335,23 +394,26 @@ a {
     }
 
     .desktop-navbar-menu {
-        margin-left: 96px;
-        gap: 40px;
+        margin-left: 60px;
+        gap: 65px;
         height: 93px;
-    margin-top: 156px;
+        margin-top: 156px;
     }
+
+
 }
 
-@media (max-width: 320px) {
+
+
+@media (max-width: 300x)  {
     .user-profil-box {
         height: 36px;
         right: 277px;
-      }
+        }
 
-      #LogoImage {
-        content: url('/img/LogoWhite1.svg');
+    #LogoImage {
+        content: url('/Join/img/LogoWhite1.svg');
         position: absolute;
         width: 35px;
-      }
+    }
 }
-

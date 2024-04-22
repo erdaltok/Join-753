@@ -1,12 +1,17 @@
 body{
+  overflow: auto;
 
 }
 
+
+
+
 .privacyContent {
-    width: 1400px;
-    margin-left: 300px;
+    width: 70vw;
+
+    margin-left: 243px;
     height: 100vh;
-    margin-top: 150px;
+    margin-top: 50px;
 }
 
 .privacyContent h1 {
@@ -30,7 +35,7 @@ body{
     }
 
     .privacyContent {
-        width: 756px;
+        width: 75vw;
         margin-left: 147px;
         height: 100vh;
         margin-top: 150px;
@@ -46,10 +51,11 @@ body{
    
 
     .privacyContent {
-        width: 538px;
+        width: 85vw;
         margin-left: 12px;
         height: 100vh;
-        margin-top: 150px;
+        margin-top: 30px;
+        word-break: break-word;
       }
       .legalContent span {
        
@@ -63,10 +69,10 @@ body{
 
     .privacyContent {
         
-        width: 267px;
+        width: 75vw;
         margin-left: 12px;
         height: 100vh;
-        margin-top: 150px;
+        margin-top: 50px;
       }
 
       .privacyContent p {

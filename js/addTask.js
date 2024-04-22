@@ -4,6 +4,7 @@
  * @param {string} status - The initial status of the new task (default: "todo").
  */
 function addNewTaskBoard(status = "todo") {
+  searchContacts();
   newTaskStatus = status;
   let popup = document.querySelector(".addTaskFormPopUp");
   if (popup) {
@@ -185,12 +186,6 @@ function resetTaskForm() {
   updateAddedContactsDisplay();
   resetSelectedContacts();
 }
-
-
-
-
-
-
 /**
  * Displays a message indicating a new task has been added to the board.
  */
@@ -198,7 +193,7 @@ function newTaskAddedMessage() {
   let messageBox = document.getElementById("addNewTaskMessage");
   messageBox.innerHTML = `
         <span>Task added to board</span>
-        <img src="/img/board-icon-tasl-added-message.svg" alt="" style="margin-left: 10px;">
+        <img src="/img/board-icon-task-added-message.svg" alt="" style="margin-left: 10px;">
     `;
   messageBox.style.display = "flex";
 
@@ -226,45 +221,38 @@ function handleFormSubmitFromAddTask(event) {
   createNewTaskOrUpdateExistingTask();
   fromAddTask = false;
 }
-
-function searchContacts() {
+/**
+ * Searches contacts based on the entered search text and renders the filtered contacts.
+ */
+async function searchContacts(){
+  try { const loadedContacts = await getItem("contacts");
+    if (!loadedContacts) { contactsLocal = [];return;}
+    contactsLocal = Array.isArray(loadedContacts) ? loadedContacts : JSON.parse(loadedContacts);} catch (error) {console.error("Fehler beim Laden der Tasks:", error);}
   const searchText = document
     .getElementById("idTitleSelectContactsAddTask")
     .value.toLowerCase();
-  const contacts = JSON.parse(localStorage.getItem("contacts")) || {
-    names: [],
-    emails: [],
-    phones: [],
-  };
-
-  const filteredContacts = contacts.names.filter((name) =>
-    name.toLowerCase().includes(searchText)
-  );
-
+  let names = [];
+  for(i=0; i< contactsLocal.length;i++)
+  {names.push(contactsLocal[i].nameKey);}
+  const filteredContacts = names.filter((name) => name.toLowerCase().includes(searchText));
   renderFilteredContacts(filteredContacts);
 }
-
+/**
+ * Renders the filtered contact names by populating the contact list with matching contacts.
+ * @param {string[]} filteredContactNames - An array of filtered contact names.
+ */
 function renderFilteredContacts(filteredContactNames) {
-  const listSelectableContacts = document.getElementById(
-    "listSelectableContacts"
-  );
+  const listSelectableContacts = document.getElementById("listSelectableContacts");
   const ulElement = listSelectableContacts.querySelector("ul");
   ulElement.innerHTML = "";
-
   filteredContactNames.forEach((name) => {
     const initials = getInitials(name);
     const firstLetter = getFirstLetter(name);
     const initialColor = getLetterColor(firstLetter);
     const liElement = document.createElement("li");
     liElement.className = "contact-line";
-    liElement.innerHTML = loadContactsForFormHtmlTemplate(
-      name,
-      initials,
-      initialColor
-    );
-    ulElement.appendChild(liElement);
-  });
-
+    liElement.innerHTML = loadContactsForFormHtmlTemplate(name, initials, initialColor);
+    ulElement.appendChild(liElement);});
   addEventListenersToContactLines();
 }
 

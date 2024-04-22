@@ -26,14 +26,11 @@ function moveTo(columnId) {
   if (draggedItemId) {
     const item = document.getElementById(draggedItemId);
     document.getElementById(columnId).appendChild(item);
-
     const task = tasks.find(
-      (t) => t.id.toString() === draggedItemId.toString()
-    );
+      (t) => t.id.toString() === draggedItemId.toString());
     if (task) {
       task.status = columnId;
-      saveTasksToStorage();
-    }
+      saveTasksToStorage();}
     draggedItemId = null;
     clearHighlights();
   }
@@ -70,8 +67,7 @@ function searchTask() {
   const filteredTasks = tasks.filter(
     (task) =>
       task.title.toLowerCase().includes(searchText) ||
-      task.description.toLowerCase().includes(searchText)
-  );
+      task.description.toLowerCase().includes(searchText));
   renderFilteredTasks(filteredTasks);
 }
 
@@ -79,12 +75,10 @@ function searchTask() {
  * Renders tasks that match the search filter.
  * @param {Array} filteredTasks - Array of tasks that match the search criteria.
  */
-
 function renderFilteredTasks(filteredTasks) {
   ["todo", "inProgress", "awaitFeedback", "done"].forEach((columnId) => {
     document.getElementById(columnId).innerHTML = "";
   });
-
   filteredTasks.forEach((task) => {
     const columnId = task.status || "todo";
     addTaskToBoard(task, columnId);
@@ -99,15 +93,19 @@ document.addEventListener("DOMContentLoaded", function () {
       column.addEventListener("drop", clearHighlights);
     }
   });
-
+/**
+ * Changes the image source to a blue plus icon on mouseover.
+ */
   const imageElements = document.querySelectorAll(".changeableImage");
   imageElements.forEach((imageElement) => {
     imageElement.addEventListener("mouseover", function () {
-      this.src = "/img/plus-icon-board-column-blue.svg";
+      this.src = "/Join/img/plus-icon-board-column-blue.svg";
     });
-
+/**
+ * Changes the image source back to the default plus icon on mouseout.
+ */
     imageElement.addEventListener("mouseout", function () {
-      this.src = "/img/plus-icon-board-column.svg";
+      this.src = "/Join/img/plus-icon-board-column.svg";
     });
   });
 });

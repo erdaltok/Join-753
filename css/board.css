@@ -1,10 +1,21 @@
+html{
+    scroll-behavior: smooth;
+}
+
+
+body {
+    display: block;
+    overflow: scroll;
+    max-width: 100%;
+}
+
 .board-main {
     margin-left: 260px;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     position: absolute;
-    margin-top: 150px;
+    margin-top: 30px;
     width: 72%;
 }
 
@@ -20,7 +31,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: -44px 88px 40px 0px;
+    margin: -29px 88px 40px 0px;
     width: 100%;
 }
 
@@ -113,6 +124,7 @@
     grid-template-rows: 1fr;
     grid-column-gap: 24px;
     grid-row-gap: 0px;
+    width: 100%;
     /* background: ;    <------ Warrum war dieses feld leer, soll etwas hier geschrieben sein         */
 }
 
@@ -120,7 +132,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15.5px;
+    margin-bottom: 34.5px;
+    position: absolute;
 }
 
 .column-title span {
@@ -129,6 +142,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: 120%;
+    margin-left: 10px;
 }
 
 .column-title img {
@@ -142,6 +156,7 @@
     align-items: center;
     gap: 10px;
     flex-shrink: 0;
+    margin-left: 25px;
 }
 
 .column-title img:hover {
@@ -190,15 +205,25 @@
     gap: 16px;
     flex: 1 0 0;
     align-self: stretch;
+    overflow: auto;
+    margin-bottom: 8px;
 }
 
 .drag-area {
-    min-height: 1000px;
     margin-bottom: 50px;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     gap: 16px;
+    margin-top: 47px;
+    scrollbar-width: none;
+    overflow-y: scroll;
+    height: 62vh;
+  
+}
+
+.drag-area::-webkit-scrollbar {
+    display: none;
 }
 
 .highlight {
@@ -219,7 +244,7 @@
 
 @media (max-width: 1550px) {
     .board-columns {
-        display: block;
+       
     }
 
     .todo-column,
@@ -231,10 +256,13 @@
     }
 
     .drag-area {
-        min-height: 0;
+        
         display: flex;
         align-items: flex-start;
-        flex-direction: row;
+        flex-direction: column;
+        overflow-y: scroll;
+    height: 60vh;
+    
     }
 }
 
@@ -394,6 +422,29 @@
         width: 227px;
         height: 230px;
     }
+
+    .moveTaskToAnotherCategory
+    {
+        width:85%;
+        height:20px;
+        border:solid 2px;
+        border-radius:20px;
+        padding:10px;
+        text-align:center;
+        transition: max-height 5s ease;
+    }
+
+    .moveToDivs
+    {
+        width:85%;
+        height:20px;
+        border:solid 2px;
+        border-radius:20px;
+        padding:12px;
+        text-align:center;
+        position:relative;
+        transition: height cubic-bezier(0.455, 0.03, 0.515, 0.955) ease;
+    }
 }
 
 @media (max-width: 600px) and (min-width: 551px) {
@@ -492,10 +543,28 @@
         height: 230px;
     }
 
-    #spacer{
-        width: 100px;
-        height: 170px;
+    .moveTaskToAnotherCategory
+    {
+        width:85%;
+        height:20px;
+        border:solid 2px;
+        border-radius:20px;
+        padding:10px;
+        text-align:center;
     }
+
+    .moveToDivs
+    {
+        width:85%;
+        height:20px;
+        border:solid 2px;
+        border-radius:20px;
+        padding:12px;
+        text-align:center;
+        position:relative;
+    }
+
+   
 }
 @media (max-width: 550px) and (min-width: 451px) {
     .board-heading h1 {
@@ -593,13 +662,52 @@
         height: 230px;
     }
 
-    #spacer{
-        width: 100px;
-        height: 170px;
+    .moveToDivs
+    {
+        width:85%;
+        height:20px;
+        border:solid 2px;
+        border-radius:20px;
+        padding:12px;
+        text-align:center;
+        position:relative;
+    }
+
+   
+
+    .moveTaskToAnotherCategory
+    {
+        width:85%;
+        height:20px;
+        border:solid 2px;
+        border-radius:20px;
+        padding:10px;
+        text-align:center;
     }
 }
 
 @media (max-width: 450px) and (min-width: 280px) {
+    .board-heading {
+        margin: 0px 88px 40px 0px; 
+      }
+   
+    .search-box input {
+       
+        width: 100%;
+      }
+   
+    .drag-area {
+       margin-top: 50px;
+        flex-direction: row;
+      }
+    
+    .board-columns {
+        display: block;
+        
+        height: 306px;
+        width: 100%;
+    }
+    
     .board-heading h1 {
         color: #000;
         font-size: 40px;
@@ -652,13 +760,17 @@
     }
     
     .board-main {
-        margin-left: 11px;
+        margin-left: 0px;
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
-        position: absolute;
-        margin-top: 150px;
-        width: 72%;
+        position: relative;
+        margin-top: 0px;
+        
+        width: 100%;
+        height: 76vh;
+        overflow-x: hidden;
+       
     }
     .todo-column,
     .progress-column,
@@ -666,9 +778,10 @@
     .done-column {
         overflow: auto;
     
-        width: 268px;
+        width: 100%;
         margin-top: 10px;
         margin-bottom: 37px;
+        height: 45vh;
     }
 
     .column-title img {
@@ -683,10 +796,10 @@
         align-items: revert;
         gap: 10px;
         flex-shrink: 0;
-        /* right: 371px; */
+        
         position: relative;
         top: 1px;
-        right: 309px;
+        left: 137px;
         overflow: auto;
     }
 
@@ -700,8 +813,27 @@
         height: 230px;
     }
 
-    #spacer{
-        width: 100px;
-        height: 170px;
+    
+
+    .moveToDivs
+    {
+        width:85%;
+        height:20px;
+        border:solid 2px;
+        border-radius:20px;
+        padding:12px;
+        text-align:center;
+        position:relative;
     }
+    
+    .moveTaskToAnotherCategory
+    {
+        width:85%;
+        height:20px;
+        border:solid 2px;
+        border-radius:20px;
+        padding:10px;
+        text-align:center;
+    }
+    
 }

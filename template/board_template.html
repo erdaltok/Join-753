@@ -5,32 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Board</title>
-    <link rel="icon" href="/img/logo1.png">
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/fonts.css">
-    <link rel="stylesheet" href="/css/desktop_template.css">
-    <link rel="stylesheet" href="/css/board.css">
-    <link rel="stylesheet" href="/css/addTaskInBoardPage.css">
-    <link rel="stylesheet" href="/css/popUpBigTaskInBoardPage.css">
-    <link rel="stylesheet" href="/css/taskSmallBoxInBoardPage.css">
-    <link rel="stylesheet" href="/css/editTaskPopUpInBoard.css">
-    <link rel="stylesheet" href="/css/contacts.css">
-   
-    <!-- <link rel="stylesheet" href="/css/addTask.css"> -->
+    <link rel="icon" href="/Join/img/logo1.png">
+    <link rel="stylesheet" href="/Join/style.css">
+    <link rel="stylesheet" href="/Join/fonts.css">
+    <link rel="stylesheet" href="/Join/css/desktop_template.css">
+    <link rel="stylesheet" href="/Join/css/board.css">
+    <link rel="stylesheet" href="/Join/css/addTaskInBoardPage.css">
+    <link rel="stylesheet" href="/Join/css/popUpBigTaskInBoardPage.css">
+    <link rel="stylesheet" href="/Join/css/taskSmallBoxInBoardPage.css">
+    <link rel="stylesheet" href="/Join/css/editTaskPopUpInBoard.css">
+    <link rel="stylesheet" href="/Join/css/contacts.css">
+    
+    <!-- <link rel="stylesheet" href="/Join/css/addTask.css"> -->
 
 
-    <script src="/js/storage.js" defer></script>
-    <script src="/js/main.js" defer></script>
-    <script src="/js/summary.js" defer></script>
-    <script src="/js/boardHtmlTemplates.js" defer></script>
-    <script src="/js/w3IncludeHtml.js" defer></script>
-    <script src="/js/board.js" defer></script>
-    <script src="/js/popUpBigTaskInBoard.js" defer></script>
-    <script src="/js/subtasksInAddTaskBoardPage.js" defer></script>
-    <script src="/js/contactListAddTaskInBoardPage.js" defer></script>
-    <script src="/js/contacts.js" defer></script>
-    <script src="/js/editTaskInBoard.js" defer></script>
-    <script src="/js/addTask.js" defer></script>
+    <script src="/Join/js/storage.js" defer></script>
+    <script src="/Join/js/main.js" defer></script>
+    <script src="/Join/js/summary.js" defer></script>
+    <script src="/Join/js/boardHtmlTemplates.js" defer></script>
+    <script src="/Join/js/w3IncludeHtml.js" defer></script>
+    <script src="/Join/js/board.js" defer></script>
+    <script src="/Join/js/popUpBigTaskInBoard.js" defer></script>
+    <script src="/Join/js/subtasksInAddTaskBoardPage.js" defer></script>
+    <script src="/Join/js/contactListAddTaskInBoardPage.js" defer></script>
+    <script src="/Join/js/contacts.js" defer></script>
+    <script src="/Join/js/editTaskInBoard.js" defer></script>
+    <script src="/Join/js/addTask.js" defer></script>
 
     
     
@@ -41,7 +41,7 @@
    
     
 
-    <div w3-include-html="/template/desktop_template.html" ></div>
+    <div w3-include-html="/Join/template/desktop_template.html" ></div>
 
         <div id="mainBoard" class="board-main">
 
@@ -57,14 +57,14 @@
                     <div class="search-box">
                         <input placeholder="Find Task" id="search-Task" onkeyup="searchTask()" type="text">
                         <div class="search-btn">
-                            <img src="/img/separator-gray.svg" alt="">
-                            <img class="search-svg" src="/img/search.svg" alt="">
+                            <img src="/Join/img/separator-gray.svg" alt="">
+                            <img class="search-svg" src="/Join/img/search.svg" alt="">
                         </div>
                     </div>
 
                     <button class="addTask-btn" onclick="addNewTaskBoard('todo')">
                         <span>Add Task</span>
-                        <img src="/img/add-icon-board.svg" alt="">
+                        <img src="/Join/img/add-icon-board.svg" alt="">
                     </button>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                 <div class="todo-column">
                     <div class="column-title">
                         <span>To do</span>
-                        <img src="/img/plus-icon-board-column.svg" class="changeableImage" onclick="addNewTaskBoard('todo')">
+                        <img src="/Join/img/plus-icon-board-column.svg" class="changeableImage" onclick="addNewTaskBoard('todo')">
                     </div>
 
                     <div class="column-content drag-area" id="todo" ondrop="moveTo('todo')"
@@ -90,7 +90,7 @@
                 <div class="progress-column">
                     <div class="column-title">
                         <span>In progress</span>
-                        <img src="/img/plus-icon-board-column.svg" class="changeableImage" onclick="addNewTaskBoard('inProgress')">
+                        <img src="/Join/img/plus-icon-board-column.svg" class="changeableImage" onclick="addNewTaskBoard('inProgress')">
                     </div>
 
                     <div class="column-content drag-area" id="inProgress" ondrop="moveTo('inProgress')"
@@ -106,7 +106,7 @@
                 <div class="feedback-column">
                     <div class="column-title">
                         <span>Await feedback</span>
-                        <img src="/img/plus-icon-board-column.svg" class="changeableImage" onclick="addNewTaskBoard('awaitFeedback')">
+                        <img src="/Join/img/plus-icon-board-column.svg" class="changeableImage" onclick="addNewTaskBoard('awaitFeedback')">
                     </div>
 
                     <div class="column-content drag-area" id="awaitFeedback" ondrop="moveTo('awaitFeedback')"

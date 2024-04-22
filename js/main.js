@@ -20,14 +20,12 @@ async function initPage() {
     console.error("Fehler beim Initialisieren der Seite:", error);
   }
 }
-
 /** 
  * Saves the current state of tasks to storage.
  */
 async function saveTasksToStorage() {
   await setItem("tasks", tasks);
 }
-
 /** 
  * Loads tasks from storage and updates the task list.
  */
@@ -36,39 +34,91 @@ async function loadTasksFromStorage() {
     const loadedTasks = await getItem("tasks");
     if (!loadedTasks) {
       tasks = [];
-      return;
-    }
+      return; }
     tasks = Array.isArray(loadedTasks) ? loadedTasks : JSON.parse(loadedTasks);
     renderTasks(); 
   } catch (error) {
     console.error("Fehler beim Laden der Tasks:", error);
   }
 }
-
 /** 
  * Renders all tasks on the board by iterating through each task status category.
  */
 function renderTasks() {
-  // console.log("Aktuelle Tasks:", tasks); // Zum Testen
   if (!document.getElementById("todo")) {
     return;
   }
-
-  ["todo", "inProgress", "awaitFeedback", "done"].forEach((columnId) => {
-    document.getElementById(columnId).innerHTML = "";
+  clearColumns();
+  renderTaskBoxes();
+  attachTaskBoxListeners();
+  // Adding event listener to move task to another category
+  document.querySelectorAll(".moveTaskToAnotherCategory").forEach((box) => {
+    box.addEventListener("click", handleMoveTaskToAnotherCategory);
   });
+}
 
+function clearColumns() {
+  ["todo", "inProgress", "awaitFeedback", "done"].forEach((columnId) => {
+    const column = document.getElementById(columnId);
+    if (column) {
+      column.innerHTML = "";
+    }
+  });
+}
+
+
+function renderTaskBoxes() {
   tasks.forEach((task) => {
     const columnId = task.status || "todo";
     addTaskToBoard(task, columnId);
   });
+}
 
+function attachTaskBoxListeners() {
   document.querySelectorAll(".task-small-box").forEach((box) => {
-    box.addEventListener("click", function () {
+    box.addEventListener("click", function (event) {
+      event.stopPropagation();
       const taskId = this.id;
+      // Handle task box click logic here
+      // For now, we can log the taskId
       showBigTaskBox(taskId);
+      console.log("Task box clicked:", taskId);
     });
   });
+}
+
+// Function to render task options for different categories
+function renderTaskOptions(tasks, index, trueID, renderFunction) {
+  renderFunction(tasks, index, trueID);
+}
+
+// Function to handle click event for moving task to different category
+function handleMoveTaskToAnotherCategory(event) {
+  event.stopPropagation();
+  const trueID = this.id.slice(4);
+  let index = tasks.findIndex(task => task.id == trueID);
+  if (index === -1) { console.log("Task not found!"); return; }
+  renderTaskOptions(tasks, index, trueID, renderToDoTaskOptions);
+  renderTaskOptions(tasks, index, trueID, renderInProgressTaskOptions);
+  renderTaskOptions(tasks, index, trueID, renderAwaitFeedbackTaskOptions);
+  renderTaskOptions(tasks, index, trueID, renderDoneTaskOptions);
+  document.querySelectorAll(".moveToDivs").forEach((box) => {
+    box.addEventListener("click", handleMoveToDivs);
+  });
+}
+
+// Function to handle click event for moving task to a specific category
+function handleMoveToDivs(event) {
+  event.stopPropagation();
+  event.preventDefault();
+  let trueID = this.id.slice(2);
+  let index = tasks.findIndex(task => task.id == trueID);
+  if (index === -1) {
+    console.log("Task not found!");
+    return;
+  }
+  updateTaskStatus(this.id, tasks[index]);
+  renderTasks();
 }
 
 /** 
@@ -93,7 +143,6 @@ function getActivePriority() {
   const activeButton = document.querySelector(".prioButtons.active");
   return activeButton ? activeButton.getAttribute("data-priority") : "Standard";
 }
-
 /** 
  * Generates HTML badges for assigned contacts.
  * @returns {Array} An array of HTML strings representing contact badges.
@@ -104,13 +153,9 @@ function getAssignedContactsBadges() {
     const initials = getInitials(name);
     const firstLetter = getFirstLetter(name);
     const initialColor = getLetterColor(firstLetter);
-    return {
-      badgeHtml: `<div class="initial" style="background-color: ${initialColor};">${initials}</div>`,
-      name,
-    };
+    return { badgeHtml: `<div class="initial" style="background-color: ${initialColor};">${initials}</div>`, name, };
   });
 }
-
 /** 
  * Collects subtasks from the subtask list element.
  * @returns {Array} An array of subtask objects.
@@ -127,8 +172,7 @@ function getSubtasks() {
   return subtasks;
 }
 
-/** 
- * Adds a task to a specific column on the board.
+/** * Adds a task to a specific column on the board.
  * @param {Object} task The task object to be added.
  * @param {string} columnId The ID of the column where the task should be added.
  */
@@ -164,15 +208,11 @@ function isCategorySelected() {
   const categorySelect = document.getElementById("idSelectCategoryAddTask");
   const selectedCategory = categorySelect.value;
   const warningDiv = categorySelect.nextElementSibling;
-
-  if (
-    selectedCategory === "Technical Task" ||
-    selectedCategory === "User Story"
-  ) {
+  if ( selectedCategory === "Technical Task" ||
+    selectedCategory === "User Story") {
     categorySelect.style.borderColor = ""; 
     warningDiv.style.display = "none";
-    return true;
-  } else {
+    return true;} else {
     categorySelect.style.borderColor = "red";
     warningDiv.style.display = "block";
     return false;
@@ -194,7 +234,6 @@ function getCategoryBackgroundColor(category) {
       return "#StandardFarbcode";
   }
 }
-
 /** 
  * Changes the style of a selected priority button.
  * @param {HTMLElement} selectedButton The button element to change the style of.
@@ -230,9 +269,7 @@ function resetButtonStyle(button) {
   button.querySelector("img").src = originalImgSrc;
 }
 
-/** 
- * Resets the style of all priority buttons to their default state.
- */
+/** * Resets the style of all priority buttons to their default state.*/
 function resetAllButtons() {
   document.querySelectorAll(".prioButtons").forEach(resetButtonStyle);
 }
@@ -247,7 +284,6 @@ function SelectedButtonStyle(button) {
   button.style.color = button.getAttribute("data-text-color");
   button.querySelector("img").src = button.getAttribute("data-img-src");
 }
-
 /** 
  * Gets the default image source for a given priority button ID.
  * @param {string} buttonId The ID of the priority button.
@@ -256,19 +292,16 @@ function SelectedButtonStyle(button) {
 function getDefaultImageSrc(buttonId) {
   switch (buttonId) {
     case "urgentButton":
-      return "/img/Urgent.png";
+      return "/Join/img/Urgent.png";
     case "mediumButton":
-      return "/img/Medium.png";
+      return "/Join/img/Medium.png";
     case "lowButton":
-      return "/img/Low.png";
+      return "/Join/img/Low.png";
     default:
       return "";
   }
 }
-
-/** 
- * Updates the display of added contacts in the task form.
- */
+/*** Updates the display of added contacts in the task form.*/
 function updateAddedContactsDisplay() {
   const addedContactsContainer = document.getElementById(
     "addedContactsProfilBadges"
@@ -277,26 +310,20 @@ function updateAddedContactsDisplay() {
     addedContactsContainer.innerHTML = ""; 
   }
 }
-
-/** 
- * Resets the selected contacts to their default state.
- */
+/** * Resets the selected contacts to their default state.*/
 function resetSelectedContacts() {
   selectedContacts.forEach((contactLine) => {
     contactLine.style.backgroundColor = "";
     contactLine.querySelector(".contact-name").style.color = "";
     const imgElement = contactLine.querySelector("img");
-    imgElement.src = "/img/check-button-default.svg";
+    imgElement.src = "/Join/img/check-button-default.svg";
     contactLine.classList.remove("selected");
   });
 
   selectedContacts = [];
   loadContactsForForm();
 }
-
-/** 
- * Sets up event listeners for the clear button in the task form.
- */
+/** * Sets up event listeners for the clear button in the task form.*/
 document.addEventListener("DOMContentLoaded", function () {
   const clearButton = document.querySelector(".footerButtonClear");
   if (clearButton) {
@@ -305,25 +332,139 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-
 document.addEventListener("DOMContentLoaded", function () {
   const clearButtons = document.querySelectorAll(".footerButtonClear");
   clearButtons.forEach((button) => {
     button.addEventListener("mouseover", function () {
       const icon = this.querySelector(".clearIconFooter");
       if (icon) {
-        icon.src = "/img/clear-icon-footer-board-addTask-blue.svg";
-      }
-    });
-
+        icon.src = "/Join/img/clear-icon-footer-board-addTask-blue.svg";
+      } });
     button.addEventListener("mouseout", function () {
       const icon = this.querySelector(".clearIconFooter");
-      if (icon) {
-        icon.src = "/img/clear-icon-footer-board-addTask.svg";
-      }
+      if (icon) { icon.src = "/Join/img/clear-icon-footer-board-addTask.svg"; }
     });
   });  
 });
+/**
+ * Updates the status of a task based on its ID prefix and saves the changes to storage.
+ * @param {string} id - The ID of the task to update.
+ * @param {Array} tasks - The array of tasks to update.
+ */
+function updateTaskStatus(id, tasks) {
+   // Check the prefix of the task ID and update its status accordingly
+  if (id.slice(0, 2) === "TD") {
+      tasks.status = "todo";
+  } else if (id.slice(0, 2) === "IP") {
+      tasks.status = "inProgress";
+  } else if (id.slice(0, 2) === "AF") {
+      tasks.status = "awaitFeedback";
+  } else if (id.slice(0, 2) === "DN") {
+      tasks.status = "done";
+  }
+  saveTasksToStorage();
+}
+/**
+ * Renders options for moving a task that is already marked as done.
+ * @param {Array} tasks - The array of tasks.
+ * @param {number} i - The index of the task to render options for.
+ * @param {string} trueID - The ID of the container element where options will be rendered.
+ */
+function renderDoneTaskOptions(tasks, i, trueID) {
+    /**
+     * If the task status is "done", renders options for moving the task back to different statuses.
+     * @param {string} tasks[i].status - The status of the task.
+     * @param {string} tasks[i].id - The ID of the task.
+     */
+  if (tasks[i].status === "done") {
+      document.getElementById(trueID).innerHTML =
+          '<div id="TD'+tasks[i].id+'" class="moveToDivs">To Do</div>'+
+          '<div id="IP'+tasks[i].id+'" class="moveToDivs">In progress</div>'+
+          '<div id="AF'+tasks[i].id+'" class="moveToDivs">Await feedback</div>'+
+          '<div id="CN'+tasks[i].id+'" class="moveToDivs" style="background-color:red;color:white;">Cancel</div>';
+  }
+}
+/**
+ * Renders options for moving a task that is awaiting feedback.
+ * @param {Array} tasks - The array of tasks.
+ * @param {number} i - The index of the task to render options for.
+ * @param {string} trueID - The ID of the container element where options will be rendered.
+ */
+function renderAwaitFeedbackTaskOptions(tasks, i, trueID) {
+  /**
+     * If the task status is "awaitFeedback", renders options for moving the task to different statuses.
+     * @param {string} tasks[i].status - The status of the task.
+     * @param {string} tasks[i].id - The ID of the task.
+     */
+  if (tasks[i].status === "awaitFeedback") {
+      document.getElementById(trueID).innerHTML =
+          '<div id="TD'+tasks[i].id+'" class="moveToDivs">To Do</div>'+
+          '<div id="IP'+tasks[i].id+'" class="moveToDivs">In Progress</div>'+
+          '<div id="DN'+tasks[i].id+'" class="moveToDivs">Done</div>'+
+          '<div id="CN'+tasks[i].id+'" class="moveToDivs" style="background-color:red;color:white;">Cancel</div>';
+  }
+}
+/**
+ * Renders options for moving a task that is in progress.
+ * @param {Array} tasks - The array of tasks.
+ * @param {number} i - The index of the task to render options for.
+ * @param {string} trueID - The ID of the container element where options will be rendered.
+ */
+function renderInProgressTaskOptions(tasks, i, trueID) {
+    /**
+     * If the task status is "inProgress", renders options for moving the task to different statuses.
+     * @param {string} tasks[i].status - The status of the task.
+     * @param {string} tasks[i].id - The ID of the task.
+     */
+  if (tasks[i].status === "inProgress") {
+      document.getElementById(trueID).innerHTML =
+          '<div id="TD'+tasks[i].id+'" class="moveToDivs">To Do</div>'+
+          '<div id="AF'+tasks[i].id+'" class="moveToDivs">Await feedback</div>'+
+          '<div id="DN'+tasks[i].id+'" class="moveToDivs">Done</div>'+
+          '<div id="CN'+tasks[i].id+'" class="moveToDivs" style="background-color:red;color:white;">Cancel</div>';
+  }
+}
+/**
+ * Renders options for moving a task that is in the "To Do" status.
+ * @param {Array} tasks - The array of tasks.
+ * @param {number} i - The index of the task to render options for.
+ * @param {string} trueID - The ID of the container element where options will be rendered.
+ */
+function renderToDoTaskOptions(tasks, i, trueID) {
+   /**
+     * If the task status is "todo", renders options for moving the task to different statuses.
+     * @param {string} tasks[i].status - The status of the task.
+     * @param {string} tasks[i].id - The ID of the task.
+     */
+  if (tasks[i].status === "todo") {
+      document.getElementById(trueID).innerHTML =
+          '<div id="IP'+tasks[i].id+'" class="moveToDivs"><span>In progress</span></div>'+
+          '<div id="AF'+tasks[i].id+'" class="moveToDivs">Await feedback</div>'+
+          '<div id="DN'+tasks[i].id+'" class="moveToDivs">Done</div>'+
+          '<div id="CN'+tasks[i].id+'" class="moveToDivs" style="background-color:red;color:white;">Cancel</div>';
+  }
+}
+/**
+ * Finds the index of a task in an array of tasks by its ID.
+ * @param {string} id - The ID of the task to find.
+ * @param {Array} tasks - The array of tasks to search within.
+ * @returns {number} - The index of the task if found, otherwise -1.
+ */
+function findTaskIndexById(id, tasks) {
+   /**
+     * Iterates through the tasks array to find the index of the task with the specified ID.
+     * @param {string} tasks[i].id - The ID of the current task being checked.
+     */
+    for (let i = 0; i < tasks.length; i++) {
+        if (tasks[i].id === id) {
+            return i;
+        }
+    }
+    return -1; // Return -1 if the task with the specified id is not found
+}
+
+
+
 
 
 document.addEventListener("DOMContentLoaded", initPage);

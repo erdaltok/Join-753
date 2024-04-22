@@ -1,8 +1,15 @@
+body{
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
 .legalContent {
-    width: 1400px;
-    margin-left: 300px;
+
+    width:70%;
+    margin-left: 243px;
     height: 100vh;
-    margin-top: 150px;
+    
+    
 }
 
 .legalContent h1 {
@@ -14,8 +21,10 @@
     
 }
 .legalContent img {
-    position: fixed;
-    left: 1657px;
+  position: sticky;
+  left: 1657px;
+  top: 149px;
+  margin-top: 50px;
   
 }
 
@@ -31,10 +40,10 @@
     }
 
     .legalContent {
-        width: 756px;
+        width: 75%;
         margin-left: 147px;
         height: 100vh;
-        margin-top: 150px;
+        
       }
 
       .legalContent span {
@@ -48,10 +57,10 @@
    
 
     .legalContent {
-        width: 538px;
+        width: 95%;
         margin-left: 12px;
         height: 100vh;
-        margin-top: 150px;
+        
       }
 
       .legalContent span {
@@ -66,7 +75,7 @@
 
     .legalContent {
         
-        width: 267px;
+        width: 75%;
         margin-left: 12px;
         height: 100vh;
         margin-top: 150px;

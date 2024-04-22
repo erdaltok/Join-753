@@ -20,27 +20,14 @@ async function register() {
     const email = document.getElementById('email');
     const password = document.getElementById('password');
     const confirmPassword = document.getElementById('confirm_password');
-
-    if (password.value !== confirmPassword.value) {
-        alert('Passwörter stimmen nicht überein');
-        return;
-    }
-
+    if (password.value !== confirmPassword.value) { alert('Passwörter stimmen nicht überein'); return; }
     document.getElementById('msg_box').innerHTML = 'You Signed Up successfully';
     document.getElementById('msg_box').style.display = 'flex';
-
     document.getElementById('register_btn').disabled = true;
-    users.push({
-        name: name.value,
-        email: email.value,
-        password: password.value,
-    });
+    users.push({ name: name.value, email: email.value, password: password.value, });
     await setItem('users', JSON.stringify(users));
     resetForm();
-
-    setTimeout(function () {
-        window.location.href = '/index.html';
-    }, 3000);
+    setTimeout(function () { window.location.href = './index.html';}, 3000);
 }
 
   // Setzt die Eingabefelder des Registrierungsformulars zurück und aktiviert den Registrierungsbutton.

@@ -6,20 +6,16 @@
  */
 function showBigTaskBox(taskId) {
   currentTaskId = taskId;
-
   const task = tasks.find((t) => t.id.toString() === taskId);
   if (!task) return;
-
   const subtasksHtml = createSubtasksHtml(task.subtasks, taskId);
   const bigTaskBoxHtml = showBigTaskPopupHtmlTemplate(task, subtasksHtml);
-
   const bigTaskBoxContainer = document.getElementById("bigTaskBoxContainer");
   if (bigTaskBoxContainer) {
     bigTaskBoxContainer.innerHTML = bigTaskBoxHtml;
     animatePopupOpen();
     editBigBoxTask();    
-  }
-    document.documentElement.style.overflowY = "hidden";
+  } document.documentElement.style.overflowY = "hidden";
     document.body.style.overflowY = "hidden";
 }
 
@@ -31,7 +27,6 @@ function closeBigTaskBox() {
     saveTasksToStorage();
     renderTasks();
     resetSelectedContacts();
-    // resetTaskForm(); 
   });
   document.documentElement.style.overflowY = "auto";
   document.body.style.overflowY = "auto";
@@ -61,19 +56,12 @@ document.addEventListener("DOMContentLoaded", function () {
  */
 function deleteBigTaskBox() {
   if (currentTaskId === null) {
-    console.error("Keine Task-ID gefunden");
-    return;
-  }
-  tasks = tasks.filter(
-    (task) => task.id.toString() !== currentTaskId.toString()
-  );
+    console.error("Keine Task-ID gefunden"); return; }
+  tasks = tasks.filter( (task) => task.id.toString() !== currentTaskId.toString());
   saveTasksToStorage();
   renderTasks();
-
   const bigTaskBox = document.getElementById("BigTaskFormPopUp");
-  if (bigTaskBox) {
-    bigTaskBox.style.display = "none";
-  }
+  if (bigTaskBox) { bigTaskBox.style.display = "none";}
   currentTaskId = null;
   document.documentElement.style.overflowY = "auto";
   document.body.style.overflowY = "auto";
@@ -87,18 +75,13 @@ function deleteBigTaskBox() {
 function toggleSubtaskStatus(taskId, subtaskIndex) {
   const task = tasks.find((t) => t.id.toString() === taskId);
   if (!task || !task.subtasks[subtaskIndex]) return;
-
   task.subtasks[subtaskIndex].completed =
     !task.subtasks[subtaskIndex].completed;
-
   const subtaskElement = document.querySelector(
-    `.subtaskBigBoxContent[data-index="${subtaskIndex}"]`
-  );
-  if (subtaskElement) {
-    const imgElement = subtaskElement.querySelector("img");
-    imgElement.src = task.subtasks[subtaskIndex].completed
-      ? "/img/check-button-checked.svg"
-      : "/img/check-button-default.svg";
+    `.subtaskBigBoxContent[data-index="${subtaskIndex}"]`);
+  if (subtaskElement) { const imgElement = subtaskElement.querySelector("img");
+    imgElement.src = task.subtasks[subtaskIndex].completed ? "/Join/img/check-button-checked.svg"
+: "/Join/img/check-button-default.svg";
   }
   saveTasksToStorage();
 }
@@ -140,15 +123,11 @@ function animatePopupClose(callback) {
     if (bigTaskPopUp) {
       bigTaskPopUp.classList.remove("slide-in");
       bigTaskPopUp.classList.add("slide-out");
-
-      bigTaskPopUp.addEventListener(
-        "animationend",
+      bigTaskPopUp.addEventListener( "animationend",
         function () {
           bigTaskBox.style.display = "none";
           if (callback && typeof callback === "function") {
-            callback();
-          }
-        },
+            callback();} },
         { once: true }
       );
     }
@@ -163,32 +142,12 @@ function setupClearButtonListeners() {
   clearButtons.forEach((button) => {
     button.addEventListener("click", function () {
       resetTaskForm();
-    });
-
-    button.addEventListener("mouseover", function () {
+    }); button.addEventListener("mouseover", function () {
       const icon = this.querySelector(".clearIconFooter");
-      if (icon) {
-        icon.src = "/img/clear-icon-footer-board-addTask-blue.svg";
-      }
-    });
-
-    button.addEventListener("mouseout", function () {
+      if (icon) {  icon.src = "/Join/img/clear-icon-footer-board-addTask-blue.svg"; }
+    });  button.addEventListener("mouseout", function () {
       const icon = this.querySelector(".clearIconFooter");
-      if (icon) {
-        icon.src = "/img/clear-icon-footer-board-addTask.svg";
-      }
+      if (icon) { icon.src = "/Join/img/clear-icon-footer-board-addTask.svg";  }
     });
   });
 }
-
-/**
- * Event listener for input events on the document. Triggers contact search when the specific input field is used.
- */
-document.addEventListener("input", function (event) {
-  if (event.target && event.target.id === "idTitleSelectContactsAddTask") {
-    searchContacts();
-  }
-});
-
-
-// document.addEventListener("DOMContentLoaded", initPage);

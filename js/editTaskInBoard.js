@@ -7,15 +7,15 @@ function toggleDisplayForEdit() {
   const displayArea = document.getElementById("editTaskDisplay");
   const bigTaskBoxContainer = document.getElementById("bigTaskBoxContainer");
 
+  searchContacts();
+
   if (container && displayArea && bigTaskBoxContainer) {
     displayArea.innerHTML = generateEditTaskFormHtml();
     container.style.display = "block";
     bigTaskBoxContainer.style.display = "none";
-
     const form = document.getElementById("editTask");
     if (form) {
-      form.classList.remove("slide-in", "slide-out");
-    }
+      form.classList.remove("slide-in", "slide-out"); }
     loadContactsForForm();
     setTimeout(() => {
       const currentTask = tasks.find(
@@ -56,16 +56,13 @@ function editBigBoxTask() {
   if (editFooter) {
     editFooter.addEventListener("click", function () {
      toggleDisplayForEdit();
-
       const currentTask = tasks.find(
-        (task) => task.id.toString() === currentTaskId
-      );
+        (task) => task.id.toString() === currentTaskId );
       if (currentTask) {
         setTimeout(() => {
           showCurrentValuesFromTask(currentTask);
           updateSelectedContactsForTask(currentTask);
-        }, 0);
-      }
+        }, 0);}
       setupEditTaskButton();
     });
   }
@@ -120,18 +117,14 @@ function validateCurrentTaskId() {
 async function updateDisplayAfterEdit() {
   const editTaskBoxContainer = document.getElementById("editTaskBoxContainer");
   const bigTaskBoxContainer = document.getElementById("bigTaskBoxContainer");
-
   if (!editTaskBoxContainer || !bigTaskBoxContainer) {
     console.log("Container nicht gefunden.");
-    return;
-  }
+    return;}
   const currentTask = tasks.find(
-    (task) => task.id.toString() === currentTaskId
-  );
+    (task) => task.id.toString() === currentTaskId );
   if (!currentTask) {
     console.log("Aktualisierter Task nicht gefunden.");
-    return;
-  }
+    return; }
   // console.log("Aktualisierter Task gefunden:", currentTask);
   updateBigTaskBoxContainer(currentTask, bigTaskBoxContainer);
   toggleContainersVisibility(editTaskBoxContainer, bigTaskBoxContainer);
@@ -166,22 +159,15 @@ function toggleContainersVisibility(editContainer, bigTaskContainer) {
  */
 async function saveUpdatedTask() {
   const currentTaskIndex = tasks.findIndex(
-    (task) => task.id.toString() === currentTaskId
-  );
+    (task) => task.id.toString() === currentTaskId );
   if (currentTaskIndex === -1) {
     console.error(
-      "Task mit der ID " + currentTaskId + " wurde nicht gefunden."
-    );
+      "Task mit der ID " + currentTaskId + " wurde nicht gefunden." );
     return;
   }
   const updatedTaskData = getFormData();
   const updatedContacts = getAssignedContactsBadges();
-
-  tasks[currentTaskIndex] = {
-    ...tasks[currentTaskIndex],
-    ...updatedTaskData,
-    assignedContactsBadges: updatedContacts,
-  };
+  tasks[currentTaskIndex] = { ...tasks[currentTaskIndex], ...updatedTaskData, assignedContactsBadges: updatedContacts,};
   await saveTasksToStorage();
 }
 
@@ -191,19 +177,13 @@ async function saveUpdatedTask() {
  */
 function updateSelectedContactsForTask(task) {
   selectedContacts = [];
-
   const contactLines = document.querySelectorAll(".contact-line");
   contactLines.forEach((line) => {
     const contactName = line.querySelector(".contact-name").textContent;
-    if (
-      task.assignedContactsBadges.some(
-        (contact) => contact.name === contactName
-      )
-    ) {
-      addedContactToTask(line);
-    } else {
-      removeContactFromTask(line);
-    }
+    if ( task.assignedContactsBadges.some(
+        (contact) => contact.name === contactName)) {
+      addedContactToTask(line); } else {
+      removeContactFromTask(line);}
   });
   updateAddedContactsDisplay();
 }
@@ -228,15 +208,10 @@ function formatDueDateForInput(dateString) {
 function setActivePriorityButton(priority) {
   resetAllButtons();
   let buttonId;
-  switch (priority) {
-    case "Urgent":
-      buttonId = "urgentButton";
+  switch (priority) { case "Urgent": buttonId = "urgentButton";
       break;
-    case "Medium":
-      buttonId = "mediumButton";
-      break;
-    case "Low":
-      buttonId = "lowButton";
+    case "Medium": buttonId = "mediumButton";
+      break; case "Low": buttonId = "lowButton";
       break;
     default:
       return;
@@ -263,7 +238,6 @@ function bindCloseEditTaskButton() {
 function handleCloseEditTask() {
   const editTaskBoxContainer = document.getElementById("editTaskBoxContainer");
   const bigTaskBoxContainer = document.getElementById("bigTaskBoxContainer");
-
   if (editTaskBoxContainer && bigTaskBoxContainer) {
     editTaskBoxContainer.style.display = "none";
     bigTaskBoxContainer.style.display = "block";
@@ -278,16 +252,12 @@ function closeEditTask() {
   if (closeEditTaskButton) {
     closeEditTaskButton.addEventListener("click", function () {
       const editTaskBoxContainer = document.getElementById(
-        "editTaskBoxContainer"
-      );
+        "editTaskBoxContainer" );
       const bigTaskBoxContainer = document.getElementById(
-        "bigTaskBoxContainer"
-      );
-
+        "bigTaskBoxContainer");
       if (editTaskBoxContainer && bigTaskBoxContainer) {
         editTaskBoxContainer.style.display = "none";
-        bigTaskBoxContainer.style.display = "block";
-      }
+        bigTaskBoxContainer.style.display = "block"; }
     });
   }
 }
