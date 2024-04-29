@@ -446,7 +446,7 @@
         border-radius: 10px;
         border: 1px solid var(--version-2-main-color, #2A3647);
         margin-top: 68px;
-        top: -384px;
+        top: 1px;
         right: -170px;
         position: relative;
     }

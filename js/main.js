@@ -82,7 +82,7 @@ function attachTaskBoxListeners() {
       // Handle task box click logic here
       // For now, we can log the taskId
       showBigTaskBox(taskId);
-      console.log("Task box clicked:", taskId);
+      
     });
   });
 }

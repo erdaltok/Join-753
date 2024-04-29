@@ -193,7 +193,7 @@ function handleContactClick(clickedContact, name, email, phone) {
         element.classList.remove('clicked');}
     clickedContact.classList.add('clicked');
     selectedContact = email;
-    console.log(selectedContact);
+    
     showCard(name, email, phone);
 }
 
@@ -246,7 +246,7 @@ function newContact() {
                     <img src="/Join/img/mail.png" alt="icon" class="icon-1">
                 </div>
                 <div class="input-fields">
-                <input class="input" type="tel" pattern="[0-9]*" oninput="this.value = this.value.replace(/\D/g,'')" required required name="newPhone" placeholder="Phone number">
+                <input class="input" type="number" pattern="\d*" oninput="this.value = this.value.replace(/\D/g,'')" required required name="newPhone" placeholder="Phone number">
                     <img src="/Join/img/call.png" alt="icon" class="icon-2">
                 </div>
                 <div class="buttons">
@@ -289,8 +289,8 @@ async function createContact(event) {
     let emailInput = document.querySelector('.input-fields input[name="newEmail"]').value;
     let phoneInput = document.querySelector('.input-fields input[name="newPhone"]').value;
     let contacts = [];
-    contacts = {nameKey: makeNameFirstLeterUppercase(nameInput), emailKey: emailInput, phoneKey: phoneInput};
-    console.log(contacts);
+    contacts = {nameKey: makeNameFirstLetterUppercase(nameInput), emailKey: emailInput, phoneKey: phoneInput};
+    
     for (let i = 0; i < contactsLocal.length; i++)  { if(contactsLocal[i].emailKey == emailInput)
         { alert('This email is already used!'); return;} 
     }
@@ -298,8 +298,7 @@ async function createContact(event) {
     contactsLocal.sort((a, b) => {if (a.nameKey < b.nameKey) return -1;
         if (a.nameKey > b.nameKey) return 1; return 0;
     });
-    console.log("1");
-    console.log(contactsLocal);
+    
     saveContactsToStorage();
     selectedContact = emailInput;
     drawContactsList();
@@ -327,7 +326,7 @@ async function loadContactsFromStorage() {
     } catch (error) {
       console.error("Fehler beim Laden der Contacts:", error);
     }
-    console.log("Contacts loaded succesfully");
+    
     drawContactsList();
   }
 // Funktion zum Laden der Kontakte aus dem lokalen Speicher, alphabetisch sortieren und Anzeigen im AdvanceCard-Bereich.
@@ -368,7 +367,7 @@ function deleteContact(email)
     }
     contactsLocal.splice(i, 1);
     selectedContact = "";
-    console.log("2");
+    
     saveContactsToStorage();
     drawContactsList();
 }
@@ -388,52 +387,61 @@ function editContact(namep, emailp, phonep) {
         let initialColor = getLetterColor(firstLetter);
         let openDiv = document.getElementById('editContact');
         openDiv.style.display = 'flex';
-        openDiv.innerHTML = `
-            <div class="div-container">
-                <div class="new-card">
-                    <img src="/Join/img/icon2.png">
-                    <h1 class="new-text">Edit contact</h1>
-                    <p class="new-text-2">Tasks are better with a team</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="88" height="3" viewBox="0 0 3 3" fill="none"
-                        style="width: 88px; height: 3px;">
-                        <path d="M2 2V61" stroke="" stroke-width="" stroke-linecap="round" />
-                    </svg>
-                </div>
-                <div class=" div-input">
-                    <div class="picture-div">
-                    <div class="picture" style="background-color: ${initialColor};">
-                    <p style="color: white; font-size: 47px; font-weight: 400; line-height: 42px;">${initials}</p>
-                </div>
-                    </div>
-                    <div class="close">
-                        <img id="closeButton" onclick="closeEditContact()" src="/Join/img/close.png">
-                    </div>
-                    <form onsubmit="saveEditedContact(event,'${namep}','${emailp}','${phonep}')">
-                        <div class="div-input-fields">
-                            <div class="input-fields">
-                                <input class="input" required type="text" placeholder="Name" value="${namep}">
-                                <img src="/Join/img/person.png" alt="icon" style="width: 24; height: 24;">
-                            </div>
-                            <div class="input-fields">
-                                <input class="input" required type="email" placeholder="Email" value="${emailp}">
-                                <img src="/Join/img/mail.png" alt="icon" class="icon-1">
-                            </div>
-                            <div class="input-fields">
-                                <input class="input" required type="tel" placeholder="Phone" value="${phonep}">
-                                <img src="/Join/img/call.png" alt="icon" class="icon-2">
-                            </div>
-                            <div class="buttons">
-                                <button type="button" onclick="closeEditContact()" class="cancel-btn">Discard &#10006;</button>
-                                <button style="position: relative; right: 40px;" class="create-btn" type="submit">Save <img src="/Join/img/check.png" alt=""></button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        `;
+        openDiv.innerHTML = createEditContactHTML(namep, emailp, phonep, initials, initialColor);
     }
     updateCloseButtonImage();
     window.addEventListener('resize', updateCloseButtonImage);
+}
+
+/**
+ * Creates HTML content for editing a contact.
+ * @param {string} namep - The name of the contact.
+ * @param {string} emailp - The email of the contact.
+ * @param {string} phonep - The phone number of the contact.
+ * @param {string} initials - The initials of the contact.
+ * @param {string} initialColor - The background color for the initials.
+ * @returns {string} The HTML content for editing the contact.
+ */
+function createEditContactHTML(namep, emailp, phonep, initials, initialColor) {
+    return `
+        <div class="div-container">
+            <div class="new-card"><img src="/Join/img/icon2.png"> <h1 class="new-text">Edit contact</h1>
+                <p class="new-text-2">Tasks are better with a team</p><svg xmlns="http://www.w3.org/2000/svg" width="88" height="3" viewBox="0 0 3 3" fill="none"
+                    style="width: 88px; height: 3px;"> <path d="M2 2V61" stroke="" stroke-width="" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class=" div-input">
+                <div class="picture-div">
+                    <div class="picture" style="background-color: ${initialColor};">
+                        <p style="color: white; font-size: 47px; font-weight: 400; line-height: 42px;">${initials}</p>
+                    </div>
+                </div>
+                <div class="close">
+                    <img id="closeButton" onclick="closeEditContact()" src="/Join/img/close.png">
+                </div>
+                <form onsubmit="saveEditedContact(event,'${namep}','${emailp}','${phonep}')">
+                    <div class="div-input-fields">
+                        <div class="input-fields">
+                            <input class="input" required type="text" placeholder="Name" value="${namep}">
+                            <img src="/Join/img/person.png" alt="icon" style="width: 24; height: 24;">
+                        </div>
+                        <div class="input-fields">
+                            <input class="input" required type="email" placeholder="Email" value="${emailp}">
+                            <img src="/Join/img/mail.png" alt="icon" class="icon-1">
+                        </div>
+                        <div class="input-fields">
+                            <input oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="input" required type="number"  placeholder="Phone" value="${phonep}">
+                            <img src="/Join/img/call.png" alt="icon" class="icon-2">
+                        </div>
+                        <div class="buttons">
+                            <button type="button" onclick="closeEditContact()" class="cancel-btn">Discard &#10006;</button>
+                            <button style="position: relative; right: 40px;" class="create-btn" type="submit">Save <img src="/Join/img/check.png" alt=""></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    `;
 }
 // Funktion zum Speichern der bearbeiteten Kontaktdaten.
 function saveEditedContact(event, oldname, oldemail, oldphone) {  event.preventDefault();
@@ -506,19 +514,15 @@ function saveNewContact(newName, newEmail, newPhone) {
     });
 }
 /**
- * Capitalizes the first letter of a string.
- * @param {string} name - The input string.
- * @returns {string} - The input string with the first letter capitalized.
- */
+ * Capitalizes the first letter of a string.* @param {string} name - The input string.
+ * @returns {string} - The input string with the first letter capitalized.*/
 function makeNameFirstLetterUppercase(name) {
      // Capitalize the first letter of the input string and concatenate it with the rest of the string
-    return name.charAt(0).toUpperCase() + name.slice(1);
-}
+    return name.charAt(0).toUpperCase() + name.slice(1);}
 // Funktion zum Schließen des Formulars zum Bearbeiten eines Kontakts.
 function closeEditContact() {
     let openDiv = document.getElementById('editContact');
-    openDiv.style.display = 'none';
-}
+    openDiv.style.display = 'none';}
 // Funktion zum zeigen einer Erfolgsmeldung, die nach 2 Sekunden automatisch ausgeblendet wird.
 function created() {
     let msgBox = document.getElementById('msgBox');
@@ -526,5 +530,4 @@ function created() {
     msgBox.style.display = 'flex';
     setTimeout(function () {
         msgBox.style.display = 'none';
-    }, 2000);
-} 
+    }, 2000);} 

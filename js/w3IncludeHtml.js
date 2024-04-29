@@ -37,6 +37,7 @@ document.addEventListener('click', function (event) {
     openDiv.style.display = 'none';
     isMenuOpen = false;
   }
+  
 });
 
 /**
@@ -44,10 +45,11 @@ document.addEventListener('click', function (event) {
  * @async
  * @returns {Promise<void>} A Promise that resolves when the initialization is complete.
  */
-async function init() {
+async function init(currentPage) {
    // Include HTML content asynchronously
-  await includeHTML();
-
+  await includeHTML()
+   document.getElementById(currentPage).style.backgroundColor = 'rgba(9, 25, 49, 1)';
+  
 }
 /**
  * Includes HTML content from external files into elements with the 'w3-include-html' attribute.
@@ -69,3 +71,4 @@ async function includeHTML() {
     }
   }
 }
+

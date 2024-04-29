@@ -1,5 +1,17 @@
 
 
+.selectArrow{
+  padding-right: 30px; 
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='12' viewBox='0 0 24 24' width='10' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+        
+        background-repeat: no-repeat; 
+        background-position: right center; 
+        background-size: 20px; 
+        border: 1px solid #ccc; 
+        border-radius: 5px; 
+        padding: 5px 10px; 
+        cursor: pointer; 
+}
 .addedSubstaskList{
   max-height: 90px;
   overflow: auto;
@@ -97,7 +109,9 @@
   /* margin-left: 65.75px; */
   background: none;
   padding: 60px;
+  width: 90%;
   /* margin-right: 65.75px; */
+  height: 123vh;
 }
 
 .addTaskLeftLittle {
@@ -395,7 +409,7 @@ input {
   background: var(--white, #FFF);
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
   filter: none;
-  width: 109px;
+  width: 10%;
   height: 17px;
   color: #000;
   font-size: 20px;
@@ -409,6 +423,7 @@ input {
 .prioButtonsBox {
   gap: 16px ;
   display: flex;
+  width: 100%;
 }
 
 .prioButtons:hover {
@@ -725,7 +740,14 @@ input {
 }
 
 
-@media  (max-width: 800px)and (min-width: 301px){
+@media  (max-width: 955px)and (min-width: 301px){
+  .addTask-main {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-left: 84px;
+    margin-top: 0px;
+  }
   .addTaskLeftLittle {
     gap: 20px;
     width: 100%;
@@ -746,6 +768,7 @@ input {
     border: 1px solid var(--version-2-main-color, #2A3647);
     font-size: 16px;
     width: 100%;
+    margin-right: 56px;
 }
   
   .addTask-main {
@@ -902,7 +925,7 @@ input {
       gap: 80px;
       position: relative;
       bottom: 22px;
-      width: 84%;
+      width: 100%;
      
     }
 
@@ -911,13 +934,13 @@ input {
       flex-direction: column;
       align-items: flex-start;
       gap: 12px;
-      width: 512px;
+      width: 100%;
     }
 
     .prioButtonsBox {
       gap: 16px !important;
       display: flex;
-      width: 342px;
+      width: 80%;
     }
 
     .addedSubstaskList {
@@ -973,6 +996,7 @@ input {
   height: 76vh;
   overflow-y: scroll;
   overflow-x: hidden;
+  width: 100%;
 }
 }
 

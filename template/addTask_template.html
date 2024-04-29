@@ -36,7 +36,7 @@
 
 </head>
 
-<body onload="searchContacts(); init()">
+<body onload="searchContacts(); init('addTask')">
 
     <div w3-include-html="/Join/template/desktop_template.html"></div>
 
@@ -140,7 +140,7 @@
                                 <label for="idSelectCategoryAddTask">Category
                                     <p style="color: #FF8190;">*</p>
                                 </label>
-                                <select id="idSelectCategoryAddTask" class="selectContainerOv selectArrow" name="category"
+                                <select type="text" id="idSelectCategoryAddTask" class="selectContainerOv selectArrow" name="category"
                                     required="">
                                     <option disabled selected="" hidden="">Select task category</option>
                                     <option value="Technical Task">Technical Task</option>

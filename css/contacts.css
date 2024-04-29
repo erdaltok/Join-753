@@ -51,6 +51,7 @@ body {
     padding: 15px;
     border: none;
     left: 281px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
 
 .add-contacts-btn:hover {
@@ -76,8 +77,8 @@ body {
     border: 2px solid white;
     box-shadow: 0 0 6px 0 rgb(0, 0, 0, 0.2);
     border-radius: 50%;
-    width: 42px;
-    height: 42px;
+    width: 27px;
+    height: 27px;
     font-family: inter;
     font-size: 12px;
     font-weight: 400;
@@ -117,6 +118,7 @@ body {
 .contact.clicked {
     background-color: #2a3647;
     color: white;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
 
 .contact.clicked:hover {
@@ -131,13 +133,16 @@ body {
 .contact-view {
     display: flex;
     flex-direction: column;
-    margin-top: -47px;
+    margin-top: -100px;
     position: absolute;
     right: 0px;
     left: 673px;
     height: -webkit-fill-available;
-    
+    background-color: #ececec;
     height: 100vh;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+    margin-left: 5px;
+   
 }
 
 .contact-header {
@@ -230,10 +235,10 @@ body {
 .information {
     font-family: Inter;
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 450;
     line-height: 24px;
     position: absolute;
-    left: 86px;
+    left: 90px;
     cursor: default;
 }
 
@@ -335,8 +340,8 @@ body {
     .cardBackArrow{
         display: block ;
 position: relative;
-left: 453px;
-    top: 156px;
+left: 220px;
+    top: 110px;
     }
 
 
@@ -346,7 +351,7 @@ left: 453px;
     .contact-text {
         flex-direction: column;
         align-items: flex-start;
-        margin-left: -70px;
+        margin-left: 0px;
         margin-top: -96px;
         gap: 0px;
         line-height: 0;
@@ -362,7 +367,7 @@ left: 453px;
         margin-top: 150px;
         align-items: flex-start;
         gap: 0px;
-        margin-left: 15px;
+        margin-left: 70px;
     }
 
     .information {
@@ -388,7 +393,7 @@ left: 453px;
     }
 }
 
-@media (max-width: 955px) and (min-width: 601px) {
+@media (max-width: 955px) and (min-width: 700px) {
     .add-contacts-btn {
         
         width: 296px;
@@ -465,6 +470,7 @@ left: 453px;
         margin-top: 1px;
         height: 77vh;
         background-color: rgb(243, 243, 243);
+        margin-left: 0px;
     }
 
     .contact-text h2 {
@@ -495,7 +501,7 @@ left: 453px;
      }
 
      .information {
-        left: 15px;
+        left: 65px;
         margin-top: 13px;
         
     }
@@ -510,13 +516,14 @@ left: 453px;
 
     .cardBackArrow{
         display: none;
+    
     }
 
     .cardBackArrowMobil{
 display: block ;
 position: relative;
-left: 259px;
-    bottom: 52px;
+left: 187px;
+    bottom: 2px;
     }
 
     .initialDiv{
