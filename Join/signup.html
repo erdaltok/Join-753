@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join</title>
+    <link rel="icon" href="/Join/img/logo1.png">
+    <link rel="stylesheet" href="/Join/css/signup.css">
+    <link rel="stylesheet" href="/Join/fonts.css">
+    <script src="/Join/js/storage.js"></script>
+    <script src="/Join/js/register.js"></script>
+    <script src="/Join/js/login.js"></script>
+    <link rel="stylesheet" href="/Join/css/privacy_template_extern.css">
+
+</head>
+
+<body onload="init()">
+    
+        <div>
+            <img src="./img/logo1.png" alt="Logo" class="logo" id="logo">
+        </div>
+    
+    <div class="top-container">
+        <div class="signup-div">
+            <div class="signup-window">
+                <form onsubmit="register(); return false;">
+                    <div class="back-arrow">
+                        <a href="./index.html" style="display: flex;"><img src="./img/Vector.png" alt=""></a>
+                    </div>
+                    <div class="signup-headline">
+                        <b>Sign up</b>
+                    </div>
+                    <div class="underscore"></div>
+                    <div class="inputs">
+                        <div class="input-fields">
+                            <input class="input" required id="name" type="text" placeholder="Name">
+                            <img id="personInputImage" src="/Join/img/person.png" alt="icon" style="width: 24; height: 24;">
+                        </div>
+                        <div class="input-fields">
+                            <input class="input" required id="email" type="email" placeholder="Email">
+                            <img src="/Join/img/mail.png" alt="icon" class="icon-1">
+                        </div>
+                        <div class="input-fields">
+                            <input class="input" required id="password" type="password" placeholder="Password">
+                            <img src="/Join/img/lock.png" alt="icon" class="icon-2">
+                        </div>
+                        <div class="input-fields">
+                            <input class="input" required id="confirm_password" type="password"
+                                placeholder="Confirm Password">
+                            <img src="/Join/img/lock.png" alt="icon" class="icon-2">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="i-accept">
+                            <input required class="checkbox" type="checkbox">
+                            <span class="accept">I accept the <a class="policy" href="/Join/templates/privacy_template_extern.html"> Privacy policy</a></span>
+                        </div>
+                    </div>
+                    <div class="signup-button">
+                        <button id="register_btn" class="signup-btn">Sign up</button>
+                    </div>
+                </form>
+            </div>
+            <div id="msg_box" class="msg" ></div>
+            
+        </div>
+    </div>
+    <footer>
+                <a class="link" href="/Join/templates/privacy_template_extern.html">Privacy Policy</a>
+                <a class="link" href="/Join/templates/legal_template_extern.html">Legal Notice</a>
+            </footer>
+</body>
+
+</html>

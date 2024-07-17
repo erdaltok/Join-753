@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary</title>
+    <link rel="icon" href="/Join/img/logo1.png">
+    <link rel="stylesheet" href="/Join/style.css">
+    <link rel="stylesheet" href="/Join/fonts.css">
+    <link rel="stylesheet" href="/Join/css/desktop_template.css">
+    <link rel="stylesheet" href="/Join/css/summary.css">
+    <link rel="stylesheet" href="/Join/css/contacts.css">
+
+    <script src="/Join/js/storage.js" defer></script>
+    <script src="/Join/js/main.js" defer></script>
+    <script src="/Join/js/summary.js" defer></script>
+    <script src="/Join/js/boardHtmlTemplates.js" defer></script>
+    <script src="/Join/js/board.js" defer></script>
+    <script src="/Join/js/w3IncludeHtml.js" defer></script>
+    <!-- <script src="/js/addTask.js" defer></script> -->
+
+  
+    
+    
+</head>
+<body onload="init('summary')">
+    
+<div w3-include-html="/Join/template/desktop_template.html"></div>
+
+<div id="mainSummary" class="summary-main">
+
+    <div class="summary-headline">
+        <h1>Join 753</h1>
+        <img id="separator" src="/Join/img/separator.svg" alt="">
+        <span>Key Metrics at a Glance</span>
+    </div>
+
+    <div class="summary-flex">
+
+        <div class="summary-container">
+
+
+
+            <div class="summary-card-container">
+
+            <div class="first-row">
+                
+                <a href="/Join/template/board_template.html" class="first-row-box left-box" onmouseover="this.querySelector('img').src='/Join/img/pen-icon-whiteBg.svg';"
+                    onmouseout="this.querySelector('img').src='./img/pen-icon.svg';">
+    
+        <img class="toDoImage" src="/Join/img/pen-icon.svg" alt="">
+                    <div class="d-flex">
+                        <div class="summary-count" id="todo-count">2</div>
+                        <span>To-do</span>
+                    </div>
+                </a>
+            
+                <a href="/Join/template/board_template.html" class="first-row-box right-box"
+                    onmouseover="this.querySelector('img').src='/Join/img/checkmark-icon-whiteBg.svg';"
+                    onmouseout="this.querySelector('img').src='/Join/img/checkmark-icon.svg';">
+                    <img class="doneImage" src="/Join/img/checkmark-icon.svg" alt="">
+                    <div class="d-flex">
+                        <div class="summary-count" id="done-count">2</div>
+                        <span>Done</span>
+                    </div>
+                </a>
+            </div>
+
+                <div class="second-row">
+                
+                    <div href="/Join/template/board_template.html" class="second-row-box middle-box" >
+                        <img id="b21" src="/Join/img/urgend-icon-red.svg" alt="">
+                        <div class="d-flex">
+                            <div class="summary-count" id="deadline-count">1</div>
+                            <span>Urgent</span>
+                        </div>
+                    
+
+
+                        <img id="b22" src="/Join/img/separator-long.svg" alt="">
+
+                        <div class="date-deadline">
+                            <div class="deadline" id="deadline"><p>August 28, 2009</p></div>
+                            <span>Upcoming Deadline</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="third-row">
+
+                    <a href="/Join/template/board_template.html" class="third-row-box left-box">
+                        <div class="d-flex">
+                            <div class="summary-count" id="tasks-count">2</div>
+                            <span>Tasks in<br>Board</span>
+                        </div>
+                    </a>
+                    <a href="/Join/template/board_template.html" class="third-row-box left-box">
+                        <div class="d-flex">
+                            <div class="summary-count" id="progress-count">2</div>
+                            <span>Tasks in<br>Progress</span>
+                        </div>
+                    </a>
+                    <a href="/Join/template/board_template.html" class="third-row-box left-box">
+                        <div class="d-flex">
+                            <div class="summary-count" id="feedback-count">2</div>
+                            <span>Awaiting<br>Feedback</span>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+
+            <div class="greeting-user">
+                <h2>Good morning,</h2>
+                <span id="user-name-greet">Guest User</span>
+            </div>
+    </div>
+
+</div>
+
+
+</body>
+
+</html>

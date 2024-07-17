@@ -1,0 +1,501 @@
+.new-contact {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    display: none;
+}
+
+.div-container {
+    display: flex;
+    justify-content: space-between;
+    width: 1212px;
+    height: 592px;
+    border-radius: 30px;
+    background-color: #2a3647;
+}
+
+.new-text {
+    color: white;
+    font-family: inter;
+    font-weight: 700;
+    font-size: 61px;
+    cursor: default;
+}
+
+.new-text-2 {
+    color: white;
+    font-family: inter;
+    font-weight: 400;
+    font-size: 27px;
+    cursor: default;
+}
+
+.new-card {
+    position: relative;
+    left: 68px;
+    top: 148px;
+    line-height: 0.5;
+}
+
+.div-input {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    width: 707px;
+}
+
+.picture {
+    background-color: #d1d1d1;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    box-shadow: 0 0 6px 0 rgb(0, 0, 0, 0.2);
+}
+
+.picture-div {
+    position: relative;
+    left: 38px;
+    top: -34px;
+}
+
+.close {
+    position: relative;
+    top: -258px;
+    left: 538px;
+    cursor: pointer;
+}
+
+/*.close:hover {
+    border-radius: 50%;
+    background-color: #f2f2f2ec;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}*/
+
+.div-input-fields {
+    position: relative;
+    left: 66px;
+    top: 41px;
+}
+
+.input-fields {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 36px;
+    background-color: white;
+    border: 1px solid #d1d1d1;
+    width: 422px;
+    height: auto;
+    border-radius: 10px;
+    padding: 12px 21px;
+}
+
+input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 20px;
+}
+
+.icon-1 {
+    color: #a8a8a8;
+    width: 20px;
+    height: 16px;
+}
+
+.icon-2 {
+    color: #a8a8a8;
+    width: 18px;
+    height: 21px;
+}
+
+.create-btn {
+    width: 214px;
+    height: 57px;
+    font-size: 21px;
+    font-weight: 700;
+    border-radius: 10px;
+    background-color: #2A3647;
+    color: white;
+    font-family: inter;
+    cursor: pointer;
+    border: none;
+    margin: 45px;
+    margin-right: 6px;
+}
+
+.create-btn:hover {
+    background-color: rgb(41, 171, 226);
+}
+
+.cancel-btn {
+    width: 126px;
+    height: 56px;
+    font-size: 20px;
+    font-weight: 400;
+    border-radius: 10px;
+    background-color: white;
+    color: #2A3647;
+    font-family: inter;
+    cursor: pointer;
+    margin: 45px;
+    border: 2px solid ;
+}
+
+.cancel-btn:hover {
+    color: #29abe2;
+    border-color: #29abe2;
+}
+
+.buttons {
+    position: relative;
+    right: 45px;
+    top: -33px;
+}
+
+#separatorAddContact {
+    position: absolute;
+            height: 10px;
+            width: 112px;
+            
+            top: 96px;
+            left: 19px;
+}
+
+@media (max-width: 1250px) {
+    .div-input {
+        flex-direction: column;
+        align-items: center;
+        width: 510px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 30px;
+        margin-top: 138px;
+    }
+
+    .div-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 750px;
+        width: 510px;
+    }
+
+    .new-card {
+        flex-direction: column;
+        align-items: center;
+        top: 83px;
+        line-height: 0.1;
+        text-align: center;
+        left: 0px;
+    }
+
+    .div-input-fields {
+        left: 10px;
+        top: -10px;
+    }
+
+    .buttons {
+        right: 14px;
+    }
+
+    .picture {
+        position: relative;
+        right: 44px;
+        top: -22px;
+    }
+
+    .close {
+        top: -365px;
+        left: 223px;
+    }
+
+    @media (max-width: 520px) and (min-width: 401px) {
+
+        .div-container {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 757px;
+            width: 399px;
+        }
+
+        .new-card {
+            line-height: 0.1;
+            text-align: center;
+        }
+
+        .new-card img {
+            display: none;
+        }
+
+        .new-text {
+            color: white;
+            font-family: inter;
+            font-weight: 700;
+            font-size: 41px;
+            cursor: default;
+        }
+
+        .new-text-2 {
+            color: white;
+            font-family: inter;
+            font-weight: 400;
+            font-size: 20px;
+            cursor: default;
+        }
+
+        .div-input {
+            flex-direction: column;
+            align-items: center;
+            width: 399px;
+            border-top-right-radius: 1px;
+            border-bottom-left-radius: 30px;
+            margin-top: 187px;
+        }
+
+        .picture-div {
+            position: relative;
+            left: 38px;
+            top: -34px;
+        }
+
+        .picture {
+            position: relative;
+            right: 44px;
+            top: -22px;
+        }
+
+        .picture img {}
+
+        .close {
+            top: -365px;
+            left: 155px;
+        }
+
+        .div-input-fields {
+            left: -29px;
+            top: -56px;
+        }
+
+        .input-fields {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 36px;
+            background-color: white;
+            border: 1px solid #d1d1d1;
+            width: 301px;
+            height: auto;
+            border-radius: 10px;
+            padding: 12px 21px;
+            margin-left: 57px;
+        }
+
+        input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 20px;
+        }
+
+        input img {}
+
+        .buttons {
+            right: 14px;
+            height: 82px;
+            padding-left: 133px;
+        }
+
+        .cancel-btn {
+            display: none;
+        }
+
+        .create-btn {
+            width: 214px;
+            height: 57px;
+            font-size: 21px;
+            font-weight: 700;
+            border-radius: 10px;
+            background-color: #2A3647;
+            color: white;
+            font-family: inter;
+            cursor: pointer;
+            border: none;
+            margin: 45px;
+            margin-right: 45px;
+            margin-right: 6px;
+        }
+
+        .create-btn img {}
+
+
+
+
+    }
+
+
+
+    @media (max-width: 400px) and (min-width: 280px) {
+
+
+
+        .div-container {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 63%;
+            width: 288px;
+            margin-bottom: 88px;
+        }
+
+        .new-card {
+            line-height: 0.1;
+            text-align: left;
+            margin-right: 60px;
+        }
+
+        .new-card img {
+            
+        }
+
+        #newContactJoinImage{
+            display: none;
+        }
+
+
+
+        .new-text {
+            color: white;
+            font-family: inter;
+            font-weight: 700;
+            font-size: 30px;
+            cursor: default;
+            padding-bottom: 10px;
+        }
+
+        .new-text-2 {
+            color: white;
+            font-family: inter;
+            font-weight: 400;
+            font-size: 13px;
+            cursor: default;
+        }
+
+        .div-input {
+            flex-direction: column;
+            align-items: center;
+            width: 288px;
+            border-top-right-radius: 1px;
+            border-bottom-left-radius: 30px;
+            margin-top: 187px;
+        }
+
+        .picture-div {
+            position: relative;
+            left: 38px;
+            top: -34px;
+        }
+
+        .picture {
+            position: relative;
+            right: 44px;
+            top: -22px;
+        }
+
+        .picture img {}
+
+        .close {
+            top: -313px;
+            left: 116px;
+        }
+
+        .div-input-fields {
+            left: -29px;
+            top: -56px;
+        }
+
+        .input-fields {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            background-color: white;
+            border: 1px solid #d1d1d1;
+            width: 230px;
+            height: auto;
+            border-radius: 10px;
+            
+            margin-left: 90px;
+        }
+
+        input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        input img {
+
+        }
+
+        .buttons {
+            right: 14px;
+            height: 82px;
+            padding-left: 133px;
+        }
+
+        .cancel-btn {
+            display: none;
+        }
+
+        .create-btn {
+            width: 214px;
+            height: 57px;
+            font-size: 21px;
+            font-weight: 700;
+            border-radius: 10px;
+            background-color: #2A3647;
+            color: white;
+            font-family: inter;
+            cursor: pointer;
+            border: none;
+            margin: 45px;
+            margin-right: 6px;
+            margin-top: 82px;
+            
+        }
+
+        .create-btn img {}
+
+
+        #separatorAddContact {
+            position: absolute;
+      height: 13px;
+      width: 58px;
+      content: url('/Join/img/separator1.svg');
+      top: 64px;
+      left: 1px;
+            
+        }
+
+
+
+
+    }
+}
