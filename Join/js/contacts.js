@@ -530,4 +530,5 @@ function created() {
     msgBox.style.display = 'flex';
     setTimeout(function () {
         msgBox.style.display = 'none';
-    }, 2000);} 
+    }, 2000);
+} 

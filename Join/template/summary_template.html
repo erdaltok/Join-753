@@ -16,11 +16,9 @@
     <script src="/Join/js/summary.js" defer></script>
     <script src="/Join/js/boardHtmlTemplates.js" defer></script>
     <script src="/Join/js/board.js" defer></script>
-    <script src="/Join/js/w3IncludeHtml.js" defer></script>
-    <!-- <script src="/js/addTask.js" defer></script> -->
-
-  
-    
+    <script src="/Join/js/w3IncludeHtml.js" defer></script> 
+    <script src="/Join/js/register.js"></script>
+    <script src="/Join/js/login.js"></script>    
     
 </head>
 <body onload="init('summary')">
@@ -30,7 +28,7 @@
 <div id="mainSummary" class="summary-main">
 
     <div class="summary-headline">
-        <h1>Join 753</h1>
+        <h1>Join</h1>
         <img id="separator" src="/Join/img/separator.svg" alt="">
         <span>Key Metrics at a Glance</span>
     </div>
@@ -39,16 +37,13 @@
 
         <div class="summary-container">
 
-
-
             <div class="summary-card-container">
 
-            <div class="first-row">
-                
+            <div class="first-row">                
                 <a href="/Join/template/board_template.html" class="first-row-box left-box" onmouseover="this.querySelector('img').src='/Join/img/pen-icon-whiteBg.svg';"
                     onmouseout="this.querySelector('img').src='./img/pen-icon.svg';">
     
-        <img class="toDoImage" src="/Join/img/pen-icon.svg" alt="">
+                    <img class="toDoImage" src="/Join/img/pen-icon.svg" alt="">
                     <div class="d-flex">
                         <div class="summary-count" id="todo-count">2</div>
                         <span>To-do</span>
@@ -73,12 +68,9 @@
                         <div class="d-flex">
                             <div class="summary-count" id="deadline-count">1</div>
                             <span>Urgent</span>
-                        </div>
-                    
-
+                        </div>                 
 
                         <img id="b22" src="/Join/img/separator-long.svg" alt="">
-
                         <div class="date-deadline">
                             <div class="deadline" id="deadline"><p>August 28, 2009</p></div>
                             <span>Upcoming Deadline</span>
@@ -110,7 +102,6 @@
 
                 </div>
             </div>
-
         </div>
 
             <div class="greeting-user">
@@ -118,9 +109,7 @@
                 <span id="user-name-greet">Guest User</span>
             </div>
     </div>
-
 </div>
-
 
 </body>
 

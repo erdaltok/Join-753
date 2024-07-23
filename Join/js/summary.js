@@ -14,6 +14,10 @@ function changeImageOnHover(element, newSrc, originalSrc) {
   });
 }
 
+/**
+ * Sets up event listeners for the document's DOMContentLoaded event.
+ * Changes images on hover for elements with specific classes.
+ */
 document.addEventListener("DOMContentLoaded", function () {
   const leftBox = document.querySelector(".left-box");
   const rightBox = document.querySelector(".right-box");
@@ -82,16 +86,21 @@ function formatDate(date) {
  * Updates the greeting message based on the time of day and user's name.
  */
 function updateGreeting() {
-  const userName = "Sofia Müller";
+  const userName = localStorage.getItem("userName") || "Guest User";
   const greetingElement = document.querySelector(".greeting-user h2");
   const userNameElement = document.getElementById("user-name-greet");
+
   if (!greetingElement || !userNameElement) return;
+
   const currentHour = new Date().getHours();
-  let greeting = currentHour < 12 ? "Good morning" : currentHour < 18 ? "Good afternoon" : "Good evening";
+  let greeting =
+    currentHour < 12
+      ? "Good morning"
+      : currentHour < 18
+      ? "Good afternoon"
+      : "Good evening";
+
   greetingElement.textContent = `${greeting},`;
   userNameElement.textContent = userName;
 }
-
-// Event listener for DOMContentLoaded to trigger the greeting update.
-document.addEventListener("DOMContentLoaded", updateGreeting);
 

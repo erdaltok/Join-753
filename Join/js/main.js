@@ -57,6 +57,9 @@ function renderTasks() {
   });
 }
 
+/** 
+ * Renders all tasks on the board by iterating through each task status category.
+ */
 function clearColumns() {
   ["todo", "inProgress", "awaitFeedback", "done"].forEach((columnId) => {
     const column = document.getElementById(columnId);
@@ -66,14 +69,18 @@ function clearColumns() {
   });
 }
 
-
+/** 
+ * Renders all tasks on the board.
+ */
 function renderTaskBoxes() {
   tasks.forEach((task) => {
     const columnId = task.status || "todo";
     addTaskToBoard(task, columnId);
   });
 }
-
+/** 
+ * Attach eventlisteners.
+ */
 function attachTaskBoxListeners() {
   document.querySelectorAll(".task-small-box").forEach((box) => {
     box.addEventListener("click", function (event) {
@@ -81,8 +88,7 @@ function attachTaskBoxListeners() {
       const taskId = this.id;
       // Handle task box click logic here
       // For now, we can log the taskId
-      showBigTaskBox(taskId);
-      
+      showBigTaskBox(taskId);      
     });
   });
 }
@@ -301,7 +307,9 @@ function getDefaultImageSrc(buttonId) {
       return "";
   }
 }
-/*** Updates the display of added contacts in the task form.*/
+/**
+ * * Updates the display of added contacts in the task form.
+ * */
 function updateAddedContactsDisplay() {
   const addedContactsContainer = document.getElementById(
     "addedContactsProfilBadges"
@@ -310,7 +318,9 @@ function updateAddedContactsDisplay() {
     addedContactsContainer.innerHTML = ""; 
   }
 }
-/** * Resets the selected contacts to their default state.*/
+/**
+ * Resets the selected contacts to their default state.
+ * */
 function resetSelectedContacts() {
   selectedContacts.forEach((contactLine) => {
     contactLine.style.backgroundColor = "";
@@ -323,7 +333,9 @@ function resetSelectedContacts() {
   selectedContacts = [];
   loadContactsForForm();
 }
-/** * Sets up event listeners for the clear button in the task form.*/
+/** 
+ * Sets up event listeners for the clear button in the task form.
+ * */
 document.addEventListener("DOMContentLoaded", function () {
   const clearButton = document.querySelector(".footerButtonClear");
   if (clearButton) {
@@ -462,9 +474,5 @@ function findTaskIndexById(id, tasks) {
     }
     return -1; // Return -1 if the task with the specified id is not found
 }
-
-
-
-
 
 document.addEventListener("DOMContentLoaded", initPage);

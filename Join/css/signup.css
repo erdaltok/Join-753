@@ -6,7 +6,6 @@ header {
     display: flex;
     flex-direction: column;
     margin-top: 178px;
-    
 }
 
 body {
@@ -34,21 +33,18 @@ body {
     background-color: #f2f2f2ec;
 }
 
-
-    .logo {
-        width: 100px;
-        height: 121px;
-        top: 37px;
-        left: 46px;
-        position: absolute;
-    }
-
+.logo {
+    width: 100px;
+    height: 121px;
+    top: 37px;
+    left: 46px;
+    position: absolute;
+}
 
 .signup-div {
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
 
 .signup-window {
@@ -92,7 +88,7 @@ form {
     display: flex;
     flex-direction: column;
     height: 28vh;
-  margin-bottom: 36px;
+    margin-bottom: 36px;
 }
 
 input {
@@ -112,7 +108,6 @@ input {
     height: 3vh;
     border-radius: 10px;
     padding: 12px 21px;
-
 }
 
 .icon-1 {
@@ -153,7 +148,6 @@ input {
     justify-content: center;
     align-items: center;
     display: flex;
-    
 }
 
 .policy {
@@ -249,26 +243,19 @@ footer {
 
 @media screen and (min-width: 200px) and (max-width: 600px) {
     form {
-        
         width: 100%;
     }
 
     .inputs {
         width: 88%;
-    display: flex;
-    justify-content: center;
-    
-    align-items: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-    
+
     .signup-div {
         height: 84vh;
-    width: 90%;
-    }
-   
-   
-    .signup-window {
-        
+        width: 90%;
     }
 
     .back-arrow {
@@ -279,15 +266,11 @@ footer {
 
     .logo {
         width: 39px;
-    position: absolute;
-    top: 20px;
-    left: 30px;
-    height: 48px;
-    margin-bottom: 0px;
-    }
-
-    .signup-button {
-        
+        position: absolute;
+        top: 20px;
+        left: 30px;
+        height: 48px;
+        margin-bottom: 0px;
     }
 
     .signup-headline {
@@ -311,6 +294,7 @@ footer {
         width: 78%;
         font-size: 15px;
     }
+
     .inputs img {
         width: 16px;
         height: 15px;
@@ -323,36 +307,30 @@ footer {
     }
 
     footer {
-       
         bottom: 17px;
-        
     }
-    #personInputImage{
+
+    #personInputImage {
         width: 25px;
-    height: 22px;
-   
-    position: relative;
-    left: 2px;
+        height: 22px;
+        position: relative;
+        left: 2px;
     }
 
     .top-container {
         margin-top: 30px;
-        
         justify-content: center;
         align-items: center;
     }
 
     header {
-       padding: 0px;
+        padding: 0px;
         width: 77%;
-    
         height: 0vh;
     }
 
     .policy {
-        
         font-size: 13px;
-        
     }
 
     .accept {
@@ -373,7 +351,7 @@ footer {
         font-family: inter;
         cursor: pointer;
         border: none;
-        margin: 0px; 
+        margin: 0px;
         margin-right: 0px;
         display: flex;
         justify-content: center;
@@ -381,11 +359,8 @@ footer {
     }
 
     .signup-window {
-        height: 65vh;
+        height: 69vh;
         width: 91%;
-        margin-top: 20px;
-
-        
-       
+        margin-top: 52px;
     }
 }

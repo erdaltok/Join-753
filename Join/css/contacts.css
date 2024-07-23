@@ -4,7 +4,13 @@ body {
     max-width: 100%;
 }
 
-.cardBackArrowMobil{
+body::-webkit-scrollbar {
+    display: none;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.cardBackArrowMobil {
     display: none;
 }
 
@@ -12,7 +18,7 @@ body {
     display: flex;
     align-items: flex-start;
     padding-left: 243px;
-    margin-top: 92px;
+    margin-top: 176px;
     position: relative;
     right: 0;
     height: 100vh;
@@ -21,7 +27,6 @@ body {
 .contacts-container {
     width: 400px;
     min-width: 430px;
-    
     margin-top: 23px;
     display: flex;
     flex-direction: column;
@@ -73,12 +78,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    /*background-color: #ff7a00;*/
-    border: 2px solid white;
     box-shadow: 0 0 6px 0 rgb(0, 0, 0, 0.2);
     border-radius: 50%;
-    width: 27px;
-    height: 27px;
+    width: 36px;
+    height: 36px;
     font-family: inter;
     font-size: 12px;
     font-weight: 400;
@@ -142,19 +145,19 @@ body {
     height: 100vh;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
     margin-left: 5px;
-   
 }
 
 .contact-header {
     position: relative;
     top: 136px;
-    left: 80px;
+    left: 0px;
 }
 
 .contact-text {
     display: flex;
     align-items: center;
     margin-top: -96px;
+    margin-left: 50px;
     gap: 36px;
     cursor: default;
 }
@@ -175,7 +178,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    /*background-color: #ff7a00;*/
     border: 3px solid white;
     border-radius: 50%;
     width: 120px;
@@ -302,7 +304,7 @@ body {
 .contacts-container::-webkit-scrollbar {
     display: block;
     width: 8px;
-   
+
 }
 
 .contacts-container::-webkit-scrollbar-track {
@@ -310,9 +312,11 @@ body {
 }
 
 .contacts-container::-webkit-scrollbar-thumb {
-    background-color:#A8A8A8;
+    background-color: #A8A8A8;
     border-radius: 10px;
 }
+
+/* RESPONSIVE */
 
 @media (max-width: 4000px) and (min-width: 601px) {
     .info {
@@ -320,10 +324,10 @@ body {
         left: 23px;
         top: -59px;
     }
+
     .information {
         left: 0px;
         position: relative;
-        
     }
 
     .card {
@@ -336,14 +340,13 @@ body {
         flex-direction: column;
     }
 
-    
-    .cardBackArrow{
-        display: block ;
-position: relative;
-left: 220px;
-    top: 110px;
-    }
 
+    .cardBackArrow {
+        display: block;
+        position: relative;
+        left: 220px;
+        top: 110px;
+    }
 
 }
 
@@ -351,8 +354,7 @@ left: 220px;
     .contact-text {
         flex-direction: column;
         align-items: flex-start;
-        margin-left: 0px;
-        margin-top: -96px;
+        margin-left: 24px;
         gap: 0px;
         line-height: 0;
     }
@@ -367,18 +369,16 @@ left: 220px;
         margin-top: 150px;
         align-items: flex-start;
         gap: 0px;
-        margin-left: 70px;
+        margin-left: 30px;
     }
 
     .information {
         left: 15px;
         top: 294px;
-
     }
 
     .info {
         left: 15px;
-        
     }
 
     .name-div {
@@ -393,18 +393,25 @@ left: 220px;
     }
 }
 
-@media (max-width: 955px) and (min-width: 700px) {
+@media (max-width: 1000px) {
     .add-contacts-btn {
-        
         width: 296px;
-      
-        left: 136px;
+        right: 23px;
     }
 
+    .contacts-div {
+        padding-left: 0px;
+        justify-content: center;
+    }
 
-    .contact-header{
-  display: none;
-}
+    .contacts-container {
+        width: 100%;    }
+
+
+    .contact-header {
+        display: none;
+    }
+
     .text-1 {
         font-size: 36px;
     }
@@ -415,51 +422,57 @@ left: 220px;
 
     .name {
         font-size: 21px;
-    margin-bottom: 42px;
-    margin-top: 39px;
-    }
-
-    .desktop-navbar {
-        width: 128px;
-    }
-
-    .desktop-navbar-menu {
-        align-items: center;
-    }
-
-    .contacts-container {
-        width: 370px;
-        min-width: 370px;
-        margin-left: -114px;
-        align-items: flex-start;
+        margin-bottom: 42px;
+        margin-top: 39px;
     }
 
     .contact-view {
-        left: 498px;
+        display: none;
     }
 
-    .card{
-        margin-top: 1px;
+    .card {
+        margin-top: 58px;
     }
 
-    .information
-    {
-        
+    .information {
         top: -49px;
-      }
+    }
+}
+
+@media (max-width: 849px) {
+    .add-contacts-btn {
+        width: 64px;
+        height: 64px;
+        position: absolute;
+        border-radius: 44px;
+        background-color: #2a3647;
+        color: white;
+        font-family: inter;
+        font-size: 21px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        z-index: 9;
+        padding: 15px;
+        border: none;
+        top: auto;
+        right: 40px;
+        bottom: 147px;
+        left: auto;
+    }
+
+    .add-contacts-btn p {
+        display: none;
+    }
 }
 
 
-
-
-
 @media (max-width: 600px) and (min-width: 280px) {
-   
-   
-    #contact-view{
+    #contact-view {
         display: none;
     }
-    
+
     .contact-view {
         display: none;
         flex-direction: column;
@@ -475,68 +488,58 @@ left: 220px;
 
     .contact-text h2 {
         font-size: 16px;
-        
-    }
-    .contact-text p {
-        font-size: 16px;
-        
     }
 
-    .initial-2{
-        width: 60px;
-    height: 60px;
-    font-size: 34px;
+    .contact-text p {
+        font-size: 16px;
     }
+
+    .initial-2 {
+        width: 60px;
+        height: 60px;
+        font-size: 34px;
+    }
+
     .info {
         left: 0px;
         top: -40px;
         z-index: 10;
-       
     }
+
     .info p {
         color: rgb(5, 5, 5);
     }
-    .info a {
-         color: rgb(1, 1, 1);
-     }
 
-     .information {
-        left: 65px;
-        margin-top: 13px;
-        
+    .info a {
+        color: rgb(1, 1, 1);
     }
 
-
+    .information {
+        left: 65px;
+        margin-top: 40px;
+    }
 
     .name {
-        
         font-size: 28px;
-        
     }
 
-    .cardBackArrow{
+    .cardBackArrow {
         display: none;
-    
     }
 
-    .cardBackArrowMobil{
-display: block ;
-position: relative;
-left: 187px;
-    bottom: 2px;
+    .cardBackArrowMobil {
+        display: block;
+        position: relative;
+        left: 294px;
+        bottom: 2px;
     }
 
-    .initialDiv{
+    .initialDiv {
         position: relative;
         bottom: 56px;
+        padding: 0px !important;
     }
-    
-    
-    
-    
-    .desktop-navbar {
-        width: 100vw;
-    }
+
     .contacts-div {
         display: flex;
         align-items: flex-start;
@@ -548,19 +551,14 @@ left: 187px;
         width: 100vw;
     }
 
-   
-    
-    
     .contacts-container {
         margin-left: 0px;
         margin-top: 10px;
         min-width: auto;
         width: 100vw;
-        
     }
 
     .contacts {
-       
         height: 100%;
         width: 90vw;
     }
@@ -570,66 +568,18 @@ left: 187px;
         width: 93vw;
         max-height: 56px;
     }
-    
-
-    .add-contacts-btn {
-        width: 64px;
-         height: 64px;
-        position: absolute;
-        
-        border-radius: 44px;
-        background-color: #2a3647;
-        color: white;
-        font-family: inter;
-        font-size: 21px;
-        font-weight: 700;
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        
-        z-index: 9;
-        padding: 15px;
-        border: none;
-        top: auto;
-        right: 40px;
-        bottom: 147px;
-        left: auto;
-
-    }
 
     .add-contacts-btn p {
         display: none;
     }
-    .initial {
-        position: relative;
-        left: -1px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        /*background-color: #ff7a00;*/
-        border: 2px solid white;
-        box-shadow: 0 0 6px 0 rgb(0, 0, 0, 0.2);
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
-        font-family: inter;
-        font-size: 12px;
-        font-weight: 400;
-        color: white;
-        margin-right: -8px;
-
-    }
+  
     .initial-letter {
-        
         height: 2vh;
     }
 
     .contact.clicked {
         width: 88vw;
         padding: 5px;
+    }
 }
 
-
-
-
-}

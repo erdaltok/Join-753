@@ -79,16 +79,6 @@
     cursor: pointer;
 }
 
-/*.close:hover {
-    border-radius: 50%;
-    background-color: #f2f2f2ec;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}*/
-
 .div-input-fields {
     position: relative;
     left: 66px;
@@ -156,7 +146,7 @@ input {
     font-family: inter;
     cursor: pointer;
     margin: 45px;
-    border: 2px solid ;
+    border: 2px solid;
 }
 
 .cancel-btn:hover {
@@ -172,12 +162,14 @@ input {
 
 #separatorAddContact {
     position: absolute;
-            height: 10px;
-            width: 112px;
-            
-            top: 96px;
-            left: 19px;
+    height: 10px;
+    width: 112px;
+
+    top: 96px;
+    left: 19px;
 }
+
+   /* RESPONSIVE */
 
 @media (max-width: 1250px) {
     .div-input {
@@ -200,9 +192,7 @@ input {
     .new-card {
         flex-direction: column;
         align-items: center;
-        top: 83px;
-        line-height: 0.1;
-        text-align: center;
+        top: 113px;
         left: 0px;
     }
 
@@ -225,7 +215,7 @@ input {
         top: -365px;
         left: 223px;
     }
-
+ 
     @media (max-width: 520px) and (min-width: 401px) {
 
         .div-container {
@@ -282,8 +272,6 @@ input {
             top: -22px;
         }
 
-        .picture img {}
-
         .close {
             top: -365px;
             left: 155px;
@@ -314,8 +302,6 @@ input {
             font-size: 20px;
         }
 
-        input img {}
-
         .buttons {
             right: 14px;
             height: 82px;
@@ -341,25 +327,14 @@ input {
             margin-right: 45px;
             margin-right: 6px;
         }
-
-        .create-btn img {}
-
-
-
-
     }
 
-
-
     @media (max-width: 400px) and (min-width: 280px) {
-
-
-
         .div-container {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 63%;
+            height: 75%;
             width: 288px;
             margin-bottom: 88px;
         }
@@ -370,15 +345,9 @@ input {
             margin-right: 60px;
         }
 
-        .new-card img {
-            
-        }
-
-        #newContactJoinImage{
+        #newContactJoinImage {
             display: none;
         }
-
-
 
         .new-text {
             color: white;
@@ -418,10 +387,8 @@ input {
             top: -22px;
         }
 
-        .picture img {}
-
         .close {
-            top: -313px;
+            top: -241px;
             left: 116px;
         }
 
@@ -439,7 +406,7 @@ input {
             width: 230px;
             height: auto;
             border-radius: 10px;
-            
+
             margin-left: 90px;
         }
 
@@ -448,10 +415,6 @@ input {
             outline: none;
             width: 100%;
             font-size: 16px;
-        }
-
-        input img {
-
         }
 
         .buttons {
@@ -478,24 +441,16 @@ input {
             margin: 45px;
             margin-right: 6px;
             margin-top: 82px;
-            
+
         }
-
-        .create-btn img {}
-
 
         #separatorAddContact {
             position: absolute;
-      height: 13px;
-      width: 58px;
-      content: url('/Join/img/separator1.svg');
-      top: 64px;
-      left: 1px;
-            
+            height: 13px;
+            width: 58px;
+            content: url('/Join/img/separator1.svg');
+            top: 64px;
+            left: 1px;
         }
-
-
-
-
     }
 }

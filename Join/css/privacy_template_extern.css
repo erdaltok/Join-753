@@ -1,120 +1,116 @@
-body{
-    overflow: auto;
+body {
+  overflow: auto;
+}
+
+.privacyContent {
+  width: 90vw;
+  margin-left: 20px;
+  height: 100vh;
+}
+
+.privacyContent h1 {
+  margin-bottom: 100px;
+}
+
+.privacyContent img {
+  position: sticky;
+  left: 1657px;
+  top: 149px;
+  margin-top: 50px;
+}
+
+.backButton :hover {
+  cursor: pointer;
+  border-radius: 30px;
+  background-color: rgb(218, 223, 223);
+}
+
+@media (max-width: 955px)and (min-width: 601px) {
+  .desktop-navbar {
+    width: 128px;
   }
 
   .privacyContent {
-      width: 90vw;
-      margin-left: 20px;
-      height: 100vh;
-      
+    width: 90vw;
+
+    height: 100vh;
+    margin-top: 150px;
   }
-  
-  .privacyContent h1 {
-      margin-bottom: 100px;
+
+  .legalContent span {
+
+    height: 136px;
+    display: block;
   }
+
   .privacyContent img {
-    position: sticky;
-    left: 1657px;
-    top: 149px;
-    margin-top: 50px;
-    
+    position: fixed;
+    right: 30px;
   }
-  
-  .backButton :hover{
-      cursor: pointer;
-      border-radius: 30px;
-      background-color: rgb(218, 223, 223);
+}
+
+@media (max-width: 600px)and (min-width: 301px) {
+
+  .privacyContent {
+    width: auto;
+    height: auto;
+    word-break: break-word;
+    margin-left: 10px;
+    margin-right: 10px;
   }
-  
-  @media (max-width: 955px)and (min-width: 601px) {
-      .desktop-navbar {
-        width: 128px;
-      }
-  
-      .privacyContent {
-          width: 90vw;
-          
-          height: 100vh;
-          margin-top: 150px;
-        }
-        .legalContent span {
-         
-          height: 136px;
-          display: block;
-        }
-        .privacyContent img {
-            position: fixed;
-            right: 30px;
-          
-        }
-    }
-  
-    @media (max-width: 600px)and (min-width: 301px) {
-     
-  
-      .privacyContent {
-          width: 90vw;
-          margin-left: 12px;
-          height: 100vh;
-          margin-top: 30px;
-          word-break: break-word;
-        }
-        .legalContent span {
-         
-          height: 136px;
-          display: block;
-        }
-        .privacyContent img {
-            position: fixed;
-            right: 30px;
-          
-        }
-    }
-  
-    @media (max-width: 300px){
-     
-  
-      .privacyContent {
-          
-          width: 75vw;
-          margin-left: 12px;
-          height: 100vh;
-          margin-top: 150px;
-        }
-  
-        .privacyContent p {
-          font-size: 13px;
-        }
-        .privacyContent h1 {
-          font-size: 17px;
-        }
-        .privacyContent h2 {
-          font-size: 13px;
-        }
-        .privacyContent h3 {
-          font-size: 13px;
-        }
-        .privacyContent h4 {
-          font-size: 13px;
-        }
-        .privacyContent strong {
-          font-size: 13px;
-        }
-        .privacyContent span {
-         
-          height: 136px;
-          display: block;
-        }
-  
-        .privacyContent a {
-              cursor: pointer;
-              text-decoration: none;
-              color: #6be6f2;
-            
-        }
-        .privacyContent img {
-            position: fixed;
-            right: 30px;
-          
-        }
-    }
+
+  .legalContent span {
+    height: 136px;
+    display: block;
+  }
+}
+
+@media (max-width: 300px) {
+
+  .privacyContent {
+    width: 75vw;
+    margin-left: 12px;
+    height: 100vh;
+    margin-top: 150px;
+  }
+
+  .privacyContent p {
+    font-size: 13px;
+  }
+
+  .privacyContent h1 {
+    font-size: 17px;
+  }
+
+  .privacyContent h2 {
+    font-size: 13px;
+  }
+
+  .privacyContent h3 {
+    font-size: 13px;
+  }
+
+  .privacyContent h4 {
+    font-size: 13px;
+  }
+
+  .privacyContent strong {
+    font-size: 13px;
+  }
+
+  .privacyContent span {
+    height: 136px;
+    display: block;
+  }
+
+  .privacyContent a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #6be6f2;
+  }
+
+  .privacyContent img {
+    position: fixed;
+    right: 30px;
+  }
+}

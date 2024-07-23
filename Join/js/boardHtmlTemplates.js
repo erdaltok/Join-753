@@ -226,10 +226,12 @@ function generateAddTaskFormHtml() {
                                 placeholder="Enter a Description" required></textarea>
                             <div class="requestWarningInputField" style="display: none;">This field is required</div>
                         </div>
+
                         <div class="titleSelectContactsAddTaskBoard">
                             <label for="idTitleSelectContactsAddTask">Assigned to</label>
+
                             <input class="inputTitleAddTask" id="idTitleSelectContactsAddTask" type="text" autocomplete="off"
-                                placeholder="Select contacts to assign" onclick="toggleContactList()">
+                                placeholder="Select contacts to assign" onclick="toggleContactList()" onkeyup="searchContacts()">
                         </div>
                         <div id="listSelectableContacts" class="listSelectableContacts" style="display: none;">
                             <ul>
@@ -328,7 +330,7 @@ function generateAddTaskFormHtml() {
 function generateEditTaskFormHtml() {
   return `
 <form class="editPopUp" onsubmit="handleFormSubmit(event)" id="editTask">
-    <div class="addTaskLittle">
+    <div class="EditAddTaskLittle">
         <div class="editTitle">
             <img src="/Join/img/close-icon-board-addtask.svg" class="closeEditTask">
         </div>

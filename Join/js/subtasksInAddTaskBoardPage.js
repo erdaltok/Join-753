@@ -1,4 +1,9 @@
 // SUBTASKS IN ADD TASK BOARD PAGE
+
+/**
+ * Opens the subtask editing interface.
+ * Hides the subtask image and displays the close/check subtask division.
+ */
 function openSubtasks() {
   const subtaskImage = document.querySelector(".subtaskImage");
   if (subtaskImage) {
@@ -10,6 +15,10 @@ function openSubtasks() {
   }
 }
 
+/**
+ * Closes the subtask editing interface.
+ * Displays the subtask image and hides the close/check subtask division.
+ */
 function closeSubtasks() {
   const subtaskImage = document.querySelector(".subtaskImage");
   if (subtaskImage) {
@@ -21,6 +30,10 @@ function closeSubtasks() {
   }
 }
 
+/**
+ * Enables editing mode for a subtask.
+ * @param {Event} event - The event object triggered by the user action.
+ */
 function editSubtask(event) {
   const liElement = event.target.closest("li");
   const span = liElement.querySelector("span");
@@ -37,9 +50,10 @@ function editSubtask(event) {
   }
 }
 
-  
-
-
+/**
+ * Confirms the edit of a subtask and updates the subtasks array.
+ * @param {Event} event - The event object triggered by the user action.
+ */
 function confirmEditSubtask(event) {
   const liElement = event.target.closest("li");
   if (!liElement) return;
@@ -52,13 +66,15 @@ function confirmEditSubtask(event) {
     // Update the subtask text in the subtasks array
     subtasks[index] = editedText;
   }
-
   // Hide editing UI
   span.setAttribute("contenteditable", "false");
   liElement.querySelector(".editDeleteSubtask").style.display = "flex";
   liElement.querySelector(".confirmEditSubtask").style.display = "none";
 }
 
+/**
+ * Adds a new subtask to the subtasks array and updates the list display.
+ */
 function addNewSubtask() {
   const inputField = document.getElementById("inputFieldSubtaskId");
   const subtaskText = inputField.value.trim();
@@ -72,6 +88,9 @@ function addNewSubtask() {
   }
 }
 
+/**
+ * Toggles the display of the subtask editing interface.
+ */
 function toggleSubtaskDisplay() {
   const closeCheckSubstask = document.querySelector(".closeCheckSubstask");
   const subtaskImage = document.querySelector(".subtaskImage");
@@ -81,19 +100,19 @@ function toggleSubtaskDisplay() {
   }
 }
 
-
+/**
+ * Updates the subtask list in the DOM.
+ */
 function updateSubtaskList() {
   const listElement = document.getElementById("addedSubstaskList");
   listElement.innerHTML = subtasks.map(createSubtaskHtml).join("");
 }
-
 
 /**
  * Deletes a subtask from the list based on the event triggered by the user.
  * @param {Event} event - The event object triggered by the user action.
  * @returns {void}
  */
-
 function deleteSubtask(event) {
    // Find the closest list item element containing the subtask
   const liElement = event.target.closest("li");
@@ -115,11 +134,13 @@ function deleteSubtask(event) {
   updateSubtaskList();
 }
 
+/**
+ * Updates the progress bar and subtask counter based on the current state.
+ */
 function updateProgressBar() {
   // Berechnen des Fortschritts !!!!!
   const progress =
     totalSubtasks > 0 ? (completedSubtasks / totalSubtasks) * 100 : 0;
-
   // Aktualisieren der Progress-Bar und des Zählers !!!!!!
   document.querySelectorAll(".progress-bar").forEach((bar) => {
     bar.style.setProperty("--width", progress);

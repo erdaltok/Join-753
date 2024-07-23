@@ -1,63 +1,63 @@
-body{
-    background-color:white;
+body {
+    background-color: white;
     height: 100vh;
     margin: 0;
     scroll-behavior: smooth;
     overflow: auto;
-    
 }
 
-.helpPageBody{
-    height: 100vh;
-    width: 1501px;
-    margin-left: 325px;
+body::-webkit-scrollbar {
+    display: none;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 }
 
-.helpPageBody img{
+.helpPageBody {
+    margin-left: 280px;
+    padding-bottom: 100px;
+}
+
+.helpPageBody img {
     cursor: pointer;
-   
 }
 
-.backButton :hover{
+.backButton {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.backButton :hover {
     cursor: pointer;
     border-radius: 30px;
     background-color: rgb(218, 223, 223);
 }
 
-
-
-.helpPageInstructions{
-    margin-top: 200px;
+.helpPageInstructions {
+    margin-top: 106px;
     word-wrap: break-word;
     font-size: 20px;
+    margin-right: 40px;
 }
-
 
 table {
-    width: 1470px; /* Set the total width of the table */
+    width: 100%;
     border-collapse: collapse;
-    font-size: 20px;
-    
 }
+
 table h2 {
-    
     margin-bottom: 84px;
     font-size: 40px;
-    
-    
 }
 
 table h3 {
     margin: 0;
-    
 }
 
 table h5 {
     font-size: 40px;
     position: relative;
     bottom: 53px;
-   
-    
 }
 
 table p {
@@ -66,39 +66,33 @@ table p {
     position: relative;
 }
 
-table br {
- 
-    
-}
-
 table a {
     font-size: 22px;
     color: black;
     font-weight: bold;
     position: relative;
     bottom: 4px;
-   
-    
 }
 
-th, td {
-    
+th,
+td {
     height: 50px;
     text-align: left;
 }
+
 table span {
     color: rgb(110, 192, 247);
- 
-    
 }
 
-th:nth-child(1), td:nth-child(1) {
-    width: 1px; /*width of column 1*/
+th:nth-child(1),
+td:nth-child(1) {
+    width: 1px;
     text-align: top;
 }
 
-th:nth-child(2), td:nth-child(2) {
-    width: 500px; /*width of column 2*/
+th:nth-child(2),
+td:nth-child(2) {
+    width: 500px;
 }
 
 .helpPageInstructions img {
@@ -106,6 +100,25 @@ th:nth-child(2), td:nth-child(2) {
     left: 1657px;
     top: 149px;
     margin-top: 50px;
-  
 }
 
+/* RESPONSIVE */
+
+@media (max-width: 869px) {
+    .helpPageBody {
+        margin-left: 40px;
+        padding-bottom: 170px;
+    }
+}
+
+@media (max-width: 600px) {
+    .helpPageBody {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: -123px;
+    }
+
+    .helpPageInstructions {
+        margin-right: 0;
+    }
+}

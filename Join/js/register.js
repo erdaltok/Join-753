@@ -1,11 +1,17 @@
 let users = [];
 
-// Initialisiert die Anwendung, indem sie Benutzerdaten lädt.
+/** 
+ * Initializes the application by loading user data.
+ */
 async function init() {
     loadUsers();
 }
 
-// Lädt Benutzerdaten aus dem lokalen Speicher.
+/**
+ * Loads user data from local storage.
+ * Attempts to parse the data and assign it to the users array.
+ * Logs an error to the console if loading fails.
+ */
 async function loadUsers() {
     try {
         users = JSON.parse(await getItem('users'));
@@ -14,7 +20,11 @@ async function loadUsers() {
     }
 }
 
-// Registriert einen neuen Benutzer und aktualisiert die Benutzerdaten im lokalen Speicher.
+/**
+ * Registers a new user and updates the user data in the local storage.
+ * Validates password and confirm password fields.
+ * Displays a success message and redirects the user to the index page.
+ */
 async function register() {
     const name = document.getElementById('name');
     const email = document.getElementById('email');
@@ -30,7 +40,12 @@ async function register() {
     setTimeout(function () { window.location.href = './index.html';}, 3000);
 }
 
-  // Setzt die Eingabefelder des Registrierungsformulars zurück und aktiviert den Registrierungsbutton.
+
+/**
+ * Resets the input fields of the registration form and activates the registration button.
+ * Clears the values of the name, email, password, and confirm password fields.
+ * Enables the register button.
+ */
 function resetForm() {
     document.getElementById('name').value = '';
     document.getElementById('email').value = '';

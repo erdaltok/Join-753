@@ -4,14 +4,6 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    
-
-}
-
-body {
-    height: 100vh;
-    margin: 0;
 }
 
 .menu-links.active {
@@ -28,8 +20,7 @@ body {
     right: 0px;
     margin: auto;
     display: flex;
-    padding-left: 348px;
-    position: relative;
+    position: fixed;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10000000149011612);
     align-items: center;
     z-index: 10;
@@ -54,7 +45,6 @@ body {
     font-stretch: normal;
 }
 
-
 .header-user-help a img {
     gap: 16px;
     display: flex;
@@ -65,10 +55,10 @@ body {
     top: 33px;
 }
 
-
-
 .user-profil-box {
     display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     cursor: pointer;
     right: 20px;
@@ -106,10 +96,8 @@ a {
 
 .user-initials {
     position: absolute;
-    top: 15px;
-    left: 12px;
     color: #29ABE2;
-    font-size: 20px;
+    font-size: 26px;
     font-weight: bold;
 }
 
@@ -122,7 +110,6 @@ a {
     padding: 64px 0;
     position: fixed;
     z-index: 20;
-    box-shadow: 10px 0px 4px 0px rgba(0, 0, 0, 0.18);
     align-items: center;
     flex-direction: column;
     justify-content: space-around;
@@ -139,8 +126,6 @@ a {
     position: relative;
     top: -150px;
 }
-
-
 
 .menu-links {
     gap: 8px;
@@ -179,11 +164,7 @@ a {
     color: #fff;
     position: relative;
     bottom: 11px;
-
-
 }
-
-
 
 .navbar-footer a {
     text-decoration: none;
@@ -201,13 +182,7 @@ a {
     font-weight: bold;
 }
 
-@media (max-width: 950px) {
-    .menu-links {
-        width: 128px;
-        font-size: 12px;
-        padding: 10px;
-    }
-}
+/* RESPONSIVE */
 
 @media (max-width: 750px) and (min-width: 601px) {
     .header-text span {
@@ -215,11 +190,8 @@ a {
     }
 }
 
-@media(max-width: 700px) {
-    body {
-        min-height: 100vh;
-    }
-
+@media(max-width: 869px) {
+   
     .titleDateAddTaskBoard {
         margin-top: 20px;
     }
@@ -233,13 +205,11 @@ a {
         position: absolute;
         width: 50px;
         left: 40px;
-        
     }
 
     .user-help {
         display: none;
     }
-
 
     .header-user-help {
         margin-left: 140px;
@@ -251,18 +221,10 @@ a {
     }
 
     .desktop-navbar {
-        width: 100vw;
         top: auto;
         bottom: 0px;
         height: 1px;
-        display: flex;
-        padding: 64px 0;
-        position: fixed;
-        box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10000000149011612);
-        align-items: center;
-        flex-direction: row;
-        justify-content: space-around;
-        background-color: rgba(42, 54, 71, 1);
+        width: 100vw;
     }
 
     .menu-links {
@@ -270,7 +232,7 @@ a {
     }
 
     .desktop-navbar-menu {
-        gap: 64px;
+        gap: 37px;
         flex-direction: row;
         justify-content: center;
         position: absolute;
@@ -281,7 +243,7 @@ a {
     }
 
     .desktop-navbar-menu a {
-        height: 83px;
+        height: 71px;
         width: 60px;
         flex-direction: column;
         border-radius: 10px;
@@ -307,15 +269,6 @@ a {
         display: none;
     }
 
-    .summary-card-container {}
-
-    .user-initials {
-        font-size: 12px;
-        position: absolute;
-        top: 10px;
-        left: 8px
-    }
-
     .user-profil-box {
         height: 34px;
         right: 20px;
@@ -324,7 +277,6 @@ a {
     .menu {
         display: flex;
         flex-direction: column;
-        
         margin-right: 8px;
         background-color: #2a3647;
         border-radius: 20px 0px 20px 20px;
@@ -343,18 +295,14 @@ a {
 }
 
 @media (max-width: 600px) {
-    
-  
-   
 
     #LogoImage {
         content: url(/Join/img/LogoWhite1.svg);
         position: absolute;
         width: 42px;
-    left: 40px;
+        left: 40px;
     }
-    
-    
+
     .desktop-header {
         height: 10vh;
         min-height: 96px;
@@ -369,19 +317,15 @@ a {
         z-index: 10;
         justify-content: revert-layer;
         background-color: rgba(255, 255, 255, 1);
-        
     }
 
-
-    
     .user-profil-box {
         height: 34px;
-        
         right: 38px;
         position: absolute;
         top: 34px;
     }
-    
+
     .menu-links {
         margin-inline-start: -34px;
     }
@@ -392,29 +336,25 @@ a {
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
     .menu-links {
         margin-inline-start: -58px;
         font-size: 10px;
+        padding: 10px 42px;
     }
 
     .desktop-navbar-menu {
         margin-left: 60px;
-        gap: 65px;
         height: 93px;
         margin-top: 156px;
     }
-
-
 }
 
-
-
-@media (max-width: 300x)  {
+@media (max-width: 300x) {
     .user-profil-box {
         height: 36px;
         right: 277px;
-        }
+    }
 
     #LogoImage {
         content: url('/Join/img/LogoWhite1.svg');

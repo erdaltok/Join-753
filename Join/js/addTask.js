@@ -44,12 +44,14 @@ function closeAddTaskForm() {
         { once: true }
       );
     }
+   document.documentElement.style.overflowY = "";
+   document.body.style.overflowY = "";
   }
   saveTasksToStorage();
   renderTasks();
   resetTaskForm();
   resetSelectedContacts();
-  location.reload();
+   window.location.href = "board_template.html";
 }
 
 document.addEventListener("click", function (event) {
@@ -161,12 +163,13 @@ function updateExistingTask(
  */
 async function finalizeTaskCreation() {
   await saveTasksToStorage();
-  if (fromAddTask === false) {
-    closeAddTaskForm();
-  }
+  document.querySelector(".addTaskPopUp").style.display ="none"; 
   newTaskAddedMessage();
   resetTaskForm();
-   location.reload();
+
+  setTimeout(() => {
+    window.location.href = "board_template.html";
+  }, 2000);
 }
 
 /**
@@ -193,7 +196,7 @@ function newTaskAddedMessage() {
   let messageBox = document.getElementById("addNewTaskMessage");
   messageBox.innerHTML = `
         <span>Task added to board</span>
-        <img src="/img/board-icon-task-added-message.svg" alt="" style="margin-left: 10px;">
+        <img src="/Join/img/board-icon-tasl-added-message.svg" alt="" style="margin-left: 10px;">
     `;
   messageBox.style.display = "flex";
 
@@ -228,8 +231,7 @@ async function searchContacts(){
   try { const loadedContacts = await getItem("contacts");
     if (!loadedContacts) { contactsLocal = [];return;}
     contactsLocal = Array.isArray(loadedContacts) ? loadedContacts : JSON.parse(loadedContacts);} catch (error) {console.error("Fehler beim Laden der Tasks:", error);}
-  const searchText = document
-    .getElementById("idTitleSelectContactsAddTask")
+  const searchText = document.getElementById("idTitleSelectContactsAddTask")
     .value.toLowerCase();
   let names = [];
   for(i=0; i< contactsLocal.length;i++)

@@ -36,8 +36,7 @@ document.addEventListener('click', function (event) {
      // If so, hide the menu style and set the menu state to closed
     openDiv.style.display = 'none';
     isMenuOpen = false;
-  }
-  
+  }  
 });
 
 /**
@@ -48,9 +47,11 @@ document.addEventListener('click', function (event) {
 async function init(currentPage) {
    // Include HTML content asynchronously
   await includeHTML()
-   document.getElementById(currentPage).style.backgroundColor = 'rgba(9, 25, 49, 1)';
-  
+  if (currentPage) {
+       document.getElementById(currentPage).style.backgroundColor = 'rgba(9, 25, 49, 1)';
+  }  
 }
+
 /**
  * Includes HTML content from external files into elements with the 'w3-include-html' attribute.
  * @async
@@ -60,15 +61,30 @@ async function includeHTML() {
   let includeElements = document.querySelectorAll("[w3-include-html]");
   for (let i = 0; i < includeElements.length; i++) {
     const element = includeElements[i];
-    file = element.getAttribute("w3-include-html");
+    let file = element.getAttribute("w3-include-html");
     let resp = await fetch(file);
-    // If the fetch is successful, set the element's innerHTML to the fetched HTML content
     if (resp.ok) {
       element.innerHTML = await resp.text();
+      if (
+        element.querySelector("#user-initials") ||
+        element.querySelector("#user-name-greet")
+      ) {
+        updateUserInitials();
+        updateGreeting();
+      }
     } else {
-       // If the fetch fails, display "Page not found" inside the element
       element.innerHTML = "Page not found";
     }
+  }
+}
+
+function updateUserInitials() {
+  let userInitials = localStorage.getItem("userInitials");
+  if (userInitials) {
+    let initialsElements = document.querySelectorAll("#user-initials");
+    initialsElements.forEach((element) => {
+      element.textContent = userInitials;
+    });
   }
 }
 
