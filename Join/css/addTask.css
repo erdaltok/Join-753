@@ -51,6 +51,8 @@
   justify-content: space-between;
   align-items: center;
   height: 78px;
+
+  width: max-content;
 }
 
 .titlePositionLittle h1 {
@@ -846,6 +848,8 @@ input {
   .addTaskLeftLittle {
     width: 100%;
     margin-right: 0px;
+
+    width: max-content;
   }
 
   .addTaskLittle {

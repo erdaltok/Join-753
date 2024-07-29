@@ -256,7 +256,7 @@
 .subtaskBigBoxContent {
     display: flex;
     gap: 16px;
-    width: 50%;
+    width: 100%;
     padding-top: 4px;
     padding-bottom: 4px;
 }
