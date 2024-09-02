@@ -83,8 +83,9 @@ function addNewSubtask() {
     updateSubtaskList();
     totalSubtasks = subtasks.length;
     updateProgressBar();
-    inputField.value = "";
+    inputField.value = "";    
     toggleSubtaskDisplay();
+    inputField.innerHTML = "";
   }
 }
 
@@ -114,23 +115,15 @@ function updateSubtaskList() {
  * @returns {void}
  */
 function deleteSubtask(event) {
-   // Find the closest list item element containing the subtask
   const liElement = event.target.closest("li");
-   // If no list item element is found, return without further action
   if (!liElement) return;
-   // Find the span element within the list item
   const span = liElement.querySelector("span");
-  // Extract the text content of the span element and trim any leading/trailing whitespace
   const editedText = span.textContent.trim();
-   // Find the index of the subtask text within the `subtasks` array
   const index = subtasks.indexOf(editedText);
-  // If the subtask is found in the array, remove it
   if (index !== -1) {
     subtasks.splice(index, 1);
   }
-// Remove the list item element from the DOM
   liElement.remove();
-   // Update the subtask list display
   updateSubtaskList();
 }
 
@@ -138,10 +131,8 @@ function deleteSubtask(event) {
  * Updates the progress bar and subtask counter based on the current state.
  */
 function updateProgressBar() {
-  // Berechnen des Fortschritts !!!!!
   const progress =
     totalSubtasks > 0 ? (completedSubtasks / totalSubtasks) * 100 : 0;
-  // Aktualisieren der Progress-Bar und des Zählers !!!!!!
   document.querySelectorAll(".progress-bar").forEach((bar) => {
     bar.style.setProperty("--width", progress);
   });

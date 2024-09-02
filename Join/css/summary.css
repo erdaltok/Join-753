@@ -19,7 +19,7 @@
 }
 
 .summary-headline h1 {
-    font-size: 61px;
+    font-size: 44px;
     font-style: normal;
     font-weight: 700;
     line-height: 120%;
@@ -225,7 +225,7 @@
     display: flex;
     align-items: center;
     gap: 80px;
-    margin-top: 179px;
+    margin-top: 134px;
     margin-left: 310px;
 }
 
@@ -396,7 +396,15 @@
     }
 
     .summary-card-container a {
-        height: 61%;
+        height: 100px;
+    }
+
+    .second-row-box {
+        height: 100px;
+    }
+
+    .summary-card-container {
+        margin-top: -24px;
     }
 }
 
@@ -437,5 +445,15 @@
 
     .second-row-box {
         height: 68px;
+    }
+}
+
+@media (max-width: 375px) {
+    .summary-headline img {
+        width: 5px;
+    }
+
+    .summary-card-container {
+        margin-top: 0;
     }
 }

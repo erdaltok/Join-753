@@ -1,3 +1,4 @@
+
 // HTML TEMPLATESsrc
 /**
  * Generates HTML markup for displaying a task.
@@ -11,7 +12,7 @@ function createTaskHtml(task, backgroundColor) {
       .map((contactData) => contactData.badgeHtml)
       .join("");}
   const priorityImageHtml = task.priorityImage
-    ? `<img id="priorityBoardImage" src="${task.priorityImage}" alt="Priority Image">`
+    ? `<img  src="${task.priorityImage}" alt="Priority Image">`
     : "";
   const subtasks = task.subtasks || [];
   const totalSubtasks = subtasks.length;
@@ -230,7 +231,7 @@ function generateAddTaskFormHtml() {
                         <div class="titleSelectContactsAddTaskBoard">
                             <label for="idTitleSelectContactsAddTask">Assigned to</label>
 
-                            <input class="inputTitleAddTask" id="idTitleSelectContactsAddTask" type="text" autocomplete="off"
+                            <input class="inputTitleAddTask inputSelectContact" id="idTitleSelectContactsAddTask" type="text" autocomplete="off"
                                 placeholder="Select contacts to assign" onclick="toggleContactList()" onkeyup="searchContacts()">
                         </div>
                         <div id="listSelectableContacts" class="listSelectableContacts" style="display: none;">
@@ -355,7 +356,7 @@ function generateEditTaskFormHtml() {
                 <div class="titleSelectContactsAddTaskBoard">
                     <label for="idTitleSelectContactsAddTask">Assigned to</label>
                     <input class="inputTitleAddTask" id="idTitleSelectContactsAddTask" type="text" autocomplete="off"
-                        placeholder="Select contacts to assign" onclick="toggleContactList()">
+                        placeholder="Select contacts to assign" onclick="toggleContactList()" onkeyup="searchContacts()">
                 </div>
                 <div id="listSelectableContacts" class="listSelectableContacts" style="display: none;">
                     <ul>

@@ -52,20 +52,19 @@
                         </div>
                     </div>
 
-                    <button class="addTask-btn" onclick="addNewTaskBoard('todo')">
+                    <button class="addTask-btn" onclick="openNewTaskBoard('todo')">
                         <span>Add Task</span>
                         <img src="/Join/img/add-icon-board.svg" alt="">
                     </button>
                 </div>
             </div>
 
-
             <div class="board-columns">
 
                 <div class="todo-column">
                     <div class="column-title">
                         <span>To do</span>
-                        <img src="/Join/img/plus-icon-board-column.svg" class="changeableImage" onclick="addNewTaskBoard('todo')">
+                        <img src="/Join/img/plus-icon-board-column.svg" class="changeableImage" onclick="openNewTaskBoard('todo')">
                     </div>
 
                     <div class="column-content drag-area" id="todo" ondrop="moveTo('todo')"
@@ -80,7 +79,7 @@
                 <div class="progress-column">
                     <div class="column-title">
                         <span>In progress</span>
-                        <img src="/Join/img/plus-icon-board-column.svg" class="changeableImage" onclick="addNewTaskBoard('inProgress')">
+                        <img src="/Join/img/plus-icon-board-column.svg" class="changeableImage" onclick="openNewTaskBoard('inProgress')">
                     </div>
 
                     <div class="column-content drag-area" id="inProgress" ondrop="moveTo('inProgress')"
@@ -96,7 +95,7 @@
                 <div class="feedback-column">
                     <div class="column-title">
                         <span>Await feedback</span>
-                        <img src="/Join/img/plus-icon-board-column.svg" class="changeableImage" onclick="addNewTaskBoard('awaitFeedback')">
+                        <img src="/Join/img/plus-icon-board-column.svg" class="changeableImage" onclick="openNewTaskBoard('awaitFeedback')">
                     </div>
 
                     <div class="column-content drag-area" id="awaitFeedback" ondrop="moveTo('awaitFeedback')"
@@ -115,7 +114,7 @@
 
                     </div>
 
-                    <div class="todo-column-content drag-area" id="done" ondrop="moveTo('done')"
+                    <div class="column-content drag-area" id="done" ondrop="moveTo('done')"
                         ondragleave="removeHighlight('done')" ondragover="allowDrop(event); highlight('done')">
 
                         <div class="placeholder-tasks-done">

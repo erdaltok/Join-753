@@ -27,6 +27,7 @@ function closeBigTaskBox() {
     saveTasksToStorage();
     renderTasks();
     resetSelectedContacts();
+    currentTaskId = null;
   });
   document.documentElement.style.overflowY = "auto";
   document.body.style.overflowY = "auto";

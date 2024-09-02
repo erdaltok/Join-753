@@ -222,6 +222,7 @@ input {
     font-size: 21px;
     font-weight: 700;
     border-radius: 8px;
+    border: 1px solid #2A3647;
     background-color: white;
     color: #2A3647;
     font-family: inter;
@@ -279,7 +280,7 @@ footer {
 
 @media(max-width: 800px) {
     .log-in-window {
-        padding: 48px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
     }
 }
 
@@ -295,29 +296,38 @@ footer {
     }
 
     .log-in-window {
-        padding: 48px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
     }
 
 }
 
 @media (min-width: 300px) and (max-width: 600px) {
+
+
+    form {
+        padding: 20px 0px 20px 0px;
+        margin-bottom: 0px;
+    }
     .top-container {
         display: flex;
         flex-direction: column-reverse;
+        height: 100vh;
     }
 
     .log-in-btn {
         width: 170px;
         margin: 0;
+        font-size: 18px;
     }
 
     .guest-btn {
         width: 170px;
         margin: 0;
+        font-size: 18px;
     }
 
     footer {
-        bottom: 40px;
+        bottom: 16px;
         gap: 40px;
     }
 
@@ -343,10 +353,14 @@ footer {
         justify-content: center;
         margin-right: 0px;
         height: 58px;
+        position: relative;
+        bottom: 131px;
     }
 
     .log-in-window {
         width: 80%;
+        position: relative;
+        top: -52px;
     }
 
     .not-user {
@@ -362,6 +376,7 @@ footer {
         display: flex;
         flex-direction: column;
         margin: 20px;
+        /* width: 100%; */
     }
 
     .underscore {
@@ -372,11 +387,7 @@ footer {
         margin: 2px 0 32px;
     }
 
-    .remember-me {
-        padding-left: 0px;
-        margin-left: 35px;
-        margin-right: 35px;
-    }
+   
 }
 
 @media (max-hight: 1040px) {

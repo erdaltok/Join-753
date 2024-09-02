@@ -1,19 +1,40 @@
-
 /**
  * Opens the form to add a new task with a specified status.
  * @param {string} status - The initial status of the new task (default: "todo").
  */
-function addNewTaskBoard(status = "todo") {
+function openNewTaskBoard(status = "todo") {
+  prepareTaskForm(status);
+  showTaskFormPopup();
+}
+
+/**
+ * Prepares the form to add a new task with a specified status.
+ * @param {string} status - The initial status of the new task (default: "todo").
+ */
+function prepareTaskForm(status = "todo") {
   searchContacts();
   newTaskStatus = status;
+  let importAddTaskForm = document.getElementById("importAddTaskForm");
+  if (importAddTaskForm) {
+    const formHtml = generateAddTaskFormHtml();
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = formHtml.trim();
+    const formElement = tempDiv.firstElementChild;
+
+    importAddTaskForm.innerHTML = "";
+    importAddTaskForm.appendChild(formElement);
+
+    loadContactsForForm();
+    setupClearButtonListeners();
+  }
+}
+
+/**
+ * Displays the task form popup.
+ */
+function showTaskFormPopup() {
   let popup = document.querySelector(".addTaskFormPopUp");
   if (popup) {
-    const importAddTaskForm = document.getElementById("importAddTaskForm");
-    if (importAddTaskForm) {
-      importAddTaskForm.innerHTML = generateAddTaskFormHtml();
-      loadContactsForForm();
-      setupClearButtonListeners();
-    }
     popup.style.display = "block";
     let popUpContent = popup.querySelector(".addTaskPopUp");
     if (popUpContent) {
@@ -26,9 +47,9 @@ function addNewTaskBoard(status = "todo") {
 }
 
 /**
- * Closes the form for adding a new task and updates the task board.
+ * Closes the task form popup with an animation and resets the form.
  */
-function closeAddTaskForm() {
+function closePopup() {
   let popup = document.querySelector(".addTaskFormPopUp");
   if (popup) {
     let popUpContent = popup.querySelector(".addTaskPopUp");
@@ -40,20 +61,39 @@ function closeAddTaskForm() {
         "animationend",
         function () {
           popup.style.display = "none";
+          const importAddTaskForm =
+            document.getElementById("importAddTaskForm");
+          importAddTaskForm.innerHTML = "";
         },
         { once: true }
       );
     }
-   document.documentElement.style.overflowY = "";
-   document.body.style.overflowY = "";
   }
-  saveTasksToStorage();
-  renderTasks();
-  resetTaskForm();
-  resetSelectedContacts();
-   window.location.href = "board_template.html";
 }
 
+/**
+ * Restores the page's scroll functionality and updates tasks.
+ */
+function restorePageState() {
+  document.documentElement.style.overflowY = "";
+  document.body.style.overflowY = "";
+  saveTasksToStorage();
+  renderTasks();
+  initPage();
+}
+
+/**
+ * Closes the task form and restores the page state.
+ */
+function closeAddTaskForm() {
+  closePopup();
+  restorePageState();
+}
+
+/**
+ * Handles clicks outside the task form popup to close it.
+ * @param {Event} event - The click event.
+ */
 document.addEventListener("click", function (event) {
   const clickedElement = event.target;
   const popupFlex = document.querySelector(".popupFlex");
@@ -95,14 +135,27 @@ function createNewTaskOrUpdateExistingTask() {
   const priority = getActivePriority();
   const subtasks = getSubtasks();
 
-  if (currentTaskId) {
-    updateExistingTask(formData,priorityImage,assignedContactsData,priority,subtasks);
+  if (currentTaskId !== null) {
+    updateExistingTask(
+      formData,
+      priorityImage,
+      assignedContactsData,
+      priority,
+      subtasks
+    );
   } else {
-    createNewTask(formData,priorityImage,assignedContactsData,priority,subtasks);
+    createNewTask(
+      formData,
+      priorityImage,
+      assignedContactsData,
+      priority,
+      subtasks
+    );
   }
   finalizeTaskCreation();
   updateAddedContactsDisplay();
   resetTaskForm();
+  currentTaskId = null;
 }
 
 /**
@@ -113,9 +166,19 @@ function createNewTaskOrUpdateExistingTask() {
  * @param {string} priority - Priority level of the task.
  * @param {Array} subtasks - Array of subtasks.
  */
-function createNewTask(formData, priorityImage, assignedContactsData, priority, subtasks) {
+function generateUniqueTaskId() {
+  return Date.now().toString() + Math.random().toString(36).substr(2, 9);
+}
+
+function createNewTask(
+  formData,
+  priorityImage,
+  assignedContactsData,
+  priority,
+  subtasks
+) {
   const newTask = {
-    id: Date.now(),
+    id: generateUniqueTaskId(),
     ...formData,
     priorityImage,
     priority,
@@ -163,13 +226,20 @@ function updateExistingTask(
  */
 async function finalizeTaskCreation() {
   await saveTasksToStorage();
-  document.querySelector(".addTaskPopUp").style.display ="none"; 
+  const currentPath = window.location.pathname;
+  if (currentPath.includes('board_template.html')) {
+    closeAddTaskForm();
+  }
+
   newTaskAddedMessage();
   resetTaskForm();
+  currentTaskId = null;
 
-  setTimeout(() => {
-    window.location.href = "board_template.html";
-  }, 2000);
+  if (currentPath.includes('addTask_template.html')) {
+    setTimeout(() => {
+      window.location.href = "board_template.html";
+    }, 2000);
+  }
 }
 
 /**
@@ -183,12 +253,14 @@ function resetTaskForm() {
   document.getElementById("idSelectCategoryAddTask").value = "";
   document.getElementById("addedSubstaskList").innerHTML = "";
   document.getElementById("inputFieldSubtaskId").value = "";
+  document.getElementById("inputFieldSubtaskId").innerHTML = "";
 
   resetAllButtons();
   selectedContacts = [];
   updateAddedContactsDisplay();
   resetSelectedContacts();
 }
+
 /**
  * Displays a message indicating a new task has been added to the board.
  */
@@ -224,6 +296,7 @@ function handleFormSubmitFromAddTask(event) {
   createNewTaskOrUpdateExistingTask();
   fromAddTask = false;
 }
+
 /**
  * Searches contacts based on the entered search text and renders the filtered contacts.
  */
@@ -239,6 +312,7 @@ async function searchContacts(){
   const filteredContacts = names.filter((name) => name.toLowerCase().includes(searchText));
   renderFilteredContacts(filteredContacts);
 }
+
 /**
  * Renders the filtered contact names by populating the contact list with matching contacts.
  * @param {string[]} filteredContactNames - An array of filtered contact names.

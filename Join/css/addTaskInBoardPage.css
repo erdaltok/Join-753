@@ -501,10 +501,12 @@ input {
 
 .editDeleteSubtask {
   display: flex;
+  cursor: pointer;
 }
 
 .confirmEditSubtask {
   display: none;
+  cursor: pointer;
 }
 
 .formFooter {
@@ -697,7 +699,14 @@ input {
   .titlePositionLittle h1 {
     font-size: 39px;
     height: auto;
-  } 
+  }
+
+  .footerButtonsAddTask {
+    position: relative;
+    bottom: 59px;
+    background-color: #ffffff;
+    width: auto;
+  }
 }
 
 @media (max-width: 390px) and (min-height: 844px) {
