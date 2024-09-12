@@ -5,11 +5,11 @@
     padding: 13px;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     gap: 10px;
     border-radius: 24px;
     background: var(--white, #FFF);
-    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
     height: auto;
     border: 0.5px solid rgba(0, 0, 0, 0.08);
     max-width: 250px;
@@ -51,7 +51,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 24px;
+    gap: 16px;
     align-self: stretch;
 }
 
@@ -172,6 +172,14 @@
 
 /* RESPONSIVE */
 
+@media (max-width: 1500px) {
+    .task-small-box {
+        max-width: 231px;
+        min-width: 231px;
+    }
+}
+
+
 @media (max-width: 800px) {
     .task-small-box-content {
         gap: 6px;
@@ -272,8 +280,7 @@
     }
 
     .moveTaskToAnotherCategory {
-        display: block;        
+        display: block;
     }
 
 }
-

@@ -308,6 +308,7 @@ footer {
         padding: 20px 0px 20px 0px;
         margin-bottom: 0px;
     }
+
     .top-container {
         display: flex;
         flex-direction: column-reverse;
@@ -387,11 +388,25 @@ footer {
         margin: 2px 0 32px;
     }
 
-   
+
 }
 
 @media (max-hight: 1040px) {
     footer {
         bottom: -270px;
+    }
+}
+
+@media (max-Width: 400px) {
+    .not-user-div {
+        bottom: 55px !important;
+    }
+
+    .log-in-window {
+        top: -21px
+    }
+
+    .underscore {
+        margin: 2px 0 3px;
     }
 }

@@ -223,7 +223,7 @@ a {
     .desktop-navbar {
         top: auto;
         bottom: 0px;
-        height: 1px;
+        height: auto;
         width: 100vw;
     }
 

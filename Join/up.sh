@@ -1,4 +1,4 @@
 git pull
 git add .
-git commit -m "fixes bugs, fixes responsive all files and pages"
+git commit -m "change responsive details"
 git push

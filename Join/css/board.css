@@ -9,8 +9,10 @@ body {
 
 body::-webkit-scrollbar {
     display: none;
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 .board-main {
@@ -21,7 +23,7 @@ body::-webkit-scrollbar {
     position: absolute;
     margin-top: 80px;
     width: 82%;
-    height: 76%;
+    height: 84%;
 }
 
 .board-heading h1 {
@@ -208,8 +210,9 @@ body::-webkit-scrollbar {
 .feedback-column,
 .done-column {
     display: flex;
+    align-items: center;
     flex-direction: column;
-    gap: 16px;
+    gap: 24px;
     flex: 1 0 0;
     align-self: stretch;
     overflow: auto;
@@ -220,7 +223,7 @@ body::-webkit-scrollbar {
 .drag-area {
     margin-bottom: 50px;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
     gap: 16px;
     margin-top: 47px;
@@ -280,11 +283,11 @@ body::-webkit-scrollbar {
         margin-bottom: 8px;
     }
 
-    .drag-area {
+    /* .drag-area {
         overflow-y: scroll;
         height: auto;
         scrollbar-width: none;
-    }
+    } */
 }
 
 @media (max-width: 955px) {
@@ -319,6 +322,7 @@ body::-webkit-scrollbar {
         overflow-y: scroll;
         scrollbar-color: rgb(228 232 238) white;
         margin-bottom: 0;
+        height: auto;
     }
 
     .board-columns {
@@ -372,7 +376,7 @@ body::-webkit-scrollbar {
         flex-direction: column;
         position: relative;
         width: auto;
-        height: 100vh;
+        /* height: 100vh; */
         overflow-x: hidden;
     }
 
@@ -383,6 +387,7 @@ body::-webkit-scrollbar {
         overflow: auto;
         width: 100%;
         margin-top: 38px;
+        align-items: normal;
     }
 
     .column-title img {
@@ -456,7 +461,7 @@ body::-webkit-scrollbar {
         height: 47px;
         font-size: 16px;
     }
-    
+
     .board-heading h1 {
         font-size: 44px;
     }
